@@ -52,8 +52,8 @@ export async function getStaticPaths() {
     fallback: true
   };
 }
-const TourDetail: React.FC<Ipage> = (pageInfo) => {
 
+const TourDetail: React.FC<Ipage> = (pageInfo) => {
   const reviewModalHook = useModal<IModalInfo>();
 
   const router = useRouter();

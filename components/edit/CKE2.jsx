@@ -158,7 +158,7 @@ const editorConfiguration = {
                   onReady={ editor => {
                     setLoading(false);
                       // You can store the "editor" and use when it is needed.
-                  } }
+                  }}
                   onChange={ ( event, editor ) => {
                       const data = editor.getData();
                       onChange(data);

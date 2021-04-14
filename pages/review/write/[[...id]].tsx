@@ -9,7 +9,7 @@ import { auth } from "../../../utils/with";
 import { ALLOW_LOGINED } from "../../../types/const";
 import { Validater } from "../../../utils/validate";
 import { useUpload } from "../../../hook/useUpload";
-import { Ffile, productCreateVariables } from "../../../types/api";
+import { Ffile } from "../../../types/api";
 import Page404 from "../../404";
 import { RatingStar } from "../../../components/rating/Rating";
 

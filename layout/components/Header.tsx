@@ -31,6 +31,7 @@ export const Header: React.FC<IProp> = () => {
 
     const { isLogin, myProfile, isManager, isSeller, isAdmin } = useContext(AppContext);
 
+    const myId = myProfile?._id;
     const handleNav = () => {
         $('#header').attr("tabindex", -1);
         return false
@@ -279,7 +280,7 @@ export const Header: React.FC<IProp> = () => {
                                 <ul className="depth1">
                                     <li><a href="/mypage">회원정보</a></li>
                                     <li><a href="/mypage/notification">알림</a></li>
-                                    <li><a href="/mypage/profilepage">프로필관리</a></li>
+                                    <li><a href={`/itsguid/${myId}`}>프로필관리</a></li>
                                     <li><a href="/mypage/basket">리뷰관리</a></li>
                                     <li><a href="/mypage/write">나의 게시글</a></li>
                                     <li><a href="/mypage/reservation">예약관리</a></li>
