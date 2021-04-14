@@ -9,7 +9,9 @@ class MyDocument extends Document {
     render() {
         return (
             <Html lang="ko">
-                <Head />
+                <Head >
+                    <meta name="naver-site-verification" content="ee3b982604bb599adfc18c1fcf30f6987e754117" />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />
