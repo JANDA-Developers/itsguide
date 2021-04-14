@@ -190,6 +190,16 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                 }} />}
                             </div>
                         </div>
+                        <div className="con01">
+                            <h3 className="title" >{get("contentTitle2")}</h3>
+                            <div className="txt">
+                                {editMode ? <Editor key={lang + "editor"} data={get("content2")} onChange={(content) => {
+                                    set("content2", content);
+                                }} /> : <div className="ck-content" dangerouslySetInnerHTML={{
+                                    __html: get("content2")
+                                }} />}
+                            </div>
+                        </div>
                         <div className="con02 mt50">
                             <h3 className="title" >{get("title_guid")}</h3>
                             <div className="txt">

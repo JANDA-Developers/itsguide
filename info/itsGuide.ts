@@ -88,21 +88,21 @@ export const SHARED_INFO = {
         CH: "KRW",
         JP: "KRW"
     },
-    get: function(key: string, lang:string, index?:number):any {
+    get: function (key: string, lang: string, index?: number): any {
 
-        if(index !== undefined) {
+        if (index !== undefined) {
             // @ts-ignore
-            if(this[key].value) {
+            if (this[key].value) {
                 // @ts-ignore
                 return this[key].value[index]
             } else {
                 // @ts-ignore
                 return this[key][lang][index];
-            }            
+            }
         }
 
         // @ts-ignore
-        if(this[key].value) {
+        if (this[key].value) {
             // @ts-ignore
             return this[key].value
         } else {
@@ -110,23 +110,23 @@ export const SHARED_INFO = {
             return this[key][lang];
         }
     },
-    set: function(key:string,lang:string,value:any, index?:number):any {
+    set: function (key: string, lang: string, value: any, index?: number): any {
 
-        if(index !== undefined) {
+        if (index !== undefined) {
             // @ts-ignore
-            if(this[key].value !== undefined) {
+            if (this[key].value !== undefined) {
                 // @ts-ignore
                 this[key].value[index] = value
             } else {
                 // @ts-ignore
                 return this[key][lang][index] = value;
-            }            
+            }
         }
-        
- 
-        if(index === undefined) { 
+
+
+        if (index === undefined) {
             // @ts-ignore
-            if(this[key].value !== undefined) {
+            if (this[key].value !== undefined) {
                 // @ts-ignore
                 this[key].value = value
             } else {
@@ -137,7 +137,7 @@ export const SHARED_INFO = {
     }
 }
 
-export const ITS_GUIDE_INFO =  {
+export const ITS_GUIDE_INFO = {
     ...SHARED_INFO,
     itsGuideEmail: {
         description: "잇츠가이드 연동 이메일",
@@ -145,7 +145,7 @@ export const ITS_GUIDE_INFO =  {
     },
     topBg: {
         description: "최상단 이미지",
-        type: JDinputType.img, 
+        type: JDinputType.img,
         kr: "별나라호텔",
         GB: "Star Hotel",
         CH: "星级饭店",
@@ -200,6 +200,21 @@ export const ITS_GUIDE_INFO =  {
         CH: "性讓開參心，著演收同，一下的實。參只進……查學教了里算勢根，接發於，一開本綠麼安這、流他書，從開縣媽親公節引民我好過來超？女記路錢件……國能人把海。民多為叫得。相我成分動處我基為認中腦，而量地不說年等我管立具選大皮，走林得後會，清選程少時……嗎權是語一叫持合！那變大點發現汽成歡勢生金常由的圖政開人親般、已另外況者室。一比就讀中紀業代：空醫器事候而你心天種一是，特出知會白單氣前下玩生年合覺好今念，河行東女。營現感了用這到議領樂水他學展花出，管的單課傳寶中們題分我十業回？對商反關件東眼身二同……的分們大有用：經馬記它哥。開年有小一活？在發足要展到：口影們、朋二來眾重呢為刻強知日不層出……說相建進國，打次晚的，會半見推風其社傳前走青型民，地名知覺岸改！",
         JP: "合カヤ輔市メトロホ降3役ミ契遠ヤ下12詳るぴれけ山客リさ制3全オヌメ古盗ト夜村円え宇残秋せてえぎ。行勝ほーし高裏会げぎほ身置フナチ経治むじちト少門はせけ書米づ手用ば響図ソヌア組著百ス回員倍門分使ー。成ニウアム洋材ばりち会伊ネアレ検野メヱ奥再ウハ朝著ア題最をほ故午ん閣47動つよょ江社ヱ真1席く般国載ずル化照式げ。"
     },
+    contentTitle2: {
+        description: "경력",
+        kr: "경력",
+        GB: "Career",
+        CH: "经历",
+        JP: "経歴"
+    },
+    content2: {
+        description: "경력 내용",
+        type: JDinputType.editor,
+        kr: `경력을 입력해주세요.`,
+        GB: `경력을 입력해주세요.`,
+        CH: "경력을 입력해주세요.",
+        JP: "경력을 입력해주세요."
+    },
     title_guid: {
         kr: "가이드 정보",
         GB: "Guid Info",
@@ -249,7 +264,7 @@ export const ITS_GUIDE_INFO =  {
         CH: "指导产品清单",
         JP: "ガイド商品一覧"
     },
-    productView:  {
+    productView: {
         kr: "등록된 상품",
         GB: "Product",
         CH: "注册产品",
