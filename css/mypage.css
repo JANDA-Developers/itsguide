@@ -2611,7 +2611,7 @@ div.reservation_popup .tr select {
 .selectViewList ul.list_ul .list_in .txt2 span {
     width: 100%;
     line-height: 22px;
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: 100;
 }
 .selectViewList ul.list_ul .list_in .txt2 .btn {

@@ -8,6 +8,25 @@
     border: 0;
 
 }
+
+/* font style all */
+.ul.list_ul li .tag2,
+ul.list_ul li .category span,
+.no_data span,
+.footer_in .copyright span,
+.option_tb .tag li,
+.board_list_mini .thead > div,
+.option_tb .smtxt,
+.tour_details_in .boardReadBody .top_day span,
+.footer-area-bottom .janda_txt a,
+ul.list_ul li .bottom_txt div[class*=tag] span,
+.main_con_box5 h2 span{
+
+    font-family: NanumSquareRoundOTFB,NanumSquareRoundOTF, '돋음',sans-serif;
+}
+
+
+
 /* svg */
 .svg_calendar {
     width: 30px;
@@ -6847,6 +6866,9 @@ i.important_icon {
 
         .option_tb td strong {
             letter-spacing: 0;
+            font-size: 1.2em;
+            line-height: 12px;
+            vertical-align: baseline;
         }
 
         .option_tb td * {
@@ -6963,7 +6985,7 @@ i.important_icon {
         box-sizing: border-box;
         font-size: 1.1em;
         color: #999;
-        font-weight: 100;
+        font-weight: 500;
         background-color: #f5f5f5;
     }
 
@@ -8529,6 +8551,7 @@ i.calendar {
 
     .no_data span {
         padding: 0 0 0 2px !important;
+        font-size: 0.9em;
     }
 
     .approval {
@@ -9193,7 +9216,7 @@ i.calendar {
     .login_box {
         padding-top: 100px;
         padding-bottom: 200px;
-        min-height: 820px
+        min-height:1110px
     }
 
         .login_box .login_page {

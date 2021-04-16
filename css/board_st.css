@@ -310,6 +310,11 @@
         text-align: left;   
         font-weight: 100;
     }
+    .board_list_mini.ln04 .thead .th01 {
+        width: 100%;
+        text-align: center;   
+        font-weight:600;
+    }
 
     .board_list_mini.ln04 .thead .th01 .checkbox {
         top:10px;
@@ -332,6 +337,9 @@
     .board_list_mini.ln04 .th04 {
         width: auto;
         font-weight: 100;
+    }
+    .board_list_mini.ln04 .thead .th04 {
+        font-weight:600;
     }
 
     .board_list_mini.ln04 .thead .th02 {
@@ -497,7 +505,7 @@ ul.list_ul li .tag2 {
     width: 100%;
     display: block;
     text-align: left;
-    font-weight: 100;
+    font-weight: 500;
     font-size:1em;
     margin-top: 5px;
 }

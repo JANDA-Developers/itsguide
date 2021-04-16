@@ -395,7 +395,7 @@ i.tooltip{
         margin-left: 5px;
     }
         .header .top-menu a {
-            font-weight: 100;
+            font-weight: 600;
             color: #aaa;
             font-size: 11px;
             cursor:pointer;
@@ -868,7 +868,6 @@ rect.allmenu_svg {
         top: 0;
         display: inline-block;
         vertical-align: middle;
-        padding-left: 11px;
         cursor: pointer;
 
     }
@@ -880,7 +879,6 @@ rect.allmenu_svg {
         .header .all_menu_btn:hover img {
             opacity:1;
         }
-
         .header .all_menu_btn button {
             width: 36px;
             height: 36px;
@@ -3302,7 +3300,7 @@ i.icon_plus {
         display: none;
     }
     .header .searchtop{
-        margin-right: 5px;
+        margin-right: 10px;
     }
     .header .inform_top {
         margin: 0 0 0 5px;
@@ -3788,7 +3786,6 @@ margin-bottom:0;
     }
     .header .all_menu_btn {
         width: 24px;
-        padding-left: 13px;
     }
     .header .inform_top {
         margin: 0 0 0 5px;
@@ -3924,7 +3921,7 @@ margin-bottom:0;
         display: flex;
     }
         .header .hd_center .nav_wrap .deps1 > li > a {
-            font-size: 1.5em;
+            font-size: 1.4em;
         }
     .header .hd_right {
         right: 0;
@@ -4064,7 +4061,7 @@ margin-bottom:0;
                 min-width: 180px;
             }
     .header .hd_center .nav_wrap .deps1 > li > a {
-        font-size: 1.7em;
+        font-size: 1.4em;
     }
     .subtop_nav {
         top: -117px;

@@ -16,10 +16,15 @@ table {
     word-wrap: break-word;
     word-break: keep-all;
 }
-html, body, form, div, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, pre, input, blockquote, th, td, thead, tbody, legend, label, select, option, button, fieldset, select, textarea {
+html, body, form, div, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, pre, blockquote {
     margin: 0;
     padding: 0;
     font-family: 'montserrat', 'noto', 'Roboto', sans-serif;
+}
+input, th, td, thead, tbody, legend, label, select, option, button, fieldset, select, textarea {
+    margin: 0;
+    padding: 0;
+    font-family: NanumSquareRoundOTFB,NanumSquareRoundOTF, '돋음',sans-serif;
 }
 button {
     cursor: pointer;
@@ -68,6 +73,7 @@ a {
     color: #333;
     text-decoration: none;
     transition: all 0.3s ease 0s;
+    font-family: NanumSquareRoundOTFB,NanumSquareRoundOTF, '돋음',sans-serif;
 }
 
     a:link {
