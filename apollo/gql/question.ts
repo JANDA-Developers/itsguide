@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client"
 import { F_ANSWER } from "./answer"
-import { F_FILE, F_PAGE } from "./fragments"
+import { F_FILE, F_PAGE, F_USER } from "./fragments"
 
 
 export const F_QUESTION = gql`
@@ -35,6 +35,7 @@ export const F_QUESTION = gql`
           ...Fuser
         }
     }
+    ${F_USER}
     ${F_ANSWER}
     ${F_FILE}
 `

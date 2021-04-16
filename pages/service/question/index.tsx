@@ -6,7 +6,7 @@ import { getStaticPageInfo, Ipage } from '../../../utils/page';
 import defaultPageInfo from "../../../info/question.json"
 import { useQuestionList } from '../../../hook/useQuestion';
 import { questionSatus } from '../../../utils/enumToKr';
-import { yyyymmdd, yyyymmddHHmm } from '../../../utils/yyyymmdd';
+import { yyyymmddHHmm } from '../../../utils/yyyymmdd';
 import { Paginater } from '../../../components/common/Paginator';
 import { useRouter } from 'next/router';
 import SearchMini from '../../../components/common/SearchMini';
@@ -17,7 +17,6 @@ import { ViewCount } from '../../../components/common/ViewCount';
 import { questionList_QuestionList_data, QuestionStatus } from '../../../types/api';
 import { MemberTopNav } from '../../../components/topNav/MemberTopNav';
 import { Change } from '../../../components/loadingList/LoadingList';
-import { LockIcon } from '../../../components/common/icon/LockIcon';
 import dayjs from 'dayjs';
 import { AppContext } from '../../_app';
 
