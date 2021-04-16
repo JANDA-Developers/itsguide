@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { IUsePageEdit } from '../../hook/usePageEdit';
 import { sellerFindByKey_SellerFindByKeyPublic_data } from '../../types/api';
@@ -12,6 +13,14 @@ interface IProp {
 
 export const PageEditor: React.FC<IProp> = ({ pageTools, allowToUser, profileParams }) => {
     const { editMode, reset, submitEdit, setEditMode } = pageTools;
+    const rotuer = useRouter();
+
+    const inTourWrite = rotuer.pathname.includes("tour/write");
+    const inProfilePage = rotuer.pathname.includes("itsguid/")
+
+    console.log("rotuer.pathname");
+    console.log(rotuer.pathname);
+    console.log(inTourWrite);
 
     const submit = () => {
         if (editMode) {
@@ -31,8 +40,8 @@ export const PageEditor: React.FC<IProp> = ({ pageTools, allowToUser, profilePar
     return <div >
         <div id="FloatingBtnBox">
             <EditBtn allowToUser={allowToUser || false} onSubmit={submit} editMode={editMode} />
-            <NewGoodsBtn />
-            <NewProfileBtn />
+            {!inTourWrite && !inTourWrite && < NewGoodsBtn />}
+            {!inProfilePage && !inTourWrite && <NewProfileBtn />}
         </div>
     </div>;
 };

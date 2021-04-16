@@ -136,7 +136,9 @@ export const NewsWrite: React.FC<IProp> = () => {
         initStorage()
     }, [])
 
+
     return <BoardWrite
+        author={news?.author}
         boardHook={boardHook}
         key={loadKey}
         mode={mode}

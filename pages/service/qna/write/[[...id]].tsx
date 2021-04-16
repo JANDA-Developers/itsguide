@@ -58,6 +58,10 @@ export const QnaWrite: React.FC<IProp> = () => {
             failMsg: "제목 값은 필수 입니다.",
         },
         {
+            value: boardData.categoryId,
+            failMsg: "카테고리 값은 필수 입니다.",
+        },
+        {
             value: boardData.contents,
             failMsg: "콘텐츠 값은 필수 입니다.",
         },
@@ -111,6 +115,7 @@ export const QnaWrite: React.FC<IProp> = () => {
     }, [qna?._id])
 
     return <BoardWrite
+        author={qna?.author}
         boardHook={boardHook}
         key={loadKey + (qna?._id || "")}
         mode={mode}
@@ -124,7 +129,7 @@ export const QnaWrite: React.FC<IProp> = () => {
         opens={{
             title: true,
             category: true,
-            open: true
+            // open: true
         }}
     />
 };

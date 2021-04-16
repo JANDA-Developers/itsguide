@@ -11,6 +11,7 @@ class MyDocument extends Document {
             <Html lang="ko">
                 <Head >
                     <meta name="naver-site-verification" content="ee3b982604bb599adfc18c1fcf30f6987e754117" />
+                    <meta httpEquiv="x-ua-compatible" content="IE=edge" />
                 </Head>
                 <body>
                     <Main />

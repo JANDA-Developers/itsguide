@@ -38,7 +38,7 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
 
         }
     });
-    const { productUpdate } = useProductUpdate({
+    const [productUpdate] = useProductUpdate({
         onCompleted: ({ ProductUpdate }) => {
             if (ProductUpdate.ok) {
                 alert("메모 저장완료")
@@ -104,11 +104,13 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
 
     const handleSave = () => {
         productUpdate({
-            _id: product!._id,
-            params: {
-                adminMemo
-            },
-            reason: ""
+            variables: {
+                _id: product!._id,
+                params: {
+                    adminMemo
+                },
+                reason: ""
+            }
         })
     }
 

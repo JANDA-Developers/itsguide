@@ -13,15 +13,20 @@ import { GET_CONTEXT } from '../apollo/gql/queries';
 import PageDeny from './Deny';
 import { categoryMap, defaultCatsMap, defaultGroupMap, groupMap, GroupTypes } from '../utils/categoryMap';
 import { useRouter } from 'next/router';
-import PageLoading from './Loading';
+import PageLoading, { PageLoadingEffect } from './Loading';
 import { arrayEquals } from '../utils/filter';
 import "node_modules/slick-carousel/slick/slick.css";
 import useRouterScroll from '../hook/useRouterScroll';
-import Head from 'next/head';
 import { getFromUrl } from '../utils/url';
+import Router from "next/router"
+import { pageLoadingEffect } from "../utils/query";
 
+Router.events.on('routeChangeStart', () => { pageLoadingEffect(true) });
+Router.events.on('routeChangeComplete', () => { pageLoadingEffect(false) });
+Router.events.on('routeChangeError', () => { pageLoadingEffect(false) });
 
 dayjs.locale('ko')
+
 
 
 export type TProductGrop = {
@@ -171,7 +176,7 @@ function App({ Component, pageProps }: any) {
 
   return (
     <div className="App">
-      <div id="MuPageLoading" className="muPageLoading" />
+      <PageLoadingEffect />
       <ApolloProvider client={PinkClient}>
         <AppContext.Provider value={{
           groupsMap: groupsMap,

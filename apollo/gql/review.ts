@@ -11,13 +11,7 @@ export const F_PRODUCT_REVIEW = gql`
     title
     contents
     author {
-        _id
-        email
-        name
-        phoneNumber
-        profileImg {
-            uri
-        }
+      ...Fuser
     }
     num
     boardTypeName

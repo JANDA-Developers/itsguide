@@ -10,20 +10,30 @@ import { MemberTopNav } from '../../../components/topNav/MemberTopNav';
 import { useQnaList } from '../../../hook/useQna';
 import { qnaList_QnaList_data } from '../../../types/api';
 import { Change } from '../../../components/loadingList/LoadingList';
+import { generateClientPaging } from '../../../utils/generateClientPaging';
+import { Paginater } from '../../../components/common/Paginator';
+import { PageEditor } from '../../../components/common/PageEditer';
 
 
 export const getStaticProps = getStaticPageInfo("qna");
 export const Qna: React.FC<Ipage> = (pageInfo) => {
-    const { items, getLoading } = useQnaList({ initialViewCount: 999 })
-    const [filterCat, setFilterCat] = useState("")
+
+    const { isManager, categoriesMap, myProfile } = useContext(AppContext)
+    const { items, getLoading } = useQnaList({
+        initialViewCount: 999,
+        fixingFilter: {
+            isOpen_eq: isManager ? undefined : true
+        }
+    })
+    const [filterCat, setFilterCat] = useState<string>()
     const router = useRouter();
-    const { isManager, categoriesMap } = useContext(AppContext)
     const pageTools = usePageEdit(pageInfo, defaultPageInfo);
     const [openId, setOpenId] = useState("")
 
     const gotoWrite = () => {
         router.push("/service/qna/write/")
     }
+
 
     const checkCatEq = (catId?: string) => filterCat === catId ? "on" : "";
     const checkCatCount = (catId: string) => items.filter(item => item.category?._id === catId).length;
@@ -36,9 +46,13 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
         }
     }
 
-    const handleCatFilter = (catId: string) => () => {
+    const handleCatFilter = (catId?: string) => () => {
         setFilterCat(catId);
     }
+
+    const filteredItems = filterCat ? items.filter(item => item.category?._id === filterCat) : items;
+
+    const { slice, paging, setPage } = generateClientPaging(filteredItems || [], 10);
 
     return <div>
         <SubTopNav pageTools={pageTools} >
@@ -47,6 +61,7 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
                 <Link href="/service/qna"><a>자주하는 질문</a></Link>
             </li>
         </SubTopNav>
+        <PageEditor pageTools={pageTools} />
         <div className="qna_box w1200">
             <MemberTopNav />
             <div className="board_qna board_box">
@@ -63,16 +78,15 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
                     </div>
                 </div>
                 <Change change={!getLoading}>
-                    {items.map(qna =>
+                    {slice.map(qna =>
                         <div onClick={handleToogle(qna)} key={qna._id} className={`dl ${openId === qna._id && "active"}`}>
                             <div className="dt"><span><i className="Q"></i>{qna.category?.label}</span>{qna.title}
-
                                 {isManager &&
                                     <button onClick={(e) => {
                                         e.preventDefault();
                                         e.stopPropagation();
                                         router.push("/service/qna/write/" + qna._id)
-                                    }} type="submit" className="btn medium">수정하기</button>
+                                    }} type="submit" className="btn mini ml10">수정하기</button>
                                 }
 
                                 <i className="jandaicon-arr4-bottom"></i></div>
@@ -89,10 +103,11 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
                     )}
                 </Change>
             </div>
+            <Paginater setPage={setPage} pageInfo={paging} />
 
             <div className="fin mt30 mb100">
                 <div className="float_left">
-                    {isManager && <button onClick={gotoWrite} type="submit" className="btn medium">새글쓰기</button>}
+                    {isManager && <button onClick={gotoWrite} type="submit" className="btn medium">글쓰기</button>}
                 </div>
                 <div className="float_right">
                 </div>

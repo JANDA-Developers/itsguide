@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { useContext } from "react";
-import { Ffile } from "types/api"
+import { Ffile, Fuser } from "types/api"
 import { TElements } from "types/interface";
 import React from "react";
 import { useUpload } from "hook/useUpload";
@@ -33,10 +33,12 @@ interface IProps {
     onCreate?: () => void;
     onLoad?: () => void;
     onCancel?: () => void;
-    opens: Partial<IBoardOpen>
+    opens: Partial<IBoardOpen>;
+    author?: Fuser
 }
 
 export const BoardWrite: React.FC<IProps> = ({
+    author,
     className,
     boardHook,
     useTextarea,
@@ -52,7 +54,7 @@ export const BoardWrite: React.FC<IProps> = ({
     onSave: handleSave
 }) => {
     const { myProfile } = useContext(AppContext);
-    const name = myProfile?.name || "";
+    const name = author?.nickName || "";
     const isCreateMode = mode === "create";
     const { signleUpload } = useUpload();
     const { boardData, boardSets } = boardHook;
@@ -202,7 +204,7 @@ export const BoardWrite: React.FC<IProps> = ({
                                     {files.map((file, i) =>
                                         <li key={i + "thumb"} className="on_file">{file.name}<i onClick={handleClearFile(i)} className="flaticon-multiply icon_x"></i></li>
                                     )}
-                                    {files.length < 4 && <li onClick={handleAddFile}>파일추가<i className="flaticon-add icon_plus" /></li>}
+                                    {files.length < 6 && <li onClick={handleAddFile}>파일추가<i className="flaticon-add icon_plus" /></li>}
                                 </ul>
                                 <input onChange={handleChangeFile} multiple={false} ref={hiddenFileInput} hidden type="file" />
                                 <p className="input_form info_txt">- 20MB 제한이 있습니다.</p>

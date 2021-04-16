@@ -102,7 +102,7 @@ export const QuestionWrite: React.FC<IProp> = () => {
             variables: {
                 params: {
                     ...omits(next, ["categoryId", "files"]),
-                    productId: question ? question._id : undefined
+                    productId: productId ? productId : undefined
                 }
             }
         })
@@ -118,6 +118,7 @@ export const QuestionWrite: React.FC<IProp> = () => {
 
 
     return <BoardWrite
+        author={question?.author}
         WriteInjection={
             urlProductId ? <div className="write_type">
                 <div className="title">상품명</div>
@@ -125,12 +126,7 @@ export const QuestionWrite: React.FC<IProp> = () => {
                     <input readOnly id="title" value={urlProductName} type="text" name="title" className="inputText w100" />
                 </div>
             </div> :
-                <ProductSearcher
-                    selectProductId={productId}
-                    onSelectProduct={(product: any) => {
-                        setProductId(product._id);
-                    }}
-                />
+                undefined
         }
         boardHook={boardHook}
         key={loadKey + (question?._id || "") + productId}

@@ -8,6 +8,8 @@ export interface ListInitOptions<F, S> {
     initialPageIndex: number,
     initialViewCount: number
     initialFilter: F,
+    fixingSort?: S[],
+    fixingFilter?: F,
     initialSort: S[]
     uniqSearchKeys?: (keyof F)[]
 }
@@ -20,11 +22,16 @@ export interface IListHook<F, S> extends IUseQueryFilter<F>, IUseQuerySort<S> {
     page: number
 }
 
-export function useListQuery<F, S>({ initialFilter, initialPageIndex, initialSort, initialViewCount }: ListInitOptions<F, S>) {
-    const { filter, ...useFilters } = useQueryFilter<F>(initialFilter || {} as F);
-    const { sort, ...useSort } = useQuerySort<S>(initialSort);
+export function useListQuery<F, S>({ initialFilter, initialPageIndex, initialSort, initialViewCount, fixingFilter, fixingSort }: ListInitOptions<F, S>) {
+    const { filter, setFilter: _setFilter, ...useFilters } = useQueryFilter<F>(initialFilter || {} as F);
+    const { sort, ...useSort } = useQuerySort<S>(initialSort, fixingSort);
     const [viewCount, setViewCount] = useState(initialViewCount);
     const [page, setPage] = useState(initialPageIndex);
+
+    const setFilter = (filter: F) => {
+        _setFilter({ ...filter, ...fixingFilter })
+    }
+
 
     const pageInput: pageInput = {
         page: page,
@@ -40,5 +47,6 @@ export function useListQuery<F, S>({ initialFilter, initialPageIndex, initialSor
         sort,
     }
 
-    return { filter, page, setPage, integratedVariable, sort, viewCount, setViewCount, ...useFilters, ...useSort }
+
+    return { filter, page, setPage, integratedVariable, sort, viewCount, setViewCount, setFilter, ...useFilters, ...useSort }
 }

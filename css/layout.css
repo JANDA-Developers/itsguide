@@ -4084,11 +4084,11 @@ margin-bottom:0;
     .header .all_menu_btn{
         padding-left: 0;
     }
-    #setting_link{
+    #setting_link,#profile_link{
         padding: 5px 18px;
         font-size: 13px;
     }
-    #registering_link{
+    #registering_link,#profile_link{
         bottom: 53px;
         padding: 5px 18px;
         font-size: 13px;

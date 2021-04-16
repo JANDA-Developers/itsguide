@@ -15,8 +15,8 @@ import { generateFindQuery, generateListQueryHook, generateMutationHook } from "
 import { useContext } from "react";
 import { AppContext } from "../pages/_app";
 
-export const useProductCreate = generateMutationHook<productCreate, productCreateVariables>(PRODUCTS_CREATE);
-export const useProductDelete = generateMutationHook<productDelete,productDeleteVariables>(PRODUCT_DELETE, {...getRefetch(PRODUCT_LIST)});
+export const useProductCreate = generateMutationHook<productCreate, productCreateVariables>(PRODUCTS_CREATE, {closeEffectAfterLoading:false});
+export const useProductDelete = generateMutationHook<productDelete,productDeleteVariables>(PRODUCT_DELETE, {...getRefetch(PRODUCT_LIST), closeEffectAfterLoading: false});
 export const useProductFindById = generateFindQuery<productFindById, productFindByIdVariables, productFindById_ProductFindById_data>("_id",PRODUCT_FIND_BY_ID);
 export const useProductFindByIdForSeller = generateFindQuery<productFindByIdForSeller, productFindByIdForSellerVariables, productFindByIdForSeller_ProductFindByIdForSeller_data>("_id", PRODUCT_FIND_BY_ID_FOR_SELLER);
 
@@ -29,25 +29,31 @@ export interface IuseProductList extends IListHook<_ProductFilter, _ProductSort>
 
 export const useProductList = generateListQueryHook<_ProductFilter, _ProductSort, productList, productListVariables, productList_ProductList_data>(PRODUCT_LIST,{initialSort: [_ProductSort.createdAt_desc]});
 
-export const useProductUpdate = (options?: MutationHookOptions<productUpdate,productUpdateVariables>) => {
-    const [productUpdateMu, { loading: updateLoading }] = useMutation<productUpdate, productUpdateVariables>(PRODUCT_POST_UPDATE, {
-        awaitRefetchQueries:true,
-        ...getRefetch(PRODUCT_LIST,PRODUCT_FIND_BY_ID),
-        ...options
-    });
+// export const useProductUpdate = (options?: MutationHookOptions<productUpdate,productUpdateVariables>) => {
+//     const [productUpdateMu, { loading: updateLoading }] = useMutation<productUpdate, productUpdateVariables>(PRODUCT_POST_UPDATE, {
+//         awaitRefetchQueries:true,
+//         ...getRefetch(PRODUCT_LIST,PRODUCT_FIND_BY_ID),
+//         ...options
+//     });
     
-    const productUpdate = (variables: productUpdateVariables, onSucess?: () => void) => {
-        productUpdateMu({
-            variables
-        }).then((data) => {
-            if (data.data?.ProductUpdate?.ok) {
-                onSucess?.()
-            }
-        })
-    }
+//     const productUpdate = (variables: productUpdateVariables, onSucess?: () => void) => {
+//         productUpdateMu({
+//             variables
+//         }).then((data) => {
+//             if (data.data?.ProductUpdate?.ok) {
+//                 onSucess?.()
+//             }
+//         })
+//     }
 
-    return {productUpdate, updateLoading}
-}
+//     return {productUpdate, updateLoading}
+// }
+
+export const useProductUpdate = generateMutationHook<productUpdate,productUpdateVariables>(PRODUCT_POST_UPDATE, {
+    awaitRefetchQueries:true,
+    closeEffectAfterLoading: false,
+    ...getRefetch(PRODUCT_LIST, PRODUCT_FIND_BY_ID)
+});
 
 
 export const useProductUpdateReq = generateMutationHook<productUpdateReq,productUpdateReqVariables>(PRODUCT_POST_UPDATE_REQ, {

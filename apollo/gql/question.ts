@@ -32,13 +32,7 @@ export const F_QUESTION = gql`
         status
         no
         author {
-            _id
-            nickName
-            email
-            phoneNumber
-            profileImg {
-              uri
-            }
+          ...Fuser
         }
     }
     ${F_ANSWER}

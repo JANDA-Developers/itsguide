@@ -27,10 +27,7 @@ figure.image img {
 #basketModal .popup_bg_mini { 
     max-width: 400px;
 }
-#tap__04 {
-    display: none!important;
-    /* 잠시가림 */
-}
+
 #float_profile_link {
     display: none!important;
 }

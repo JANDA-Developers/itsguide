@@ -11,11 +11,8 @@ import { Validater } from "../utils/validate";
 import { useUpload } from "./useUpload";
 import { autoComma, deepCopy } from "../utils/formatter";
 import { useProductCreate, useProductDelete, useProductUpdate } from "./useProduct";
-import { useMutation } from "@apollo/client";
-import { PRODUCTS_CREATE } from "../apollo/gql/product";
 import { useRouter } from "next/router";
 import { ProductTempBoard } from "../utils/Storage2";
-import { generateRandomStringCode } from "../utils/codeGenerator";
 import { openModal } from "../utils/popUp";
 
 type SimpleTypePart = "isOpen" | "title" | "address" | "adult_price" | "baby_price" | "kids_price" | "startPoint" | "maxMember" | "minMember" | "subTitle" | "caution" | "info" | "contents" | "inOrNor" | "isNotice"
@@ -130,23 +127,28 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         onCompleted: ({
             ProductDelete
         }) => {
-            if (ProductDelete.ok)
+            if (ProductDelete.ok) {
+                alert("상품이 삭제되었습니다.")
                 router.push("/tour/list")
-
+            }
         }
     })
 
-    const { productUpdate, updateLoading } = useProductUpdate({
+    const [productUpdate, { loading: updateLoading }] = useProductUpdate({
         onCompleted: ({ ProductUpdate }) => {
-            if (ProductUpdate.ok)
+            if (ProductUpdate.ok) {
+                alert("상품이 업데이트 되었습니다.")
                 router.push(`/tour/view/${ProductUpdate?.data?._id}`)
+            }
         }
     })
 
     const [ProductCreateMu, { loading: createLoading }] = useProductCreate({
         onCompleted: ({ ProductCreate }) => {
-            if (ProductCreate.ok)
+            if (ProductCreate.ok) {
+                alert("상품이 생성되었습니다.")
                 router.push(`/tour/view/${ProductCreate!.data!._id}`)
+            }
         }
     })
 
@@ -163,11 +165,13 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     const updateFn = (_id: string, params: ProductUpdateInput) => {
         if (updateLoading) return;
         productUpdate({
-            _id,
-            params: {
-                ...params,
-            },
-            reason: ""
+            variables: {
+                _id,
+                params: {
+                    ...params,
+                },
+                reason: ""
+            }
         })
     }
 
@@ -196,29 +200,44 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         failMsg: "제목값은 필수 입니다.",
         id: "title"
     }, {
+        value: simpleData.address,
+        failMsg: "주소값은 필수 입니다.",
+        id: "address"
+    }, {
+        value: simpleData.startPoint,
+        failMsg: "출발지값은 필수 입니다.",
+        id: "startPoint"
+    }, {
         value: simpleData.contents,
-        failMsg: "안내 및 유의사항 값은 필수 입니다.",
+        failMsg: "안내 및 참고를 입력 해주세요.",
         failFn: () => {
-            document.getElementById("tap4")?.click();
+            document.getElementById("tap2")?.click();
         },
         id: "content",
     },
     {
-        value: regionId,
-        failMsg: "지역을 선택 해주세요",
-        id: "RegionId",
-    },
-    {
         value: simpleData.inOrNor,
-        failMsg: "포함 미포함 값은 필수 입니다.",
+        failMsg: "포함 및 불포함 내용을 입력 해주세요.",
         failFn: () => {
             document.getElementById("tap3")?.click()
         },
         id: "inOrNor"
+    },
+    {
+        value: simpleData.caution && simpleData.info,
+        failMsg: "유의사항 및 안내문 내용을 입력 해주세요.",
+        failFn: () => {
+            document.getElementById("tap4")?.click()
+        },
+        id: "info"
     }, {
         value: categoryId,
         failMsg: "카테고리 값은 필수 입니다.",
         id: "category"
+    }, {
+        value: regionId,
+        failMsg: "지역을 선택 해주세요",
+        id: "RegionId",
     }, {
         value: !isEmpty(its),
         failMsg: "여행일정은 필수 입니다.",
@@ -342,17 +361,13 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         setThumbs([...thumbs])
     }
 
-
     const setTourData = (data: Partial<IUseTourData>) => {
-
-        console.log({ data });
         if (data.categoryId)
             setCategoryId(data.categoryId)
         if (data.its)
             setits(data.its)
-        if (data.simpleData) {
-            setSimpleData({ ...data.simpleData })
-        }
+        if (data.simpleData)
+            setSimpleData(data.simpleData)
         if (data.status)
             setStatus(data.status)
         if (data.thumbs)
@@ -364,7 +379,6 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         if (data.regionId)
             setRegionId(data.regionId)
 
-        setLoadKey(loadKey + 1);
     }
 
     const handleRegionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -406,6 +420,12 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
 
 
     const handleDateState = ({ from, to }: TRange) => {
+
+        if (!from && !to && its.length) {
+            if (!confirm("출발 날짜를 변경하시면 입력하신 일정 정보가 초기화 됩니다. 변경을 진행 하시겠습니까?")) {
+                return;
+            }
+        }
         const newItinerary = generateitinery({ from, to }, its);
         if (newItinerary)
             setits([...newItinerary]);
@@ -438,9 +458,6 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     const lastItDate = its[its.length - 1]?.date;
     const lastDate = lastItDate ? dayjs(lastItDate).toDate() : undefined;
 
-
-    console.log("innnnuseTourWrite simpleData");
-    console.log({ simpleData });
 
     return {
         tourData,
@@ -522,7 +539,7 @@ export const getDefault = (product: IproductFindById | undefined): Partial<IUseT
         categoryId: category?._id,
         contents,
         its,
-        regionId: region?._id,
+        regionId: region?._id || "",
         keyWards: keyWards || [],
         simpleData,
         status,

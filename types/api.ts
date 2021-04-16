@@ -5537,21 +5537,113 @@ export interface productFindById_ProductFindById_data_thumb {
   uri: string;
 }
 
+export interface productFindById_ProductFindById_data_productReview_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productFindById_ProductFindById_data_productReview_author_profileImg {
   __typename: "File";
   uri: string;
 }
 
+export interface productFindById_ProductFindById_data_productReview_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface productFindById_ProductFindById_data_productReview_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productFindById_ProductFindById_data_productReview_author {
   __typename: "User";
   _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
   email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: productFindById_ProductFindById_data_productReview_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
   name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
   phoneNumber: string;
   /**
    * 프로필 사진
    */
   profileImg: productFindById_ProductFindById_data_productReview_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: productFindById_ProductFindById_data_productReview_author_guideLicense | null;
+  /**
+   * 통장사본
+   */
+  bankImg: productFindById_ProductFindById_data_productReview_author_bankImg | null;
 }
 
 export interface productFindById_ProductFindById_data_productReview_attachFiles {
@@ -5738,9 +5830,30 @@ export interface productFindById_ProductFindById_data_questions_thumb {
   owner: string;
 }
 
+export interface productFindById_ProductFindById_data_questions_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productFindById_ProductFindById_data_questions_author_profileImg {
   __typename: "File";
   uri: string;
+}
+
+export interface productFindById_ProductFindById_data_questions_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface productFindById_ProductFindById_data_questions_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
 }
 
 export interface productFindById_ProductFindById_data_questions_author {
@@ -5750,12 +5863,80 @@ export interface productFindById_ProductFindById_data_questions_author {
    * 닉네임 유니크
    */
   nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
   email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: productFindById_ProductFindById_data_questions_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
   phoneNumber: string;
   /**
    * 프로필 사진
    */
   profileImg: productFindById_ProductFindById_data_questions_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: productFindById_ProductFindById_data_questions_author_guideLicense | null;
+  /**
+   * 통장사본
+   */
+  bankImg: productFindById_ProductFindById_data_questions_author_bankImg | null;
 }
 
 export interface productFindById_ProductFindById_data_questions {
@@ -7620,9 +7801,30 @@ export interface questionList_QuestionList_data_thumb {
   owner: string;
 }
 
+export interface questionList_QuestionList_data_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface questionList_QuestionList_data_author_profileImg {
   __typename: "File";
   uri: string;
+}
+
+export interface questionList_QuestionList_data_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface questionList_QuestionList_data_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
 }
 
 export interface questionList_QuestionList_data_author {
@@ -7632,12 +7834,80 @@ export interface questionList_QuestionList_data_author {
    * 닉네임 유니크
    */
   nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
   email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: questionList_QuestionList_data_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
   phoneNumber: string;
   /**
    * 프로필 사진
    */
   profileImg: questionList_QuestionList_data_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: questionList_QuestionList_data_author_guideLicense | null;
+  /**
+   * 통장사본
+   */
+  bankImg: questionList_QuestionList_data_author_bankImg | null;
 }
 
 export interface questionList_QuestionList_data_product_author {
@@ -7862,9 +8132,30 @@ export interface questionFindById_QuestionFindById_data_thumb {
   owner: string;
 }
 
+export interface questionFindById_QuestionFindById_data_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface questionFindById_QuestionFindById_data_author_profileImg {
   __typename: "File";
   uri: string;
+}
+
+export interface questionFindById_QuestionFindById_data_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface questionFindById_QuestionFindById_data_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
 }
 
 export interface questionFindById_QuestionFindById_data_author {
@@ -7874,12 +8165,80 @@ export interface questionFindById_QuestionFindById_data_author {
    * 닉네임 유니크
    */
   nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
   email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: questionFindById_QuestionFindById_data_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
   phoneNumber: string;
   /**
    * 프로필 사진
    */
   profileImg: questionFindById_QuestionFindById_data_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: questionFindById_QuestionFindById_data_author_guideLicense | null;
+  /**
+   * 통장사본
+   */
+  bankImg: questionFindById_QuestionFindById_data_author_bankImg | null;
 }
 
 export interface questionFindById_QuestionFindById_data_product_author {
@@ -7981,21 +8340,113 @@ export interface productReviewFindById_ProductReviewFindById_data_answers {
   author: productReviewFindById_ProductReviewFindById_data_answers_author;
 }
 
+export interface productReviewFindById_ProductReviewFindById_data_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productReviewFindById_ProductReviewFindById_data_author_profileImg {
   __typename: "File";
   uri: string;
 }
 
+export interface productReviewFindById_ProductReviewFindById_data_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface productReviewFindById_ProductReviewFindById_data_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productReviewFindById_ProductReviewFindById_data_author {
   __typename: "User";
   _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
   email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: productReviewFindById_ProductReviewFindById_data_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
   name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
   phoneNumber: string;
   /**
    * 프로필 사진
    */
   profileImg: productReviewFindById_ProductReviewFindById_data_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: productReviewFindById_ProductReviewFindById_data_author_guideLicense | null;
+  /**
+   * 통장사본
+   */
+  bankImg: productReviewFindById_ProductReviewFindById_data_author_bankImg | null;
 }
 
 export interface productReviewFindById_ProductReviewFindById_data_attachFiles {
@@ -8117,21 +8568,113 @@ export interface productreviewList_ProductReviewList_page {
   remainder: number;
 }
 
+export interface productreviewList_ProductReviewList_data_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productreviewList_ProductReviewList_data_author_profileImg {
   __typename: "File";
   uri: string;
 }
 
+export interface productreviewList_ProductReviewList_data_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface productreviewList_ProductReviewList_data_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productreviewList_ProductReviewList_data_author {
   __typename: "User";
   _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
   email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: productreviewList_ProductReviewList_data_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
   name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
   phoneNumber: string;
   /**
    * 프로필 사진
    */
   profileImg: productreviewList_ProductReviewList_data_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: productreviewList_ProductReviewList_data_author_guideLicense | null;
+  /**
+   * 통장사본
+   */
+  bankImg: productreviewList_ProductReviewList_data_author_bankImg | null;
 }
 
 export interface productreviewList_ProductReviewList_data_attachFiles {
@@ -12567,9 +13110,30 @@ export interface Fquestion_thumb {
   owner: string;
 }
 
+export interface Fquestion_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface Fquestion_author_profileImg {
   __typename: "File";
   uri: string;
+}
+
+export interface Fquestion_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface Fquestion_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
 }
 
 export interface Fquestion_author {
@@ -12579,12 +13143,80 @@ export interface Fquestion_author {
    * 닉네임 유니크
    */
   nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
   email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: Fquestion_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
   phoneNumber: string;
   /**
    * 프로필 사진
    */
   profileImg: Fquestion_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: Fquestion_author_guideLicense | null;
+  /**
+   * 통장사본
+   */
+  bankImg: Fquestion_author_bankImg | null;
 }
 
 export interface Fquestion {
@@ -12620,21 +13252,113 @@ export interface Fquestion {
 // GraphQL fragment: FproductReview
 // ====================================================
 
+export interface FproductReview_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface FproductReview_author_profileImg {
   __typename: "File";
   uri: string;
 }
 
+export interface FproductReview_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface FproductReview_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface FproductReview_author {
   __typename: "User";
   _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
   email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: FproductReview_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
   name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
   phoneNumber: string;
   /**
    * 프로필 사진
    */
   profileImg: FproductReview_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: FproductReview_author_guideLicense | null;
+  /**
+   * 통장사본
+   */
+  bankImg: FproductReview_author_bankImg | null;
 }
 
 export interface FproductReview_attachFiles {
@@ -13252,6 +13976,10 @@ export enum _ProductSort {
   isNotice_desc = "isNotice_desc",
   likeCount_asc = "likeCount_asc",
   likeCount_desc = "likeCount_desc",
+  rating_asc = "rating_asc",
+  rating_desc = "rating_desc",
+  reviewCount_asc = "reviewCount_asc",
+  reviewCount_desc = "reviewCount_desc",
   subTitle_asc = "subTitle_asc",
   subTitle_desc = "subTitle_desc",
   title_asc = "title_asc",
@@ -14266,6 +14994,14 @@ export interface _PortfolioFilter {
 export interface _ProductFilter {
   AND?: _ProductFilter[] | null;
   OR?: _ProductFilter[] | null;
+  rating_eq?: string | null;
+  rating_not_eq?: string | null;
+  rating_gte?: string | null;
+  rating_lte?: string | null;
+  reviewCount_eq?: string | null;
+  reviewCount_not_eq?: string | null;
+  reviewCount_gte?: string | null;
+  reviewCount_lte?: string | null;
   determined_eq?: boolean | null;
   determined_not_eq?: boolean | null;
   code_eq?: string | null;

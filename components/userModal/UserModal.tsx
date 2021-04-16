@@ -130,11 +130,23 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                         window.open(item.bankImg?.uri, "_blank")
                                     }} className="btn dwonload">다운로드</button></span>}</div>
                                     <div className="th03">사업자등록증</div>
-                                    <div className="td03"><span>{item.busiRegistration?.name}<button onClick={() => {
-                                        window.open(item.busiRegistration?.uri, "_blank")
-                                    }} className="btn dwonload">다운로드</button></span></div>
-                                    <div className="th04"></div>
-                                    <div className="td04"></div>
+                                    <div className="td03">
+                                        <span>
+                                            {item.busiRegistration?.name}
+                                            <button onClick={() => {
+                                                window.open(item.busiRegistration?.uri, "_blank")
+                                            }} className="btn dwonload">다운로드</button>
+                                        </span>
+                                    </div>
+                                    <div className="th04">가이드자격증</div>
+                                    <div className="td04">
+                                        <span>
+                                            {item.guideLicense?.name}
+                                            <button onClick={() => {
+                                                window.open(item.guideLicense?.uri, "_blank")
+                                            }} className="btn dwonload">다운로드</button>
+                                        </span>
+                                    </div>
                                 </div>
                             </>}
                         </div>

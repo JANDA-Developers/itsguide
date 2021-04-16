@@ -1596,6 +1596,10 @@ div.comment_box {
                     color: #636363;
                     border: #b9b9b9 solid 1px;
                     background-color: #fff;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    padding-right: 40px;
                 }
 
 .board_write .write_con {

@@ -118,6 +118,7 @@ export const AnnounceWrite: React.FC<IProp> = () => {
 
 
     return <BoardWrite
+        author={announce?.author}
         WriteInjection={
             <div className="write_type">
                 <div className="title">타입</div>
@@ -151,6 +152,7 @@ export const AnnounceWrite: React.FC<IProp> = () => {
         onLoad={handleLoad}
         opens={{
             title: true,
+            open: true
         }}
     />
 };

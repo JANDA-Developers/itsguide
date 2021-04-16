@@ -52,7 +52,8 @@ interface IboardConfig {
 }
 
 export const useBoard = ({ ...defaults }: IUseBoardProps, config: IboardConfig = {}) => {
-    const [isOpen, setIsOpen] = useState<boolean>(!!defaults.isOpen);
+    const defaultOpen = defaults.isOpen === undefined ? true : !!defaults.isOpen;
+    const [isOpen, setIsOpen] = useState<boolean>(defaultOpen);
     const [title, setTitle] = useState<string>(defaults.title || "")
     const [categoryId, setCategoryId] = useState<string>(defaults.categoryId || "");
     const [subTitle, setSubTitle] = useState<string>(defaults.subTitle || "");

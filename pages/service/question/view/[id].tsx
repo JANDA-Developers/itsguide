@@ -10,6 +10,8 @@ import { AppContext } from '../../../_app';
 import Comment from '../../../../components/comment/Comment';
 import { useAnswerCreate, useAnswerDelete, useAnswerUpdate } from '../../../../hook/useAnswer';
 import PageDeny from '../../../Deny';
+import isEmpty from '../../../../utils/isEmpty';
+
 
 interface IProp {
 }
@@ -63,7 +65,7 @@ export const QuestionDetail: React.FC<IProp> = () => {
         answerDeleteMu({
             variables: {
                 id: answer._id,
-                target: "question",
+                target: "Question",
                 targetId: questionId
             }
         })
@@ -75,7 +77,7 @@ export const QuestionDetail: React.FC<IProp> = () => {
                 params: {
                     content
                 },
-                target: "question",
+                target: "Question",
                 targetId: questionId
             }
         })
@@ -88,7 +90,7 @@ export const QuestionDetail: React.FC<IProp> = () => {
                 params: {
                     content
                 },
-                target: "question",
+                target: "Question",
                 targetId: questionId
             }
         })
@@ -109,20 +111,26 @@ export const QuestionDetail: React.FC<IProp> = () => {
             onDelete={handleDelete}
             onEdit={toDetail}
             createAt={createdAt}
-
-        />
-        {(isMyProduct || isManager) &&
-            <div className="w1200">
-                <div className="comment_box">
-                    <ul>
-                        {(question.answers || []).filter(answer => !answer?.isDelete).map(answer =>
-                            <Comment title={answer?.author?.name} onCompleteEdit={handleEdit} onDelete={handleAnswerDelete(answer!)} key={answer?._id}  {...answer!} />
-                        )}
-                    </ul>
+            Foot={
+                <div className="comment__div">
+                    {(isMyProduct || isManager) &&
+                        <div>
+                            <h3>Comment</h3>
+                            {!isEmpty(question.answers) && <div className="comment_box">
+                                <ul className="comment_box_list">
+                                    {(question.answers).filter(answer => !answer?.isDelete).map(answer => {
+                                        return <Comment title={answer?.author?.name} onCompleteEdit={handleEdit} onDelete={handleAnswerDelete(answer!)} key={answer?._id}  {...answer!} />
+                                    }
+                                    )}
+                                </ul>
+                            </div>
+                            }
+                            <CommentWrite defaultContent={""} title={`${title} : ` + myProfile?.nickName} onSubmit={handleAnswer} />
+                        </div>
+                    }
                 </div>
-                {isMyProduct && <CommentWrite defaultContent={""} title={`${title} : ` + myProfile?.nickName} onSubmit={handleAnswer} />}
-            </div>
-        }
+            }
+        />
     </div>
 };
 

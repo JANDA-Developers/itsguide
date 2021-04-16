@@ -9,15 +9,22 @@ import { ErrorCode } from "./enumToKr";
 import { getFromUrl } from "./url";
 import { cloneObject } from "./clone";
 
-export const pageLoadingEffect = (loading:boolean) => {
+
+interface GenerateMutationHookMu<M,V> extends MutationHookOptions<M,V> {
+    closeEffectAfterLoading?: boolean;
+    skipLoadingEffect?: boolean;
+}
+
+
+export const pageLoadingEffect = (loading:boolean, closeEffectAfterLoading:boolean = true) => {
     if(typeof window === "undefined") return;
     const MuPageLoading = document.getElementById("MuPageLoading");
     if(MuPageLoading) {
         if(loading) {
                 MuPageLoading.classList.add("muPageLoading--visible");
-        } else {
+        } else if(closeEffectAfterLoading) {
             MuPageLoading?.classList.remove("muPageLoading--visible");
-        }
+        } 
     }
 }
 
@@ -175,7 +182,7 @@ export const generateQueryHook = <Q, R, V = undefined>(
 
 // refetchQueries: [getOperationName(BOOKING_LIST) || ""],
 
-export const generateMutationHook = <M,V>(MUTATION:DocumentNode,defaultOptions?: MutationHookOptions<M,V>) => {
+export const generateMutationHook = <M,V>(MUTATION:DocumentNode, { skipLoadingEffect, closeEffectAfterLoading, ...defaultOptions}: GenerateMutationHookMu<M,V> = {}) => {
     const mutationHook = (options?: MutationHookOptions<M,V>) => {
         const muHook = useMutation<M, V>(MUTATION, {
             ...defaultOptions,
@@ -191,7 +198,7 @@ export const generateMutationHook = <M,V>(MUTATION:DocumentNode,defaultOptions?:
             }
         });
 
-        pageLoadingEffect(muHook[1].loading);
+        pageLoadingEffect(muHook[1].loading, closeEffectAfterLoading);
 
         return muHook
     }
@@ -219,7 +226,6 @@ export const generateFindQuery = <Q,V,ResultFragment>(findBy: keyof V, QUERY:Doc
         const errorFromServer:string = data?.[operationName]?.error;
         dataCheck(data,operationName,["data"])
    
-
         // @ts-ignore
         userErrorHandle(data?.[operationName])
 

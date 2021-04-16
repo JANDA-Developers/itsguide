@@ -32,6 +32,7 @@ import { checkIsExp } from "../../../utils/product";
 import { PageEditor } from "../../../components/common/PageEditer";
 import { yyyymmdd } from "../../../utils/yyyymmdd";
 import { DayPickerModal } from "../../../components/dayPickerModal/DayPickerModal";
+import { scrollIntoView } from "react-select/src/utils";
 // const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 const Editor = LoadEditor();
@@ -163,6 +164,12 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
 
     const handleTab = (index: number) => () => {
         setTab(index)
+        const target = document.getElementById("texta_0" + index);
+        //모바일일때 필수
+        setTimeout(() => {
+            console.log({ target });
+            target.scrollIntoView({ block: "center", behavior: "smooth" });
+        }, 300)
     }
 
     const handleCreate = async () => {
@@ -409,7 +416,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     <div className="title">장소</div>
                     <div className="input_form">
                         <div>
-                            <input onChange={handleInputChange("address")} value={address} type="text" className="text w100" />
+                            <input id="address" onChange={handleInputChange("address")} value={address} type="text" className="text w100" />
                         </div>
                     </div>
                 </div>
@@ -418,7 +425,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     <div className="title">출발장소</div>
                     <div className="input_form">
                         <div>
-                            <input onChange={handleInputChange("startPoint")} value={startPoint} type="text" className="text w100" />
+                            <input id="startPoint" onChange={handleInputChange("startPoint")} value={startPoint} type="text" className="text w100" />
                         </div>
                     </div>
                 </div>

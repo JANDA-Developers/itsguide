@@ -10,8 +10,11 @@ export interface IUseQuerySort<S> {
     switchSort: (change: S) => void
 }
 
-export const useQuerySort = <S>(defaultSort:S[]):IUseQuerySort<S> => {
-    const [sort,setSort] = useState(defaultSort);
+export const useQuerySort = <S>(defaultSort:S[], fixingSort:S[] = []):IUseQuerySort<S> => {
+    const [sort,_setSort] = useState([...fixingSort,...defaultSort]);
+    const setSort:any = (sort?:S[]) => {
+        _setSort([...fixingSort, ...(sort || [])])
+    }
 
     const isActive = (check:S):boolean => sort.includes(check);
     

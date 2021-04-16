@@ -160,6 +160,7 @@ export const ReviewWrite: React.FC<IProp> = () => {
 
     if (!urlProductId) return <Page404 />;
     return <BoardWrite
+        author={productreview?.author}
         useTextarea
         WriteInjection={
             <div>
@@ -185,7 +186,7 @@ export const ReviewWrite: React.FC<IProp> = () => {
                             {files.map((thumb, i) =>
                                 <li key={i + "thumb"} className="on_file">{thumb.name}<i onClick={handleClearThumb(i)} className="flaticon-multiply icon_x"></i></li>
                             )}
-                            {files.length < 4 && <li id="thumb" onClick={handleUploadClick}>이미지추가<i className="flaticon-add icon_plus"></i></li>}
+                            {files.length < 6 && <li id="thumb" onClick={handleUploadClick}>이미지추가<i className="flaticon-add icon_plus"></i></li>}
                             <input onChange={handleChangeSumbNail} ref={hiddenFileInput} hidden type="file" />
                         </ul>
                         <p className="input_form info_txt">- 썸네일 이미지사이즈 720px * 434px</p>
