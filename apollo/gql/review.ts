@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import { F_ANSWER } from "./answer";
-import { F_FILE, F_PRODUCT } from "./fragments";
+import { F_FILE, F_PRODUCT, F_USER } from "./fragments";
 
 export const F_PRODUCT_REVIEW = gql`
     fragment FproductReview  on ProductReview {
@@ -34,6 +34,7 @@ export const F_PRODUCT_REVIEW = gql`
     groupCode
     rating
 }
+${F_USER}
 ${F_FILE}
 `
 
