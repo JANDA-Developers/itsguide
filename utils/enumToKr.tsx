@@ -9,7 +9,6 @@ export const systemTypeToString = (type?: SystemNotiType) => {
     return ""
 }
 
-
 export const bookingStatus = (status?: BookingStatus | null) => {
     if (status === BookingStatus.CANCEL) return "예약취소"
     if (status === BookingStatus.COMPLETE) return "예약완료"

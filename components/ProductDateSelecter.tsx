@@ -18,7 +18,6 @@ export const ProductDateSelecter: React.FC<IProp> = ({ currentId, groupCode, onC
         onChange(target)
     }
 
-
     let availableExsist = false;
     for (let item of items) {
         if (dayjs(item.startDate).isAfter(new Date(), "day")) {

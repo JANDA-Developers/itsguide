@@ -15,7 +15,7 @@ import TagInput from "../../../components/tagInput/TagInput";
 import { getDefault, useTourWrite } from "../../../hook/useTourWrite";
 import { useProductFindById, useProductUpdateReq } from "../../../hook/useProduct";
 import { changeVal } from "../../../utils/eventValueExtracter";
-import PageLoading from "../../Loading";
+import PageLoading, { PageLoadingEffect } from "../../Loading";
 import { auth } from "../../../utils/with";
 import { ALLOW_SELLERS } from "../../../types/const";
 import { LoadEditor } from "../../../components/edit/EdiotrLoading";
@@ -207,7 +207,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
     }
 
     const handleDelete = () => {
-        if (confirm("정말로 게시글을 삭제 하시겠습니까?"))
+        if (confirm("정말로 게시글을 삭제 하시겠습니까?")) 
             deleteFn(product!._id)
     }
 
