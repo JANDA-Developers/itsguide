@@ -1,0 +1,14 @@
+
+.editorHolder {
+    border: 1px solid #ddd;
+    padding: 1rem;
+}
+.itinerary__editor .editorHolder {
+    cursor: pointer;
+}
+.editorHolder--loadingHolder {
+    display: none!important;
+}
+.editor--loading .editorHolder--loading {
+    display: block;
+}

@@ -1,79 +1,13 @@
 import { gql } from "@apollo/client";
-import { F_BOOKING, F_CATEGORY, F_PAGE, F_PAGE_INFO, F_PRODUCT, F_USER } from "./fragments";
+import {  F_BOOKING, F_CATEGORY,  F_GROUP,  F_PAGE_INFO,F_USER } from "./fragments";
+import { F_HOMEPAGE } from "./homepage";
+import { F_SYSTEMNOTI } from "./systemNoti";
 
 /* :::::::::::::::::::::::::::::::::::::: 
 
   Queries 
   
 :::::::::::::::::::::::::::::::::::::: */
-
-export const PCAT_LIST = gql`
-  query pcategoryList {
-    pCategoryList {
-      ok
-      error
-      data {
-        _id
-        createdAt
-        updatedAt
-        isDelete
-        label
-      }
-    }
-  }
-`
-
-
-export const CATEGORY_FIND_BY_ID = gql`
-  query categoryFindById(
-      $id: String!
-    ) {
-      CategoryFindById(
-        id: $id
-      ) {
-      ok
-      error
-      data {
-        ...Fcategory
-      }
-    }
-  }
-  ${F_CATEGORY}
-`;
-
-
-export const CATEGORY_LIST = gql`
-  query categoryList {
-      CategoryList  {
-        ok
-        error
-        data {
-          ...Fcategory
-        }
-      }
-  }
-  ${F_CATEGORY}
-`;
-
-
-
-export const SIGN_IN = gql`
-  query signIn(
-    $email: Email!
-    $pw: String!
-    ) {
-    SignIn(
-      email:$email,
-      pw:$pw
-      )  {
-        ok
-        error
-        data {
-          token
-        }
-      }
-  }
-`;
 
 
 export const PAGE_INFO_READ = gql`
@@ -84,7 +18,12 @@ export const PAGE_INFO_READ = gql`
       key: $key
       )  {
         ok
-        error
+        error {
+          location
+          severity
+          code
+          message
+        }
         data {
             ...FpageInfo
         }
@@ -97,9 +36,26 @@ export const GET_CONTEXT = gql`
   query getContext {
       GetProfile {
         ok
-        error
+        error {
+          location
+          severity
+          code
+          message
+        }
         data {
           ...Fuser
+          keywards
+          unReadNoties {
+            ...FsystemNoti
+          }
+          bankImg {
+            ...Ffile
+          }
+          products {
+            _id
+            title
+            groupCode
+          }
           bookings {
             ...Fbooking
             seller {
@@ -111,24 +67,48 @@ export const GET_CONTEXT = gql`
               title
             }
           }
-          products {
-            ...Fproduct
-            bookings {
-              _id
-              name
-            }
-          }
+        }
+      }
+      GroupList  {
+        ok
+        error {
+          location
+          severity
+          code
+          message
+        }
+        data {
+          ...Fgroup
         }
       }
       CategoryList {
         ok
-        error
+        error {
+        location
+        severity
+        code
+        message
+      }
         data {
           ...Fcategory
         }
       }
+      Homepage {
+        ok
+        error {
+        location
+        severity
+        code
+        message
+      }
+      data {
+          ...Fhomepage
+      }
+    }
   }
-  ${F_PRODUCT}
+  ${F_GROUP}
+  ${F_SYSTEMNOTI}
+  ${F_HOMEPAGE}
   ${F_BOOKING}
   ${F_CATEGORY}
   ${F_USER}

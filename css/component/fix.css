@@ -1,0 +1,450 @@
+@import "./editor/editor.css";
+.BookingModal__top02 {
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+}
+
+.BookingModal__top02Align {
+    margin: 0!important;
+}
+
+
+.BookingModal__headerTitle {
+    position: initial!important;
+}
+
+.BookingModal__in {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px!important;
+}
+
+.BookingModal__body {
+    flex: 1 1;
+    overflow: auto;
+}
+
+.goods__info_title {
+    padding: 10px!important;
+}
+
+.MypageGoods__img {
+    position: initial!important;
+    background-repeat: no-repeat;
+}
+.MypageGoods__infoBox {
+    display: flex!important;
+    padding: 10px!important;
+}
+
+.MypageGoods__btn {
+    width: 100%
+}
+
+@media (max-width: 1000px) {
+    .MypageGoods__infoBox {
+        display: initial!important;
+    }
+
+}
+
+
+
+
+div.popup_bg_full h3 {
+    position: initial!important;
+}
+
+div.popup_bg_full .in_txt {
+    padding-top: 45px!important;
+}
+
+.productModal__close {
+ position: initial!important;   
+}
+
+.productModal__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.productModal__body {
+    overflow: auto!important;
+    padding: 20px 10px 10px 0px;
+}
+
+.productModal__wrap {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0px!important;
+    overflow: initial!important;
+}
+
+.productModal__inWrap {
+}
+
+.productDateSelecter__categoryWrap  {
+    padding: 0px!important;
+}
+
+
+.masterMain {
+
+}
+
+.masterMain .table .body{ 
+    display: flex!important;
+    align-items: center!important;
+}
+
+.masterMain .table .head  {
+    display: flex!important;
+    height: 35px;
+    align-items: center;
+}
+
+.masterMain .table .head > div {
+    flex: 1 1!important
+}
+
+
+
+.masterMain .table .td01, .masterMain .table .td02,.masterMain .table .td03,.masterMain .table .td04 { 
+    width: auto!important;
+    
+}
+
+
+.masterMain .table .td01 { 
+    /* min-width: 25%; */
+}
+
+.master_box .in_content .alignment {
+    margin-bottom: 20px;
+    height: auto!important;
+}
+
+.productSelectModal .popup__tittle {
+    position: initial!important;
+}
+
+.productSelectModal  {
+    padding-top: 0px!important;
+    height: auto!important;
+}
+
+.productSelectModal .page {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden!important;
+}
+
+
+.goodsall__wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.goodsall__list {
+    max-height: 400px;
+    overflow: auto;
+}
+
+
+.terms__saveBtn {
+    height: min-content;
+}
+
+.tourView__recommendList {
+    display: flex!important;
+}
+@media (max-width: 767px) {
+    .tourView__recommendList {
+        display: flex!important;
+        flex-direction: column;
+    }
+}
+
+
+.BookingModal__statusBox {
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mypageSettlement__list {
+    text-align: center;
+}
+
+.mypageSettlement__list .th02 {
+    text-align: center!important;
+}
+
+.settlementModal__li {
+    display: flex!important;
+    justify-content: space-around!important;
+    align-items: center!important;
+}
+
+.settlementModal__li-th3 {
+    font-size: initial!important;
+    font-weight: initial!important;
+    width: auto!important;
+}
+
+.statement_popup__topBox {
+    margin-top: 20px;
+}
+
+.goods__productinfo {
+    min-width: 300px;
+}
+
+.peoplelist__li {
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+}
+
+.emailVerifiModal__btns {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+.emailVerifi__input {
+    width: 100%;
+    margin-right:  0px!important;
+}
+
+.emailVerifiModal .page {
+    padding-right: 0px!important;
+}
+
+.emailVerifiModal .close_icon {
+    right: 16px!important
+}
+
+.emailVerifiModal {
+    width: 300px;
+}
+
+.birthday-picker {
+    display: flex;
+}
+
+.fileNameInputLabel {
+    line-height: initial;
+    /* word-break: break-all; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+
+.tourBracketBtn--disabled a {
+    border: none!important;
+    color: white!important;
+    cursor: auto!important;
+    pointer-events: none;
+    background-color: #999!important;
+}
+
+.annotationBadge.up {
+display: inline-block;
+padding: 0 13px;
+font-size: 12px;
+color: #ed297b;
+font-weight: 600;
+border: 1px solid #ed297b;
+border-radius: 100px;
+line-height: initial;
+background-color: #fff;
+}
+
+.rule_box .subtop_nav {
+    bottom: 100%!important;
+}
+
+.upload_out_box {
+    padding-right: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+    display: flex!important;
+    align-items: center;
+}
+
+.upload_out_box__closer {
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+}
+
+.txt--flex {
+    display: flex!important;
+    align-items: center;
+}
+
+.upload_out_box__fileName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.imgEdit--editMode {
+    display: flex!important;
+}
+
+.top_bg__clear {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: white;
+    z-index: 9;
+    justify-content: center;
+    background-color: rgba(255,0,0,0.3);
+}
+
+.max_box__infoWrap {
+    display: flex;
+}
+.max_box__name {
+    white-space: nowrap;
+    max-width: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.notification_box__alignment {
+    margin-bottom: 10px!important;
+}
+.notification_box__typeBtn.on {
+    color: #555!important;
+    border-color: #555!important;
+}
+
+.slick-arrow {
+    display: none!important;
+}
+
+
+
+
+
+.login__snslink{
+    position: relative;
+    display: block;
+    /* display: none; */
+    text-align: left;
+    margin-top: 10px;
+}
+.login__snslink ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.login__snslink li{
+    position: relative;
+    width: 32%;
+    height: 46px;
+    line-height: 43px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__snslink span{
+    display: inline-block !important;
+}
+.login__snslink a{
+    display: flex;
+    text-align: center;
+    color: #fff;
+}
+.login__snslink .login__snslink_icon{
+    margin-right: 5px;
+    align-items: center;
+    text-align: center;
+}
+.login__snslink_k{
+    background-color: #fbea26;
+}
+.login__snslink_g{
+    background-color: #e04a32;
+}
+.login__snslink_n{
+    background-color: #25b825;
+}
+.login__snslink_n i{
+    background-image: url(/img/svg/icon-naver-w.svg);
+    background-size: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 17px;
+    height: 30px;
+    margin-top: 6px;
+}
+.login__snslink_k i{
+    font-size: 1.2em;
+}
+.login__snslink_k a{
+    color: #3f211f;
+}
+.login__snslink_txt{
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.profile__keywardWrap {
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.login__snslink_n i {
+    background-image: url(/img/svg/icon-naver-w.svg);
+    background-size: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 17px;
+    height: 30px;
+    margin-top: 6px;
+}
+
+.slick-slider div {
+    outline: none;
+
+}
+
+.rate-start {
+    font-size: 1.5em!important;
+    color: #ff9900;
+}
+
+.board_write__textarea {
+    resize: none;
+    width: 100%;
+    height: 350px;
+    margin-top: 10xp;
+}
+
+#FloatingBtnBox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}

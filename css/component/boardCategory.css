@@ -1,0 +1,15 @@
+.BoardCategories {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.BoardCategories__ul {
+    justify-content: space-around;
+    flex-wrap: wrap;    
+}
+.BoardCategories__li {
+    flex: 1 1;
+    padding:0;
+    white-space: nowrap;
+    min-width: 70px;
+}

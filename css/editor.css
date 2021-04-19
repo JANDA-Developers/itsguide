@@ -331,8 +331,46 @@
     }
 }
 
+.ck-editor__editable {
+    line-height: initial;
+    min-height: 250px;
+}
 .ck-content:after {
     content: "";
     clear: both;
     display: block;
+}
+
+/* ckeditor5-table/theme/table.css */
+.ck-content table {
+    margin: 1em auto;
+    display: table;
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px double hsl(0, 0%, 70%);
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content table td,
+.ck-content table th {
+    min-width: 2em;
+    padding: .4em;
+    border: 1px solid hsl(0, 0%, 75%);
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content table th {
+    font-weight: bold;
+    background: hsla(0, 0%, 0%, 5%);
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content[dir="rtl"] table th {
+    text-align: right;
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content[dir="ltr"] table th {
+    text-align: left;
 }

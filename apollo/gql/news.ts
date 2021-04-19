@@ -39,7 +39,12 @@ query newsFindById(
     id:$id
   ) {
   ok
-  error 
+  error {
+location
+        severity
+        code
+        message
+}
   data {
     ...Fnews
   }
@@ -59,7 +64,12 @@ pageInput: $pageInput
 filter: $filter
 ) {
   ok
-  error
+  error {
+      location
+      severity
+      code
+      message
+    }
   page {
     ...Fpage
   }
@@ -81,7 +91,12 @@ export const NEWS_CREATE = gql`
       params:$params
     ) {
     ok
-    error
+    error {
+      location
+      severity
+      code
+      message
+    }
     data {
       _id
     }
@@ -96,8 +111,13 @@ export const NEWS_DELETE = gql`
       id:$id
     ) {
     ok
-    error 
-  }
+    error {
+      location
+      severity
+      code
+      message
+    }
+    }
 }
 `
 export const NEWS_UPDAET = gql`
@@ -110,7 +130,12 @@ export const NEWS_UPDAET = gql`
       id: $id
     ) {
     ok
-    error 
+    error {
+      location
+              severity
+              code
+              message
+      }
     data {
       _id
     }

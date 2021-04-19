@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Editor from 'pinkloader-ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
+import { SERVER_URI } from 'apollo/uri';
 
 export class UploadAdapter {
     constructor(loader) {
@@ -17,7 +18,7 @@ export class UploadAdapter {
 
     _initRequest() {
         const xhr = this.xhr = new XMLHttpRequest();
-        xhr.open('POST', process.env.NEXT_PUBLIC_SERVER_URI.replace("/graphql","") +'/upload', true);
+        xhr.open('POST', SERVER_URI.replace("/graphql",'') +'/upload', true);
         xhr.responseType = 'json';
     }
 
@@ -141,33 +142,36 @@ const editorConfiguration = {
   } 
 
 
-  const CKEDITOR = ({data,onChange}) => {
+  const CKEDITOR = ({data,onChange, edit = true, holderHeight = 220, ...props}) => {
+    const [loading, setLoading] = useState(true);
+
+    if(edit === undefined) edit = true;
+
       return (
-          <div className="myckeditor">
-              <CKEditor
+          <div {...props} className={`myckeditor ${props.className} ${loading && "editor--loading"}`} >
+              {!edit && <div className="ck-content editorHolder" style={{minHeight: holderHeight}} dangerouslySetInnerHTML={{__html: data }} />}
+              {edit && <div className="ck-content editorHolder editorHolder--loadingHolder" style={{minHeight: holderHeight}} dangerouslySetInnerHTML={{__html: data }} />}
+              {edit && <CKEditor
                   editor={ Editor }
                   config={ editorConfiguration }
                   data={data}
                   onReady={ editor => {
+                    setLoading(false);
                       // You can store the "editor" and use when it is needed.
-                      console.log( 'Editor is ready to use!', editor );
-                  } }
+                  }}
                   onChange={ ( event, editor ) => {
                       const data = editor.getData();
                       onChange(data);
-                      console.log(data);
                   } }
                   onBlur={ ( event, editor ) => {
-                      console.log( 'Blur.', editor );
                   } }
                   onFocus={ ( event, editor ) => {
-                      console.log( 'Focus.', editor );
                   } }
-              />
+              />}
           </div>
       );
 
   }
 
-
 export default CKEDITOR;
+

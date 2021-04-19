@@ -4,7 +4,7 @@ import React from 'react';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import dynamic from 'next/dynamic';
-const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
+// const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 interface IProp { }
 
@@ -19,9 +19,11 @@ export const Layout: React.FC<IProp> = ({ children }) => {
             <script src="/normal.js"></script>
         </Head>
         <Header />
-        {children}
+        <div style={{ minHeight: "90vh" }}>
+            {children}
+        </div>
         <Footer />
-        <ReactTooltip effect="solid" type="info" />
+        {/* <ReactTooltip effect="solid" type="info" /> */}
     </div>;
 };
 

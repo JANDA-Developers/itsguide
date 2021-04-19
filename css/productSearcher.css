@@ -1,0 +1,33 @@
+.productSearcher__items {
+    background-color: white;
+    border: 1px solid
+
+}
+
+.productSearcher__item {
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid;
+    display:flex;
+}
+
+.productSearcher__item.on {
+    background-color: blue;
+}
+
+
+.productSearcher__img {
+    width: 50px;
+    margin-right: 8px;
+}
+
+.productSearcher {
+    position: relative;
+}
+
+.productSearcher__searchIcon {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    width: 20px;
+}

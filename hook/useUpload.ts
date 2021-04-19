@@ -14,7 +14,7 @@ export const useUpload = (options?: MutationHookOptions<multiUpload, multiUpload
                 file
             }
         }).then(({data})=> {
-            const file = data?.MultiUpload.data[0];
+            const file = data?.MultiUpload.data?.[0];
             const url = file?.uri;
             if(url && file) {
                 onSucess?.(url,file)
@@ -22,15 +22,7 @@ export const useUpload = (options?: MutationHookOptions<multiUpload, multiUpload
         })
     }
 
+
     return {signleUpload, uploadLoading}
 }
-
-
-
-
-
-
-
-
-
 

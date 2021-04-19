@@ -1,0 +1,41 @@
+.guideLine {
+    padding: 20px;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.guideLine__profile {
+    margin-right: 10px;
+    display: flex;
+    flex: 1 1;
+    align-items: center!important;
+}
+
+
+.guideLine__cards {
+    display: flex;
+}
+
+.guideLine__imgWrap {
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+    padding: 4px;
+    border:  1px solid #ccc;
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.guideLine__img {
+    border-radius: 50%;
+    cursor: pointer;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.guideLine__info {
+    align-items: center;
+}

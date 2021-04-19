@@ -1,0 +1,11 @@
+.App div.OPEN_MODAL {
+    display: flex;
+}
+#portal .OPEN_MODAL {
+    display: flex;
+}
+
+.review__textarea .div.comment_box .write_comment .text_box
+{
+    padding: 15px;
+}

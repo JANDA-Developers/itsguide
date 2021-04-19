@@ -1,0 +1,8 @@
+.shareBtns {
+    display: flex;
+}
+
+.shareBtns__btn {
+    padding: 10px;
+    cursor: pointer;
+}

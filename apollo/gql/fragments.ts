@@ -1,38 +1,27 @@
 import { gql } from "@apollo/client";
 
-export const F_QUESTION = gql`
-    fragment Fcategory on Question {
+
+export const F_PUBLIC_USER = gql`
+    fragment FpublicSellerData on publicSellerData {
         _id
-        createdAt
-        updatedAt
-        isDelete
-        title
-        contents
-        author
-        isNotice
-        isOpen
-        summary
-        subTitle
-        keyWards
-        attachFiles
-        thumb
-        viewCount
-        likeCount
-        ProductId
-        status
-        no
+        zoneinfo {
+            timezone
+            offset
+            callingCode
+            alpha2Code
+        }
+        email
+        gender
+        keywards
+        nickName
+        productCount
+        bookingCount
+        profileImg {
+            uri            
+        }
     }
 `
 
-export const F_CATEGORY = gql`
-    fragment Fcategory on Category {
-        _id
-        createdAt
-        updatedAt
-        isDelete
-        label
-    }
-`
 export const F_FILE = gql`
     fragment Ffile on File {
         name
@@ -41,29 +30,168 @@ export const F_FILE = gql`
     }
 `
 
+
 export const F_BOOKING = gql`
     fragment Fbooking on Booking {
         _id
         createdAt
+        cancelDate
+        gender
+        age
+        payMethod
         updatedAt
         isDelete
+        leftTime
         adultCount
         kidCount
+        cancelMemo
         babyCount
         totalCount
         message
+        isCancelRequest
+        bookerInclue
+        bookingPrice
         status
+        isMember
         memo
         code
-        product {
-            _id
-            title
-        }
+        groupCode
         name
         email
         phoneNumber
+        isPaid
     }
 `
+
+export const F_ITINERARY = gql`
+    fragment Fitinerary on Itinerary  {
+        _id
+        createdAt
+        updatedAt
+        isDelete
+        title
+        contents
+        images {
+            ...Ffile
+        }
+        date
+    }
+    ${F_FILE}
+`
+
+export const F_REQUEST_HISTORY = gql`
+    fragment FrequestHistory on RequestHistory  {
+        methodType
+        reqType
+        date
+        reason
+    }
+    ${F_FILE}
+`
+
+export const F_PRODUCT = gql`
+    fragment Fproduct on Product {
+        _id
+        createdAt
+        updatedAt
+        regionLabel
+        isDelete
+        title
+        code
+        peopleCount
+        contents
+        determined
+        endDate
+        dateRange
+        adminMemo
+        groupCode
+        region {
+            label
+            _id
+        }
+        category {
+            _id
+            label
+        }
+        bookerSummary {
+            adultCount
+            babyCount
+            kidsCount
+            completeBookCount
+            readyBookCount
+            cancelBookCount
+        }
+        status
+        itinerary {
+            ...Fitinerary
+        }
+        inOrNor
+        info
+        caution
+        images {
+            ...Ffile
+        }
+        keyWards
+        address
+        thumb {
+            uri
+        }
+        startPoint
+        maxMember
+        minMember
+        requestMemo
+        subTitle
+        adult_price
+        bookingCount
+        kids_price
+        compeltePeopleCnt
+        baby_price
+        isNotice
+        elseReq
+        isOpen
+        type
+        startDate
+        Dday
+    }
+    ${F_FILE}
+    ${F_ITINERARY}
+`
+
+export const F_PAYMENT = gql`
+    fragment Fpayment  on Payment  {
+        _id
+        createdAt
+        updatedAt
+        isDelete
+        payMethod
+        status
+        price
+        totalCancelPrice
+        cancelDate
+        isPartialCancel
+        groupCode
+        history {
+            status
+            price
+            metadata
+            createdAt
+            updatedAt
+        }
+    }
+`
+
+
+export const F_CATEGORY = gql`
+    fragment Fcategory on Category {
+        _id
+        createdAt
+        updatedAt
+        isDelete
+        label
+        type
+    }
+`
+
 
 export const F_USER = gql`
     fragment Fuser  on User  {
@@ -73,18 +201,26 @@ export const F_USER = gql`
         updatedAt
         isDelete
         email
+        manageName
+        connectionCount
         role
         brith_date
         address
         address_detail
         acceptSms
+        status
         acceptEamil
+        isDenied
         is_froreginer
         busi_contact
+        manageContact
+        resignDate
         gender
         busi_num
+        denyReason
         busi_department
-        isVerifiedPhoneNumber,
+        isVerifiedManager
+        isVerifiedPhoneNumber
         busiRegistration {
             ...Ffile
         },
@@ -94,36 +230,23 @@ export const F_USER = gql`
         account_number
         name
         bank_name
+        resignReason
+        resignReasonType
+        isResigned
         phoneNumber
-    }
-    ${F_FILE}
-`
-
-export const F_PORTFOLIO = gql`
-    fragment Fportfolio on Portfolio {
-        _id
-        createdAt
-        updatedAt
-        isDelete
-        title
-        isOpen
-        keyWards
-        summary
-        subTitle
-        contents
-        author {
-            ...Fuser
+        manageName
+        profileImg {
+            uri
         }
-        thumb {
+        guideLicense {
             ...Ffile
         }
-        pCategory {
-            _id
-            label
+        bankImg {
+            ...Ffile
         }
+        busi_department
     }
     ${F_FILE}
-    ${F_USER}
 `
 
 export const F_PAGE_INFO = gql`
@@ -153,68 +276,19 @@ export const F_PAGE = gql`
     }
 `
 
-
-
-export const F_ITINERARY = gql`
-    fragment Fitinerary on Itinerary  {
+export const F_GROUP = gql`
+    fragment Fgroup on Group {
         _id
         createdAt
         updatedAt
         isDelete
-        title
-        contents
-        images {
-            ...Ffile
+        target
+        key
+        label
+        members
+        tags {
+            key
+            value
         }
-        date
     }
-    ${F_FILE}
-`
-
-export const F_PRODUCT = gql`
-    fragment Fproduct on Product {
-        _id
-        createdAt
-        updatedAt
-        isDelete
-        title
-        code
-        contents
-        author {
-            ...Fuser
-        }
-        category {
-            _id
-            label
-        }
-        status
-        itinerary {
-            ...Fitinerary
-        }
-        inOrNor
-        info
-        caution
-        images {
-            ...Ffile
-        }
-        keyWards
-        address
-        startPoint
-        maxMember
-        minMember
-        subTitle
-        adult_price
-        bookingCount
-        kids_price
-
-        baby_price
-        isNotice
-        isOpen
-        type
-        startDate
-        Dday
-    }
-    ${F_FILE}
-    ${F_USER}
-    ${F_ITINERARY}
 `

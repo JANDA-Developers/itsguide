@@ -1,0 +1,36 @@
+.guideBadge {
+position: relative;
+display: inline-block;
+height: 31px;
+border: 2px #6c6c6c solid;
+border-radius: 100px;
+padding: 0 30px 0 49px;
+font-size: 15px;
+font-weight: 600;
+background-color: #ffffff;
+}
+
+.guideBadge__mark {
+position: absolute;
+left: -2px;
+top: -2px;
+display: inline-block;
+font-style: normal;
+font-weight: 600;
+color: #ffffff;
+font-size: 18px;
+width: 34px;
+height: 34px;
+line-height: 34px;
+border-radius: 100px;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #333;
+}
+
+.guideBadge__name {
+line-height: 31px;
+font-size: 15px;
+font-weight: 600;
+}

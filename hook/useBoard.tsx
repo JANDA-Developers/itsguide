@@ -1,6 +1,9 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
+import { IBoardOpen } from "../components/board/Write";
 import { Ffile } from "../types/api";
 import { ISet } from "../types/interface";
+import { Storage, TStoreKeys } from "../utils/Storage";
 import { Validater } from "../utils/validate";
 
 export interface IUseBoardData {
@@ -24,6 +27,7 @@ interface IUseBoardDefaultData {
     thumb: Ffile | null;
     contents: string
     loadKey: number;
+    [key: string]: any
 }
 
 
@@ -39,29 +43,26 @@ interface IBoardDataSet {
     setLoadKey: ISet<number>;
 }
 
-export interface IUseBoard {
-    loadKeyAdd: () => void;
-    defaultContent: string;
-    boardData: IUseBoardData;
-    boardSets: IBoardDataSet;
-    validater: Validater;
-    setBoardData: (data: Partial<IUseBoardData>) => void;
-    loadKey: number;
+export interface IUseBoard extends ReturnType<typeof useBoard> { }
+interface IUseBoardProps extends Partial<IUseBoardDefaultData> { }
+
+interface IboardConfig {
+    storeKey?: TStoreKeys
+    opens?: Partial<IBoardOpen>
 }
 
-interface IUseBoardProps extends Partial<IUseBoardDefaultData> {
-}
-
-export const useBoard = ({ ...defaults }: IUseBoardProps): IUseBoard => {
-    const [isOpen, setIsOpen] = useState<boolean>(defaults.isOpen || false);
+export const useBoard = ({ ...defaults }: IUseBoardProps, config: IboardConfig = {}) => {
+    const defaultOpen = defaults.isOpen === undefined ? true : !!defaults.isOpen;
+    const [isOpen, setIsOpen] = useState<boolean>(defaultOpen);
     const [title, setTitle] = useState<string>(defaults.title || "")
     const [categoryId, setCategoryId] = useState<string>(defaults.categoryId || "");
     const [subTitle, setSubTitle] = useState<string>(defaults.subTitle || "");
     const [summary, setSummary] = useState<string>(defaults.summary || "");
-    const [files, setFiles] = useState<Ffile[]>([]);
+    const [files, setFiles] = useState<Ffile[]>(defaults.files || []);
     const [thumb, setThumb] = useState<Ffile | null>(defaults.thumb || null);
     const [contents, setContents] = useState<string>(defaults.contents || "");
     const [loadKey, setLoadKey] = useState<number>(0);
+    const router = useRouter();
 
     const validater = new Validater([{
         value: title,
@@ -74,7 +75,7 @@ export const useBoard = ({ ...defaults }: IUseBoardProps): IUseBoard => {
     }, {
         value: categoryId,
         failMsg: "카테고리 값은 필수 입니다.",
-        id: "category"
+        id: "category",
     }])
 
     const boardData: IUseBoardData = {
@@ -123,9 +124,42 @@ export const useBoard = ({ ...defaults }: IUseBoardProps): IUseBoard => {
         setLoadKey(loadKey + 1);
     }
 
+    const handleTempSave = () => {
+        if (!config.storeKey) return;
+        Storage?.saveLocal(config.storeKey, boardData);
+        alert("저장 되었습니다.")
+    }
+
+    const handleCancel = () => {
+        router.back()
+    }
+
+    const handleLoad = () => {
+        if (!config.storeKey) return;
+        const saveData = Storage?.getLocalObj<IUseBoardData>(config.storeKey);
+        if (!saveData) {
+            alert("저장된 데이터가 없습니다.");
+            return;
+        }
+        setBoardData(saveData);
+    }
+
+
+
     const defaultContent = defaults.contents || "";
 
-    return { boardData, boardSets, validater, setBoardData, loadKey, loadKeyAdd, defaultContent }
+    return {
+        boardData,
+        boardSets,
+        validater,
+        setBoardData,
+        loadKey,
+        loadKeyAdd,
+        defaultContent,
+        handleCancel,
+        handleLoad,
+        handleTempSave
+    }
 }
 
 
@@ -133,7 +167,7 @@ export const saveMessage = () => {
     alert("임시 저장이 완료되었습니다. 로드시 같은 디바이스로 접근 바랍니다.")
 }
 
-export const isUnLoaded = (data: any): data is null | undefined | "" | void => {
+export const nullcehck = (data: any): data is null | undefined | "" | void => {
     if (data) return true;
     alert("저장된 데이터가 없습니다")
     return false;

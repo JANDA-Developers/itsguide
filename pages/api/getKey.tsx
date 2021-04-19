@@ -21,7 +21,6 @@
 //     }
 
 //     var s3Hash = FroalaEditor.S3.getHash(configs);
-//     console.log(s3Hash);
 
 //     res.end(JSON.stringify(s3Hash))
 // }

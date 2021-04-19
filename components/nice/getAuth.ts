@@ -1,8 +1,9 @@
-import { NICE_GET_KEY } from "./niceUtils";
+import { NICE_GET_URI } from "./niceUtils";
 import { IAuthInfo } from "./type";
 
-export const getAuth = async (amt:number):Promise<IAuthInfo> => {
-    return await fetch(NICE_GET_KEY, {
+export type TGetAUth = {data:IAuthInfo};
+export const getAuth = async (amt:number):Promise<TGetAUth> => {
+    return await fetch(NICE_GET_URI, {
         method: "post",
         mode: "cors",
         headers: {
@@ -13,9 +14,8 @@ export const getAuth = async (amt:number):Promise<IAuthInfo> => {
         }),
         referrerPolicy: 'no-referrer'
     }).then((res) =>
-        res.json() 
+        res.json()
     ).catch((e)=> {
-        alert("pay err")
         throw Error(e);
     })
 }

@@ -1,0 +1,16 @@
+.categoryEditer {}
+.categoryEditer__delete {
+}
+.categoryEditer__delete:hover {
+    filter: brightness(0.2);
+}
+.categoryEditer__cat {
+    cursor: pointer;
+}
+.categoryEditer__cat--selected {
+    color:  rgb(77, 77, 77)!important;
+    border: 1px solid!important;
+}
+.categoryEditer__cat--selected .categoryEditer__delete {
+    color:  inherit!important;
+}

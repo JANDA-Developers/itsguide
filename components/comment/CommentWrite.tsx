@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-
-export type TContentSubmit = {
-    content: string;
-    isSecret: boolean;
-}
+import dynamic from 'next/dynamic';
+import React, { useContext, useState } from 'react';
+import { AppContext } from '../../pages/_app';
+import { BG, BGprofile } from '../../types/const';
+import { LoadEditor } from '../edit/EdiotrLoading';
+const Editor = LoadEditor();
 
 interface IProp {
-    user: {}
-    onSubmit: (data: TContentSubmit) => void;
+    textarea?: boolean;
+    className?: string;
+    title: string;
+    defaultContent: string;
+    onSubmit: (content: string) => void;
 }
 
-export const CommentWrite: React.FC<IProp> = ({ onSubmit }) => {
-    const [isSecret, setIsSecret] = useState(false);
-    const [content, setContent] = useState<string>("");
+export const CommentWrite: React.FC<IProp> = ({ className, textarea, onSubmit, defaultContent, title }) => {
+    const { myProfile } = useContext(AppContext);
+    const [content, setContent] = useState<string>(defaultContent);
     const length = content.length;
 
     const validate = (): boolean => {
@@ -20,56 +23,35 @@ export const CommentWrite: React.FC<IProp> = ({ onSubmit }) => {
             alert("3000글자 까지만 적을 수 있습니다.");
             return false;
         }
-
         return true;
     }
 
-    return <div className="write_comment">
-        <div className="comment_layout">
-            <ul className="text_box">
-                <li>
-                    <div className="title">
-                        <i
-                            className="profile"
-                            style={{ backgroundImage: "url(/src/img/profile_f.png)" }}
-                        />
-                        부산아주머니
+    return <div className={`comment_box ${className}`}>
+        <div className="write_comment">
+            <div className="comment_layout">
+                <ul className="text_box">
+                    <li>
+                        <div className="title">
+                            <i
+                                className="profile"
+                                style={BGprofile(myProfile?.profileImg)}
+                            />
+                            {title}
+                        </div>
+                    </li>
+                    <li>
+                        {textarea ? <textarea onChange={(e) => { setContent(e.currentTarget.value) }} value={content} /> : <Editor onChange={setContent} data={content} />}
+                    </li>
+                    <li className="tr count">{content.length}/3000</li>
+                </ul>
+                <div className="text_box_bottom">
+                    <div className="btn_send float_right">
+                        <button onClick={() => {
+                            if (validate()) onSubmit(content)
+                        }} className="comment_btn">등록</button>{" "}
                     </div>
-                </li>
-                <li>
-                    <div className="txta w100">
-                        <textarea
-                            onChange={(e) => {
-                                const value = e.currentTarget.value
-                                setContent(value)
-                            }}
-                            value={content}
-                            style={{ height: 100 }}
-                            placeholder="모두가 함께 보는 댓글입니다."
-                            defaultValue={""}
-                        />
-                    </div>
-                </li>
-                <li className="tr count">0/3000</li>
-            </ul>
-            <div className="text_box_bottom">
-                <div className="float_left w50">
-                    <span onClick={() => {
-                        setIsSecret(!isSecret);
-                    }} className={isSecret ? `on` : undefined}>
-                        <i className="flaticon-locked" />
-                        비밀댓글
-                    </span>
-                </div>
-                <div className="btn_send float_right">
-                    <button onClick={() => {
-                        if (validate()) onSubmit({
-                            content: "",
-                            isSecret: false,
-                        })
-                    }} className="comment_btn">등록</button>{" "}
                 </div>
             </div>
         </div>
-    </div>;
+    </div>
 };

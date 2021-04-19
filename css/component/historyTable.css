@@ -1,0 +1,11 @@
+.historyTable {
+    margin-bottom: 20px;
+}
+
+#HistoryTable .historyTable__thead {
+    text-align: center!important;
+}
+
+.historyTable__head {
+    top: auto!important
+}

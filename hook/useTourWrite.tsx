@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
-import { RefObject, useRef, useState } from "react";
+import { Dispatch, RefObject, SetStateAction, useRef, useState } from "react";
 import { generateitinery, TRange } from "../components/tourWrite/helper";
-import { Ffile, ItineraryCreateInput, ProductCreateInput, ProductStatus, ProductUpdateInput } from "../types/api";
+import { Ffile, ItineraryCreateInput, productCreate, ProductCreateInput, productCreateVariables, ProductStatus, ProductType, ProductUpdateInput } from "../types/api";
 import { IproductFindById, ISet } from "../types/interface";
 import isEmpty from "../utils/isEmpty";
 import { omits } from "../utils/omit";
@@ -10,8 +10,12 @@ import { toNumber } from "../utils/toNumber";
 import { Validater } from "../utils/validate";
 import { useUpload } from "./useUpload";
 import { autoComma, deepCopy } from "../utils/formatter";
+import { useProductCreate, useProductDelete, useProductUpdate } from "./useProduct";
+import { useRouter } from "next/router";
+import { ProductTempBoard } from "../utils/Storage2";
+import { openModal } from "../utils/popUp";
 
-type SimpleTypePart = "title" | "address" | "adult_price" | "baby_price" | "kids_price" | "startPoint" | "maxMember" | "minMember" | "subTitle" | "caution" | "info" | "contents" | "inOrNor" | "isNotice"
+type SimpleTypePart = "isOpen" | "title" | "address" | "adult_price" | "baby_price" | "kids_price" | "startPoint" | "maxMember" | "minMember" | "subTitle" | "caution" | "info" | "contents" | "inOrNor" | "isNotice"
 export type TSimpleTypePart = Pick<Required<ProductCreateInput>, SimpleTypePart>
 
 export const DEFAULT_SIMPLE_TOUR_DATA: TSimpleTypePart = {
@@ -29,15 +33,18 @@ export const DEFAULT_SIMPLE_TOUR_DATA: TSimpleTypePart = {
     contents: "",
     inOrNor: "",
     isNotice: false,
+    isOpen: false
 }
 
 export interface IUseTourData {
     its: ItineraryCreateInput[];
     simpleData: TSimpleTypePart;
     categoryId: string;
+    regionId: string;
     status: ProductStatus;
     keyWards: string[];
     thumbs: Ffile[];
+    type: ProductType;
 }
 
 interface IUseTourDefaultData {
@@ -45,10 +52,12 @@ interface IUseTourDefaultData {
     categoryId: string;
     files: Ffile[]
     thumbs: Ffile[];
+    regionId: string;
     contents: string
     status: ProductStatus;
     its: ItineraryCreateInput[];
     keyWards: string[];
+    type: ProductType;
 }
 
 
@@ -60,6 +69,7 @@ interface ITourDataSet {
     setThumbs: ISet<Ffile[]>
     setkeyWards: ISet<string[]>;
     setLoadKey: ISet<number>;
+    setType: ISet<ProductType>
 }
 
 export interface IUseTour {
@@ -67,14 +77,21 @@ export interface IUseTour {
     tourData: IUseTourData;
     tourSets: ITourDataSet;
     validater: Validater;
+    setGroupCode: Dispatch<SetStateAction<string | undefined>>
     setTourData: (data: Partial<IUseTourData>) => void;
     loadKey: number;
-    firstDate: Date;
-    lastDate: Date;
+    firstDate?: Date;
+    lastDate?: Date;
+    mutations: {
+        createFn: (params: ProductCreateInput) => void;
+        updateFn: (_id: string, params: ProductUpdateInput) => void;
+        deleteFn: (id: string) => void;
+    }
     getCreateInput: () => ProductCreateInput;
     getUpdateInput: () => ProductUpdateInput;
     hiddenFileInput: RefObject<HTMLInputElement>
     handles: {
+        handleRegionChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
         handleTextData: (key: keyof TSimpleTypePart) => (data: string) => void
         handleTempSave: () => Promise<void>
         handleDateState: ({ from, to }: any) => void
@@ -92,15 +109,87 @@ export interface IUseTour {
 interface IUseTourProps extends Partial<IUseTourDefaultData> {
 }
 export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
+    const [type, setType] = useState<ProductType>(defaults.type || ProductType.TOUR)
     const [its, setits] = useState<ItineraryCreateInput[]>(deepCopy(defaults.its || []));
     const [simpleData, setSimpleData] = useState<TSimpleTypePart>(defaults.simpleData || DEFAULT_SIMPLE_TOUR_DATA)
     const [categoryId, setCategoryId] = useState<string>(defaults.categoryId || "");
-    const [status, setStatus] = useState<ProductStatus>(defaults.status || ProductStatus.CLOSE);
+    const [regionId, setRegionId] = useState<string>(defaults.regionId || "");
+    const [status, setStatus] = useState<ProductStatus>(defaults.status || ProductStatus.READY);
     const [thumbs, setThumbs] = useState<Ffile[]>(Array.from(defaults.thumbs || []))
     const [keyWards, setkeyWards] = useState<string[]>(Array.from(defaults.keyWards || []));
     const [loadKey, setLoadKey] = useState<number>(0);
+    const [groupCode, setGroupCode] = useState<string>();
     const hiddenFileInput = useRef<HTMLInputElement>(null);
     const { signleUpload } = useUpload();
+    const router = useRouter();
+
+    const [productDelete] = useProductDelete({
+        onCompleted: ({
+            ProductDelete
+        }) => {
+            if (ProductDelete.ok) {
+                alert("상품이 삭제되었습니다.")
+                router.push("/tour/list")
+            }
+        }
+    })
+
+    const [productUpdate, { loading: updateLoading }] = useProductUpdate({
+        onCompleted: ({ ProductUpdate }) => {
+            if (ProductUpdate.ok) {
+                alert("상품이 업데이트 되었습니다.")
+                router.push(`/tour/view/${ProductUpdate?.data?._id}`)
+            }
+        }
+    })
+
+    const [ProductCreateMu, { loading: createLoading }] = useProductCreate({
+        onCompleted: ({ ProductCreate }) => {
+            if (ProductCreate.ok) {
+                alert("상품이 생성되었습니다.")
+                router.push(`/tour/view/${ProductCreate!.data!._id}`)
+            }
+        }
+    })
+
+    const createFn = (params: ProductCreateInput) => {
+        if (createLoading) return;
+        ProductCreateMu({
+            variables: {
+                params,
+                groupCode
+            },
+        })
+    }
+
+    const updateFn = (_id: string, params: ProductUpdateInput) => {
+        if (updateLoading) return;
+        productUpdate({
+            variables: {
+                _id,
+                params: {
+                    ...params,
+                },
+                reason: ""
+            }
+        })
+    }
+
+    const deleteFn = (id: string) => {
+        if (confirm("정말로 상품을 삭제 하시겠습니가?"))
+            productDelete({
+                variables: {
+                    id
+                }
+            })
+    }
+
+    const mutations = {
+        createFn,
+        updateFn,
+        deleteFn
+    }
+
 
     const validater = new Validater([{
         value: thumbs?.[0]?.uri,
@@ -111,21 +200,50 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         failMsg: "제목값은 필수 입니다.",
         id: "title"
     }, {
+        value: simpleData.address,
+        failMsg: "주소값은 필수 입니다.",
+        id: "address"
+    }, {
+        value: simpleData.startPoint,
+        failMsg: "출발지값은 필수 입니다.",
+        id: "startPoint"
+    }, {
         value: simpleData.contents,
-        failMsg: "안내 및값은 필수 입니다.",
+        failMsg: "안내 및 참고를 입력 해주세요.",
+        failFn: () => {
+            document.getElementById("tap2")?.click();
+        },
         id: "content",
     },
     {
         value: simpleData.inOrNor,
-        failMsg: "포함 미포함 값은 필수 입니다.",
+        failMsg: "포함 및 불포함 내용을 입력 해주세요.",
+        failFn: () => {
+            document.getElementById("tap3")?.click()
+        },
         id: "inOrNor"
+    },
+    {
+        value: simpleData.caution && simpleData.info,
+        failMsg: "유의사항 및 안내문 내용을 입력 해주세요.",
+        failFn: () => {
+            document.getElementById("tap4")?.click()
+        },
+        id: "info"
     }, {
         value: categoryId,
         failMsg: "카테고리 값은 필수 입니다.",
         id: "category"
     }, {
+        value: regionId,
+        failMsg: "지역을 선택 해주세요",
+        id: "RegionId",
+    }, {
         value: !isEmpty(its),
         failMsg: "여행일정은 필수 입니다.",
+        failFn: () => {
+            document.getElementById("tap1")?.click();
+        },
         id: "itinerary"
     }, {
         value: !isEmpty(keyWards),
@@ -133,10 +251,16 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         id: "keywards"
     },
     {
+        value: !isEmpty(type),
+        failMsg: "상품타입 값은 필수 입니다.",
+        id: "type"
+    },
+    {
         value: !its.find(it => Boolean(it.title) === false),
         failMsg: "일정 타이틀 값은 필수 입니다.",
         failFn: () => {
-            $('.texta_title .input_01').filter(function () {
+            document.getElementById("tap01")?.click();
+            $('.taptitle .input_01').filter(function () {
                 return !(this as HTMLInputElement).value;
             }).focus()
         }
@@ -145,11 +269,13 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
 
     const tourData: IUseTourData = {
         categoryId,
+        regionId,
         its,
         keyWards,
+        type,
         simpleData,
         status,
-        thumbs
+        thumbs,
     }
     const {
         address,
@@ -165,7 +291,8 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         minMember,
         startPoint,
         subTitle,
-        title
+        title,
+        isOpen,
     } = simpleData;
 
     const tourSets: ITourDataSet = {
@@ -175,14 +302,14 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         setSimpleData,
         setStatus,
         setThumbs,
-        setits
+        setits,
+        setType
     }
 
     const getCreateInput = (): ProductCreateInput => {
         const createData: ProductCreateInput = {
             categoryId,
             keyWards,
-            status,
             address,
             adult_price: toNumber(adult_price),
             baby_price: toNumber(baby_price),
@@ -194,12 +321,14 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
             images: thumbs,
             inOrNor,
             info,
+            regionId,
             itinerary: its,
             startPoint,
             title,
             isNotice,
-            isOpen: true,
+            isOpen,
             subTitle,
+            type
         }
         return omits(createData);
     }
@@ -232,7 +361,6 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         setThumbs([...thumbs])
     }
 
-
     const setTourData = (data: Partial<IUseTourData>) => {
         if (data.categoryId)
             setCategoryId(data.categoryId)
@@ -244,6 +372,18 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
             setStatus(data.status)
         if (data.thumbs)
             setThumbs(data.thumbs)
+        if (data.type)
+            setType(data.type)
+        if (data.keyWards)
+            setkeyWards(data.keyWards)
+        if (data.regionId)
+            setRegionId(data.regionId)
+
+    }
+
+    const handleRegionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const nextRegion = e.currentTarget.value
+        setRegionId(nextRegion)
     }
 
 
@@ -259,22 +399,33 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
 
 
     const handleTempSave = async () => {
+        ProductTempBoard.addItem({
+            ...tourData
+        })
+        loadKeyAdd();
         Storage!.saveLocal("write", tourData);
         alert("저장완료");
     }
 
     const handleLoad = () => {
         const savedData = Storage!.getLocalObj<IUseTourData>("write", undefined);
-        if (!savedData) {
-            alert("저장된 정보가 없습니다.");
-            return;
-        }
-        setTourData(savedData);
-        alert("로드완료");
+        // if (!savedData) {
+        //     alert("저장된 정보가 없습니다.");
+        //     return;
+        // }
+        // setTourData(savedData);
+        // alert("로드완료");
+        openModal("#LocalStorageBoard")();
     }
 
 
     const handleDateState = ({ from, to }: TRange) => {
+
+        if (!from && !to && its.length) {
+            if (!confirm("출발 날짜를 변경하시면 입력하신 일정 정보가 초기화 됩니다. 변경을 진행 하시겠습니까?")) {
+                return;
+            }
+        }
         const newItinerary = generateitinery({ from, to }, its);
         if (newItinerary)
             setits([...newItinerary]);
@@ -315,23 +466,26 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         tourSets,
         validater,
         setTourData,
+        setGroupCode,
         firstDate,
         hiddenFileInput,
         getCreateInput,
         getUpdateInput,
         lastDate,
+        mutations,
         handles: {
             handleLoad,
             handleTextData,
             handleTempSave,
             handleInputChange,
+            handleRegionChange,
             handleCatChange,
             handleChangeStatus,
             handleUploadClick,
             handleChangeSumbNail,
             handleClearThumb,
             handleDateState,
-            handleInputCommaChange
+            handleInputCommaChange,
         }
     }
 }
@@ -358,7 +512,9 @@ export const getDefault = (product: IproductFindById | undefined): Partial<IUseT
         startPoint,
         status,
         subTitle,
+        region,
         title,
+        isOpen
     } = product;
 
     const simpleData: TSimpleTypePart = {
@@ -376,16 +532,18 @@ export const getDefault = (product: IproductFindById | undefined): Partial<IUseT
         startPoint,
         subTitle,
         title,
+        isOpen
     }
 
     return {
         categoryId: category?._id,
         contents,
         its,
+        regionId: region?._id || "",
         keyWards: keyWards || [],
         simpleData,
         status,
-        thumbs
+        thumbs: thumbs || [],
     }
 
 }

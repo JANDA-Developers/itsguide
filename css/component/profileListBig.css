@@ -1,0 +1,168 @@
+.profileListBig {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    border-right: 1px #ececec solid;
+    border-left: 1px #ececec solid;
+    overflow: hidden;
+}
+
+
+.profileListBig__photo {
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    text-align: center;
+    box-sizing: border-box;
+    vertical-align: top;
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 150px;
+    overflow: hidden;
+    cursor: pointer;
+    text-indent: -999px;
+    margin-bottom: 15px;
+    border: 2px solid #dfdfdf;
+}
+
+.profileListBig__toName {
+    position: relative;
+    display: inline-block;
+    line-height: 31px;
+    border: 2px #6c6c6c solid;
+    border-radius: 100px;
+    padding: 0 15px 0 38px;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #ffffff;
+    cursor: pointer;
+    white-space: nowrap;
+    max-width: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profileListBig__G {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 18px;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 100px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileListBig__toGuide {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 100px;
+    background-color: #777777;
+    background-image: url(/its/icon_home_w.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 42%;
+    vertical-align: bottom;
+    margin-right: 3px;
+}
+
+.profileListBig__titleWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileListBig__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.profileListBig__cell--selected .profileListBig__photo {
+    box-shadow: 3px 2px 5px 0px #82828273;
+    border: 2px solid #039ce0;
+}
+.profileListBig__cell--selected .profileListBig__toGuide {
+    background-color: #039ce0;
+}
+.profileListBig__cell--selected .profileListBig__G {
+    background-color: #039ce0;
+}
+.profileListBig__cell--selected .profileListBig__toName {
+    color: #039ce0;
+    border: 2px #039ce0 solid;
+}
+
+
+.profileListBig__arrows {
+    background-color: white;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 39px;
+    line-height: 275px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    color: #d9d9d9;    
+    position: absolute;
+    z-index: 1;
+    font-size: 4em;
+    top: 0;
+    bottom: 0;
+}
+
+.profileListBig__arrows.slick-prev  {
+    border-right: 1px solid;
+    left: 0;
+}
+
+.profileListBig__arrows.slick-next  {
+    border-left: 1px solid;
+    right: 0;
+}
+.profileListBig .slick-list {
+    padding: 40px;
+}
+
+@media (max-width: 767px) {
+    .profileListBig__photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profileListBig__toName {
+        padding: 0 7px 0 24px;
+        font-size: 11px;
+        line-height: 21px;
+    }
+
+    .profileListBig__toGuide {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        background-size: 52%;
+    }
+
+    .profileListBig__G {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+    }
+}
+

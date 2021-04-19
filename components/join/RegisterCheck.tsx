@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
-import { registerChkWarning, policyChkWarning, emptyAllow } from './helper';
-import { useMutation } from '@apollo/client';
-import { signUp, signUpVariables, UserRole } from '../../types/api';
-import { isEmail, isPhone, isPassword } from 'utils/validation';
-import { TFormNormal } from "./FormNormal";
-import { TFormPartnetCor } from "./FormPartnerCor";
-import { TFormPartnerNormal } from "./FormPartnerNormal";
-import { SIGN_UP } from '../../apollo/gql/mutations';
+import React, { useContext, useState } from 'react'
+import { AddUserInput, ERR_CODE, UserRole } from '../../types/api';
+import { isEmail, isPhone, isPassword, isName } from 'utils/validation';
+import { useSignUp } from '../../hook/useUser';
+import { Validater } from '../../utils/validate';
+import { JoinContext } from '../../pages/member/join';
+import { openModal } from '../../utils/popUp';
+import { ISignUpInput } from '../../hook/useJoin';
+import { omits } from '../../utils/omit';
+import { Modal } from '../modal/Modal';
+import { Policy } from '../policy/PriviacyPolicy';
 
 type TSMS = {
   sns: true,
@@ -24,20 +26,26 @@ export type TPolicyChk = {
 }
 
 interface IProps {
-  openPopup: (element: string | null) => void;
-  handleJoinProcess: (errTarget: any) => void;
-  registerInfo: any;
-  registerSort?: string;
-  handleErrDisplay: (errTarget: any) => void;
+  registerInfo: ISignUpInput;
 }
 
-const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registerInfo, registerSort }) => {
+const RegisterCheck: React.FC<IProps> = ({ registerInfo }) => {
 
-  const [productCreateMu, { loading: create_loading }] = useMutation<signUp, signUpVariables>(SIGN_UP, {
-    onCompleted: () => {
-      console.log('result');
-      /* 최종 Post Values */
-      handleJoinProcess('registered');
+  const { userType, setJoinProcess, verifiData } = useContext(JoinContext)!;
+
+  const { _id: verificationId } = verifiData!;
+
+
+  const [signUpMu] = useSignUp({
+    onCompleted: ({ SignUp }) => {
+      if (SignUp.ok) {
+        alert("회원가입 완료")
+        setJoinProcess('registered');
+      } else {
+        if (SignUp.error?.code === ERR_CODE.ALEADY_SAME_DATA) {
+          alert("이미 가입된 회원입니다.");
+        }
+      }
     }
   });
 
@@ -56,19 +64,9 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
     policy_info_3rd: false
   });
 
-  const [chkPolocyOptional, setChkPolicyOptional] = useState({
-    policy_use: false,
-    policy_info_collect: false,
-    policy_info_entrust: false,
-    policy_traveler: false,
-    policy_partner: false,
-    policy_marketing: false,
-    policy_info_3rd: true
-  });
+  const optional: (keyof typeof chkPolocy)[] = ["policy_info_3rd"]
 
   const [chkAll, setChkAll] = useState(false);
-
-  const [validateOK, setValidateOK] = useState();
 
   const handleSMSAgree = (smsTarget: keyof TSMS) => {
 
@@ -80,9 +78,26 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
 
   }
 
-  const handleAgreeAll = (chkState: boolean) => {
 
-    if (!chkAll) {
+  const isCheckAll = () => {
+    let chkAll = true;
+    let policy: keyof TPolicyChk;
+
+
+    for (policy in chkPolocy) {
+      const check = chkPolocy[policy];
+      if (!check && optional.includes(policy)) {
+        chkAll = false;
+        break;
+      }
+    }
+
+    return chkAll
+  }
+
+  const handleAgreeAll = () => {
+
+    if (!isCheckAll()) {
       setChkAll(true);
       let policy: keyof TPolicyChk;
       let agreeAll = chkPolocy;
@@ -105,210 +120,95 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
     setChkPolicy({
       ...agreeNewState
     })
-
-  }
-
-  const removeSpace = (trimTarget) => {
-    return trimTarget.replace(/\s/g, '');
-  }
-
-  const regExpPhone = (testTarget) => {
-    const regPhone = new RegExp(/^[0-9]+$/g);
-    return regPhone.test(removeSpace(testTarget));
-  }
-
-  const validateCommon = () => {
-
-    const regPhone = new RegExp(/^[0-9]+$/g);
-    const phoneTest = regPhone.test(registerInfo.contact);
-
-    if (registerInfo.password != registerInfo.passwordChk) {
-      alert('비밀번호 확인란에 기입하신 정보가 비밀번호와 다릅니다');
-      return false;
-    }
-
-    if (!isEmail(registerInfo.email)) {
-      alert('올바른 이메일을 사용해 주십시요');
-      return false;
-    }
-
-    if (!isPassword(registerInfo.password)) {
-      alert('비밀번호는 특수문자 1개이상 및 숫자가 포함된 7~15 자리의 영문 숫자 조합이여야 합니다');
-      return false;
-    }
-
-    if (!regExpPhone(registerInfo.contact)) {
-      alert('연락처란에는 숫자만 기입해 주십시요');
-      return false;
-    }
-
-
-    return true;
-
   }
 
 
-  const validateNormal = () => {
 
-    if (validateCommon()) {
 
-      const regName = new RegExp(/^[가-힣 ]+$/);
-      const nameTest = regName.test(registerInfo.name);
-
-      if (!nameTest) {
-        alert('이름은 한글로 입력해 주십시요');
-        return false;
-      }
-
-      if (registerInfo.name.length < registerInfo.nameLeng) {
-        alert(`이름은 ${registerInfo.nameLeng} 글자 이상이여야 합니다`);
-        return false;
-      }
-
-      if (!isPhone(registerInfo.contact)) {
-        alert('올바른 휴대폰 번호를 사용해 주십시요');
-        return false;
-      }
-
-      handleRegister();
-
-    }
-
+  if (userType === UserRole.partnerB) {
+    //네이밍 얼라이어스
+    registerInfo.phoneNumber = registerInfo.manageContact || "";
   }
 
-  const validatePartnerCor = () => {
+  const { nodes: sharedValidate } = new Validater([{
+    value: verificationId,
+    failMsg: "이메일 인증을 받아주세요.",
+  }, {
+    value: registerInfo.pw === registerInfo.pwcheck,
+    failMsg: "비밀번호가 일치하지 않습니다.",
+  }, {
+    value: isPassword(registerInfo.pw || ""),
+    failMsg: "비밀번호는 특수문자 1개이상 및 숫자가 포함된 7~15 자리의 영문 숫자 조합이여야 합니다",
+  }, {
+    value: isCheckAll,
+    failMsg: "동의 항목에 모두 체크 해주세요."
+  },
+  {
+    value: registerInfo.address,
+    failMsg: "주소값을 입력 해주세요."
+  },
+  {
+    value: registerInfo.address_detail,
+    failMsg: "상세 주소값을 입력 해주세요.",
+    id: "AddressInput"
+  },
+  ])
 
-    if (validateCommon()) {
+  const { validate: normalValidate } = new Validater([
+    {
+      value: isName(registerInfo.name || ""),
+      failMsg: "이름 값이 올바르지 않습니다.",
+      id: "NameInput"
+    },
+    {
+      value: isPhone(registerInfo.phoneNumber || ""),
+      failMsg: "올바른 핸드폰 번호가 아닙니다.",
+      id: "PhoneNumberInput"
+    },
+    ...sharedValidate
+  ])
 
-      if (!regExpPhone(registerInfo.incharge_number)) {
-        alert('담당자 연락처에는 숫자만 기입해 주십시요');
-        return false;
-      }
+  const { validate: partnerValidate } = new Validater([
+    {
+      value: isName(registerInfo.name || ""),
+      failMsg: "이름 값이 올바르지 않습니다."
+    },
+    ...sharedValidate
+  ])
 
-      handleRegister();
+  const { validate: BpartnerValidate } = new Validater([
+    ...sharedValidate
+  ])
 
+
+  const validate = (): boolean => {
+    switch (userType) {
+      case UserRole.individual:
+        return normalValidate();
+
+      case UserRole.partner:
+        return partnerValidate();
+
+      case UserRole.partnerB:
+        return BpartnerValidate();
+        break;
     }
-
+    return false;
   }
 
-  const validatePartnerNormal = () => {
 
-    if (validateCommon()) {
-
-      handleRegister();
-
-    }
-
-  }
-
-
-  const validateEmptyChk = () => {
-
-    let registerData;
-
-    for (registerData in registerInfo) {
-
-      let chkEmpty = registerInfo[registerData];
-
-      if (typeof chkEmpty != "boolean") {
-
-        if (emptyAllow[registerData] === undefined) {
-
-          chkEmpty.trim();
-          if (chkEmpty.length <= 0) {
-            alert(`${registerChkWarning[registerData]}란에 정보를 입력해주세요.`);
-            document.getElementsByName(registerData)[0].focus();
-            return false;
-          }
-
-        }
-
-      }
-
-    }
-    return true;
-
-  }
-
-  const handleValidateInit = (validateTarget?: string) => {
-
-
-    if (validateEmptyChk()) {
-
-      alert('Input Validation start');
-      switch (validateTarget) {
-        case 'normal':
-          validateNormal();
-          break;
-
-        case 'partnerCor':
-          validatePartnerCor();
-          break;
-
-        case 'partnerNormal':
-          validatePartnerNormal();
-          break;
-      }
-
-    }
-
-  }
 
   const handleRegister = () => {
-
-    let chkAll = true;
-    let policy: keyof TPolicyChk;
-
-    for (policy in chkPolocy) {
-      if (!chkPolocy[policy] && !chkPolocyOptional[policy]) {
-        chkAll = false;
-        alert(`${policyChkWarning[policy]} 에 동의 해주십시요`);
-        break;
+    const validatedData: AddUserInput = omits(registerInfo, ["pwcheck"]) as any
+    signUpMu({
+      variables: {
+        params: {
+          ...validatedData,
+          role: userType
+        },
+        verificationId: verificationId!
       }
-    }
-
-    if (chkAll) {
-
-      alert('Validation end');
-
-      console.log(registerInfo);
-
-      // const { address,
-      //   address_detail,
-      //   birthday,
-      //   contact,
-      //   email,
-      //   gender,
-      //   isKorean,
-      //   name,
-      //   password,
-      //   register_sort
-      // } = registerInfo;
-
-      // productCreateMu({
-      //   variables: {
-      //     data: {
-      //       email,
-      //       pw: password,
-      //       is_froreginer: isKorean,
-      //       role: UserRole.anonymous,
-      //       bank_name: "",
-      //       account_number: "",
-      //       address: address,
-      //       brith_date: birthday,
-      //       bsui_address: address,
-      //       busi_contact: contact,
-      //       busi_name: name,
-      //       busi_num: "",
-      //       gender,
-      //       is_priv_corper: isKorean,
-
-      //     }
-      //   }
-      // })
-
-    }
-
+    })
   }
 
   return (
@@ -369,10 +269,7 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
           </div>
         </div>
         <div className="agreeChk mb10">
-          <input type="checkbox" className="checkbox" onChange={() => {
-            handleAgreeAll(!chkAll)
-          }
-          } />
+          <input checked={chkAll} type="checkbox" className="checkbox" onChange={handleAgreeAll} />
           <span>모두 동의합니다</span>
         </div>
         <div className="agreeChk_list">
@@ -382,19 +279,17 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
               <div className="in_box1">
                 <input type="checkbox" className="checkbox"
                   checked={chkPolocy.policy_use}
-                  onClick={() => { handlePolicy('policy_use') }} />
+                  onChange={() => { handlePolicy('policy_use') }} />
                 <span>
                   <strong>이용약관 동의</strong>[필수]
                   </span>
               </div>
               <div className="in_box2">
                 <a
-                  onClick={() => {
-                    openPopup('Popup01');
-                  }}
+                  onClick={openModal('#UsePolicy')}
                 >
                   전문보기 &gt;
-                  </a>
+                </a>
               </div>
             </li>
             <li>
@@ -405,14 +300,11 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
                   onClick={() => { handlePolicy('policy_info_collect') }} />
                 <span>
                   <strong>개인정보 수집 및 이용 동의</strong>[필수]
-                  </span>
+                </span>
               </div>
               <div className="in_box2">
                 <a
-                  href="#"
-                  onClick={() => {
-                    openPopup('Popup02');
-                  }}
+                  onClick={openModal('#PrivacyPolicy')}
                 >
                   전문보기 &gt;
                   </a>
@@ -430,10 +322,7 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
               </div>
               <div className="in_box2">
                 <a
-                  href="#"
-                  onClick={() => {
-                    openPopup('Popup03');
-                  }}
+                  onClick={openModal('#PrivacyConsignmentPolicy')}
                 >
                   전문보기 &gt;
                   </a>
@@ -451,31 +340,25 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
               </div>
               <div className="in_box2">
                 <a
-                  href="#"
-                  onClick={() => {
-                    openPopup('Popup04');
-                  }}
+                  onClick={openModal('#TravelerPolicy')}
                 >
                   전문보기 &gt;
                   </a>
               </div>
             </li>
             <li>
-              {/* 기업파트너/개인파트너 */}
+              {/* 가이드/가이드 */}
               <div className="in_box1">
                 <input type="checkbox" className="checkbox"
                   checked={chkPolocy.policy_partner}
                   onClick={() => { handlePolicy('policy_partner') }} />
                 <span>
-                  <strong>파트너약관</strong>[필수]
+                  <strong>가이드약관</strong>[필수]
                   </span>
               </div>
               <div className="in_box2">
                 <a
-                  href="#"
-                  onClick={() => {
-                    openPopup('Popup07');
-                  }}
+                  onClick={openModal('#PartnerPolicy')}
                 >
                   전문보기 &gt;
                   </a>
@@ -493,10 +376,7 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
               </div>
               <div className="in_box2">
                 <a
-                  href="#"
-                  onClick={() => {
-                    openPopup('Popup06');
-                  }}
+                  onClick={openModal('#MarketingPolicy')}
                 >
                   전문보기 &gt;
                   </a>
@@ -514,10 +394,7 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
               </div>
               <div className="in_box2">
                 <a
-                  href="#"
-                  onClick={() => {
-                    openPopup('Popup05');
-                  }}
+                  onClick={openModal('#ThirdPolicy')}
                 >
                   전문보기 &gt;
                   </a>
@@ -526,11 +403,40 @@ const RegisterCheck: React.FC<IProps> = ({ openPopup, handleJoinProcess, registe
           </ul>
         </div>
       </div>
+      <Modal id="UsePolicy" title="이용약관 동의">
+        <Policy type="usePolicy" />
+      </Modal>
+
+      <Modal id="PrivacyPolicy" title="개인정보 수집 및 이용 동의">
+        <Policy type="PrivacyPolicy" />
+      </Modal>
+
+      <Modal id="TravelerPolicy" title="여행자약관">
+        <Policy type="travelerPolicy" />
+      </Modal>
+
+      <Modal id="PartnerPolicy" title="가이드약관">
+        <Policy type="partnerPolicy" />
+      </Modal>
+
+      <Modal id="MarketingPolicy" title="마케팅정보 수신동의">
+        <Policy type="marketingPolic" />
+      </Modal>
+
+      <Modal id="MarketingPolicy" title="가이드 약관">
+        <Policy type="partnerBpolicy" />
+      </Modal>
+
+      <Modal id="ThirdPolicy" title="개인정보 제3자 제공">
+        <Policy type="thirdPolicy" />
+      </Modal>
       <div className="fin">
-        <a href="/" className="cancel btn">취소</a>
-        <button type="submit" className="sum btn"
+        <a href="/" className="joinWrapBtn cancel btn">취소</a>
+        <button className="joinWrapBtn sum btn"
           onClick={() => {
-            handleValidateInit(registerSort);
+            if (validate()) {
+              handleRegister()
+            }
           }}>등록</button>
       </div>
     </>

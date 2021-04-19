@@ -1,23 +1,28 @@
 import dynamic from "next/dynamic";
 import { useContext } from "react";
-import { Ffile } from "types/api"
+import { Ffile, Fuser } from "types/api"
 import { TElements } from "types/interface";
 import React from "react";
 import { useUpload } from "hook/useUpload";
 import { IUseBoard } from "hook/useBoard";
 import { AppContext } from "../../pages/_app";
-const Editor = dynamic(() => import("components/edit/CKE2"), { ssr: false });
-interface IOpen {
+import { LoadEditor } from "../edit/EdiotrLoading";
+const Editor = LoadEditor();
+
+export interface IBoardOpen {
     title: boolean
     subTitle: boolean;
     category: boolean;
     files: boolean;
     summary: boolean;
     thumb: boolean;
+    open: boolean;
 }
 
-type TCategory = { _id: string, label: string };
+export type TCategory = { _id: string, label: string };
 interface IProps {
+    useTextarea?: boolean;
+    className?: string;
     boardHook: IUseBoard
     categoryList?: TCategory[]
     WriteInjection?: TElements;
@@ -28,11 +33,15 @@ interface IProps {
     onCreate?: () => void;
     onLoad?: () => void;
     onCancel?: () => void;
-    opens: Partial<IOpen>
+    opens: Partial<IBoardOpen>;
+    author?: Fuser
 }
 
 export const BoardWrite: React.FC<IProps> = ({
+    author,
+    className,
     boardHook,
+    useTextarea,
     categoryList,
     opens,
     mode,
@@ -45,12 +54,12 @@ export const BoardWrite: React.FC<IProps> = ({
     onSave: handleSave
 }) => {
     const { myProfile } = useContext(AppContext);
-    const email = myProfile?.email || "";
+    const name = author?.nickName || "";
     const isCreateMode = mode === "create";
     const { signleUpload } = useUpload();
     const { boardData, boardSets } = boardHook;
-    const { categoryId, isOpen, subTitle, summary, thumb, title, contents } = boardData;
-    const { setCategoryId, setContents, setIsOpen, setSummary, setThumb, setTitle, setSubTitle } = boardSets;
+    const { categoryId, isOpen, subTitle, summary, thumb, title, contents, files } = boardData;
+    const { setCategoryId, setContents, setIsOpen, setSummary, setThumb, setTitle, setFiles, setSubTitle } = boardSets;
     const hiddenFileInput = React.useRef<HTMLInputElement>(null);
 
 
@@ -64,11 +73,30 @@ export const BoardWrite: React.FC<IProps> = ({
     }
 
     const handleAddFile = () => {
+        hiddenFileInput.current?.click();
     }
 
     const handleUploadClick = () => {
         hiddenFileInput.current?.click();
     }
+
+    const handleClearFile = (index: number) => () => {
+        files.splice(index, 1);
+        setFiles([...files])
+    }
+
+
+    const handleChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files) return;
+        const fileUploaded = event.target.files;
+        const onUpload = (_: string, data: Ffile) => {
+            files.push(data);
+            setFiles([...files]);
+        }
+
+        signleUpload(fileUploaded, onUpload);
+        // data.images[FILE_SELECT_INDEX] = fileUploaded;
+    };
 
     const handleChangeSumbNail = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (!event.target.files) return;
@@ -82,31 +110,32 @@ export const BoardWrite: React.FC<IProps> = ({
     };
 
     return (
-        <div className="writing_in w100 board_write">
+        <div className={`writing_in w100 board_write ${className}`}>
             <div className="w1200">
                 <div className="write_box">
-                    {opens.category && <div className="write_type">
-                        <div className="title">카테고리</div>
-                        <div className="input_form">
-                            <span id="category" className="category r3">
-                                <select onChange={handleCatChange} value={categoryId} name="category_srl">
-                                    <option value={""} >
-                                        선택없음
+                    {
+                        opens.category && <div className="write_type">
+                            <div className="title">카테고리</div>
+                            <div className="input_form">
+                                <span id="category" className="category r3">
+                                    <select className="" onChange={handleCatChange} value={categoryId} name="category_srl">
+                                        <option value={""} >
+                                            선택없음
                                     </option>
-                                    {categoryList?.map(cat =>
-                                        <option value={cat._id} key={cat._id}>
-                                            {cat.label}
-                                        </option>
-                                    )}
-                                </select>
-                            </span>
+                                        {categoryList?.map(cat =>
+                                            <option value={cat._id} key={cat._id}>
+                                                {cat.label}
+                                            </option>
+                                        )}
+                                    </select>
+                                </span>
+                            </div>
                         </div>
-                    </div>
                     }
                     <div className="write_type">
                         <div className="title">작성자</div>
                         <div className="input_form">
-                            <input readOnly value={email} type="text" name="title" className="inputText w50 fix" />{/* 자동출력 고정 */}
+                            <input readOnly value={name} type="text" name="title" className="inputText w50 fix" />{/* 자동출력 고정 */}
                         </div>
                     </div>
                     <div className="write_type">
@@ -152,15 +181,17 @@ export const BoardWrite: React.FC<IProps> = ({
                             </div>
                         </div>
                     }
-                    <div className="write_type">
-                        <div className="title">글 설정</div>
-                        <div className="input_form">
-                            <ul>
-                                <li><input onChange={handleChangeOpen} type="radio" name="status" id="status-open" value={"true"} checked={isOpen} className="radio" /><label htmlFor="status-open">공개</label></li>
-                                <li><input onChange={handleChangeOpen} type="radio" name="status" id="status-sold" value={"false"} checked={!isOpen} className="radio" /><label htmlFor="status-sold">비공개</label></li>
-                            </ul>
+                    {opens.open &&
+                        <div className="write_type">
+                            <div className="title">글 설정</div>
+                            <div className="input_form">
+                                <ul>
+                                    <li><input onChange={handleChangeOpen} type="radio" name="status" id="status-open" value={"true"} checked={isOpen} className="radio" /><label htmlFor="status-open">공개</label></li>
+                                    <li><input onChange={handleChangeOpen} type="radio" name="status" id="status-sold" value={"false"} checked={!isOpen} className="radio" /><label htmlFor="status-sold">비공개</label></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    }
                     {WriteInjection}
                 </div>
                 {/* 첨부파일 */}
@@ -170,8 +201,12 @@ export const BoardWrite: React.FC<IProps> = ({
                             <div className="title">첨부파일</div>
                             <div className="img_box_add">
                                 <ul className="img_add">
-                                    <li onClick={handleAddFile}>파일추가<i className="flaticon-add icon_plus" /></li>
+                                    {files.map((file, i) =>
+                                        <li key={i + "thumb"} className="on_file">{file.name}<i onClick={handleClearFile(i)} className="flaticon-multiply icon_x"></i></li>
+                                    )}
+                                    {files.length < 6 && <li onClick={handleAddFile}>파일추가<i className="flaticon-add icon_plus" /></li>}
                                 </ul>
+                                <input onChange={handleChangeFile} multiple={false} ref={hiddenFileInput} hidden type="file" />
                                 <p className="input_form info_txt">- 20MB 제한이 있습니다.</p>
                             </div>
                         </div>
@@ -179,9 +214,13 @@ export const BoardWrite: React.FC<IProps> = ({
                 }
                 {/* 내용 */}
                 <div className="write_con">
-                    <Editor onChange={(data: any) => {
+                    {useTextarea && <textarea onChange={(e) => {
+                        const val = e.currentTarget.value;
+                        setContents(val);
+                    }} value={contents} className="board_write__textarea" />}
+                    {useTextarea || <Editor onChange={(data: any) => {
                         setContents(data);
-                    }} data={contents} />
+                    }} data={contents} />}
                 </div>
 
                 {/* 하단메뉴 */}
@@ -193,12 +232,12 @@ export const BoardWrite: React.FC<IProps> = ({
                     <div className="float_right">
                         {isCreateMode || <button onClick={handleEdit} type="submit" className="btn medium pointcolor">수정</button>}
                         {isCreateMode && <button onClick={handleCreate} type="submit" className="btn medium pointcolor">등록</button>}
-                        <button onClick={handleCancel} type="button" className="btn medium impact">취소</button>
+                        <button onClick={handleCancel} type="button" className=" btn medium impact">취소</button>
                         <button onClick={handleDelete} type="submit" className="btn medium">삭제</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

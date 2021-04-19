@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import React, { useEffect, useLayoutEffect } from "react";
 
@@ -26,6 +25,7 @@ export interface INiceElementProp {
     // yyyymmddhhmmss
     EdiDate: string;
     endPoint: string;
+    ReqReserved?: string;
 }
 
 const NiceElments: React.FC<INiceElementProp> = ({
@@ -40,6 +40,7 @@ const NiceElments: React.FC<INiceElementProp> = ({
     logo,
     Moid,
     PayMethod,
+    isAuth,
     ReturnURL,
     VbankExpDate,
     WapUrl,
@@ -47,6 +48,7 @@ const NiceElments: React.FC<INiceElementProp> = ({
     sid,
     EdiDate,
     endPoint,
+    ReqReserved
 }) => {
 
     useEffect(() => {
@@ -57,6 +59,9 @@ const NiceElments: React.FC<INiceElementProp> = ({
         <div
             style={{
                 display: "none",
+            }}
+            onSubmit={(e) => {
+                // alert(e.currentTarget)
             }}
         >
             <Head>
@@ -149,8 +154,7 @@ const NiceElments: React.FC<INiceElementProp> = ({
                 <input
                     id="ReqReserved"
                     name="ReqReserved"
-                    onChange={() => { }}
-                    value=""
+                    value={ReqReserved}
                 />{" "}
                 <input name="ReturnURL" onChange={() => { }} value={ReturnURL} />
                 <input type="hidden" name="AcsNoIframe" onChange={() => { }} value="Y" />

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\its-guide-server"
+		}
+	],
+	"settings": {
+		"workbench.colorTheme": "BeardedTheme Vivid"
+	}
+}

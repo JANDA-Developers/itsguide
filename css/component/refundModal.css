@@ -1,0 +1,39 @@
+.refundModal {
+
+
+
+}
+
+.refundModal__input {
+    border-radius: 3px;
+    height: 34px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border: 1px solid #d2d2d2;
+    font-weight: 100;
+}
+
+.refundModal__inputWrap {
+
+}
+
+.refundModal__inputBox {
+    margin-bottom: 10px;
+}
+
+.refundModal__textarea {
+    border: none!important;
+    resize: none;
+    height: 80px!important;
+    padding: 0px!important;
+}
+
+.refundModal .page {
+    padding-right: 0px!important;
+}
+
+
+
+.refundModal__inputBoxLabel {
+    margin-right: 5px;
+}

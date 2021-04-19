@@ -6,18 +6,23 @@ import { closeModal } from "../utils/popUp";
 import { useUpload } from "./useUpload";
 
 
-type TChangeAbleData = "address" | "account_number" | "busi_num" | "busi_address" | "bank_name" | "address_detail" |"acceptEamil" | "acceptSms" | "name" | "nickName" | "busi_department" | "busi_contact" | "is_priv_corper"
+type TChangeAbleData = "phoneNumber" | "keywards" | "is_froreginer" | "gender" | "address" | "account_number" | "busi_num" | "busi_address" | "bank_name" | "address_detail" |"acceptEamil" | "acceptSms" | "name" | "nickName" | "busi_department" | "busi_contact" | "is_priv_corper"
 type TProfile = Pick<getContext_GetProfile_data,TChangeAbleData>;
 
 export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
     const [pw,setPw] = useState("");
+    const [license, setLicense] = useState<Ffile | null>(defaultData.guideLicense)
+    const [bankImg, setBankImg] = useState<Ffile | null>(defaultData.bankImg)
     const [busiRegistration, setBusiRegistration] = useState<Ffile | null>(defaultData.busiRegistration)
     const [nextPw, setNextPw] = useState({
         password: "",
         passwordCheck: ""
     })
     
-    const hiddenFileInput = useRef<HTMLInputElement>(null);
+    const hiddenBusiFileInput = useRef<HTMLInputElement>(null);
+    const hiddenBankFileInput = useRef<HTMLInputElement>(null);
+    const hiddenLicenseFileInput = useRef<HTMLInputElement>(null);
+
     const { signleUpload } = useUpload();
 
     const handleChangeRegistration = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,8 +33,28 @@ export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
         }
         signleUpload(fileUploaded, onUpload);
     };
+
+    const handleBankRegistration = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files) return;
+        const fileUploaded = event.target.files;
+        const onUpload = (_: string, data: Ffile) => {
+            setBankImg(data)
+        }
+        signleUpload(fileUploaded, onUpload);
+    };
+
+    const hanldeChangeLicense = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files) return;
+        const fileUploaded = event.target.files;
+        const onUpload = (_: string, data: Ffile) => {
+            setLicense(data)
+        }
+        signleUpload(fileUploaded, onUpload);
+    };
+    
     
     const [profile, setProfile] = useState<TProfile>({
+        keywards: defaultData.keywards || [],
         busi_address: defaultData.busi_address || "",
         address: defaultData.address || "",
         bank_name: defaultData.bank_name || "",
@@ -42,7 +67,10 @@ export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
         busi_contact: defaultData.busi_contact || "",
         acceptEamil: defaultData.acceptEamil || false,
         acceptSms: defaultData.acceptSms || false,
-        is_priv_corper: defaultData.is_priv_corper || false
+        is_priv_corper: defaultData.is_priv_corper || false,
+        gender: defaultData.gender,
+        is_froreginer: defaultData.is_froreginer,
+        phoneNumber: defaultData.phoneNumber || ""
     });
 
     const toggleCheck = (key: "acceptEamil" | "acceptSms") =>  () => {
@@ -70,12 +98,14 @@ export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
         }
         profile.busi_address = fullAddress;
         profile.address = fullAddress;
-        closeModal("popup_bg_mini")();
+        closeModal("#addressFindModal")();
         setProfile({ ...profile });
     }
 
 
     const data = {
+        license,
+        bankImg,
         busiRegistration,
         profile,
         nextPw,
@@ -83,6 +113,7 @@ export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
     }
 
     const setData = {
+        setLicense,
         setProfile,
         setNextPw,
         setPw
@@ -106,7 +137,14 @@ export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
         handleCompleteFindAddress,
         handleTextData,
         toggleCheck,
-        hiddenFileInput,
-        handleChangeRegistration
+        bankImg, 
+        setBankImg,
+        setBusiRegistration,
+        hiddenBusiFileInput,
+        hiddenBankFileInput,
+        hiddenLicenseFileInput,
+        handleBankRegistration,
+        handleChangeRegistration,
+        hanldeChangeLicense
     };
 }

@@ -1,28 +1,18 @@
 import dayjs from 'dayjs';
 import React from 'react';
+import { Fquestion } from '../../types/api';
 import { Econvert } from '../../types/const';
-import { QStatus } from '../../types/interface';
-
-
-type TQ = {
-    number: number;
-    title: string;
-    status: QStatus.DONE;
-    createAt: Date;
-    userName: string;
-    [key: string]: any;
+import { ILi } from '../../types/interface';
+interface IProp extends ILi {
+    question: Fquestion
 }
 
-interface IProp extends TQ {
-}
+export const QnaLi: React.FC<IProp> = ({ question: qs, ...props }) => {
 
-export const QnaLi: React.FC<IProp> = ({ number, status, title, createAt, userName }) => {
-    return <li>
-        <div className="th01">{number}</div>
-        <div className="th02">
-            {title} <i className="q_ok">해결중</i>
-        </div>
-        <div className="th03">{userName}</div>
-        <div className="th04">{dayjs(createAt).format("YYYY.MM.DD HH:mm")}</div>
+    return <li {...props}>
+        <div className="th01">{qs.no}</div>
+        <div className="th02">{qs.title}<i className="q_ok">{qs.status}</i></div>
+        <div className="th03">{qs.author?.nickName}</div>
+        <div className="th04">{dayjs(qs.createdAt).format("YYYY.MM.DD hh:mm")}</div>
     </li>;
 };
