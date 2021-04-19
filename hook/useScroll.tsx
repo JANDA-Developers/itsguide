@@ -3,10 +3,7 @@ import { useState, useEffect } from "react";
 export function useScroll() {
     const [lastScrollTop, setLastScrollTop] = useState(0);
     const [bodyOffset, setBodyOffset] = useState(
-        typeof window === "undefined" ? {
-            top: 0,
-            left: 0
-        } : document.body.getBoundingClientRect()
+        document.body.getBoundingClientRect()
     );
     const [scrollY, setScrollY] = useState(bodyOffset.top);
     const [scrollX, setScrollX] = useState(bodyOffset.left);

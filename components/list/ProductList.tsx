@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React from 'react';
-import { tourSearchLink } from '../../pages/search';
 import { Fproduct } from '../../types/api';
 import { BG } from '../../types/const';
 import { autoComma } from '../../utils/formatter';
@@ -11,22 +9,16 @@ interface IProp {
 }
 
 export const ProductListBlock: React.FC<IProp> = ({ product }) => {
-    const router = useRouter();
-
     return <li className="list_in">
-        <div onClick={() => {
-            router.push(`/tour/view/${product._id}`)
-        }} style={BG(product?.images?.[0]?.uri || "")} className="img" />
+        <div style={BG(product.images[0].uri)} className="img" />
         <div className="txt1">
-            <div className="title"><a href={"/tour/view/" + product._id}>{product.title}</a></div>
+            <div className="title"><a href="/">{product.title}</a></div>
             <div className="subtitle">
                 {product.subTitle}
             </div>
             <div className="tag">
-                {product.keyWards?.map((keyward, i) =>
-                    <Link href={tourSearchLink({ keyward })}>
-                        <a key={product._id + i} >#{keyward}</a>
-                    </Link>
+                {product.keyWards?.map((keyWard, i) =>
+                    <a key={product._id + i} href="/">#{keyWard}</a>
                 )}
             </div>
             <div className="cash"><strong>{autoComma(product.adult_price)}</strong>원</div>
@@ -35,7 +27,7 @@ export const ProductListBlock: React.FC<IProp> = ({ product }) => {
             <span>장소 : {product.address}</span>
             <span>모집인원 : {product.bookingCount}/{product.maxMember}</span>
             <span>기간 : 당일체험</span>
-            <Link href={"/tour/view/" + product._id}>
+            <Link href={"tour/view/" + product._id}>
                 <span className="btn">바로가기</span>
             </Link>
         </div>

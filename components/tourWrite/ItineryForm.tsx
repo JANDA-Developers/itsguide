@@ -30,8 +30,8 @@ export const ItineryForm: React.FC<IProp> = ({ itinery, its, setits, index }) =>
     }
 
     const handleOnChange = (i: number) => (value: string) => {
-        if (typeof itinery.contents?.[index] === undefined) return;
-        itinery.contents![i] = value;
+        if (typeof itinery.contents[index] === undefined) return;
+        itinery.contents[i] = value;
         setits([...its])
     }
 
@@ -45,11 +45,9 @@ export const ItineryForm: React.FC<IProp> = ({ itinery, its, setits, index }) =>
         return index === (itinery.contents.length - 1) || itinery.contents.length === 1;
     }
 
-    const single = its.length === 1;
-
     return <div className="day_tap">
         <div className="texta_title">
-            <input type="text" className="input_01" onChange={handleTitle} value={itinery.title} placeholder={single ? "OO체험" : `${index}일차`} />
+            <input type="text" className="input_01" onChange={handleTitle} value={itinery.title} placeholder={`${index}일차`} />
             <input readOnly type="text" className="input_02" value={dayjs(itinery.date).format("YYYY.MM.DD (ddd)")} />
         </div>
         {itinery.contents?.map((content, contentIndex) =>

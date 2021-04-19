@@ -1,7 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import Editor from 'pinkloader-ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
-import { SERVER_URI } from 'apollo/uri';
 
 export class UploadAdapter {
     constructor(loader) {
@@ -18,7 +17,7 @@ export class UploadAdapter {
 
     _initRequest() {
         const xhr = this.xhr = new XMLHttpRequest();
-        xhr.open('POST', SERVER_URI.replace("/graphql",'') +'/upload', true);
+        xhr.open('POST', process.env.NEXT_PUBLIC_SERVER_URI.replace("/graphql","") +'/upload', true);
         xhr.responseType = 'json';
     }
 
@@ -143,7 +142,6 @@ const editorConfiguration = {
 
 
   const CKEDITOR = ({data,onChange}) => {
-
       return (
           <div className="myckeditor">
               <CKEditor
@@ -152,14 +150,18 @@ const editorConfiguration = {
                   data={data}
                   onReady={ editor => {
                       // You can store the "editor" and use when it is needed.
+                      console.log( 'Editor is ready to use!', editor );
                   } }
                   onChange={ ( event, editor ) => {
                       const data = editor.getData();
                       onChange(data);
+                      console.log(data);
                   } }
                   onBlur={ ( event, editor ) => {
+                      console.log( 'Blur.', editor );
                   } }
                   onFocus={ ( event, editor ) => {
+                      console.log( 'Focus.', editor );
                   } }
               />
           </div>
@@ -167,5 +169,5 @@ const editorConfiguration = {
 
   }
 
-export default CKEDITOR;
 
+export default CKEDITOR;

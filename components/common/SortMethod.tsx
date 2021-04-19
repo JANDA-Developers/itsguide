@@ -8,7 +8,7 @@ interface IProp {
     fixSorts?: string[]
 }
 
-export const SortSelect: React.FC<IProp> = ({ sort, onChange, fixSorts = [] }) => {
+export const SortSelect: React.FC<IProp> = ({ sort, onChange, fixSorts }) => {
 
     return <select value={sort[0]} onChange={(e) => {
         const value = e.currentTarget.value

@@ -7,17 +7,16 @@ import { useUpload } from "hook/useUpload";
 import { IUseBoard } from "hook/useBoard";
 import { AppContext } from "../../pages/_app";
 const Editor = dynamic(() => import("components/edit/CKE2"), { ssr: false });
-export interface IBoardOpen {
+interface IOpen {
     title: boolean
     subTitle: boolean;
     category: boolean;
     files: boolean;
     summary: boolean;
     thumb: boolean;
-    open: boolean;
 }
 
-export type TCategory = { _id: string, label: string };
+type TCategory = { _id: string, label: string };
 interface IProps {
     boardHook: IUseBoard
     categoryList?: TCategory[]
@@ -29,7 +28,7 @@ interface IProps {
     onCreate?: () => void;
     onLoad?: () => void;
     onCancel?: () => void;
-    opens: Partial<IBoardOpen>
+    opens: Partial<IOpen>
 }
 
 export const BoardWrite: React.FC<IProps> = ({
@@ -46,7 +45,7 @@ export const BoardWrite: React.FC<IProps> = ({
     onSave: handleSave
 }) => {
     const { myProfile } = useContext(AppContext);
-    const name = myProfile?.nickName || "";
+    const email = myProfile?.email || "";
     const isCreateMode = mode === "create";
     const { signleUpload } = useUpload();
     const { boardData, boardSets } = boardHook;
@@ -90,7 +89,7 @@ export const BoardWrite: React.FC<IProps> = ({
                         <div className="title">카테고리</div>
                         <div className="input_form">
                             <span id="category" className="category r3">
-                                <select className="" onChange={handleCatChange} value={categoryId} name="category_srl">
+                                <select onChange={handleCatChange} value={categoryId} name="category_srl">
                                     <option value={""} >
                                         선택없음
                                     </option>
@@ -107,7 +106,7 @@ export const BoardWrite: React.FC<IProps> = ({
                     <div className="write_type">
                         <div className="title">작성자</div>
                         <div className="input_form">
-                            <input readOnly value={name} type="text" name="title" className="inputText w50 fix" />{/* 자동출력 고정 */}
+                            <input readOnly value={email} type="text" name="title" className="inputText w50 fix" />{/* 자동출력 고정 */}
                         </div>
                     </div>
                     <div className="write_type">
@@ -153,17 +152,15 @@ export const BoardWrite: React.FC<IProps> = ({
                             </div>
                         </div>
                     }
-                    {opens.open &&
-                        <div className="write_type">
-                            <div className="title">글 설정</div>
-                            <div className="input_form">
-                                <ul>
-                                    <li><input onChange={handleChangeOpen} type="radio" name="status" id="status-open" value={"true"} checked={isOpen} className="radio" /><label htmlFor="status-open">공개</label></li>
-                                    <li><input onChange={handleChangeOpen} type="radio" name="status" id="status-sold" value={"false"} checked={!isOpen} className="radio" /><label htmlFor="status-sold">비공개</label></li>
-                                </ul>
-                            </div>
+                    <div className="write_type">
+                        <div className="title">글 설정</div>
+                        <div className="input_form">
+                            <ul>
+                                <li><input onChange={handleChangeOpen} type="radio" name="status" id="status-open" value={"true"} checked={isOpen} className="radio" /><label htmlFor="status-open">공개</label></li>
+                                <li><input onChange={handleChangeOpen} type="radio" name="status" id="status-sold" value={"false"} checked={!isOpen} className="radio" /><label htmlFor="status-sold">비공개</label></li>
+                            </ul>
                         </div>
-                    }
+                    </div>
                     {WriteInjection}
                 </div>
                 {/* 첨부파일 */}
@@ -196,7 +193,7 @@ export const BoardWrite: React.FC<IProps> = ({
                     <div className="float_right">
                         {isCreateMode || <button onClick={handleEdit} type="submit" className="btn medium pointcolor">수정</button>}
                         {isCreateMode && <button onClick={handleCreate} type="submit" className="btn medium pointcolor">등록</button>}
-                        <button onClick={handleCancel} type="button" className=" btn medium impact">취소</button>
+                        <button onClick={handleCancel} type="button" className="btn medium impact">취소</button>
                         <button onClick={handleDelete} type="submit" className="btn medium">삭제</button>
                     </div>
                 </div>

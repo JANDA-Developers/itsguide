@@ -23,6 +23,8 @@ export const generateitinery = (range:TRange,its:ItineraryCreateInput[]):Itinera
     // 인덱스 가 부족하다면 채워줌
     if (diff > its.length) {
         const newSchs = new Array(diff - tempSch.length).fill(null).map(()=>({...DEFAULT_IT, contents: [""]}));
+        console.log("newSchs");
+        console.log(newSchs);
         tempSch = [...tempSch, ...newSchs]
     }
 

@@ -1,36 +1,27 @@
-import Link from 'next/link';
 import React from 'react';
-import { Bg } from '../../components/Img/Img';
-import { IUsePageEdit } from '../../hook/usePageEdit';
 
 interface IProp {
-    pageTools: IUsePageEdit;
-    imgKey?: string;
-    titleKey?: string;
-    descKey?: string;
+    title: string;
+    desc: string;
+    subTopBg?: string;
 }
 
-//subTop_desc
-//subTop_title
-//subTop_img
-export const SubTopNav: React.FC<IProp> = ({ descKey = "subTop_desc", imgKey = "subTop_img", titleKey = "subTop_title", pageTools: { imgKit, edit }, children }) => {
-
-    return <div className="top_visual">
-        <Bg
+export const SubTopNav: React.FC<IProp> = ({ children, desc, title, subTopBg = "/img/pr_img_16.jpg" }) => {
+    return <div className="top_visual"> 
+        <div
             className="sub_header sub_bg"
-            {...imgKit(imgKey)}
+            style={{ backgroundImage: `url(${subTopBg})` }}
         >
             <div className="w1200">
-                <h2 {...edit(titleKey)} className="title" />
-                <p {...edit(descKey)} className="text" />
+                <h2 className="title">{title}</h2>
+                <p className="text">{desc}</p>
             </div>
-        </Bg>
+        </div>
         <div className="header_nav">
             <ul>
                 <li className="home">
-                    <Link href="/">
-                        <a />
-                    </Link>
+                    <a href="/">
+                    </a>
                 </li>
                 {children}
             </ul>

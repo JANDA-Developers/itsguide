@@ -1,33 +1,5 @@
 import { gql } from "@apollo/client"
-import { F_FILE, F_PAGE, F_USER } from "./fragments"
-
-
-export const F_PORTFOLIO = gql`
-    fragment Fportfolio on Portfolio {
-        _id
-        createdAt
-        updatedAt
-        isDelete
-        title
-        isOpen
-        keyWards
-        summary
-        subTitle
-        contents
-        author {
-            ...Fuser
-        }
-        thumb {
-            ...Ffile
-        }
-        category {
-            _id
-            label
-        }
-    }
-    ${F_FILE}
-    ${F_USER}
-`
+import { F_PAGE, F_PORTFOLIO } from "./fragments"
 
 export const PORTFOLIO_FIND_BY_ID = gql`
 query portfolioFindById(
@@ -37,14 +9,10 @@ query portfolioFindById(
     id:$id
   ) {
   ok
-  error {
-location
-        severity
-        code
-        message
-}
+  error 
   data {
     ...Fportfolio
+
   }
 }
 }
@@ -62,18 +30,13 @@ pageInput: $pageInput
 filter: $filter
 ) {
   ok
-  error {
-      location
-      severity
-      code
-      message
-    }
+  error
   page {
     ...Fpage
   }
   data  {
     ...Fportfolio
-    category {
+    pCategory {
       _id
       label
     }
@@ -93,12 +56,7 @@ export const PORTFOLIO_CREATE = gql`
       params:$params
     ) {
     ok
-    error {
-      location
-      severity
-      code
-      message
-    }
+    error
     data {
       _id
     }
@@ -113,12 +71,7 @@ export const PORTFOLIO_DELETE = gql`
       id:$id
     ) {
     ok
-    error {
-location
-        severity
-        code
-        message
-}
+    error 
   }
 }
 `
@@ -132,12 +85,7 @@ export const PORTFOLIO_UPDAET = gql`
       id: $id
     ) {
     ok
-    error {
-location
-        severity
-        code
-        message
-}
+    error 
     data {
       _id
     }

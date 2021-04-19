@@ -1,23 +1,20 @@
 import dayjs from "dayjs";
-import React, { useContext } from "react";
+import dynamic from "next/dynamic";
+import React from "react";
 import { Ffile } from "types/api"
-import { AppContext } from "../../pages/_app";
-import { IDiv, TElements } from "../../types/interface";
 import { ContentViewer } from "../contentViewer/ContentViewer";
 
-interface IProps extends IDiv {
-    authorId: string;
+interface IProps {
     catName?: string;
     title: string;
     writer: string;
-    isOpen?: boolean;
     thumb?: Ffile | null;
     createAt: string;
     comments?: {
         count: 0,
     }
     viewCount?: number
-    subTitle?: string | null;
+    summary?: string;
     files?: Ffile[]
     onNext?: () => void;
     onPrev?: () => void;
@@ -25,14 +22,11 @@ interface IProps extends IDiv {
     onEdit?: () => void;
     onDelete?: () => void;
     content?: string;
-    Buttons?: TElements
 }
 
 
 export const BoardView: React.FC<IProps> = (data) => {
-    const { isManager, myProfile } = useContext(AppContext);
-    const { authorId, isOpen, className, catName, createAt, title = "", writer, comments, files, viewCount, content = "", onEdit, onList, onNext, onPrev, onDelete, subTitle, Buttons } = data;
-    const isMyBoard = myProfile?._id === data.authorId;
+    const { catName, createAt, title = "", writer, comments, files, summary, viewCount, thumb, content = "", onEdit, onList, onNext, onPrev, onDelete } = data;
 
 
     const handlePrev = () => {
@@ -55,7 +49,7 @@ export const BoardView: React.FC<IProps> = (data) => {
         onDelete?.();
     }
 
-    return <div className={`board_box edtiorView ${className}`}>
+    return <div className="board_box edtiorView">
         <div className="w1200">
             <div className="xe_content">
                 <div className="xe_top">
@@ -66,16 +60,17 @@ export const BoardView: React.FC<IProps> = (data) => {
                     <div className="footer_txt">
                         <span>작성자<strong>{writer}</strong></span>
                         <span>{dayjs(createAt).format('YYYY.MM.DD HH:mm')}</span>
-                        {isOpen ? <span /> : <span>비밀글</span>}{/* 댓글기능 열렷을 때 */}
                         {comments?.count && <span>댓글 <strong>0</strong>건</span>}{/* 댓글기능 열렷을 때 */}
-                        {viewCount && <span>조회수 <strong>{viewCount}</strong>회</span>}
+                        {viewCount && <span>조회수 <strong>3423</strong>회</span>}
                     </div>
                 </div>
                 <div className="in_box">
 
                     {/*본문시작*/}
-                    {subTitle && subTitle}
-                    <br /><br />
+                    {summary && <>{summary}
+                        <br /><br />
+                    </>
+                    }
                     {/*thumb && <img src={thumb.uri} alt={thumb.name} /> 섬네일이미지 안보여줘도됨...*/}
                     <ContentViewer data={content} />
                     {files &&
@@ -97,10 +92,8 @@ export const BoardView: React.FC<IProps> = (data) => {
                     <div className="float_right">
                         <button onClick={handleEdit} type="submit" className="btn medium pointcolor">수정</button>
                         <button onClick={handleDelete} type="submit" className="btn medium">삭제</button>
-                        {Buttons}
                     </div>
                 </div>
-
                 {(onPrev || onNext) && <div className="board_list_mini">
                     <ul>
                         {onPrev && <li className="first"><span><i className="flaticon-cloud-computing" />이전글<i className="flaticon-command" /></span><div>행사를 합니다~!!!!!</div></li>}

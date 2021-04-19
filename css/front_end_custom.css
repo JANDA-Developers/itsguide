@@ -1,9 +1,6 @@
 *[contenteditable="true"]{
-    line-height: normal;
     display: inline-block;
     outline: 1px dashed;
-    min-width: 10px!important;
-    cursor: auto!important;
 }
 *[contenteditable="true"]:focus{
     outline: 1px solid;
@@ -77,46 +74,6 @@ td {
 
 
 /* 이미지교체 아이콘 */
-
-
-.imgEdit {
-    position: absolute;
-    left: 0;
-    top:0;
-    right:0;
-    bottom:0;
-    cursor: pointer;
-    background-color: rgba(0,0,0,.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    z-index: 5;
-}
-
-[data-edit="bg"] { 
-    position: relative;
-}
-[data-edit="img"] {
-    position: relative;
-}
-[data-edit="bg"] .imgEdit{
-    display: flex;
-}
-[data-edit="img"] .imgEdit {
-    display: flex;
-}
-
-[data-edit="img"] [contenteditable="true"] {
-    position: relative;
-    z-index: 10;
-}
-
-[data-edit="bg"] [contenteditable="true"] {
-    position: relative;
-    cursor: auto;
-    z-index: 10;
-}
 .img_edit {
     z-index: 9999;
     position:relative;
@@ -251,14 +208,17 @@ td {
     outline: 1px solid black;
 }
 
+.ck-content {
+    /* min-height: 250px; */
+}
+
 .day_tap .ck-content {
     min-height: 150px;
 }
 
 .JDtagInput__tag {
-    white-space: nowrap;
     display: inline-block;
-    padding: 8px 19px;
+    padding: 2px 19px;
     font-size: 14px;
     color: #696969;
     font-weight: 600;
@@ -324,269 +284,9 @@ figure {
     margin-left: 0px!important;
     margin-right: 0px!important;
 }
-figure:after {
-    content: "";
-    display:block;
-    clear: both;
-}
 
-
-#dayPickerModal {
+#addressFindModal {
     max-height: 100vh;
-    width: auto;
-}
-
-.modal {
-    z-index: 100;
-}
-#basketModal .popup_bg_mini { 
-    max-width: 400px;
-}
-
-#SMSmodal .sms__textarea-wrap {
-    width: 100%;
-    box-sizing: border-box;
-}
-#SMSmodal .sms__textarea {
-    outline: none;
-    resize: none;
-    width: 100%;
-    border: none;
-    height: 100px;
-}
-
-
-.editor_box {
-    display: none;
-}
-
-.busiAreaList__li .imgEdit {
-    width: 100px;
-    height: 100px;
-}
-
-.portfolio__topbg .imgEdit {
-    align-items: flex-start;
-    
-}
-
-.portfolio__topbg  .imgEdit__text {
-    padding-top: 2rem;
-}
-
-.imgEdit__text {
- font-size: initial;
- color: white;   
-}
-
-.portfolio__bottomWrap .imgEdit {
-    align-items: flex-start;
-}
-
-
-.portfolio__bottomWrap  .imgEdit__text {
-    padding-top: 1rem;
-}
-
-
-.siteInfo__bottom .imgEdit {
-    align-items: flex-start;
-}
-
-.siteInfo__bottom .imgEdit__text {
-    padding-top: 2rem;
-}
-
-.siteInfo__top .imgEdit {
-    align-items: flex-start;
-}
-
-.siteInfo__top .imgEdit__text {
-    padding-top: 4rem;
-}
-
-
-.mainSlider .imgEdit {
-    width: 100px;
-    height: 100px;
-}
-
-.overflowEllipsis {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: min-content;
-}
-.header {
-    position: sticky;
-    top: 0;
-}
-
-.tourMianListUl {
-    display: flex!important;
-    overflow: hidden;
-}
-
-.tourMianListUl__li {
-    overflow: hidden;
-    max-width: 32%;
-    min-width: 32%;
-    flex-grow: 0;
-    margin-right: 2%!important;
-}
-
-.tourMianListUl__img {
-    height: 100%;
-    background-size: cover!important;
-    transform: scale(1);
-}
-
-.tourMianListUl__li:hover .tourMianListUl__img {
-    transition: transform .3s;
-    transform: scale(1.1);
-}
-
-.category__cat {
-    margin-right: .5rem;
-}
-
-.master_box .subtop_nav {
-    bottom: 100%!important;
-    top: auto!important;
-}
-
-.memberTopNav {
-    top: auto!important;
-    bottom: 100%!important;
-}
-
-.productGroupBox .body {
-    padding-top: 0px!important;
-}
-.productGroupBox .body-title {
-    display: flex;
-    align-items: center;
-}
-
-
-.productGroupBox .del {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 15px;
-    height: 15px;
-    opacity: 0.8;
-    z-index: 90;
-    background-color: #000000;
-    box-sizing: border-box;
-    padding: 2px;
-}
-
-.banner {
-    display: flex;
-}
-
-.imgEdit {
-    text-indent: initial!important;
-}
-
-.profile_box__profileImg {
-    background-size: cover;
-}
-
-
-.m_06_link__linker {
-    position: absolute;
-    right: 5%;
-    top: 5%;
-    z-index: 10;
-}
-
-.linkIcon {
-    color: white;
-    fill: currentColor;
-}
-
-
-.linkIcon:hover {
-    cursor: pointer;
-    color: #ccc;
-    fill: currentColor;
-}
-
-
-.theme_deal__textBox {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-}
-
-.guid_topBtn__title {
-    margin-top: auto!important;
-    line-height: initial!important;
-    color: #333!important;
-
-}
-.guid_topBtn__btn {
-    display: flex!important;
-    align-items: center;
-}
-
-.guid_topBtn__close {
-    width: 12px;
-    margin-left: .5em;
-    color: #333;
-    fill: currentColor;
-}
-
-
-.guide_top_bn .imgEdit {
-    width: 100px;
-    height: 100px;
-}
-
-.partners__close {
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-    width:12px;
-}
-
-.partners__link {
-    position: absolute;
-    top: .5rem;
-    left: .5rem;
-}
-
-.partners__link .linkIcon {
-    color: #333;
-    fill: currentColor;
-}
-
-
-.partners div[data-edit="img"] {
-    height: 100%;
-}
-
-#partners__add {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-
-.partners {
-    cursor: pointer;
-}
-@media (max-width:767px) {
-    .JDtagInput {
-        display: block;
-    }
-    .JDtagInput__tag{
-        padding: 2px 14px;
-    }
-    .DayPicker-Month{
-        margin-bottom: 10px !important;
-    }
+    height: 500px;
+    margin-top: -250px;
 }

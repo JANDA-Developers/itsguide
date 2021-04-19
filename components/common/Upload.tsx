@@ -1,29 +1,29 @@
 import React, { useContext, useRef } from 'react';
 import { AppContext } from 'pages/_app';
 import { useUpload } from 'hook/useUpload';
-import { TElements } from '../../types/interface';
 
 export interface IUploadProps {
     onUpload: (url: string) => void;
-    text?: TElements;
 }
 
-export const Upload: React.FC<IUploadProps> = ({ onUpload, text = "이미지교체+" }) => {
+export const Upload: React.FC<IUploadProps> = ({ onUpload }) => {
+    const { editMode } = useContext(AppContext);
     const { signleUpload } = useUpload();
     const hiddenImgInput = useRef<HTMLInputElement>(null);
 
-    const handleUpload = () => {
+    return <div className="img_edit" style={{
+        position: "absolute",
+        top: 0,
+        right: 0,
+        display: editMode ? "block" : "none"
+    }} onClick={() => {
+        hiddenImgInput.current?.click()
+    }}>  <input ref={hiddenImgInput} onChange={() => {
         const file = hiddenImgInput.current?.files;
         if (!file) return;
-        signleUpload(file, (url) => {
+        signleUpload(file, (url, data) => {
+            console.log(data);
             onUpload(url);
         })
-    }
-
-    return <div className="imgEdit" onClick={() => {
-        hiddenImgInput.current?.click()
-    }}>
-        <small className="imgEdit__text">{text}</small>
-        <input ref={hiddenImgInput} onChange={handleUpload} hidden type="file" />
-    </div>;
+    }} hidden type="file" /></div>;
 };

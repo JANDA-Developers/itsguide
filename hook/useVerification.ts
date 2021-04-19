@@ -1,53 +1,36 @@
 import { useMutation } from "@apollo/client"
-import { useState } from "react";
 import { VERIFICATION_COMPLETE, VERIFICATION_START } from "../apollo/gql/user";
-import { verificationComplete, verificationCompleteVariables, verificationStart_VerificationStart_data as VerifiStartData, VerificationEvent, verificationStart, verificationStartVariables, VerificationTarget,  verificationComplete_VerificationComplete_data } from "../types/api";
-import { generateMutationHook } from "../utils/query";
+import { verificationComplete, verificationCompleteVariables, VerificationEvent, verificationStart, verificationStartVariables, VerificationTarget } from "../types/api";
 
 
-export const useVerificationStart =  generateMutationHook<verificationStart,verificationStartVariables>(VERIFICATION_START)
-export const useVerificationComplete = generateMutationHook<verificationComplete, verificationCompleteVariables>(VERIFICATION_COMPLETE)
+type TCallBack<T> = (data: T | undefined) => void
 
-type TVerifiData = Partial<Omit<verificationComplete_VerificationComplete_data, "__typename">>;
-export type TuseVerification = ReturnType<typeof useVerification>
-export const useVerification = (defaultData?:TVerifiData) =>  {
-    const [code, setCode] = useState("");
-    const [verifiData, setVerifiData] = useState<TVerifiData | undefined>(defaultData)
-    const [verifyMu, {loading:startLoading}] = useVerificationStart({onCompleted:
-        ({VerificationStart})=>{
-            if(VerificationStart.data)
-                setVerifiData(VerificationStart.data)
-    }});
-    const [verifyCompleteMu, {loading:completeLoading}] = useVerificationComplete({
-        onCompleted: ({VerificationComplete}) => {
-            if(VerificationComplete.data)
-                setVerifiData(VerificationComplete.data)
-        }
-    });
+export const useVerification = () =>  {
+    const [verifyMu,{loading:startLoading}] = useMutation<verificationStart,verificationStartVariables>(VERIFICATION_START);
+    const [verifyCompleteMu,{loading:completeLoading}] = useMutation<verificationComplete,verificationCompleteVariables>(VERIFICATION_COMPLETE);
 
-    const verifiStart = async (variables:verificationStartVariables) => {
-        return await verifyMu({
-            variables
-        }).then(result => {
-            return {...result?.data?.VerificationStart};
-        })
-    }
-
-    const verifiComplete = async (_code?:string) => {
-        return await verifyCompleteMu({
+    const verify = (payload:string,callBack?:TCallBack<verificationStart>) => {
+        verifyMu({
             variables: {
-                code: _code || code,
-                payload: verifiData?.payload || "",
-                target: verifiData?.target || VerificationTarget.EMAIL,
-                verificationId: verifiData?._id || ""
+                event: VerificationEvent.UserVerifyPhone,
+                target: VerificationTarget.PHONE,
+                payload,
             }
-        }).then(result => {
-            return {...result?.data?.VerificationComplete};
+        }).then(({data})=> {
+            callBack?.(data || undefined)
         })
     }
 
-    const totalLoading = startLoading || completeLoading;
+    const verifyComplete = (params:Omit<verificationCompleteVariables,"target">,callBack?:TCallBack<verificationComplete>) => {
+        verifyCompleteMu({
+            variables: {
+                ...params,
+                target: VerificationTarget.PHONE,
+            }
+        }).then(({data})=> {
+            callBack?.(data || undefined)
+        })
+    }
 
-    return { code, setCode, verifiStart, verifiComplete, verifyMu, verifyCompleteMu, verifiData, totalLoading, setVerifiData};
+    return {verify, verifyComplete};
 }
-

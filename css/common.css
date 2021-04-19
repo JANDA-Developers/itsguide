@@ -51,10 +51,12 @@ i{
     background: #fff2cf;
     text-shadow: none;
 }
+
 *::selection {
-    background: #bde3ff61;
+    background: rgb(255 203 235 / 60%);
     text-shadow: none;
 }
+
 ul, ol, form, h1, h2, h3, h4, h5, h6, dl, dt, dd {
     margin: 0;
     padding: 0;
@@ -67,7 +69,7 @@ h1, h2, h3, h4, h5, h6,h7,h8 {
 a {
     color: #333;
     text-decoration: none;
-    transition: all 0.3s ease 0s;
+    /*transition: all 0.3s ease 0s;*/
 }
 
     a:link {
@@ -137,7 +139,7 @@ select:focus {
     transform: rotate(180deg);
 } 
 
-.betatest {/* 잇츠가이드 볼수 없게 none */
+.betatest {/* 핑크로더는 볼수 없게 none */
     display:inline-block !important;
 }
 /* btn */
@@ -177,7 +179,7 @@ select:focus {
     .btn.small {
         color: #999;
         border: 1px solid #cfcfcf;
-        border-radius: 3px;
+        border-radius: 5px;
         box-sizing: border-box;
         padding: 0 15px;
         font-size: 12px;
@@ -190,9 +192,9 @@ select:focus {
         color: #333;
     }
     .btn.medium {
-        color: #6c6c6c;
-        border: 1px solid #7d7d7d;
-        border-radius: 3px;
+        color: #999;
+        border: 1px solid #cfcfcf;
+        border-radius: 5px;
         box-sizing: border-box;
         padding: 0 15px;
         font-size: 12px;
@@ -208,7 +210,7 @@ select:focus {
         color: #999;
         border: 1px solid #cfcfcf;
         box-sizing: border-box;
-        padding: 0 9px;
+        padding: 0 15px;
         font-size: 0.8em;
         display: inline-block;
         line-height: 28px;
@@ -332,7 +334,7 @@ select:focus {
         color: #eee;
     } 
     .color02 {
-        color: #5bace9;
+        color: #ed297b;
     }
 .bd_l:after {
     content: '';
@@ -364,13 +366,11 @@ select:focus {
 }
 
 .fin .float_left{
-    width: auto;
-    display: inline-block;
+    width: 100%;
     float: none;
 }
 .fin .float_right{
-    width: auto;
-    display: inline-block;
+    width: 100%;
     float: none;
 }
 .xet-acc {
@@ -404,34 +404,26 @@ input[type="checkbox"] {
     box-sizing: border-box;
     padding: 0;
 }
-input[type="text"],
-input[type="email"] {
-    border-radius: 3px;
+input[type="text"] {
+    border-radius: 5px;
     height: 34px;
     padding-left: 10px;
     box-sizing: border-box;
     border: 1px solid #d2d2d2;
     font-weight: 100;
 }
-textarea {
-    border: #e3e3e3 1px solid;
-    font-weight: 100;
-    border-radius: 3px;
-    width: 100%;
-    min-height: 150px;
-    padding: 15px;
-    box-sizing: border-box;
-}
 select {
-    border-radius: 3px;
+    border-radius: 5px;
     height: 34px;
     width: 100%;
     font-size: 0.9em;
     padding: 0 10px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border: 1px solid #d2d2d2;
     display: inline-block;
     margin-right: 0;
+    margin-bottom: 8px;
     cursor: pointer;
 }
 
@@ -578,9 +570,6 @@ select {
 .mt30 {
     margin-top: 30px;
 }
-.mt50 {
-    margin-top:50px;
-}
 
 .mr5 {
     margin-right: 5px;
@@ -716,17 +705,23 @@ select:focus {
 div.u_skip {
     position: relative;
     width: 100%;
-    display: block;
+    z-index: 9999 !important;
+    display: none;
 }
 
     div.u_skip a {
         position: absolute;
-        top: -40px;
+        top: -30px;
         left: 0;
         width: 138px;
         border: 2px solid #d59100;
         background: #333;
         text-align: center;
+        text-align: center;
+        outline: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transition: 0.3s;
         transition: 0.3s;
     }
 
@@ -734,10 +729,9 @@ div.u_skip {
         display: inline-block;
         padding: 2px 6px 0 0;
         color: #fff;
+        letter-spacing: -1px;
         font-size: 14px;
         line-height: 26px;
-        letter-spacing: -1px;
-        white-space: nowrap;
     }
 
     div.u_skip:focus,
@@ -748,7 +742,9 @@ div.u_skip {
         top: 0;
         text-decoration: none;
         cursor: pointer;
-        z-index: 9999 ;
+        opacity: 1;
+        filter: alpha(opacity=100);
+        zoom: 1;
     }
 
 div.w1200 {
@@ -789,10 +785,6 @@ br.no {
     .fin .float_right{
         width: 50%;
         text-align: right;
-        float: right;
-    }
-    .btn.topside {
-        padding: 0 15px;
     }
 }
 @media (min-width: 1200px) {

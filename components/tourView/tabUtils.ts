@@ -24,5 +24,5 @@ export const getTab = (index: number) => {
 
 export const handleTab = (index: number) => () => {
   const tab = getTab(index);
-  tab?.scrollIntoView();
+  tab.scrollIntoView();
 }

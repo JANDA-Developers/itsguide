@@ -33,7 +33,7 @@ const BookInfo = () => {
 
   const [updateBook] = useMutation(SET_BOOK_DETAILS, { update: updateCache });
 
-  if (loading) return <p></p>;
+  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   const updateBookDetails = () => {

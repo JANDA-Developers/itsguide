@@ -41,7 +41,9 @@ import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough.js
 import Table from '@ckeditor/ckeditor5-table/src/table.js';
 import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
+import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
+import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
 
 class Editor extends ClassicEditor {}
 
@@ -85,7 +87,9 @@ Editor.builtinPlugins = [
 	Table,
 	TableProperties,
 	TableToolbar,
+	TextTransformation,
 	Underline,
+	WordCount
 ];
 
 export default Editor;

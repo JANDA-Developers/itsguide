@@ -1,34 +1,25 @@
-import React, { useState } from 'react';
-import '../css/all.css';
+import React, { useEffect, useState } from 'react';
+import 'css/all.css';
+import Layout from '../layout/Layout';
+import { ApolloProvider, useMutation, useQuery } from '@apollo/client';
+import { getContext_GetProfile_data as IProfile, categoryList_CategoryList_data, pageInfoCreate, pageInfoCreateVariables, pageInfoUpdate, pageInfoUpdateVariables, getContext, UserRole } from 'types/api';
+import PinkClient from "apollo/client"
+import { ISet } from 'types/interface';
 import "dayjs/locale/ko"
 import dayjs from 'dayjs';
-import Layout from '../layout/Layout';
-import { ApolloProvider, useQuery } from '@apollo/client';
-import { getContext_GetProfile_data as IProfile, categoryList_CategoryList_data, getContext, UserRole, Fhomepage, Fcategory, CategoryType, groupList_GroupList_data } from 'types/api';
-import PinkClient from "apollo/client"
-import { ALLOW_ADMINS, ALLOW_FULLESS, ALLOW_LOGINED, ALLOW_SELLERS } from '../types/const';
+import { ADMINS, FULL_ACCESS } from '../types/const';
+import Toast from '../components/toast/Toast';
 import { GET_CONTEXT } from '../apollo/gql/queries';
-import PageDeny from './Deny';
-import { categoryMap, defaultCatsMap, defaultGroupMap, groupMap, GroupTypes } from '../utils/categoryMap';
-import { useRouter } from 'next/router';
-import PageLoading from './Loading';
-import { arrayEquals } from '../utils/filter';
-import "node_modules/slick-carousel/slick/slick.css";
-import useRouterScroll from '../hook/useRouterScroll';
-import Head from 'next/head';
-
-
+import { PAGE_INFO_CREATE, PAGE_INFO_UPDATE } from '../apollo/gql/mutations';
+import { bracketVergionChange } from '../utils/Storage';
+import { AppProps } from 'next/dist/next-server/lib/router/router';
+import Page404 from './404';
 dayjs.locale('ko')
 
-
-export type TProductGrop = {
-  _id: string;
-  label: string;
-  groupCode: string;
-}
-
-
 export type TContext = {
+  editMode: boolean;
+  setEditMode: ISet<boolean>;
+  submitEdit?: (pageKey: string, data: any) => void;
   categories: categoryList_CategoryList_data[]
   role: UserRole
   isAdmin: boolean,
@@ -37,133 +28,109 @@ export type TContext = {
   myProfile?: IProfile
   isLogin?: boolean;
   isParterB?: boolean;
-  homepage?: Fhomepage;
   isParterNonB?: boolean;
-  groupsMap: Record<GroupTypes, string[]>
-  categoriesMap: Record<CategoryType, Fcategory[]>
-  productGroupList: TProductGrop[]
 }
 
-
 const defaultContext: TContext = {
+  editMode: false,
+  setEditMode: () => { },
   categories: [],
   role: UserRole.anonymous,
   isAdmin: false,
   isManager: false,
   isSeller: false,
+  submitEdit: undefined,
   myProfile: undefined,
-  homepage: undefined,
   isLogin: false,
   isParterB: false,
-  isParterNonB: false,
-  groupsMap: defaultGroupMap,
-  categoriesMap: defaultCatsMap,
-  productGroupList: []
+  isParterNonB: false
 }
 
 export const AppContext = React.createContext<TContext>(defaultContext);
 
-//APp파일은 서버사이드 렌더링만함
 function App({ Component, pageProps }: any) {
-  const [editMode, setEditMode] = useState(false);
-  const router = useRouter()
-  useRouterScroll();
-
   const ComponentLayout = Component.Layout ? Component.Layout : Layout;
-  const ComponentAuth = Component.Auth ? Component.Auth : ALLOW_FULLESS;
-
-  const { data, loading } = useQuery<getContext>(GET_CONTEXT, {
-    client: PinkClient,
-    nextFetchPolicy: "network-only"
+  console.log(Component.Auth);
+  const ComponentAuth = Component.Auth ? Component.Auth : FULL_ACCESS;
+  const [pageInfoCreateMu, { loading: pageInfoCreateLoading }] = useMutation<pageInfoCreate, pageInfoCreateVariables>(PAGE_INFO_CREATE, {
+    client: PinkClient
   })
 
-  const groups = data?.GroupList.data || [];
-  const homepage = data?.Homepage.data || undefined;
+  const [pageInfoUpdateMu, { loading: pageInfoUpdateLoading }] = useMutation<pageInfoUpdate, pageInfoUpdateVariables>(PAGE_INFO_UPDATE, {
+    client: PinkClient
+  })
+  const { data } = useQuery<getContext>(GET_CONTEXT, {
+    client: PinkClient,
+    nextFetchPolicy: "cache-and-network"
+  })
+
   const catList = data?.CategoryList?.data || []
   const myProfile = data?.GetProfile?.data || undefined
   const role: UserRole = myProfile?.role || UserRole.anonymous
 
+  const submitEdit = (key: string, value: any) => {
+    const params = {
+      key,
+      value
+    };
+    pageInfoCreateMu({
+      variables: {
+        params
+      }
+    }).then((data) => {
+      console.log(data)
+      pageInfoUpdateMu({
+        variables: {
+          key,
+          params: {
+            key,
+            value
+          }
+        }
+      })
+    })
+  }
+
   const isSeller = [UserRole.partner, UserRole.partnerB, UserRole.manager, UserRole.admin].includes(role);
   const isParterB = [UserRole.partnerB, UserRole.manager, UserRole.admin].includes(role);
   const isParterNonB = [UserRole.partner, UserRole.manager, UserRole.admin].includes(role);
+  const [editMode, setEditMode] = useState<boolean>(false);
   {/* <DaumPostcode autoResize autoClose onSearch={() => { }} onComplete={(asd) => { }} /> */ }
 
-  const groupsMap = groupMap(groups)
-  const catsMap = categoryMap(catList);
+  useEffect(() => { bracketVergionChange() }, [])
 
-  if (!ComponentAuth.includes(role || null) && !loading) {
-    if (arrayEquals(ComponentAuth, ALLOW_LOGINED)) {
-      if (loading) return;
-      Component = () => <PageDeny redirect="/member/login" msg="해당 페이지는 로그인후 이용 가능합니다." />
-      return <Component />;
-    } else
-      Component = () => <PageDeny />
+
+  console.log("myProfile");
+  console.log(myProfile);
+
+  if (!ComponentAuth.includes(role || null)) {
+    console.log("Page404");
+    Component = Page404
   }
 
-
-  const productList = data?.GetProfile.data?.products.map(p => ({
-    _id: p._id,
-    label: p.title,
-    groupCode: p.groupCode
-  }))
-
-  const productGroupList: {
-    _id: string;
-    label: string;
-    groupCode: string;
-  }[] = [];
-
-  productList?.forEach((p) => {
-    if (!productGroupList.find(g => g.groupCode === p.groupCode)) {
-      productGroupList.push({
-        ...p,
-      })
-    }
-  })
-
-  if (
-    //인증 받지 않았으며 일반 권한은 아닌경우
-    ALLOW_SELLERS.includes(role) &&
-    !myProfile?.isVerifiedManager &&
-    !ComponentAuth.includes(UserRole.anonymous) &&
-    !ComponentAuth.includes(UserRole.individual)
-  ) {
-    Component = () => <PageDeny msg="인증되지 않은 판매자 입니다. 인증 소요시간은 평균 24시간 입니다." />
-  }
-
-  if (router.isFallback) {
-    return <div></div>
-  }
-
-  if (loading) return <PageLoading />
   return (
     <div className="App">
-      <Head>
-
-      </Head>
-      <div id="MuPageLoading" className="muPageLoading" />
       <ApolloProvider client={PinkClient}>
         <AppContext.Provider value={{
-          groupsMap: groupsMap,
-          categoriesMap: catsMap,
+          editMode,
+          setEditMode,
+          submitEdit,
           categories: catList || [],
           role,
           myProfile,
           isSeller,
           isParterB,
           isAdmin: role === UserRole.admin,
-          isManager: ALLOW_ADMINS.includes(role),
+          isManager: ADMINS.includes(role),
           isLogin: !!myProfile,
-          isParterNonB,
-          homepage,
-          productGroupList
+          isParterNonB
         }}>
           <ComponentLayout>
             <Component {...pageProps} />
           </ComponentLayout>
         </AppContext.Provider>
       </ApolloProvider>
-      <div id="portal" />
+      <Toast />
     </div>
   );
 }
