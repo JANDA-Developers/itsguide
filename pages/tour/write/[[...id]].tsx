@@ -459,8 +459,8 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                             {thumbs.map((thumb, i) =>
                                 <li key={i + "thumb"} className="on_file">{thumb.name}<i onClick={handleClearThumb(i)} className="flaticon-multiply icon_x"></i></li>
                             )}
-                            {thumbs.length < 4 && <li id="thumb" onClick={handleUploadClick}>이미지추가<i className="flaticon-add icon_plus"></i></li>}
-                            <input onChange={handleChangeSumbNail} ref={hiddenFileInput} hidden type="file" />
+                            {thumbs.length < 6 && <li id="thumb" onClick={handleUploadClick}>이미지추가<i className="flaticon-add icon_plus"></i></li>}
+                            <input accept="image/x-png,image/gif,image/jpeg"  onChange={handleChangeSumbNail} ref={hiddenFileInput} hidden type="file" />
                         </ul>
                         <p className="input_form info_txt">- 썸네일 이미지사이즈 720px * 434px</p>
                     </div>

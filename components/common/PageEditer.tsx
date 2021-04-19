@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { IUsePageEdit } from '../../hook/usePageEdit';
 import { sellerFindByKey_SellerFindByKeyPublic_data } from '../../types/api';
+import { isIE } from '../../utils/isIE';
 import { EditBtn } from './EditBtn';
 import { NewGoodsBtn, NewProfileBtn } from './NewGoodsBtn';
 
@@ -23,6 +24,13 @@ export const PageEditor: React.FC<IProp> = ({ pageTools, allowToUser, profilePar
     console.log(inTourWrite);
 
     const submit = () => {
+        if(isIE()) {
+            alert(
+            `인터넷 익스플로어에서는 편집기능을 사용하실 수 없습니다.
+        \n 다른 브라우저로 접근 바랍니다.`
+        );
+        return;
+        }
         if (editMode) {
             if (confirm("변경내용을 저장 하시겠습니까?")) {
                 submitEdit(profileParams ? {

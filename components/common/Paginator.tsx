@@ -52,7 +52,7 @@ export const Paginater: React.FC<IProp> = ({ pageInfo: {
             <a  {...disabled(firstPage)} onClick={() => {
                 setPage(1)
             }} className="page_btn first">처음</a>
-            <a {...disabled(firstPage)} onClick={goPrev} href="/kor/view.do?no=170" className="page_btn prev">이전</a>
+            <a {...disabled(firstPage)} onClick={goPrev}  className="page_btn prev">이전</a>
             {pages.map(page =>
                 <a key={page + "page"} onClick={() => {
                     setPage(page);

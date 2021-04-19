@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import React from 'react';
 import { useUpdate } from '../../hook/useUpdater';
+import { closeModal } from '../../utils/popUp';
 import { IProductTemp, ProductTempBoard } from '../../utils/Storage2';
 import { Modal } from '../modal/Modal';
 
@@ -19,8 +20,9 @@ export const LocalStorageBoard: React.FC<IProp> = ({ onLoad }) => {
     }
 
     const handleLoad = (item: IProductTemp) => () => {
-        console.log({ item });
+        closeModal("#LocalStorageBoard")();
         onLoad(item)
+        alert("상품 불러오기 완료.");
     }
 
     return <Modal inClassName="LocalStorageBoard" title="저장된 데이터" id="LocalStorageBoard">

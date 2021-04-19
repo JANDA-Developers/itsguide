@@ -20,6 +20,7 @@ import useRouterScroll from '../hook/useRouterScroll';
 import { getFromUrl } from '../utils/url';
 import Router from "next/router"
 import { pageLoadingEffect } from "../utils/query";
+import { isIE } from "../utils/isIE";
 
 Router.events.on('routeChangeStart', () => { pageLoadingEffect(true) });
 Router.events.on('routeChangeComplete', () => { pageLoadingEffect(false) });
@@ -96,14 +97,7 @@ function App({ Component, pageProps }: any) {
   const catsMap = categoryMap(catList);
 
   useEffect(() => {
-    function isItIE() {
-      if (typeof window === "undefined") return;
-      var user_agent = window.navigator.userAgent;
-      var is_it_ie = user_agent.indexOf("MSIE ") > -1 || user_agent.indexOf("Trident/") > -1;
-      return is_it_ie;
-    }
-
-    if (isItIE()) {
+    if (isIE()) {
       alert(`
       현 사이트는 Internet Explor를 지원하지 않고 있습니다. 
       Chorme 또는 Edge브라우저 사용을 권장 드립니다.

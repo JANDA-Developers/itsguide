@@ -46,6 +46,7 @@ export const TagInput: React.FC<IProp> = ({
                     </span>
                 ))}
             </div>
+        
             <input
                 ref={ref}
                 className="JDtagInput__input"
@@ -63,6 +64,10 @@ export const TagInput: React.FC<IProp> = ({
                     }
                 }}
             />
+                <button className="btn JDtagInput__tagsBtn" onClick={()=> {
+                const val = ref.current.value;
+                handleAddition(val);
+            }}>추가하기</button>
         </div>
     );
 };
