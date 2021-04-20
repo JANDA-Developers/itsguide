@@ -3303,7 +3303,7 @@ i.icon_plus {
         margin-right: 10px;
     }
     .header .inform_top {
-        margin: 0 0 0 5px;
+        margin: 0 12px 0 0;
     }
    .search_top .hang {
         width: auto;
@@ -3788,7 +3788,7 @@ margin-bottom:0;
         width: 24px;
     }
     .header .inform_top {
-        margin: 0 0 0 5px;
+        margin: 0 12px 0 0;
     }
     .footer_in .sns {
         width: auto;
@@ -4081,7 +4081,7 @@ margin-bottom:0;
     .header .all_menu_btn{
         padding-left: 0;
     }
-    #setting_link{
+    #setting_link, #profile_link{
         padding: 5px 18px;
         font-size: 13px;
     }

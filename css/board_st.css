@@ -505,7 +505,7 @@ ul.list_ul li .tag2 {
     width: 100%;
     display: block;
     text-align: left;
-    font-weight: 500;
+    font-weight: 600;
     font-size:1em;
     margin-top: 5px;
 }
@@ -1467,6 +1467,9 @@ div.comment_box {
 .writing_in {
     position: relative;
     display: block;
+    box-sizing: border-box;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 .writing_in .w1200{
     box-sizing: border-box;
@@ -2550,6 +2553,10 @@ div.sum_div {
 
 }
 @media (min-width:1000px) {
+    .writing_in {
+        padding-left: 0;
+        padding-right: 0;
+    }
     .writing_in .w1200{
         box-sizing: border-box;
         padding: 50px 0 100px;
