@@ -243,6 +243,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
           <div className="Document">
             <div className="Read_box">
               <div className="details_photo">
+
                 <div className="main_photo">
                   <Slider ref={sliderRef} >
                     {images?.map((img, i) =>
@@ -259,6 +260,23 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                 </ul>
                 <div className="details_info_txt">
                   <div className="ck-content" dangerouslySetInnerHTML={{ __html: info }} />
+                </div>
+              </div>
+              {/* guide info */}
+              <div className="guide__infobox">
+                <div className="profile">
+                  <div className="photo" style={{
+                    backgroundImage: "url(https://pinkloader-stroage-dev.s3.ap-northeast-2.amazonaws.com/1614759411397_influencer_img09.jpg)"
+                  }}></div>
+                  <div className="name profileListBig__toName"><i className="profileListBig__G">G</i><span >가이드이름</span></div>
+                </div>
+                <div className="txtbox">
+                  <p>1990년 관광통역가이드 취득 15년 패키지 여행안내후 프리랜서로 독립 , 한국인의 일본여행 인솔로 일본 오키나와~홋카이도까지 인솔겸 가이드,로 활동, 이후 여행사를 오픈하여 부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산부산</p>
+                  <div className="bottom_btn">
+                    <a className="btn profil_link">가이드 정보 자세히보기<i className="flaticon-menu-1"></i></a>
+                    <a className="btn profil_link ml10">판매자의 다른 여행 더보기<i className="flaticon-menu-1"></i></a>
+
+                  </div>
                 </div>
               </div>
             </div>

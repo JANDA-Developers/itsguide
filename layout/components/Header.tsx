@@ -137,11 +137,20 @@ export const Header: React.FC<IProp> = () => {
                         </ul>
                     </li> */}
                 </ul>
+                <div className="language__box">
+                    <input id="language__present" type="checkbox" name="checkbox-set" className="language__present" />
+                    <label htmlFor="language__present" className="language__present_label"><strong>KOREAN</strong><i className="jandaicon-arr4-bottom"></i></label>
+
+                    <ul id="language__choice" className="language__choice">
+                        <li><a>ENGLISH</a></li>
+                        <li><a>JAPANESE</a></li>
+                        <li><a>CHINESE</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div className="main_menu">
             <div className="w1200">
-
                 <div className="hd_size">
                     <div className="hd_left">
                         <div className="logo">
@@ -215,16 +224,17 @@ export const Header: React.FC<IProp> = () => {
                             </div>
                             <div onClick={handSearchClose} className="search_bg"></div>
                         </div>
-                        <div className="inform_top">
-                            {isLogin &&
+                        {isLogin &&
+                            <div className="inform_top">
+
                                 <Link href="/mypage/notification">
                                     <a>
                                         <NotiIcon />
                                     </a>
                                 </Link>
-                            }
-                        </div>
 
+                            </div>
+                        }
                         <div onClick={handleAllMenu} className="all_menu_btn">
                             <img src={'/img/svg/allmenu_icon.svg'} alt="All menu" />
                             <button />
@@ -232,7 +242,22 @@ export const Header: React.FC<IProp> = () => {
 
                     </div>
                     <div id="all_menu" tabIndex={0}>
-                        <strong>전체메뉴</strong>
+                        <div>
+                            <strong className="all_menu_title">전체메뉴
+                                <div className="language__box">
+                                    <input id="language__present2" type="checkbox" name="checkbox-set" className="language__present" />
+                                    <label htmlFor="language__present2" className="language__present_label"><strong>KOREAN</strong><i className="jandaicon-arr4-bottom"></i></label>
+
+                                    <ul id="language__choice2" className="language__choice">
+                                        <li><a>ENGLISH</a></li>
+                                        <li><a>JAPANESE</a></li>
+                                        <li><a>CHINESE</a></li>
+                                    </ul>
+                                </div>
+                            </strong>
+
+                        </div>
+
                         {isSeller && <div className="m_member">
                             <div className="profile">
                                 <span className="photo"></span>
@@ -251,10 +276,11 @@ export const Header: React.FC<IProp> = () => {
                             {isLogin ? ""
                                 : <span><Link href="/member/join"><a>JOIN</a></Link></span>}
                             <span><Link href="/service/question"><a>문의하기</a></Link></span>
+
                             {/* <span><Link href="/service/event"><a>이벤트</a></Link></span> */}
                             {/* <span><Link href="https://booking-app.stayjanda.cloud/#/"><a>예약관리시스템</a></Link></span> */}
                         </div>
-                        <ul>
+                        <ul className="bottom_list">
                             <li className="a_menu_tit deps solo_nav">
                                 <Link href="/guide"><a>It's가이드<i className="jandaicon-arr4-right"></i></a></Link>
                             </li>
@@ -319,6 +345,7 @@ export const Header: React.FC<IProp> = () => {
                         </button>
                     </div>
                     <div className="m_bg" />
+
                 </div>
             </div>
         </div>

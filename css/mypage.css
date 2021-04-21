@@ -2141,14 +2141,7 @@ div.reservation_popup .tr select {
  .basket_box {
     position: relative;
 }
-    /* .basket_box .basket_list .th .t01 .checkbox {
-        top:8px;
-        line-height: 5px;
-    }
-    .basket_box .basket_list .td .t01 .checkbox {
-        top:50%;
-        margin-top:-8px;
-    } */
+   
 
 .basket_box .paper_div {
     position: relative;
@@ -2611,7 +2604,7 @@ div.reservation_popup .tr select {
 .selectViewList ul.list_ul .list_in .txt2 span {
     width: 100%;
     line-height: 22px;
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: 100;
 }
 .selectViewList ul.list_ul .list_in .txt2 .btn {
@@ -3684,6 +3677,9 @@ div.reservation_popup .tr select {
     }
 }
 @media (max-width: 767px) {
+    .notification_box .alignment .re-set{
+        margin-left: 0;
+    }
     .selectViewList ul.list_ul .list_in .txt2 span{
         width: auto !important;
         margin-right: 15px;
