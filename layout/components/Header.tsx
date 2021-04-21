@@ -141,7 +141,7 @@ export const Header: React.FC<IProp> = () => {
                     <input id="language__present" type="checkbox" name="checkbox-set" className="language__present" />
                     <label htmlFor="language__present" className="language__present_label"><strong>KOREAN</strong><i className="jandaicon-arr4-bottom"></i></label>
 
-                    <ul id="language__choice">
+                    <ul id="language__choice" className="language__choice">
                         <li><a>ENGLISH</a></li>
                         <li><a>JAPANESE</a></li>
                         <li><a>CHINESE</a></li>
@@ -151,7 +151,6 @@ export const Header: React.FC<IProp> = () => {
         </div>
         <div className="main_menu">
             <div className="w1200">
-
                 <div className="hd_size">
                     <div className="hd_left">
                         <div className="logo">
