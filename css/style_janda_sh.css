@@ -8847,6 +8847,81 @@ i.calendar {
         text-align: right;
         width: 100%;
     }
+    .language__box{
+        position: relative;
+        width: auto;
+        margin-left: 15px;
+        display: inline-block;
+    }
+    .language__box input[type="checkbox"]{
+        display: none;
+    }
+    .language__box .language__present_label{
+        display: block;
+        cursor: pointer;
+        border: 1px solid #cccccc;
+        border-radius: 100px;
+        padding: 0px 7px 0 10px !important;
+        line-height: 20px;
+        box-sizing: border-box;
+        font-size: 0.8em;
+        opacity: 0.6;
+    }
+    .language__box .language__present_label:hover{
+    opacity:1;
+    }
+    
+    .language__box .language__present_label i{
+       margin-left: 5px;
+       font-size: 0.8em;
+    }
+    
+    .language__choice{
+        position: absolute;
+        bottom: -95px;
+        display: none !important;
+        margin-left:0;
+        width: 98%;
+        font-size: 0.9em !important;
+        line-height: 45px;
+        border: 1px solid #ececec;
+        background-color: #ffffff;
+        z-index: 9999;
+    }
+    .language__choice li{
+        display: block;
+        width: 100%;
+        border-bottom: 1px dotted #ececec;
+        margin-top: 0 !important;
+        padding: 0;
+        line-height: 30px;
+        cursor: pointer;
+    }
+    .language__choice li a{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .language__choice li a::after{
+        display: none
+    }
+    .language__box .language__present:checked ~ .language__choice{
+        display: block !important;
+    }
+    .language__box .language__present:checked ~ .language__present_label{
+        border-radius: 0;
+        border: 1px solid #333333;
+        opacity: 1;
+    }
+    #all_menu .language__choice{
+        bottom: -95px;
+    }
+    #all_menu .language__box .language__present_label{
+        border: 1px solid #f5f5f5;
+        font-size: 0.6em;}
+    #all_menu .language__box .language__choice{
+        font-size: 0.6em !important;
+    }
 @media (min-width: 768px) {   
     .tour_details_in .boardReadBody .con_top_tap span a{
         line-height: 40px;

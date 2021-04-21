@@ -403,7 +403,7 @@ i.tooltip{
         .header .top-menu a:hover {
             color: #333;
         }
-        .header .top-menu ul a::after {
+        .header .top-menu ul li > a::after {
             display: inline-block;
             content: '';
             position: absolute;
@@ -709,7 +709,7 @@ rect.allmenu_svg {
         height: 36px;
         position: relative;
         top: 0;
-        margin-right: 7px;
+        margin-right: 15px;
         display: inline-block;
         vertical-align: middle;
     }
@@ -1056,14 +1056,14 @@ rect.allmenu_svg {
             fill: #ffffff;
         }
 
-    #all_menu strong {
+    #all_menu strong.all_menu_title {
         font-size: 22px;
         position: absolute;
         top: 37px;
         left: 5%;
     }
 
-    #all_menu ul {
+    #all_menu ul.bottom_list {
         text-align: left;
         width: 100%;
         font-size: 0;
@@ -3300,10 +3300,10 @@ i.icon_plus {
         display: none;
     }
     .header .searchtop{
-        margin-right: 10px;
+        margin-right: 15px;
     }
     .header .inform_top {
-        margin: 0 12px 0 0;
+        margin: 0 15px 0 0;
     }
    .search_top .hang {
         width: auto;
@@ -3586,7 +3586,7 @@ margin-bottom:0;
         #all_menu .m_member {
             display: none;
         }
-        #all_menu ul {
+        #all_menu ul.bottom_list {
             padding: 3% 8%;
         }
             #all_menu ul .a_menu_tit {
@@ -3652,7 +3652,7 @@ margin-bottom:0;
         }
   
        
-    #all_menu strong {
+    #all_menu strong.all_menu_title {
         font-size: 30px;
         position: relative;
         top: 0;
@@ -4052,7 +4052,7 @@ margin-bottom:0;
     }
 }
 @media (min-width:1550px) {
-        #all_menu ul {
+    #all_menu ul.bottom_list{
             display: block;
         }
 
@@ -4275,7 +4275,7 @@ margin-bottom:0;
     #all_menu .m_member .profile_txt .text02 {
         font-size: 21px;
     }
-    #all_menu ul {
+    #all_menu ul.bottom_list {
         padding: 4% 5%;
     }
     #all_menu ul .a_menu_tit > a {
