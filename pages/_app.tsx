@@ -67,7 +67,6 @@ export type TProductGrop = {
 export type TContext = {
     categories: categoryList_CategoryList_data[];
     role: UserRole;
-    lang: Lang;
     isAdmin: boolean;
     isSeller: boolean;
     isManager: boolean;
@@ -79,13 +78,10 @@ export type TContext = {
     groupsMap: Record<GroupTypes, string[]>;
     categoriesMap: Record<CategoryType, Fcategory[]>;
     productGroupList: TProductGrop[];
-    setLang: ISet<Lang>;
 };
 
 const defaultContext: TContext = {
     categories: [],
-    setLang: () => {},
-    lang: Lang.KO,
     role: UserRole.anonymous,
     isAdmin: false,
     isManager: false,
@@ -172,8 +168,6 @@ function App({ Component, pageProps }: any) {
         }
     }
 
-    const [lang, setLang] = useState(DefaultSelectedLang);
-
     const productList = data?.GetProfile.data?.products.map((p) => ({
         _id: p._id,
         label: p.title,
@@ -249,8 +243,6 @@ function App({ Component, pageProps }: any) {
                         categoriesMap: catsMap,
                         categories: catList || [],
                         role,
-                        lang,
-                        setLang,
                         myProfile,
                         isSeller,
                         isParterB,

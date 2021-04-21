@@ -2,7 +2,6 @@ import { useMutation } from "@apollo/client";
 import { useContext, useEffect, useState } from "react";
 import PinkClient from "../apollo/client";
 import { PAGE_INFO_CREATE, PAGE_INFO_UPDATE } from "../apollo/gql/mutations";
-import { AppContext } from "../pages/_app";
 import {
     Lang,
     pageInfoCreate,
@@ -21,7 +20,6 @@ import { usePageFindByKey } from "./usePageInfo";
 
 export interface IUsePageEdit<Page = any> extends IGetEditUtilsResult<Page> {
     setPage: ISet<Page>;
-    setLang: any;
     page: Page;
     submitEdit: (guideParams?: UserUpdateInput) => void;
     editMode: boolean;
@@ -32,19 +30,18 @@ export interface IUsePageEdit<Page = any> extends IGetEditUtilsResult<Page> {
 }
 
 export const usePageEdit = <Page>(
-    { pageInfo: originPage, pageKey }: Ipage,
+    { pageInfo: originPage, pageKey, locale }: Ipage,
     defaultPage: Page,
     ln = "kr"
 ): IUsePageEdit<Page> => {
-    const { lang: _lang, setLang } = useContext(AppContext);
-    let lang = "kr";
-    if (_lang === Lang.CH) {
-        lang = "ch";
-    } else if (_lang === Lang.EN) {
-        lang = "en";
-    } else if (_lang === Lang.JP) {
-        lang = "jp";
+    if (locale === "ja") {
+        ln = "jp";
+    } else if (locale === "chi") {
+        ln = "ch";
+    } else if (locale === "en") {
+        ln = "en";
     }
+
     const [editMode, setEditMode] = useState<boolean>(false);
 
     const pageMerge = () =>
@@ -56,14 +53,7 @@ export const usePageEdit = <Page>(
         );
     const [page, setPage] = useState(pageMerge());
 
-    //page는 이전 값을 조회하고있음 왜 ? => state니까
-    //페이지가 바뀌면 setPage는 초기화 되어야함.
-    //useEffect를 통해서 바꾸는게 좋을까? 아마도..
-    //하지만 한번의 렌더는 일어나고 맘
-    // 여기서 state를 사용하는데 구조적 문제가있음
-    //_app에서 state를 사용하는것이 위험함
-    // 어떻게든 값을 업데이트 할 필요는 있어보임
-    const editUtils = getEditUtils<Page>(editMode, page, setPage, lang);
+    const editUtils = getEditUtils<Page>(editMode, page, setPage, ln);
 
     const [pageInfoCreateMu] = useMutation<
         pageInfoCreate,
@@ -109,11 +99,11 @@ export const usePageEdit = <Page>(
 
     return {
         ...editUtils,
+        lang: ln,
         reset,
         page,
         editMode,
         setPage,
-        setLang,
         submitEdit,
         setEditMode,
         originPage,
