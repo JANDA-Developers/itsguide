@@ -96,7 +96,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
 
     const { validate } = new Validater([{
         value: isEmail(userId),
-        failMsg: "이메일을 입력 해주세요"
+        failMsg: "올바른 이메일이 아닙니다."
     }, {
         value: userPw.length > 4,
         failMsg: "패스워드를 입력 해주세요"
@@ -165,7 +165,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
                                     placeholder="아이디"
                                     className="txt_id"
                                     title="아이디"
-                                    onChange={(e) => { handleId(e.target.value) }}
+                                    onChange={(e) => { handleId(e.target.value.trim()) }}
                                 />
                             </div>
                             <div className="form-group">
@@ -178,7 +178,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
                                     placeholder="비밀번호"
                                     title="비밀번호"
                                     className="form-txt_pw"
-                                    onChange={(e) => { handlePw(e.target.value) }}
+                                    onChange={(e) => { handlePw(e.target.value.trim()) }}
                                 />
                             </div>
                             <div className="form-group">

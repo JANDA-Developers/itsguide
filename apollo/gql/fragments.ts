@@ -98,6 +98,7 @@ export const F_PRODUCT = gql`
         isDelete
         title
         code
+        lang
         peopleCount
         contents
         determined

@@ -119,3 +119,10 @@ export const SYSTEM_CHECK_MESSAGE = {
         정말로 상품을 삭제 하시겠습니까?
     `
 }
+
+export const LANGS:Record<string,string[]> = {
+    JP: ["ja","jpn"],
+    CH: ["zh","zho","chi"],
+    KO: ["ko","kor"],
+    EN: ["en","eng"],
+}

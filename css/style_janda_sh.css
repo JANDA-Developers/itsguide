@@ -1503,7 +1503,6 @@ div.popup_bg_mini .page{
     div.popup_bg_mini .in_txt {
         position: relative;
         min-height:280px;
-        min-width: 500px;  
         box-sizing: border-box;
         padding: 0;
         text-align: left;

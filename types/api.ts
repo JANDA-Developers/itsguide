@@ -1553,6 +1553,7 @@ export interface bookingFindByCode_BookingFindByCode_data_product {
   updatedAt: any;
   regionLabel: string | null;
   isDelete: boolean;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -5092,6 +5093,7 @@ export interface productDelete_ProductDelete_data {
   isDelete: boolean;
   title: string;
   code: string;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -5398,6 +5400,7 @@ export interface productList_ProductList_data {
   isDelete: boolean;
   title: string;
   code: string;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -5972,6 +5975,7 @@ export interface productFindById_ProductFindById_data {
   isDelete: boolean;
   title: string;
   code: string;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -6435,6 +6439,7 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data {
   isDelete: boolean;
   title: string;
   code: string;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -9093,6 +9098,7 @@ export interface settlementFindById_SettlementFindById_data_product {
   isDelete: boolean;
   title: string;
   code: string;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -9539,6 +9545,7 @@ export interface settlementList_SettlementList_data_product {
   isDelete: boolean;
   title: string;
   code: string;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -10827,6 +10834,7 @@ export interface sellerFindByKey_SellerFindByKeyPublic_data_products {
   isDelete: boolean;
   title: string;
   code: string;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -11127,6 +11135,7 @@ export interface userFindById_UserFindById_data_products {
   isDelete: boolean;
   title: string;
   code: string;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -11910,6 +11919,7 @@ export interface Fproduct {
   isDelete: boolean;
   title: string;
   code: string;
+  lang: Lang;
   /**
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
@@ -13603,6 +13613,16 @@ export enum GENDER {
 }
 
 /**
+ * 언어
+ */
+export enum Lang {
+  CH = "CH",
+  EN = "EN",
+  JP = "JP",
+  KO = "KO",
+}
+
+/**
  * 링크 행동설정
  */
 export enum LinkBehavior {
@@ -14432,6 +14452,7 @@ export interface PortfolioUpdateInput {
 
 export interface ProductCreateInput {
   title: string;
+  lang: Lang;
   contents: string;
   isNotice?: boolean | null;
   isOpen?: boolean | null;
@@ -14485,6 +14506,7 @@ export interface ProductReviewUpdateInput {
 }
 
 export interface ProductUpdateInput {
+  lang?: Lang | null;
   title?: string | null;
   contents?: string | null;
   isNotice?: boolean | null;
@@ -14680,6 +14702,7 @@ export interface UserUpdateInput {
   isVerifiedManager?: boolean | null;
   status?: UserStatus | null;
   keywards?: string[] | null;
+  guideLicense?: FileCreateInput | null;
 }
 
 export interface _AnnounceFilter {
