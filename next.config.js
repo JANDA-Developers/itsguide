@@ -12,6 +12,8 @@ const targetModules = [
 const withTM = require('next-transpile-modules')(targetModules);
 const path = require("path");
 
+
+
 module.exports = {
     i18n: {
       locales: ['en', 'ja', 'ko', 'chi'],

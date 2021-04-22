@@ -910,7 +910,7 @@ export interface bookingList_BookingList_data_product {
   status: ProductStatus;
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: bookingList_BookingList_data_product_images[] | null;
   /**
    * 상품 하나에 대한 결제완료된 예약 총 인원
@@ -1574,7 +1574,7 @@ export interface bookingFindByCode_BookingFindByCode_data_product {
   itinerary: bookingFindByCode_BookingFindByCode_data_product_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: bookingFindByCode_BookingFindByCode_data_product_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -1714,12 +1714,21 @@ export interface categoryFindById_CategoryFindById_error {
   message: string;
 }
 
+export interface categoryFindById_CategoryFindById_data_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface categoryFindById_CategoryFindById_data {
   __typename: "Category";
   _id: string;
   createdAt: any;
   updatedAt: any;
   isDelete: boolean;
+  localeLabel: categoryFindById_CategoryFindById_data_localeLabel | null;
   label: string;
   type: CategoryType;
 }
@@ -1756,12 +1765,21 @@ export interface categoryList_CategoryList_error {
   message: string;
 }
 
+export interface categoryList_CategoryList_data_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface categoryList_CategoryList_data {
   __typename: "Category";
   _id: string;
   createdAt: any;
   updatedAt: any;
   isDelete: boolean;
+  localeLabel: categoryList_CategoryList_data_localeLabel | null;
   label: string;
   type: CategoryType;
 }
@@ -1794,12 +1812,21 @@ export interface categoryCreate_CategoryCreate_error {
   message: string;
 }
 
+export interface categoryCreate_CategoryCreate_data_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface categoryCreate_CategoryCreate_data {
   __typename: "Category";
   _id: string;
   createdAt: any;
   updatedAt: any;
   isDelete: boolean;
+  localeLabel: categoryCreate_CategoryCreate_data_localeLabel | null;
   label: string;
   type: CategoryType;
 }
@@ -1836,12 +1863,21 @@ export interface categoryDelete_CategoryDelete_error {
   message: string;
 }
 
+export interface categoryDelete_CategoryDelete_data_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface categoryDelete_CategoryDelete_data {
   __typename: "Category";
   _id: string;
   createdAt: any;
   updatedAt: any;
   isDelete: boolean;
+  localeLabel: categoryDelete_CategoryDelete_data_localeLabel | null;
   label: string;
   type: CategoryType;
 }
@@ -1878,12 +1914,21 @@ export interface categoryUpdate_CategoryUpdate_error {
   message: string;
 }
 
+export interface categoryUpdate_CategoryUpdate_data_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface categoryUpdate_CategoryUpdate_data {
   __typename: "Category";
   _id: string;
   createdAt: any;
   updatedAt: any;
   isDelete: boolean;
+  localeLabel: categoryUpdate_CategoryUpdate_data_localeLabel | null;
   label: string;
   type: CategoryType;
 }
@@ -5114,7 +5159,7 @@ export interface productDelete_ProductDelete_data {
   itinerary: productDelete_ProductDelete_data_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: productDelete_ProductDelete_data_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -5421,7 +5466,7 @@ export interface productList_ProductList_data {
   itinerary: productList_ProductList_data_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: productList_ProductList_data_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -5792,6 +5837,7 @@ export interface productFindById_ProductFindById_data_author {
    * 통장사본
    */
   bankImg: productFindById_ProductFindById_data_author_bankImg | null;
+  description: any | null;
 }
 
 export interface productFindById_ProductFindById_data_questions_answers_author_profileImg {
@@ -5996,7 +6042,7 @@ export interface productFindById_ProductFindById_data {
   itinerary: productFindById_ProductFindById_data_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: productFindById_ProductFindById_data_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -6460,7 +6506,7 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data {
   itinerary: productFindByIdForSeller_ProductFindByIdForSeller_data_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: productFindByIdForSeller_ProductFindByIdForSeller_data_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -7538,12 +7584,21 @@ export interface getContext_CategoryList_error {
   message: string;
 }
 
+export interface getContext_CategoryList_data_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface getContext_CategoryList_data {
   __typename: "Category";
   _id: string;
   createdAt: any;
   updatedAt: any;
   isDelete: boolean;
+  localeLabel: getContext_CategoryList_data_localeLabel | null;
   label: string;
   type: CategoryType;
 }
@@ -9119,7 +9174,7 @@ export interface settlementFindById_SettlementFindById_data_product {
   itinerary: settlementFindById_SettlementFindById_data_product_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: settlementFindById_SettlementFindById_data_product_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -9562,7 +9617,7 @@ export interface settlementList_SettlementList_data_product {
   itinerary: settlementList_SettlementList_data_product_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: settlementList_SettlementList_data_product_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -10855,7 +10910,7 @@ export interface sellerFindByKey_SellerFindByKeyPublic_data_products {
   itinerary: sellerFindByKey_SellerFindByKeyPublic_data_products_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: sellerFindByKey_SellerFindByKeyPublic_data_products_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -11156,7 +11211,7 @@ export interface userFindById_UserFindById_data_products {
   itinerary: userFindById_UserFindById_data_products_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: userFindById_UserFindById_data_products_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -11940,7 +11995,7 @@ export interface Fproduct {
   itinerary: Fproduct_itinerary[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution: string | null;
   images: Fproduct_images[] | null;
   keyWards: string[] | null;
   address: string;
@@ -12009,8 +12064,33 @@ export interface Fpayment {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL fragment: Flocale
+// ====================================================
+
+export interface Flocale {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL fragment: Fcategory
 // ====================================================
+
+export interface Fcategory_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
 
 export interface Fcategory {
   __typename: "Category";
@@ -12018,6 +12098,7 @@ export interface Fcategory {
   createdAt: any;
   updatedAt: any;
   isDelete: boolean;
+  localeLabel: Fcategory_localeLabel | null;
   label: string;
   type: CategoryType;
 }
@@ -14052,6 +14133,8 @@ export enum _SellerSort {
   createdAt_desc = "createdAt_desc",
   name_asc = "name_asc",
   name_desc = "name_desc",
+  productCount_asc = "productCount_asc",
+  productCount_desc = "productCount_desc",
   profileImg_asc = "profileImg_asc",
   profileImg_desc = "profileImg_desc",
   resignDate_asc = "resignDate_asc",
@@ -14082,6 +14165,8 @@ export enum _UserSort {
   createdAt_desc = "createdAt_desc",
   name_asc = "name_asc",
   name_desc = "name_desc",
+  productCount_asc = "productCount_asc",
+  productCount_desc = "productCount_desc",
   profileImg_asc = "profileImg_asc",
   profileImg_desc = "profileImg_desc",
   resignDate_asc = "resignDate_asc",
@@ -14252,6 +14337,7 @@ export interface CategoryCreateInput {
 
 export interface CategoryUpdateInput {
   label?: string | null;
+  localeLabel?: LocaleInput | null;
 }
 
 export interface FeePolicyUpdateInput {
@@ -14365,6 +14451,13 @@ export interface ItineraryUpdateInput {
   date?: any | null;
 }
 
+export interface LocaleInput {
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface ModalInput {
   _id?: string | null;
   createdAt?: string | null;
@@ -14465,7 +14558,7 @@ export interface ProductCreateInput {
   itinerary: ItineraryCreateInput[];
   inOrNor: string;
   info: string;
-  caution: string;
+  caution?: string | null;
   images?: FileCreateInput[] | null;
   address: string;
   regionId?: string | null;
@@ -15045,6 +15138,9 @@ export interface _ProductFilter {
   status_eq?: string | null;
   status_not_eq?: string | null;
   status_in?: string[] | null;
+  lang_eq?: string | null;
+  lang_not_eq?: string | null;
+  lang_in?: string[] | null;
   address_eq?: string | null;
   address_not_eq?: string | null;
   address_contains?: string | null;
@@ -15058,6 +15154,12 @@ export interface _ProductFilter {
   type_in?: ProductType[] | null;
   groupCode_eq?: string | null;
   groupCode_not_eq?: string | null;
+  startDateFn_eq?: any | null;
+  startDateFn_not_eq?: any | null;
+  startDateFn_lte?: any | null;
+  startDateFn_lt?: any | null;
+  startDateFn_gte?: any | null;
+  startDateFn_gt?: any | null;
   startDate_eq?: any | null;
   startDate_not_eq?: any | null;
   startDate_lte?: any | null;
@@ -15070,6 +15172,12 @@ export interface _ProductFilter {
   endDate_lt?: any | null;
   endDate_gte?: any | null;
   endDate_gt?: any | null;
+  endDateFn_eq?: any | null;
+  endDateFn_not_eq?: any | null;
+  endDateFn_lte?: any | null;
+  endDateFn_lt?: any | null;
+  endDateFn_gte?: any | null;
+  endDateFn_gt?: any | null;
   title_eq?: string | null;
   title_not_eq?: string | null;
   title_contains?: string | null;

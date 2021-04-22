@@ -46,9 +46,9 @@ import { isIE } from "../utils/isIE";
 import { ISet } from "../types/interface";
 import Head from "next/head";
 
-Router.events.on("routeChangeStart", () => {
-    pageLoadingEffect(true);
-});
+// Router.events.on("routeChangeStart", () => {
+//     pageLoadingEffect(true);
+// });
 Router.events.on("routeChangeComplete", () => {
     pageLoadingEffect(false);
 });

@@ -29,7 +29,7 @@ interface IProp {
 export const GoodsListAPI: React.FC<IProp> = ({
     slide,
     initialOption = {
-        initialViewCount: 4,
+        initialViewCount: 12,
     },
     options,
 }) => {

@@ -391,7 +391,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <div className="right_div">
                                 <span className="goto_page">
                                     <a href="/tour">
-                                        바로가기
+                                        바로가기!
                                         <i className="flaticon-menu-1"></i>
                                     </a>
                                 </span>
@@ -399,7 +399,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                         </div>
                         <GoodsListAPI
                             initialOption={{
-                                initialViewCount: 4,
+                                initialViewCount: 12,
                             }}
                         />
                     </div>

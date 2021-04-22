@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { usePageEdit } from "../../hook/usePageEdit";
 import { usePageInfoRead, useSellerFindByKey } from "../../hook/usePageInfo";
 import ITS_GUIDE_INFO from "../../info/itsGuide";
@@ -79,7 +79,9 @@ export const ItsGuideWrap = () => {
 const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
     const { guideData } = pageInfo;
     const { isManager, myProfile, categoriesMap } = useContext(AppContext);
-    const { query, push } = useRouter();
+    const router = useRouter();
+    const { query, push, reload, locale } = router;
+
     const key = query.key;
     const myId = myProfile?._id;
     const isMypage = isManager || myId === key;
@@ -89,12 +91,14 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
         return profile.keywards?.includes(key.label);
     });
 
-    const pageTools = usePageEdit(pageInfo, ITS_GUIDE_INFO);
+    const pageTools = usePageEdit(
+        { ...pageInfo, locale, changeKeyFlag: true },
+        ITS_GUIDE_INFO
+    );
     const {
         edit,
         set,
         arrayImgKit,
-        setLang,
         addArray,
         removeArray,
         editMode,
@@ -134,7 +138,7 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
             locale = "chi";
         }
 
-        push("/", undefined, { locale });
+        push("/itsguid/" + key, undefined, { locale });
         closeModal("#LangModal")();
     };
 
@@ -371,7 +375,7 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                 <div className="review_board mt50">
                                     <div className="alignment">
                                         <div className="left_div">
-                                            <h3>
+                                            <h3 id="products">
                                                 <span>
                                                     {get("portfolio_label")}
                                                 </span>

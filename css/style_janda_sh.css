@@ -8877,7 +8877,6 @@ i.calendar {
     
     .language__choice{
         position: absolute;
-        bottom: -95px;
         display: none !important;
         margin-left:0;
         width: 98%;
@@ -11312,4 +11311,8 @@ i.calendar {
 
 .tour_content_img_list {
     margin-top: 2rem;
+}
+
+.language__box {
+    display: none!important;
 }

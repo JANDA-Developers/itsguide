@@ -1,9 +1,9 @@
 import { useMutation } from "@apollo/client";
-import { useContext, useEffect, useState } from "react";
+import { Router } from "next/router";
+import { useEffect, useState } from "react";
 import PinkClient from "../apollo/client";
 import { PAGE_INFO_CREATE, PAGE_INFO_UPDATE } from "../apollo/gql/mutations";
 import {
-    Lang,
     pageInfoCreate,
     pageInfoCreateVariables,
     pageInfoUpdate,
@@ -17,6 +17,7 @@ import { omits } from "../utils/omit";
 import { Ipage } from "../utils/page";
 import { getEditUtils, IGetEditUtilsResult } from "../utils/pageEdit";
 import { usePageFindByKey } from "./usePageInfo";
+import useWarnIfUnsavedChanges from "./useUnSaveChange";
 
 export interface IUsePageEdit<Page = any> extends IGetEditUtilsResult<Page> {
     setPage: ISet<Page>;
@@ -27,10 +28,11 @@ export interface IUsePageEdit<Page = any> extends IGetEditUtilsResult<Page> {
     originPage: any;
     pageKey: TPageKeys;
     reset: () => void;
+    changeKeyFlag?: boolean;
 }
 
 export const usePageEdit = <Page>(
-    { pageInfo: originPage, pageKey, locale }: Ipage,
+    { pageInfo: originPage, pageKey, locale, changeKeyFlag }: Ipage,
     defaultPage: Page,
     ln = "kr"
 ): IUsePageEdit<Page> => {
@@ -42,7 +44,21 @@ export const usePageEdit = <Page>(
         ln = "en";
     }
 
+    if (changeKeyFlag) {
+        if (ln === "ja") {
+            ln = "JP";
+        } else if (ln === "ch") {
+            ln = "CH";
+        } else if (locale === "en") {
+            ln = "GB";
+        }
+    }
+
+    console.log({ locale });
+
     const [editMode, setEditMode] = useState<boolean>(false);
+
+    useWarnIfUnsavedChanges(editMode);
 
     const pageMerge = () =>
         cloneObject(
@@ -93,10 +109,6 @@ export const usePageEdit = <Page>(
         setPage(originPage || defaultPage);
     };
 
-    useEffect(() => {
-        if (originPage) setPage(pageMerge());
-    }, [originPage]);
-
     return {
         ...editUtils,
         lang: ln,
@@ -115,6 +127,9 @@ export interface IEditPage<T> extends IUsePageEdit<T> {}
 
 export const usePageEditClientSide = (key: TPageKeys, originPage: any) => {
     const { item } = usePageFindByKey(key);
-    const pageTools = usePageEdit({ pageInfo: item, pageKey: key }, originPage);
+    const pageTools = usePageEdit(
+        { pageInfo: item, pageKey: key, locale: "ko" },
+        originPage
+    );
     return { ...pageTools };
 };

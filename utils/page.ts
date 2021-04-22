@@ -72,6 +72,7 @@ export interface Ipage {
     locale: string;
     pageKey: TPageKeys;
     pageInfo: any;
+    changeKeyFlag?: boolean;
 }
 
 export const getHomepage: GetServerSideProps<TGetHomepage> = async () => {

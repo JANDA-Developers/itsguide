@@ -273,6 +273,8 @@ i.tooltip{
 
 /* tap_menu */
 .subtop_nav {
+    white-space: nowrap;
+    overflow: auto;
     top: auto!important;
     bottom: 100%!important;
     position: absolute;
@@ -4081,6 +4083,7 @@ margin-bottom:0;
     .header .all_menu_btn{
         padding-left: 0;
     }
+
     #setting_link, #profile_link{
         padding: 5px 18px;
         font-size: 13px;

@@ -9,6 +9,7 @@ const info = {
         kr: `DM추천`,
         en: `DM추천`,
         jp: `DM추천`,
+        ch: `DM추천`,
     },
     m_01_title: {
         kr: `특별한 여행<br/>즐거운 추억<br/>소중한 당신`,
