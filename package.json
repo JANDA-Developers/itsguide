@@ -30,7 +30,7 @@
     "react-export-excel": "^0.5.3",
     "react-rating": "^2.0.5",
     "react-resize-detector": "^6.0.0-alpha.1",
-    "react-select": "^4.1.0",
+    "react-select": "^4.3.0",
     "react-slick": "^0.27.13",
     "resize-observer-polyfill": "^1.5.1",
     "slick-carousel": "^1.8.1"

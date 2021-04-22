@@ -1,17 +1,25 @@
-
 export const search = {
     subTop_title: {
-        kr: "통합검색"
+        kr: "통합검색",
+        en: `통합검색`,
+        jp: `통합검색`,
+        ch: `통합검색`,
     },
     subTop_desc: {
-        kr: "지금 여행을 떠나세요~!~~!!!!!"
+        kr: "지금 여행을 떠나세요~!~~!!!!!",
+        en: `지금 여행을 떠나세요~!~~!!!!!`,
+        jp: `지금 여행을 떠나세요~!~~!!!!!`,
+        ch: `지금 여행을 떠나세요~!~~!!!!!`,
     },
     subTop_img: {
-        kr: "/img/pr_img_05.jpg"
+        kr: "/img/pr_img_05.jpg",
+        en: `/img/pr_img_05.jpg`,
+        jp: `/img/pr_img_05.jpg`,
+        ch: `/img/pr_img_05.jpg`,
     },
-}
+};
 
-//html edit 기능에 의존하지말고  style 오브젝트를 넣으면 안될까? 
+//html edit 기능에 의존하지말고  style 오브젝트를 넣으면 안될까?
 //style Object를 저장할 공간에 대해서 생각해 보아야할듯
 //외국어 오브젝트를 저장할 공간이 필요할듯
 //사이트 메뉴를 추가하고 삭제할때 어떻게해야할지 생각해야할듯

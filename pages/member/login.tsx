@@ -96,7 +96,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
 
     const { validate } = new Validater([{
         value: isEmail(userId),
-        failMsg: "이메일을 입력 해주세요"
+        failMsg: "올바른 이메일이 아닙니다."
     }, {
         value: userPw.length > 4,
         failMsg: "패스워드를 입력 해주세요"
@@ -165,7 +165,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
                                     placeholder="아이디"
                                     className="txt_id"
                                     title="아이디"
-                                    onChange={(e) => { handleId(e.target.value) }}
+                                    onChange={(e) => { handleId(e.target.value.trim()) }}
                                 />
                             </div>
                             <div className="form-group">
@@ -178,7 +178,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
                                     placeholder="비밀번호"
                                     title="비밀번호"
                                     className="form-txt_pw"
-                                    onChange={(e) => { handlePw(e.target.value) }}
+                                    onChange={(e) => { handlePw(e.target.value.trim()) }}
                                 />
                             </div>
                             <div className="form-group">
@@ -206,7 +206,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
 
                             <button type="submit" className="sum" onClick={handleLogin}>
                                 <span >로그인</span>
-                            </button>
+                            </button> {/*
                             {userType === UserRole.partnerB &&
                                 <div className="login__snslink">
                                     <img className="m" src="/img/google_logo.png" alt="google logo" />
@@ -220,7 +220,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
                                         </li>
                                     </ul>
                                 </div>
-                            }
+                            } */}
                             <div className="sign_in_form">
                                 <span>
                                     <Link href="/member/join">
@@ -233,31 +233,30 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
                                     </Link>
                                 </span>
                             </div>
-                            {/* 
-                            {userType === UserRole.individual &&
+                            {userType === UserRole.partnerB &&
                                 <div className="join__snslink">
                                     <ul>
                                         <li className="join__snslink_k">
                                             <a href={process.env.NEXT_PUBLIC_SERVER_URI + "/login/kakao"}>
                                                 <span className="join__snslink_icon"><i className="jandaicon-kakaotalk"></i></span>
-                                                <span className="join__snslink_txt">카카오 계정으로 회원가입</span>
+                                                <span className="join__snslink_txt">카카오톡 로그인</span>
                                             </a>
                                         </li>
                                         <li className="join__snslink_g">
                                             <a href={process.env.NEXT_PUBLIC_SERVER_URI + "/login/google"}>
                                                 <span className="join__snslink_icon"><i className="jandaicon-google1"></i></span>
-                                                <span className="join__snslink_txt">구글 계정으로 회원가입</span>
+                                                <span className="join__snslink_txt">구글 로그인</span>
                                             </a>
                                         </li>
                                         <li className="join__snslink_n">
                                             <a href={process.env.NEXT_PUBLIC_SERVER_URI + "/login/naver"}>
-                                                <span className="join__snslink_icon"><i className="jandaicon-google1"></i></span>
-                                                <span className="join__snslink_txt">네이버 계정으로 회원가입</span>
+                                                <span className="join__snslink_icon"><i></i></span>
+                                                <span className="join__snslink_txt">네이버 로그인</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
-                            } */}
+                            }
                         </div>
                     </div>
                 </div>

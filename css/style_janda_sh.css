@@ -8,6 +8,26 @@
     border: 0;
 
 }
+
+/* font style all */
+.ul.list_ul li .tag2,
+ul.list_ul li .category span,
+.no_data span,
+.footer_in .copyright span,
+.option_tb .tag li,
+.board_list_mini .thead > div,
+.option_tb .smtxt,
+.tour_details_in .boardReadBody .top_day span,
+.footer-area-bottom .janda_txt a,
+.guide__infobox p,
+ul.list_ul li .bottom_txt div[class*=tag] span,
+.main_con_box5 h2 span{
+
+    font-family: NanumSquareRoundOTFB,NanumSquareRoundOTF, '돋음',sans-serif;
+}
+
+
+
 /* svg */
 .svg_calendar {
     width: 30px;
@@ -1503,7 +1523,6 @@ div.popup_bg_mini .page{
     div.popup_bg_mini .in_txt {
         position: relative;
         min-height:280px;
-        min-width: 500px;  
         box-sizing: border-box;
         padding: 0;
         text-align: left;
@@ -6214,6 +6233,8 @@ i.important_icon {
 
     .tour_details_in .Document {
         position: relative;
+        margin-bottom: 80px;
+        min-height: 700px;
     }
 
     .tour_details_in .Read_box {
@@ -6614,7 +6635,6 @@ i.important_icon {
     width: 35%;
     display: inline-block;
     margin-left: 65%;
-    margin-bottom: 50px;
 }
 #viewControl .links_wrap {
     display: flex;
@@ -6847,6 +6867,9 @@ i.important_icon {
 
         .option_tb td strong {
             letter-spacing: 0;
+            font-size: 1.2em;
+            line-height: 12px;
+            vertical-align: baseline;
         }
 
         .option_tb td * {
@@ -6963,7 +6986,7 @@ i.important_icon {
         box-sizing: border-box;
         font-size: 1.1em;
         color: #999;
-        font-weight: 100;
+        font-weight: 500;
         background-color: #f5f5f5;
     }
 
@@ -8529,6 +8552,7 @@ i.calendar {
 
     .no_data span {
         padding: 0 0 0 2px !important;
+        font-size: 0.9em;
     }
 
     .approval {
@@ -8748,8 +8772,154 @@ i.calendar {
         font-weight: 600;
     }
 
+    .guide__infobox{
+        position: relative;
+        display: flex;
+        border: 5px solid #cccccc;
+        background-color: #ffffff;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .guide__infobox > div{
+        width: auto;
+        display: inline-block;
+        flex: 1 1;
+        flex-grow: 1;
+    }
+    .guide__infobox .profile{
+        text-align: center;
+        max-width: 23%;
+        display: grid;
+    }
+    .guide__infobox .profile .photo{
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        margin:0 auto 10px;
+        text-align: center;
+        color: #ffffff;
+        border-radius: 900px;
+        border: 2px #eee solid;
+        padding: 10px;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        vertical-align: top;
+        background-size: 120%;
+        background-position: center center;
+        overflow: hidden;
+        text-indent: -999px;
+        position: relative;
+    }
+    .guide__infobox .profile .name{
+        margin:0 auto;
+        line-height: 22px;
+    }
+    .guide__infobox .profile .name i {
+        font-size: 15px;
+        width: 24px;
+        height: 24px;
+        line-height: 34px;
+    }
+    .guide__infobox .btn {
+        border: 1px solid #cccccc;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 35px;
+        padding: 4px 9px;
+    }
+    .guide__infobox .btn i{
+       margin-left: 5px;
+       font-size: 0.8em;
+    }
+    .guide__infobox .txtbox p{
+        display: block;
+        display: -webkit-box;
+        overflow: hidden;
+        max-height: 72px;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        margin-bottom: 5px;
+    }
+    .guide__infobox .bottom_btn{
+        display: block;
+        text-align: right;
+        width: 100%;
+    }
+    .language__box{
+        position: relative;
+        width: auto;
+        margin-left: 15px;
+        display: inline-block;
+    }
+    .language__box input[type="checkbox"]{
+        display: none;
+    }
+    .language__box .language__present_label{
+        display: block;
+        cursor: pointer;
+        border: 1px solid #cccccc;
+        border-radius: 100px;
+        padding: 0px 7px 0 10px !important;
+        line-height: 20px;
+        box-sizing: border-box;
+        font-size: 0.8em;
+        opacity: 0.6;
+    }
+    .language__box .language__present_label:hover{
+    opacity:1;
+    }
     
-  
+    .language__box .language__present_label i{
+       margin-left: 5px;
+       font-size: 0.8em;
+    }
+    
+    .language__choice{
+        position: absolute;
+        display: none !important;
+        margin-left:0;
+        width: 98%;
+        font-size: 0.9em !important;
+        line-height: 45px;
+        border: 1px solid #ececec;
+        background-color: #ffffff;
+        z-index: 9999;
+    }
+    .language__choice li{
+        display: block;
+        width: 100%;
+        border-bottom: 1px dotted #ececec;
+        margin-top: 0 !important;
+        padding: 0;
+        line-height: 30px;
+        cursor: pointer;
+    }
+    .language__choice li a{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .language__choice li a::after{
+        display: none
+    }
+    .language__box .language__present:checked ~ .language__choice{
+        display: block !important;
+    }
+    .language__box .language__present:checked ~ .language__present_label{
+        border-radius: 0;
+        border: 1px solid #333333;
+        opacity: 1;
+    }
+    #all_menu .language__choice{
+        bottom: -95px;
+    }
+    #all_menu .language__box .language__present_label{
+        border: 1px solid #f5f5f5;
+        font-size: 0.6em;}
+    #all_menu .language__box .language__choice{
+        font-size: 0.6em !important;
+    }
 @media (min-width: 768px) {   
     .tour_details_in .boardReadBody .con_top_tap span a{
         line-height: 40px;
@@ -9193,7 +9363,7 @@ i.calendar {
     .login_box {
         padding-top: 100px;
         padding-bottom: 200px;
-        min-height: 820px
+        min-height:1110px
     }
 
         .login_box .login_page {
@@ -11141,4 +11311,8 @@ i.calendar {
 
 .tour_content_img_list {
     margin-top: 2rem;
+}
+
+.language__box {
+    display: none!important;
 }
