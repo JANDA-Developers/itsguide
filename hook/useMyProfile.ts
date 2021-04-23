@@ -1,58 +1,85 @@
 import { useRef, useState } from "react";
 import { AddressData } from "react-daum-postcode";
-import { Ffile, getContext_GetProfile_data } from "../types/api";
+import { Ffile, getContext_GetProfile_data, Lang } from "../types/api";
 import { E_INPUT } from "../types/interface";
 import { closeModal } from "../utils/popUp";
 import { useUpload } from "./useUpload";
 
+type TChangeAbleData =
+    | "lang"
+    | "phoneNumber"
+    | "keywards"
+    | "is_froreginer"
+    | "gender"
+    | "address"
+    | "account_number"
+    | "busi_num"
+    | "busi_address"
+    | "bank_name"
+    | "address_detail"
+    | "guideLicenses"
+    | "acceptEamil"
+    | "acceptSms"
+    | "name"
+    | "nickName"
+    | "busi_department"
+    | "busi_contact"
+    | "is_priv_corper";
+type TProfile = Pick<getContext_GetProfile_data, TChangeAbleData>;
 
-type TChangeAbleData = "phoneNumber" | "keywards" | "is_froreginer" | "gender" | "address" | "account_number" | "busi_num" | "busi_address" | "bank_name" | "address_detail" |"acceptEamil" | "acceptSms" | "name" | "nickName" | "busi_department" | "busi_contact" | "is_priv_corper"
-type TProfile = Pick<getContext_GetProfile_data,TChangeAbleData>;
-
-export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
-    const [pw,setPw] = useState("");
-    const [license, setLicense] = useState<Ffile | null>(defaultData.guideLicense)
-    const [bankImg, setBankImg] = useState<Ffile | null>(defaultData.bankImg)
-    const [busiRegistration, setBusiRegistration] = useState<Ffile | null>(defaultData.busiRegistration)
+export const useMyProfile = (defaultData: getContext_GetProfile_data) => {
+    const [pw, setPw] = useState("");
+    const [license, setLicense] = useState<Ffile | null>(
+        defaultData.guideLicense
+    );
+    const [bankImg, setBankImg] = useState<Ffile | null>(defaultData.bankImg);
+    const [busiRegistration, setBusiRegistration] = useState<Ffile | null>(
+        defaultData.busiRegistration
+    );
     const [nextPw, setNextPw] = useState({
         password: "",
-        passwordCheck: ""
-    })
-    
+        passwordCheck: "",
+    });
+
     const hiddenBusiFileInput = useRef<HTMLInputElement>(null);
     const hiddenBankFileInput = useRef<HTMLInputElement>(null);
     const hiddenLicenseFileInput = useRef<HTMLInputElement>(null);
 
     const { signleUpload } = useUpload();
 
-    const handleChangeRegistration = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeRegistration = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
         if (!event.target.files) return;
         const fileUploaded = event.target.files;
         const onUpload = (_: string, data: Ffile) => {
-            setBusiRegistration(data)
-        }
+            setBusiRegistration(data);
+        };
         signleUpload(fileUploaded, onUpload);
     };
 
-    const handleBankRegistration = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleBankRegistration = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
         if (!event.target.files) return;
         const fileUploaded = event.target.files;
         const onUpload = (_: string, data: Ffile) => {
-            setBankImg(data)
-        }
+            setBankImg(data);
+        };
         signleUpload(fileUploaded, onUpload);
     };
 
-    const hanldeChangeLicense = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const hanldeChangeLicense = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
         if (!event.target.files) return;
         const fileUploaded = event.target.files;
         const onUpload = (_: string, data: Ffile) => {
-            setLicense(data)
-        }
+            setLicense(data);
+        };
         signleUpload(fileUploaded, onUpload);
     };
-    
-    
+
     const [profile, setProfile] = useState<TProfile>({
         keywards: defaultData.keywards || [],
         busi_address: defaultData.busi_address || "",
@@ -70,38 +97,57 @@ export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
         is_priv_corper: defaultData.is_priv_corper || false,
         gender: defaultData.gender,
         is_froreginer: defaultData.is_froreginer,
-        phoneNumber: defaultData.phoneNumber || ""
+        phoneNumber: defaultData.phoneNumber || "",
+        lang: defaultData.lang || Lang.KO,
+        guideLicenses: defaultData.guideLicenses || [],
     });
 
-    const toggleCheck = (key: "acceptEamil" | "acceptSms") =>  () => {
-        profile[key] = !profile[key]; 
-        setProfile({...profile});
-    }
-    
+    const toggleCheck = (key: "acceptEamil" | "acceptSms") => () => {
+        profile[key] = !profile[key];
+        setProfile({ ...profile });
+    };
+
     const handlePassword = (key: keyof typeof nextPw) => (e: E_INPUT) => {
         nextPw[key] = e.currentTarget.value;
         setNextPw({ ...nextPw });
-    }
+    };
 
-    const handleCompleteFindAddress = (data:AddressData) => {
+    const handleCompleteFindAddress = (data: AddressData) => {
         let fullAddress = data.address;
-        let extraAddress = '';
-    
-        if (data.addressType === 'R') {
-          if (data.bname !== '') {
-            extraAddress += data.bname;
-          }
-          if (data.buildingName !== '') {
-            extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
-          }
-          fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
+        let extraAddress = "";
+
+        if (data.addressType === "R") {
+            if (data.bname !== "") {
+                extraAddress += data.bname;
+            }
+            if (data.buildingName !== "") {
+                extraAddress +=
+                    extraAddress !== ""
+                        ? `, ${data.buildingName}`
+                        : data.buildingName;
+            }
+            fullAddress += extraAddress !== "" ? ` (${extraAddress})` : "";
         }
         profile.busi_address = fullAddress;
         profile.address = fullAddress;
         closeModal("#addressFindModal")();
         setProfile({ ...profile });
-    }
+    };
 
+    const handleAddLicense = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files) return;
+        const fileUploaded = event.target.files;
+        const onUpload = (_: string, _file: Ffile) => {
+            profile.guideLicenses.push(_file);
+            ({ ...data });
+        };
+        signleUpload(fileUploaded, onUpload);
+    };
+
+    const handleDeleteLicense = (index: number) => () => {
+        profile.guideLicenses.splice(index, 1);
+        setProfile({ ...profile });
+    };
 
     const data = {
         license,
@@ -109,26 +155,24 @@ export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
         busiRegistration,
         profile,
         nextPw,
-        pw
-    }
+        pw,
+    };
 
     const setData = {
         setLicense,
         setProfile,
         setNextPw,
-        setPw
-    }
-    
+        setPw,
+    };
+
     function set<T extends keyof TProfile>(key: T, value: any) {
         profile[key] = value;
-        setProfile({ ...profile })
+        setProfile({ ...profile });
     }
-
 
     const handleTextData = (key: keyof TProfile) => (e: E_INPUT) => {
-        set(key, e.currentTarget.value)
-    }
-
+        set(key, e.currentTarget.value);
+    };
 
     return {
         data,
@@ -137,7 +181,7 @@ export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
         handleCompleteFindAddress,
         handleTextData,
         toggleCheck,
-        bankImg, 
+        bankImg,
         setBankImg,
         setBusiRegistration,
         hiddenBusiFileInput,
@@ -145,6 +189,8 @@ export const useMyProfile = (defaultData:getContext_GetProfile_data  ) => {
         hiddenLicenseFileInput,
         handleBankRegistration,
         handleChangeRegistration,
-        hanldeChangeLicense
+        hanldeChangeLicense,
+        handleDeleteLicense,
+        handleAddLicense,
     };
-}
+};

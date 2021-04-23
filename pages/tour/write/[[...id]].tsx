@@ -559,7 +559,11 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     <div className="write_type">
                         <div className="title">키워드</div>
                         <div className="input_form">
-                            <TagInput tags={keyWards} setTags={setkeyWards} />
+                            <TagInput
+                                id="keywards"
+                                tags={keyWards}
+                                setTags={setkeyWards}
+                            />
                             <p className="input_form info_txt">
                                 - 'enter'로 구분시 자동으로 키워드가 생성됩니다.
                             </p>

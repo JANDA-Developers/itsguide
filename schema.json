@@ -12286,6 +12286,26 @@
             "deprecationReason": null
           },
           {
+            "name": "guideLicenses",
+            "description": "가이드 자격증들",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "File",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "guideLicense",
             "description": "가이드 자격증",
             "args": [],
@@ -12293,6 +12313,22 @@
               "kind": "OBJECT",
               "name": "File",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "lang",
+            "description": "주력언어",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "Lang",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -23543,6 +23579,34 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "lang",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "Lang",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "guideLicenses",
+            "description": "가이드 자격증",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "FileCreateInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
             "name": "nickName",
             "description": null,
             "type": {
@@ -29728,6 +29792,34 @@
         "description": null,
         "fields": null,
         "inputFields": [
+          {
+            "name": "lang",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "Lang",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "_guideLicenses",
+            "description": "가이드 자격증",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "FileCreateInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
           {
             "name": "busi_department",
             "description": null,

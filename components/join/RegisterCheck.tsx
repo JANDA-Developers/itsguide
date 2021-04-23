@@ -152,6 +152,15 @@ const RegisterCheck: React.FC<IProps> = ({ registerInfo }) => {
     failMsg: "상세 주소값을 입력 해주세요.",
     id: "AddressInput"
   },
+  {
+    value: registerInfo.lang,
+    failMsg: "주력언어를 설정 바랍니다.",
+    id: "AddressInput"
+  },
+  {
+    value: registerInfo.guideLicenses.length < 1,
+    failMsg: "가이드 자격증을 하나이상 등록 해주세요.",
+  },
   ])
 
   const { validate: normalValidate } = new Validater([

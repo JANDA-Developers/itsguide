@@ -1,7 +1,7 @@
 import { Meta } from 'components/common/meta/Meta';
 import SubTopNav from 'layout/components/SubTop';
 import Link from 'next/link';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import { AppContext } from '../_app';
 import { getStaticPageInfo, Ipage } from '../../utils/page';
@@ -34,12 +34,6 @@ export const TourMain: React.FC<Ipage> = (pageInfo) => {
     const cats = categoriesMap?.TOUR || [];
     const { editMode, page, linkEdit, imgKit, edit, get } = pageTools;
     const router = useRouter();
-
-    const subTopInfo = {
-        imgKey: isExp ? "exp_subTop_img" : "subTop_img",
-        titleKey: isExp ? "exp_subTop_title" : "subTop_title",
-        descKey: isExp ? "exp_subTop_desc" : "subTop_desc"
-    }
 
     const handleLink = (key: keyof typeof page) => () => {
         const link = get(key);
