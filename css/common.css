@@ -210,6 +210,24 @@ select:focus {
         border: 1px solid rgb(170, 170, 170);
         color: #333;
     }
+    .btn.medium.footer {
+        width: auto;
+        color: #6c6c6c;
+        border: 1px solid rgb(170, 170, 170);
+        border-radius: 93px;
+        box-sizing: border-box;
+        padding: 0 22px;
+        font-size: 12px;
+        display: inline-block;
+        line-height: 35px;
+        margin:0;
+        vertical-align: baseline;
+        margin-left: 10px;
+    }
+    .btn.medium.footer:hover {
+        border: 1px solid rgb(170, 170, 170);
+        color: #333;
+    }
     .btn.topside {
         color: #999;
         border: 1px solid #cfcfcf;
@@ -801,9 +819,18 @@ br.no {
         padding: 0 15px;
     }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1230px) {
     div.w1200 {
         width: 1200px;
+    }
+
+}
+@media (max-width: 1200px) {
+
+    .btn.medium.footer{
+        width: 100%;
+        line-height: 42px;
+        margin-left: 0;
     }
 
 }
@@ -811,4 +838,5 @@ br.no {
     br.no {
         display: none;
     }
+
 }

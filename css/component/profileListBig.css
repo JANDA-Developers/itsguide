@@ -27,13 +27,14 @@
     border: 2px solid #dfdfdf;
 }
 
+
 .profileListBig__toName {
     position: relative;
     display: inline-block;
     line-height: 31px;
-    border: 2px #6c6c6c solid;
+    border: 2px #333333 solid;
     border-radius: 100px;
-    padding: 0 15px 0 38px;
+    padding: 0 16px 0 38px;
     font-size: 13px;
     font-weight: 600;
     background-color: #ffffff;
@@ -41,6 +42,23 @@
     white-space: nowrap;
     max-width: 70px;
     text-overflow: ellipsis;
+    color: #333333;
+}
+.guide__infobox .profileListBig__toName {
+    position: relative;
+    display: inline-block;
+    line-height: 31px;
+    border: 2px #a3b3c0 solid;
+    border-radius: 100px;
+    padding: 0 13px 0 30px;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #ffffff;
+    cursor: pointer;
+    white-space: nowrap;
+    max-width: 70px;
+    text-overflow: ellipsis;
+    color: #6f919f;
 }
 
 .profileListBig__G {
@@ -56,7 +74,26 @@
     height: 34px;
     line-height: 34px;
     border-radius: 100px;
-    background-color: #333;
+    background-color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guide__infobox .profileListBig__G {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 18px;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 100px;
+    background-color: #8099ad;
     display: flex;
     align-items: center;
     justify-content: center;
