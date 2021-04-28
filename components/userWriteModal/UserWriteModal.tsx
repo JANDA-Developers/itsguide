@@ -4,7 +4,9 @@ import { useSignUp, useUserFindById, useUserUpdate } from "../../hook/useUser";
 import {
     AddUserInput,
     ERR_CODE,
+    Ffile,
     GENDER,
+    Lang,
     userFindById_UserFindById_data,
     UserRole,
 } from "../../types/api";
@@ -17,16 +19,16 @@ import { Modal2 } from "../modal/Modal";
 
 interface IProp extends Omit<IHandWriteModalProp, "user"> {}
 
-export const UserHandWriteModalWrap: React.FC<IProp> = (props) => {
+export const UswerWriteModalWrap: React.FC<IProp> = (props) => {
     const { item } = useUserFindById(props.info?.id);
-    return <UserHandWriteModal key={item?._id} {...props} user={item} />;
+    return <UswerWriteModal key={item?._id} {...props} user={item} />;
 };
 
 interface IHandWriteModalProp extends IUseModal<{ id: string }> {
     user?: userFindById_UserFindById_data;
 }
 
-export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
+export const UswerWriteModal: React.FC<IHandWriteModalProp> = ({
     user,
     ...props
 }) => {
@@ -60,6 +62,8 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
         manageContact: user?.manageContact || "",
         manageName: user?.manageName || "",
         nickName: user?.nickName || "",
+        lang: user?.lang,
+        guideLicenses: user?.guideLicenses?.slice() || [],
         pwCheck: "",
     });
 
@@ -73,7 +77,7 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
             failMsg: "비밀번호가 일치하지 않습니다.",
         },
         {
-            value: isPassword(userData.pw || ""),
+            value: !isCreate || isPassword(userData.pw || ""),
             failMsg:
                 "비밀번호는 특수문자 1개이상 및 숫자가 포함된 7~15 자리의 영문 숫자 조합이여야 합니다",
         },
@@ -102,10 +106,7 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
             value: isName(userData.name || ""),
             failMsg: "이름 값이 올바르지 않습니다.",
         },
-        {
-            value: userData.blueBird,
-            failMsg: "파랑새 기수를 입력 해주세요.",
-        },
+
         ...sharedValidate,
     ]);
 
@@ -174,7 +175,7 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
                 variables: {
                     _id: user?._id || "",
                     params: {
-                        ...omits(userData),
+                        ...omits(userData, ["pwCheck"]),
                     },
                 },
             });
@@ -184,13 +185,27 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
         return (e: any) => {
             if (typeof e !== "object") {
                 userData[key] = e as any;
-            } else {
+            } else if (e.currentTarget) {
                 userData[key] = e.currentTarget.value as typeof userData[T];
+            } else {
+                userData[key] = e as any;
             }
             setUserData({ ...userData });
         };
     }
 
+    const handleDeleteLicense = (index: number) => () => {
+        userData.guideLicenses?.splice(index, 1);
+        setUserData({ ...userData });
+    };
+
+    const handleAddLicense = (file: Ffile) => {
+        if (!file) return;
+        userData.guideLicenses?.push(file);
+        setUserData({ ...userData });
+    };
+
+    userData.manageContact = userData.phoneNumber;
     return (
         <Modal2
             {...props}
@@ -234,30 +249,40 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
                                     placeholder="이메일을 입력해주세요."
                                 />
                             </div>
-                            <div className="th02">-</div>
-                            <div className="td02">-</div>
-                        </div>
-                        <div className="tr">
-                            <div className="th01">비밀번호</div>
-                            <div className="td01">
-                                <input
-                                    onChange={set("pw")}
-                                    type="password"
-                                    className="w80"
-                                    placeholder=""
-                                />
-                            </div>
-                            <div className="th02">비밀번호 확인</div>
+                            <div className="th02">닉네임</div>
                             <div className="td02">
                                 <input
-                                    value={userData.pwCheck}
-                                    onChange={set("pwCheck")}
+                                    value={userData.nickName}
+                                    onChange={set("nickName")}
                                     type="text"
                                     className="w80"
-                                    placeholder=""
+                                    placeholder="닉네임을 입력해주세요."
                                 />
                             </div>
                         </div>
+                        {isCreate && (
+                            <div className="tr">
+                                <div className="th01">비밀번호</div>
+                                <div className="td01">
+                                    <input
+                                        onChange={set("pw")}
+                                        type="password"
+                                        className="w80"
+                                        placeholder=""
+                                    />
+                                </div>
+                                <div className="th02">비밀번호 확인</div>
+                                <div className="td02">
+                                    <input
+                                        value={userData.pwCheck}
+                                        onChange={set("pwCheck")}
+                                        type="text"
+                                        className="w80"
+                                        placeholder=""
+                                    />
+                                </div>
+                            </div>
+                        )}
                         <div className="tr">
                             <div className="th01">이름</div>
                             <div className="td01">
@@ -269,9 +294,9 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
                                     placeholder=""
                                 />
                             </div>
-                            <div className="th02">국적</div>
+                            <div className="th02"></div>
                             <div className="td02">
-                                <ul className="country_check">
+                                {/* <ul className="country_check">
                                     <li
                                         className={`c_in ${
                                             !userData.is_froreginer ? "on" : ""
@@ -292,7 +317,7 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
                                     >
                                         외국인
                                     </li>
-                                </ul>
+                                </ul> */}
                             </div>
                         </div>
                         <div className="tr">
@@ -338,56 +363,69 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
                         </div>
                     </div>
 
-                    <h4>파트너 정보</h4>
+                    <h4>가이드 정보</h4>
                     <div className="info_table w100">
                         <div className="tr">
-                            <div className="th01">파트너명(회사명)</div>
+                            <div className="th01">주력언어</div>
                             <div className="td01">
-                                <input
-                                    value={userData.partnerName}
-                                    onChange={set("partnerName")}
-                                    type="text"
-                                    className="w50"
-                                    placeholder=""
-                                />
+                                <select
+                                    id="LangSelect"
+                                    className="w100 "
+                                    name="name"
+                                    value={userData.lang || Lang.KO}
+                                    onChange={set("lang")}
+                                >
+                                    <option value={Lang.KO}>KOREAN</option>
+                                    <option value={Lang.EN}>ENGLISH</option>
+                                    <option value={Lang.JP}>JAPANES</option>
+                                    <option value={Lang.CH}>CHINESE</option>
+                                </select>
                             </div>
                             <div className="th02">사업자번호</div>
                             <div className="td02">
-                                <select
-                                    value={
-                                        userData.is_priv_corper
-                                            ? "true"
-                                            : "false"
-                                    }
-                                    onChange={(e) => {
-                                        const isPriv =
-                                            e.currentTarget?.value === "true";
-                                        set("is_priv_corper")(isPriv);
-                                    }}
-                                    className="w20 mr10"
-                                >
-                                    <option value="true">개인</option>
-                                    <option value="false">법인</option>
-                                </select>
-                                <input
-                                    onChange={set("busi_num")}
-                                    value={userData.busi_num}
-                                    type="text"
-                                    className="w50"
-                                    placeholder=""
-                                />
+                                <div style={{ display: "flex" }}>
+                                    <select
+                                        style={{ width: "100px" }}
+                                        value={
+                                            userData.is_priv_corper
+                                                ? "true"
+                                                : "false"
+                                        }
+                                        onChange={(e) => {
+                                            const isPriv =
+                                                e.currentTarget?.value ===
+                                                "true";
+                                            set("is_priv_corper")(isPriv);
+                                        }}
+                                        className="w20 mr10"
+                                    >
+                                        <option value="true">개인</option>
+                                        <option value="false">법인</option>
+                                    </select>
+                                    <input
+                                        onChange={set("busi_num")}
+                                        value={userData.busi_num || ""}
+                                        type="text"
+                                        className="w50"
+                                        placeholder=""
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div className="tr">
-                            <div className="th01">대표 전화번호</div>
+                            <div className="th01">통장사진</div>
                             <div className="td01">
-                                <input
-                                    value={userData.busi_contact}
-                                    onChange={set("busi_contact")}
-                                    type="text"
-                                    className="w80"
-                                    placeholder=""
-                                />
+                                <FileInput onUpload={set("bankImg")}>
+                                    <input
+                                        value={userData.bankImg?.name || ""}
+                                        type="text"
+                                        className="w50"
+                                        placeholder=""
+                                    />
+                                    <button type="button" className="btn small">
+                                        업로드
+                                    </button>
+                                </FileInput>
                             </div>
                             <div className="th02">사업자등록증</div>
                             <div className="td02">
@@ -414,7 +452,7 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
                                     onChange={set("address")}
                                     value={userData.address}
                                     type="text"
-                                    className="w50"
+                                    className="w50 mb10"
                                     placeholder=""
                                 />
                                 {/* <button onClick={} type="button" className="btn small">
@@ -441,15 +479,31 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
                                     placeholder=""
                                 />
                             </div>
-                            <div className="th02">담당자 연락처</div>
+                            <div className="th02">가이드자격증</div>
                             <div className="td02">
-                                <input
-                                    onChange={set("manageContact")}
-                                    value={userData.manageContact || ""}
-                                    type="text"
-                                    className="w50"
-                                    placeholder=""
-                                />
+                                <ul>
+                                    {userData.guideLicenses?.map((thumb, i) => (
+                                        <li
+                                            key={i + "thumb"}
+                                            className="on_file"
+                                        >
+                                            {thumb.name}
+                                            <i
+                                                onClick={handleDeleteLicense(i)}
+                                                className="flaticon-multiply icon_x"
+                                            ></i>
+                                        </li>
+                                    ))}
+                                    {(userData.guideLicenses?.length || 0) <
+                                        6 && (
+                                        <FileInput onUpload={handleAddLicense}>
+                                            <li id="thumb">
+                                                자격증추가
+                                                <i className="flaticon-add icon_plus"></i>
+                                            </li>
+                                        </FileInput>
+                                    )}
+                                </ul>
                             </div>
                         </div>
                         <div className="tr">
@@ -468,12 +522,12 @@ export const UserHandWriteModal: React.FC<IHandWriteModalProp> = ({
                                     className="w30 mr10"
                                     placeholder="은행계좌"
                                 />
-                                <input
+                                {/* <input
                                     onChange={set("account_number")}
                                     type="text"
                                     className="w30"
                                     placeholder="예금주"
-                                />
+                                /> */}
                             </div>
                         </div>
                     </div>

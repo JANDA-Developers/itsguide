@@ -1,4 +1,5 @@
 import React from "react";
+import { useModal } from "../../hook/useModal";
 import { useUserFindById } from "../../hook/useUser";
 import { GENDER, UserRole } from "../../types/api";
 import { ALLOW_SELLERS } from "../../types/const";
@@ -7,6 +8,7 @@ import { autoHypenPhone } from "../../utils/formatter";
 import { closeModal } from "../../utils/popUp";
 import { yyyymmdd } from "../../utils/yyyymmdd";
 import { UserMasterHandler } from "../member/MemberMaster";
+import { UswerWriteModal } from "../userWriteModal/UserWriteModal";
 import { UserModalResvCancelList } from "./UserModalResvCacnelList";
 import { UserModalResvList } from "./UserModalResvList";
 
@@ -17,6 +19,7 @@ interface IProp {
 
 export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
     const { item } = useUserFindById(userId);
+    const userWriteModalHook = useModal();
     const {
         handleSignUpAccept,
         handleDenyPop,
@@ -90,7 +93,15 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                     {/* 회원정보 */}
                     <div className="info_page">
                         <div className="full_div">
-                            <h4>회원정보</h4>
+                            <h4>
+                                회원정보{" "}
+                                <button
+                                    onClick={userWriteModalHook.openModal}
+                                    className="btn"
+                                >
+                                    정보수정하기
+                                </button>
+                            </h4>
                             <div className="info_table line8 w50">
                                 {/* 개인 */}
                                 {!isSeller && (
@@ -287,7 +298,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                                 가이드자격증
                                             </div>
                                             <div className="td04">
-                                                {item.guideLicenses.map(
+                                                {item.guideLicenses?.map(
                                                     (lisense, index) => (
                                                         <div
                                                             key={
@@ -417,6 +428,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                     </div>
                 </div>
             </div>
+            {item && <UswerWriteModal {...userWriteModalHook} user={item} />}
         </div>
     );
 };

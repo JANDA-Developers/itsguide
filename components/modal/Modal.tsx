@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React from "react";
+import ReactDOM from "react-dom";
 import { IUseModal } from "../../hook/useModal";
 import { IDiv } from "../../types/interface";
 import { closeModal } from "../../utils/popUp";
@@ -62,14 +63,16 @@ export const Modal2: React.FC<IModalReNewProp> = ({
     children,
     ...props
 }) => {
-    const classes = classNames("popup_bg_mini", className, {});
+    if (typeof window === "undefined") return null;
+    const el = document.getElementById("portal");
+    if (!el) return null;
 
-    return (
+    return ReactDOM.createPortal(
         <div
-            className={classes}
+            className={className || `popup_bg_mini`}
             style={{
                 top: 0,
-            bottom: 0,
+                bottom: 0,
                 right: 0,
                 left: 0,
                 position: "fixed",
@@ -88,6 +91,7 @@ export const Modal2: React.FC<IModalReNewProp> = ({
                     <div className="con">{children}</div>
                 </div>
             </div>
-        </div>
+        </div>,
+        el
     );
 };

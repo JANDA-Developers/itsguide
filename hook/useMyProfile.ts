@@ -136,12 +136,12 @@ export const useMyProfile = (defaultData: getContext_GetProfile_data) => {
 
     const handleAddLicense = (file: Ffile) => {
         if (!file) return;
-        profile.guideLicenses.push(file);
+        profile.guideLicenses?.push(file);
         setProfile({ ...profile });
     };
 
     const handleDeleteLicense = (index: number) => () => {
-        profile.guideLicenses.splice(index, 1);
+        profile.guideLicenses?.splice(index, 1);
         setProfile({ ...profile });
     };
 

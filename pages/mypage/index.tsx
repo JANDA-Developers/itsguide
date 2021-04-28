@@ -693,7 +693,7 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                         </div>
                                         <div className="txt txt--flex">
                                             <ul>
-                                                {profile.guideLicenses.map(
+                                                {profile.guideLicenses?.map(
                                                     (thumb, i) => (
                                                         <li
                                                             key={i + "thumb"}
@@ -709,8 +709,8 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                                         </li>
                                                     )
                                                 )}
-                                                {profile.guideLicenses.length <
-                                                    6 && (
+                                                {(profile.guideLicenses
+                                                    ?.length || 0) < 6 && (
                                                     <FileInput
                                                         onUpload={
                                                             handleAddLicense

@@ -2720,7 +2720,7 @@ div.master_popup .info_page h4 {
     text-align: center !important;
     line-height: 130%;
     font-size: 0.9em;
-    color: #2196F3 !important;
+    color: #2196F3;
     padding-top: 0px !important;
     vertical-align: middle;
 }
@@ -3231,7 +3231,7 @@ div.master_popup .tr .re09 {
     line-height: 20px !important;
 }
 
-div.master_popup .tr input[type=text] {
+div.master_popup .tr input[type=text],div.master_popup .tr input[type=password] {
     border: 0;
     background-color: #fff;
     border:1px solid #eee;
@@ -3239,6 +3239,7 @@ div.master_popup .tr input[type=text] {
     padding: 4px;
     font-size:12px;
 }
+
 div.master_popup .tr .re09 input[type=text] {
     width: 60% !important;
 }
