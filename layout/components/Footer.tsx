@@ -9,39 +9,14 @@ import { staticInfo } from "../../info/static.json";
 interface IProp {}
 
 export const Footer: React.FC<IProp> = () => {
-<<<<<<< HEAD
     const { locale } = useRouter();
-=======
->>>>>>> design
-    const { isLogin } = useContext(AppContext);
+    const { isLogin, myProfile } = useContext(AppContext);
     const ln = staticInfo(locale as any);
 
     const handleFadeClick = () => {
         $("family_site_select").css("display", "none");
         $("fade1").css("display", "none");
     };
-<<<<<<< HEAD
-
-    return (
-        <footer className="footer" id="footer">
-            <div id="gotop" className="">
-                <Link href="#header">
-                    <a className="top">
-                        <i className="jandaicon-arr4-top" />
-                    </a>
-                </Link>
-                {/* {isLogin && <Link href="/mypage/basket">
-                <a className="basket"><img src="/img/svg/basket.svg" alt="basket icon" /><button /></a>
-            </Link>} */}
-                <Link href="#footer">
-                    <a className="down">
-                        <i className="jandaicon-arr4-bottom" />
-                    </a>
-                </Link>
-            </div>
-=======
-    const { isParterB, myProfile } = useContext(AppContext);
-    const _id = myProfile?._id;
 
     return (
         <footer className="footer" id="footer">
@@ -78,7 +53,7 @@ export const Footer: React.FC<IProp> = () => {
                         </a>
                     </Link>
 
-                    <Link href={`/itsguid/${_id}`}>
+                    <Link href={`/itsguid/${myProfile?._id}`}>
                         <a className="home">
                             <div className="img">
                                 <img
@@ -99,35 +74,22 @@ export const Footer: React.FC<IProp> = () => {
                     </Link>
                 </div>
             )}
->>>>>>> design
             <div className="footer_in">
                 <div className="bottom_nav">
                     <ul className="w1200">
                         <li>
                             <Link href="/site-info">
-<<<<<<< HEAD
                                 <a>{ln("footer_site_info")}</a>
-=======
-                                <a>회사소개</a>
->>>>>>> design
                             </Link>
                         </li>
                         <li>
                             <Link href="/service/rule">
-<<<<<<< HEAD
                                 <a>{ln("footer_rule")}</a>
-=======
-                                <a>이용약관</a>
->>>>>>> design
                             </Link>
                         </li>
                         <li>
                             <Link href="/service/privacy-policy">
-<<<<<<< HEAD
                                 <a>{ln("footer_privacy_policy")}</a>
-=======
-                                <a>개인정보처리방침</a>
->>>>>>> design
                             </Link>
                         </li>
                         <li className="sns">
@@ -137,16 +99,12 @@ export const Footer: React.FC<IProp> = () => {
                                         <i className="jandaicon-facebook"></i>
                                     </a>
                                 </Link>
-<<<<<<< HEAD
                                 {/* <Link href="/"><a target="_blank"><i className="jandaicon-twitter"></i></a></Link> */}
-=======
->>>>>>> design
                                 <Link href="https://www.instagram.com/itsguide2021/">
                                     <a target="_blank">
                                         <i className="jandaicon-instagram2"></i>
                                     </a>
                                 </Link>
-<<<<<<< HEAD
                                 {/* <Link href="/"><a target="_blank"><i>N</i></a></Link> */}
                             </div>
                         </li>
@@ -156,16 +114,6 @@ export const Footer: React.FC<IProp> = () => {
                                 <a>CONTACT</a>
                             </Link>
                         </li>
-=======
-                            </div>
-                        </li>
-                        <li className="cs">
-                            {" "}
-                            <Link href="mailto:kgcenter727@gmail.com">
-                                <a>CONTACT</a>
-                            </Link>
-                        </li>
->>>>>>> design
                     </ul>
                 </div>
                 <div className="f_detail_wrap">
@@ -182,20 +130,12 @@ export const Footer: React.FC<IProp> = () => {
                                 </strong>
                             </li>
                             <li>
-<<<<<<< HEAD
                                 <strong>{ln("footer_ceo")}</strong>
-=======
-                                <strong>대표</strong>
->>>>>>> design
                                 <span>최성희</span>
                             </li>
 
                             <li>
-<<<<<<< HEAD
                                 <strong>{ln("footer_phoneNumber")}</strong>
-=======
-                                <strong>사업자등록번호</strong>
->>>>>>> design
                                 <span>
                                     863-86-01971
                                     <a
@@ -209,11 +149,7 @@ export const Footer: React.FC<IProp> = () => {
                                 </span>
                             </li>
                             <li>
-<<<<<<< HEAD
                                 <strong>{ln("footer_email")}</strong>
-=======
-                                <strong>이메일</strong>
->>>>>>> design
                                 <span>kgcenter727@gmail.com</span>
                             </li>
                             {/* <li>
@@ -231,31 +167,19 @@ export const Footer: React.FC<IProp> = () => {
                         </ul>
                         <ul className="footer_homepage_info mt">
                             <li>
-<<<<<<< HEAD
                                 <strong>{ln("footer_phoneNumber")}</strong>
-=======
-                                <strong>전화번호</strong>
->>>>>>> design
                                 <span>
                                     <a href="tel:051-715-0727">051-715-0727</a>{" "}
                                     Am 10:00 ~ pm 5:00
                                 </span>
                             </li>
                             <li>
-<<<<<<< HEAD
                                 <strong>{ln("footer_fax")}</strong>
-=======
-                                <strong>팩스</strong>
->>>>>>> design
                                 <span>051-715-0728</span>
                             </li>
 
                             <li>
-<<<<<<< HEAD
                                 <strong>{ln("footer_address")}</strong>
-=======
-                                <strong>주소</strong>
->>>>>>> design
                                 <span>
                                     부산광역시 영도구 봉래나루로 33, 306-27
                                     <a
@@ -272,11 +196,7 @@ export const Footer: React.FC<IProp> = () => {
                                 </span>
                             </li>
                             <li>
-<<<<<<< HEAD
                                 <strong>{ln("footer_accountNum")}</strong>
-=======
-                                <strong>계좌번호</strong>
->>>>>>> design
                                 <span>농협 351-1150-2295-63</span>
                             </li>
                             <li className="bottom_txt m">
@@ -287,11 +207,7 @@ export const Footer: React.FC<IProp> = () => {
                     </div>
                     <div className="bottom_bn">
                         <div className="partner">
-<<<<<<< HEAD
                             <span className="link" style={{ width: "77px" }}>
-=======
-                            <span className="link">
->>>>>>> design
                                 <img
                                     src="/its/partner_01.png"
                                     alt="한국관광공사 로고"
@@ -324,11 +240,7 @@ export const Footer: React.FC<IProp> = () => {
                                 rel="noopener"
                             >
                                 <i className="jandaicon-janda"></i>
-<<<<<<< HEAD
                                 {ln("footer_janda")}
-=======
-                                대한민국 1등 클라우드·핀테크 기반 예약솔루션
->>>>>>> design
                             </a>
                         </p>
                     </div>

@@ -497,6 +497,12 @@ const utils_message = {
         ja: `新しい`,
         chi: `新的`,
     },
+    announce: {
+        ko: "공지사항",
+        en: `new`,
+        ja: `新しい`,
+        chi: `新的`,
+    },
 };
 
 export const info = {

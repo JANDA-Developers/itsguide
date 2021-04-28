@@ -3,10 +3,7 @@ import { IPageInfo, Ipopup } from "./interface";
 import {
     Fquestion_author_profileImg,
     ItineraryCreateInput,
-<<<<<<< HEAD
     Lang,
-=======
->>>>>>> design
     LinkBehavior,
     ProductStatus,
     SettlementStatus,
@@ -156,7 +153,6 @@ export const SYSTEM_CHECK_MESSAGE = {
         정말로 상품을 삭제 하시겠습니까?
     `,
 };
-<<<<<<< HEAD
 
 export const LANGS: Record<Lang, string[]> = {
     JP: ["ja", "jpn"],
@@ -171,5 +167,3 @@ export enum Locales {
     "ko" = "ko",
     "chi" = "chi",
 }
-=======
->>>>>>> design

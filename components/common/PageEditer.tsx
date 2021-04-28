@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-import { useRouter } from 'next/router';
-import React from 'react';
-import { IUsePageEdit } from '../../hook/usePageEdit';
-import { sellerFindByKey_SellerFindByKeyPublic_data } from '../../types/api';
-import { isIE } from '../../utils/isIE';
-import { EditBtn } from './EditBtn';
-import { NewGoodsBtn, NewProfileBtn } from './NewGoodsBtn';
-=======
+import { useRouter } from "next/router";
 import React from "react";
 import { IUsePageEdit } from "../../hook/usePageEdit";
 import { sellerFindByKey_SellerFindByKeyPublic_data } from "../../types/api";
+import { isIE } from "../../utils/isIE";
 import { EditBtn } from "./EditBtn";
 import { NewGoodsBtn, NewProfileBtn } from "./NewGoodsBtn";
->>>>>>> design
 
 interface IProp {
     allowToUser?: boolean;
@@ -29,19 +21,19 @@ export const PageEditor: React.FC<IProp> = ({
     const rotuer = useRouter();
 
     const inTourWrite = rotuer.pathname.includes("tour/write");
-    const inProfilePage = rotuer.pathname.includes("itsguid/")
+    const inProfilePage = rotuer.pathname.includes("itsguid/");
 
     console.log("rotuer.pathname");
     console.log(rotuer.pathname);
     console.log(inTourWrite);
 
     const submit = () => {
-        if(isIE()) {
+        if (isIE()) {
             alert(
-            `인터넷 익스플로어에서는 편집기능을 사용하실 수 없습니다.
+                `인터넷 익스플로어에서는 편집기능을 사용하실 수 없습니다.
         \n 다른 브라우저로 접근 바랍니다.`
-        );
-        return;
+            );
+            return;
         }
         if (editMode) {
             if (confirm("변경내용을 저장 하시겠습니까?")) {
@@ -61,13 +53,6 @@ export const PageEditor: React.FC<IProp> = ({
         }
     };
 
-<<<<<<< HEAD
-    return <div >
-        <div id="FloatingBtnBox">
-            <EditBtn allowToUser={allowToUser || false} onSubmit={submit} editMode={editMode} />
-            {!inTourWrite && !inTourWrite && < NewGoodsBtn />}
-            {!inProfilePage && !inTourWrite && <NewProfileBtn />}
-=======
     return (
         <div>
             <div id="FloatingBtnBox">
@@ -79,7 +64,6 @@ export const PageEditor: React.FC<IProp> = ({
                 {/* <NewGoodsBtn /> */}
                 {/* <NewProfileBtn /> */}
             </div>
->>>>>>> design
         </div>
     );
 };
