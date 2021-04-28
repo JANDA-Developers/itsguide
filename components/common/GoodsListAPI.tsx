@@ -38,7 +38,7 @@ export const GoodsListAPI: React.FC<IProp> = ({
         fetchPolicy: "cache-first",
         ...options,
     });
-    const { ref, width, height } = useResizeDetector<HTMLUListElement>();
+    const { ref, width = 0, height } = useResizeDetector<HTMLUListElement>();
 
     const itemIn = initialOption?.initialFilter?._id_in;
 

@@ -8,6 +8,7 @@ import { JoinContext } from "../../pages/member/join";
 import { autoHypenPhone } from "../../utils/formatter";
 import { BirthDayPicker } from "../birthdayPicker/BirthdayPicker";
 import dayjs from "dayjs";
+import { FileInput } from "../fileInput/FileInput";
 
 const UserInfoForm: React.FC = () => {
     const { isIndi, isPartenerB, isPartner } = useContext(JoinContext)!;
@@ -184,9 +185,10 @@ const UserInfoForm: React.FC = () => {
                             id="LangSelect"
                             className="w100"
                             name="name"
-                            value={data.name}
+                            value={data.lang || undefined}
                             onChange={handleData("lang")}
                         >
+                            <option value={""}>선택없음</option>
                             <option value={Lang.KO}>KOREAN</option>
                             <option value={Lang.EN}>ENGLISH</option>
                             <option value={Lang.JP}>JAPANES</option>
@@ -284,37 +286,32 @@ const UserInfoForm: React.FC = () => {
                             </label>
                         </div>
                     </div> */}
-
-                    {data.guideLicenses.map((thumb, i) => (
-                        <li key={i + "thumb"} className="on_file">
-                            {thumb.name}
-                            <i
-                                onClick={handleDeleteLicense(i)}
-                                className="flaticon-multiply icon_x"
-                            ></i>
-                        </li>
-                    ))}
-                    {data.guideLicenses.length < 6 && (
-                        <li
-                            id="thumb"
-                            onClick={() => {
-                                window.document
-                                    .getElementById("busiLicense")
-                                    .click();
-                            }}
-                        >
-                            자격증추가
-                            <i className="flaticon-add icon_plus"></i>
-                        </li>
-                    )}
-                    <input
-                        type="file"
-                        name="business_license"
-                        id="busiLicense"
-                        className="file_busi_license"
-                        onChange={handleAddLicense}
-                    />
-
+                    <div className="ph_wrap">
+                        <label>
+                            <i className="important_icon" />
+                            가이드자격증
+                        </label>
+                        {data.guideLicenses?.map((thumb, i) => (
+                            <span
+                                key={i + "thumb"}
+                                className="w80 upload_out_box mb10"
+                            >
+                                {thumb.name}
+                                <i
+                                    onClick={handleDeleteLicense(i)}
+                                    className="flaticon-multiply icon_x"
+                                ></i>
+                            </span>
+                        ))}
+                        {(data.guideLicenses?.length || 0) < 6 && (
+                            <FileInput onUpload={handleAddLicense}>
+                                <span className="w80 upload_out_box">
+                                    자격증추가
+                                    <i className="flaticon-add icon_plus"></i>
+                                </span>
+                            </FileInput>
+                        )}
+                    </div>
                     <div className="ph_wrap">
                         <label>
                             <i className="important_icon" />
@@ -323,32 +320,30 @@ const UserInfoForm: React.FC = () => {
                         <span className="er red_font">
                             *jpg, gif, png 이외에 업로드 불가능합니다.
                         </span>
-                        <div
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
+                        <FileInput
+                            onUpload={handleBankImg}
+                            onClickDelete={() => {}}
+                            TagName="div"
+                            wrapProp={{
+                                style: {
+                                    display: "flex",
+                                    alignItems: "center",
+                                },
+                                className: "w100 apply_relative",
                             }}
-                            className="w100 apply_relative"
                         >
                             <span className="w80 upload_out_box">
                                 {data.bankImg?.name}
                             </span>
-
                             <label
                                 htmlFor="bankImg"
                                 className="cus_file_busi_license"
                             >
                                 업로드
                             </label>
-                            <input
-                                type="file"
-                                name="business_license"
-                                id="bankImg"
-                                className="file_busi_license"
-                                onChange={handleBankImg}
-                            ></input>
-                        </div>
+                        </FileInput>
                     </div>
+
                     {isIndi || (
                         <div className="ph_wrap">
                             <label>정산계좌</label>

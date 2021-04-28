@@ -134,14 +134,10 @@ export const useMyProfile = (defaultData: getContext_GetProfile_data) => {
         setProfile({ ...profile });
     };
 
-    const handleAddLicense = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (!event.target.files) return;
-        const fileUploaded = event.target.files;
-        const onUpload = (_: string, _file: Ffile) => {
-            profile.guideLicenses.push(_file);
-            ({ ...data });
-        };
-        signleUpload(fileUploaded, onUpload);
+    const handleAddLicense = (file: Ffile) => {
+        if (!file) return;
+        profile.guideLicenses.push(file);
+        setProfile({ ...profile });
     };
 
     const handleDeleteLicense = (index: number) => () => {

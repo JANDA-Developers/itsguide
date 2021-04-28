@@ -63,6 +63,7 @@ export function PCnicepaySubmit() {
   target.submit();
 }
 
+
 function jdPayStart() {
   const target = $("form[name=payForm]");
   const isMobile = checkPlatform(window.navigator.userAgent) == "mobile";

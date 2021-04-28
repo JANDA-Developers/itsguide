@@ -1834,6 +1834,7 @@ div.reservation_popup .tr select {
     font-size: 12px;
 }
 
+(?<!^[가-힣]*//.*)(?<!/\*(?:(?!\*/)[\s\S\r])*?)\bSQLHELPER\b
 /* membership Withdrawal */
 .membership_div {
     position: relative;

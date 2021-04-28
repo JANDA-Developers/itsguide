@@ -59,7 +59,10 @@ export const useJoin = () => {
     const { verifiData: { payload } = { payload: "" } } = useContext(
         JoinContext
     )!;
-    const [data, setData] = useState<ISignUpInput>({ email: payload });
+    const [data, setData] = useState<ISignUpInput>({
+        email: payload,
+        guideLicenses: [],
+    });
     const [daumAddress, setDaumAddress] = useState(false);
     const { signleUpload } = useUpload();
 
@@ -200,28 +203,22 @@ export const useJoin = () => {
         });
     };
 
-    const handleBankImg = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (!e.target.files) return;
-        await signleUpload(e.target.files, (url, file) => {
-            setData({
-                ...data,
-                bankImg: file,
-            });
+    const handleBankImg = async (file: Ffile) => {
+        if (!file) return;
+        setData({
+            ...data,
+            bankImg: file,
         });
     };
 
-    const handleAddLicense = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (!event.target.files) return;
-        const fileUploaded = event.target.files;
-        const onUpload = (_: string, _file: Ffile) => {
-            data.guideLicenses.push(_file);
-            setData({ ...data });
-        };
-        signleUpload(fileUploaded, onUpload);
+    const handleAddLicense = (file: Ffile) => {
+        if (!file) return;
+        data.guideLicenses?.push(file);
+        setData({ ...data });
     };
 
     const handleDeleteLicense = (index: number) => () => {
-        data.guideLicenses.splice(index, 1);
+        data.guideLicenses?.splice(index, 1);
         setData({ ...data });
     };
 

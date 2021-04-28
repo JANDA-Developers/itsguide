@@ -8,10 +8,12 @@ interface IProp {
     onAdd: (label: string) => void;
     onEdit: (cat: Fcategory, label: string) => void;
     onDelete: (cat: Fcategory) => void;
+    onLang: (cat: Fcategory) => void;
 }
 
 export const CategoryEitdor: React.FC<IProp> = ({
     categories,
+    onLang: handleLang,
     onAdd,
     onDelete,
     onEdit,
@@ -64,6 +66,15 @@ export const CategoryEitdor: React.FC<IProp> = ({
                                 key={cat._id}
                             >
                                 {cat.label}
+                                <i
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        e.preventDefault();
+                                        handleLang(cat);
+                                    }}
+                                >
+                                    @
+                                </i>
                                 <i
                                     onClick={handleDelete(cat)}
                                     className="del categoryEditer__delete"

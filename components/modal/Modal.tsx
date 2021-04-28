@@ -62,20 +62,18 @@ export const Modal2: React.FC<IModalReNewProp> = ({
     children,
     ...props
 }) => {
-    const classes = classNames("popup_bg_mini", className, {
-        on: isOpen,
-    });
+    const classes = classNames("popup_bg_mini", className, {});
 
     return (
         <div
             className={classes}
             style={{
                 top: 0,
-                bottom: 0,
+            bottom: 0,
                 right: 0,
                 left: 0,
                 position: "fixed",
-                display: "none",
+                display: isOpen ? "flex" : "none",
                 justifyContent: "center",
                 alignItems: "center",
             }}

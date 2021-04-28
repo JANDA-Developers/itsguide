@@ -29,10 +29,9 @@ export const handSearchClose = () => {
 export const Header: React.FC<IProp> = () => {
     const [search, setSearch] = useState("");
     const rotuer = useRouter();
-    const locale = rotuer.locale;
-    const ln = staticInfo(locale as any);
+    const { locale } = rotuer;
 
-    const { isLogin, myProfile, isManager, isSeller, isAdmin } = useContext(
+    const { isLogin, myProfile, isManager, isSeller, isAdmin, ln } = useContext(
         AppContext
     );
 
@@ -355,7 +354,7 @@ export const Header: React.FC<IProp> = () => {
                                 <strong className="all_menu_title">
                                     {ln("all_menu_title")}
                                     <div
-                                    onClick={(e) => {
+                                        onClick={(e) => {
                                             e.stopPropagation();
                                         }}
                                         className="language__box"
@@ -375,7 +374,6 @@ export const Header: React.FC<IProp> = () => {
                                             </strong>
                                             <i className="jandaicon-arr4-bottom"></i>
                                         </label>
-
                                         <ul
                                             id="language__choice2"
                                             className="language__choice"

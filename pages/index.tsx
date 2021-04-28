@@ -21,10 +21,21 @@ import { Bg } from "../components/Img/Img";
 import { LinkRoundIcon } from "../components/common/icon/LinkIcon";
 import { A } from "../components/A/A";
 import { tourSearchLink } from "./search";
+import { Lang } from "../types/api";
+
+// ^(?![ \t]*//).*your_search_term
+// ^(?![ \t]*//).*your_search_term
+// ^(?![ \t]*//).*your_search_term
+// ^(?![ \t]*//).*your_search_term
+// ^(?![ \t]*//).*your_search_term
+// ^(?![ \t]*//).*your_search_term
+// ^(?![ \t]*//).*[가-핳]
 
 export const getStaticProps = getStaticPageInfo("main");
 export const Main: React.FC<Ipage> = (pageInfo) => {
-    const { homepage, groupsMap, categoriesMap } = useContext(AppContext);
+    const { homepage, groupsMap, categoriesMap, lang, ln } = useContext(
+        AppContext
+    );
     const { items } = usePublicSellerList();
 
     const pageTools = usePageEdit(pageInfo, defaultPageInfo);
@@ -201,14 +212,18 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <div className="right_div">
                                 <span className="goto_page">
                                     <a href="/tour">
-                                        바로가기
+                                        {ln("gotoList")}
                                         <i className="flaticon-menu-1"></i>
                                     </a>
                                 </span>
                             </div>
                         </div>
                         <GoodsListAPI
+                            key={lang + "productLine1"}
                             initialOption={{
+                                fixingFilter: {
+                                    lang_eq: lang,
+                                },
                                 initialViewCount: 4,
                                 initialFilter: {
                                     _id_in: groupsMap.Main1,
@@ -227,7 +242,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <div className="right_div">
                                 <span className="goto_page">
                                     <a href="/tour">
-                                        바로가기
+                                        {ln("gotoList")}
                                         <i className="flaticon-menu-1"></i>
                                     </a>
                                 </span>
@@ -235,7 +250,11 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                         </div>
                         <GoodsListAPI
                             slide
+                            key={lang + "productLine2"}
                             initialOption={{
+                                fixingFilter: {
+                                    lang_eq: lang,
+                                },
                                 initialViewCount: 8,
                                 initialSort: [],
                             }}
@@ -391,14 +410,18 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <div className="right_div">
                                 <span className="goto_page">
                                     <a href="/tour">
-                                        바로가기!
+                                        {ln("gotoList")}
                                         <i className="flaticon-menu-1"></i>
                                     </a>
                                 </span>
                             </div>
                         </div>
                         <GoodsListAPI
+                            key={lang + "productLineNewest"}
                             initialOption={{
+                                fixingFilter: {
+                                    lang_eq: lang,
+                                },
                                 initialViewCount: 12,
                             }}
                         />
@@ -415,15 +438,19 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <div className="right_div">
                                 <span className="goto_page">
                                     <a href="/tour">
-                                        바로가기
+                                        {ln("gotoList")}
                                         <i className="flaticon-menu-1"></i>
                                     </a>
                                 </span>
                             </div>
                         </div>
                         <GoodsListAPI
+                            key={lang + "productLineHottest"}
                             initialOption={{
                                 initialViewCount: 4,
+                                fixingFilter: {
+                                    lang_eq: lang,
+                                },
                                 initialFilter: {
                                     _id_in: groupsMap.Main1,
                                 },

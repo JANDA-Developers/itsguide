@@ -284,3 +284,10 @@ export const LocaleToString = (locale: string) => {
     if (locale === Locales.ja) return "JAPANES";
     return "KOREAN";
 };
+
+export const localeToLang: Record<Locales, Lang> = {
+    chi: Lang.CH,
+    en: Lang.EN,
+    ja: Lang.JP,
+    ko: Lang.KO,
+};

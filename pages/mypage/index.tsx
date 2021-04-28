@@ -30,6 +30,7 @@ import { SubmitPsswordModal } from "../../components/promptModal/Prompt";
 import { KeywardSelecter } from "../../components/keywardSelecter/KeywardSelecter";
 import { omits } from "../../utils/omit";
 import { CloseIcon } from "../../components/common/icon/CloseIcon";
+import FileInput from "../../components/fileInput/FileInput";
 
 let SEND_LIMIT = 3;
 interface IProp {}
@@ -239,7 +240,7 @@ export const MyPageProfile: React.FC<IProp> = () => {
     const isSeller = isPartnerB || isPartner;
 
     const filteredKeywards = categoriesMap.GUIDE_KEYWARD.filter((key) =>
-        keywards.includes(key.label)
+        keywards?.includes(key.label)
     );
     const keywardsOps: IselectedOption[] = filteredKeywards.map((key) => ({
         _id: key._id,
@@ -710,19 +711,16 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                                 )}
                                                 {profile.guideLicenses.length <
                                                     6 && (
-                                                    <li
-                                                        id="thumb"
-                                                        onClick={() => {
-                                                            window.document
-                                                                .getElementById(
-                                                                    "busiLicense"
-                                                                )
-                                                                .click();
-                                                        }}
+                                                    <FileInput
+                                                        onUpload={
+                                                            handleAddLicense
+                                                        }
                                                     >
-                                                        자격증추가
-                                                        <i className="flaticon-add icon_plus"></i>
-                                                    </li>
+                                                        <li id="thumb">
+                                                            자격증추가
+                                                            <i className="flaticon-add icon_plus"></i>
+                                                        </li>
+                                                    </FileInput>
                                                 )}
                                             </ul>
                                         </div>

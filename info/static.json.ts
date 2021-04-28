@@ -1,4 +1,4 @@
-export const info = {
+const header = {
     gotoTopMenu: {
         ko: "상단메뉴 바로가기",
         en: `Shortcuts Top Menu`,
@@ -13,7 +13,7 @@ export const info = {
     },
     nim: {
         ko: "님",
-        en: `sir`,
+        en: ``,
         ja: `さん`,
         chi: `先生左右`,
     },
@@ -49,7 +49,7 @@ export const info = {
     },
     site_info: {
         ko: "소개",
-        en: `introduction`,
+        en: `Introduction`,
         ja: `紹介`,
         chi: `简介质`,
     },
@@ -71,7 +71,7 @@ export const info = {
         ja: `ポイント`,
         chi: `点`,
     },
-    own: {
+    won: {
         ko: "원",
         en: `KRW`,
         ja: `ウォン`,
@@ -185,8 +185,9 @@ export const info = {
         ja: `IDパスワードを探す`,
         chi: `搜索用户名/密码`,
     },
-    // ================= Header파트 END
-    // ================= Footer 파트
+};
+
+const footer = {
     footer_site_info: {
         ko: "회사소개",
         en: `Company introduction`,
@@ -253,6 +254,258 @@ export const info = {
         ja: `大韓民国1等クラウド·フィンテック基盤予約ソリューション`,
         chi: `大韩民国1等云计算·芬科技基础预约解决方案`,
     },
+};
+
+const utils_message = {
+    insert_link_plz: {
+        ko: "링크 주소를 입력 해주세요.",
+        en: `Please enter the link address.`,
+        ja: `リンク先のアドレスを入力してください。`,
+        chi: `请输入链接地址。`,
+    },
+    time_over_resv_period: {
+        ko: "예약가능 기간이 지났습니다.",
+        en: `The reservation period has passed.`,
+        ja: `予約可能期間が過ぎました。`,
+        chi: `可预约时间已过。`,
+    },
+    unOpend: {
+        ko: "비공개",
+        en: `closed`,
+        ja: `非公開`,
+        chi: `非公开`,
+    },
+    basket_empty_message: {
+        ko: "정말로 장바구니 내역을 초기화 하시겠습니까?",
+        en: `Are you sure you want to reset your shopping cart history?`,
+        ja: `ショッピングカートを初期化しますか？`,
+        chi: `确定要初始化购物车吗？`,
+    },
+    basket_is_empty: {
+        ko: "장바구니에 상품이 존재하지 않습니다.",
+        en: `Product does not exist in the shopping cart.`,
+        ja: `買い物かごには製品がありません。`,
+        chi: `购物车上没有产品。`,
+    },
+    product_info: {
+        ko: "상품정보",
+        en: `Product Information`,
+        ja: `商品情報`,
+        chi: `商品情報`,
+    },
+    option: {
+        ko: "옵션",
+        en: `Options`,
+        ja: `オプション`,
+        chi: `期权`,
+    },
+    product_price: {
+        ko: "상품금액",
+        en: `Price`,
+        ja: `商品金額`,
+        chi: `商品金額`,
+    },
+    status: {
+        ko: "상태",
+        en: `State`,
+        ja: `状態`,
+        chi: `状态`,
+    },
+    startDate: {
+        ko: "출발일",
+        en: `Departure Date`,
+        ja: `出発日`,
+        chi: `出发日期`,
+    },
+    travel_method: {
+        ko: "여행방식",
+        en: `Travel type`,
+        ja: `旅行方式`,
+        chi: `旅行方式`,
+    },
+    startPoint: {
+        ko: "출발장소",
+        en: `Place of Departure`,
+        ja: `出発場所`,
+        chi: `出发地点`,
+    },
+    location: {
+        ko: "장소",
+        en: `Place`,
+        ja: `場所`,
+        chi: `场所`,
+    },
+    party_members: {
+        ko: "모집인원",
+        en: `Party members`,
+        ja: `募集人員`,
+        chi: `人员`,
+    },
+    select_people: {
+        ko: "선택인원",
+        en: `Number of people`,
+        ja: `選択人数`,
+        chi: `选择人员`,
+    },
+    total: {
+        ko: "총",
+        en: `Total`,
+        ja: `合計`,
+        chi: `总计`,
+    },
+    range: {
+        ko: "기간",
+        en: `Period`,
+        ja: `基幹`,
+        chi: `期间`,
+    },
+    one_day: {
+        ko: "당일체험",
+        en: `Experience`,
+        ja: `当日体験`,
+        chi: `当日体验`,
+    },
+    person_unit: {
+        ko: "명",
+        en: ``,
+        ja: `人`,
+        chi: `人`,
+    },
+    change_condition_basket: {
+        ko: "조건 추가/변경",
+        en: `Add/Change Conditions`,
+        ja: `条件の追加変更`,
+        chi: `附加条件变更`,
+    },
+    money_unit: {
+        ko: "원",
+        en: `won`,
+        ja: `won`,
+        chi: `won`,
+    },
+    order: {
+        ko: "주문하기",
+        en: `Ordering`,
+        ja: `注文する`,
+        chi: `订购`,
+    },
+    start_travel: {
+        ko: "출발",
+        en: `Departure`,
+        ja: `出発`,
+        chi: `起跑`,
+    },
+    sum_price: {
+        ko: "합계금액",
+        en: `Total Amount`,
+        ja: `合計金額`,
+        chi: `合计金额`,
+    },
+    adult: {
+        ko: "성인",
+        en: `Adult`,
+        ja: `成人`,
+        chi: `成人`,
+    },
+    kid: {
+        ko: "소인",
+        en: `Child`,
+        ja: `小人`,
+        chi: `小人儿`,
+    },
+    baby: {
+        ko: "유아",
+        en: `Baby`,
+        ja: `幼児`,
+        chi: `幼儿`,
+    },
+    selectAll: {
+        ko: "전체선택",
+        en: `Select All`,
+        ja: `全体選択`,
+        chi: `全部选择`,
+    },
+    selectDelete: {
+        ko: "선택삭제",
+        en: `Delete`,
+        ja: `選択削除`,
+        chi: `删除选择`,
+    },
+    deleteAll: {
+        ko: "전체삭제",
+        en: `Delete All`,
+        ja: `すべて削除`,
+        chi: `全部删除`,
+    },
+    gotoList: {
+        ko: "바로가기",
+        en: `to list`,
+        ja: `立ちくらべ`,
+        chi: `快捷键`,
+    },
+    viewMore: {
+        ko: "바로가기",
+        en: `Shortcuts`,
+        ja: `立ちくらべ`,
+        chi: `快捷键`,
+    },
+    noData: {
+        ko: "게시글이 없습니다.",
+        en: `There is no post.`,
+        ja: `投稿がありません。`,
+        chi: `未发表文章。`,
+    },
+    frequentQuestion: {
+        ko: "자주하는 질문",
+        en: `Frequently Asked Questions`,
+        ja: `よくあるご質問`,
+        chi: `常见问题`,
+    },
+    all: {
+        ko: "전체",
+        en: `All`,
+        ja: `すべて`,
+        chi: `全部的`,
+    },
+    start: {
+        ko: "처음",
+        en: `First`,
+        ja: `初初め`,
+        chi: `初初`,
+    },
+    prev: {
+        ko: "이전",
+        en: `Prev`,
+        ja: `前へ`,
+        chi: `以前`,
+    },
+    next: {
+        ko: "다음",
+        en: `Next`,
+        ja: `次の`,
+        chi: `下一个`,
+    },
+    last: {
+        ko: "마지막",
+        en: `Last`,
+        ja: `しまい`,
+        chi: `最后`,
+    },
+    new: {
+        ko: "최신",
+        en: `new`,
+        ja: `新しい`,
+        chi: `新的`,
+    },
+};
+
+export const info = {
+    ...header,
+    ...footer,
+    ...utils_message,
+    // ================= Header파트 END
+    // ================= Footer 파트
+
     // ================= Footer 파트 END
 };
 
