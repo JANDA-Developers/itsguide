@@ -29,13 +29,7 @@ export const handSearchClose = () => {
 export const Header: React.FC<IProp> = () => {
     const [search, setSearch] = useState("");
     const rotuer = useRouter();
-<<<<<<< HEAD
-    const { locale, query, pathname } = rotuer;
-    console.log({ pathname });
-    console.log({ query });
-=======
     const { locale, pathname, query } = rotuer;
->>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
 
     const { isLogin, myProfile, isManager, isSeller, isAdmin, ln } = useContext(
         AppContext
@@ -206,38 +200,22 @@ export const Header: React.FC<IProp> = () => {
                         </label>
                         <ul id="language__choice" className="language__choice">
                             <li>
-<<<<<<< HEAD
-                                <Link href={{ pathname, query }} locale="ko">
-=======
                                 <Link href={{ query, pathname }} locale="ko">
->>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                     <a>KOREAN</a>
                                 </Link>
                             </li>
                             <li>
-<<<<<<< HEAD
-                                <Link href={{ pathname, query }} locale="en">
-=======
                                 <Link href={{ query, pathname }} locale="en">
->>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                     <a>ENGLISH</a>
                                 </Link>
                             </li>
                             <li>
-<<<<<<< HEAD
-                                <Link href={{ pathname, query }} locale="ja">
-=======
                                 <Link href={{ query, pathname }} locale="ja">
->>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                     <a>JAPANESE</a>
                                 </Link>
                             </li>
                             <li>
-<<<<<<< HEAD
-                                <Link href={{ pathname, query }} locale="chi">
-=======
                                 <Link href={{ query, pathname }} locale="chi">
->>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                     <a>CHINESE</a>
                                 </Link>
                             </li>
@@ -392,11 +370,7 @@ export const Header: React.FC<IProp> = () => {
                                         >
                                             <li>
                                                 <Link
-<<<<<<< HEAD
-                                                    href={{ pathname, query }}
-=======
                                                     href={{ query, pathname }}
->>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                                     locale="ko"
                                                 >
                                                     <a>KOREAN</a>
@@ -404,11 +378,7 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
-<<<<<<< HEAD
-                                                    href={{ pathname, query }}
-=======
                                                     href={{ query, pathname }}
->>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                                     locale="en"
                                                 >
                                                     <a>ENGLISH</a>
@@ -416,11 +386,7 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
-<<<<<<< HEAD
-                                                    href={{ pathname, query }}
-=======
                                                     href={{ query, pathname }}
->>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                                     locale="ja"
                                                 >
                                                     <a>JAPANESE</a>
@@ -428,11 +394,7 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
-<<<<<<< HEAD
-                                                    href={{ pathname, query }}
-=======
                                                     href={{ query, pathname }}
->>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                                     locale="chi"
                                                 >
                                                     <a>CHINESE</a>
