@@ -20,10 +20,6 @@
 figure.image img {
     width: 100%;
 }
-
-.emailVerifiModal__btns .btn {
-    color: white!important;
-}
 #basketModal .popup_bg_mini { 
     max-width: 400px;
 }

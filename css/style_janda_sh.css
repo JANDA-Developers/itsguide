@@ -171,6 +171,7 @@ ul.list_ul li .bottom_txt div[class*=tag] span,
     width: 100%;
     margin-top: 180px;
     font-size: 4em;
+    box-sizing: border-box;
 }
 
 .main_con_box1 .main_top_images span {
@@ -1603,6 +1604,13 @@ div.popup_bg_mini .page{
             color: #333;
         }
 
+    div.popup_bg_mini h6 {
+        position: relative;
+        font-size: 1em;
+        letter-spacing: -2px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+    }
     div.popup_bg_mini h3 {
         position: relative;
         font-size: 1.6em;
@@ -5691,7 +5699,7 @@ div.bn_box {
 
         .join_wrap2 .choice_box .bt_txt {
             font-weight: 400;
-            font-size: 0.8em;
+            font-size: 0.9em;
             line-height: 21px;
         }
 
@@ -5793,7 +5801,7 @@ div.bn_box {
 
         .join_wrap2 .certified .bt_txt {
             font-weight: 400;
-            font-size:0.8em;
+            font-size:0.9em;
             line-height: 21px;
         }
 
@@ -5807,7 +5815,7 @@ div.bn_box {
         .join_wrap2 .certified p {
             position: relative;
             font-size: 0.9em;
-            font-weight:300;
+            font-weight:600;
             line-height: 21px;
             color: #757575;
         }
@@ -5828,7 +5836,7 @@ div.bn_box {
             border-radius: 500px;
             padding: 25px 20px 20px 20px;
             text-align: center;
-            font-size: 18px;
+            font-size: 1.2em;
             box-sizing: border-box;
             margin: 10px 6px;
             cursor: pointer;
@@ -5910,7 +5918,7 @@ div.bn_box {
             padding: 30px 0;
         }
 
-    .join_wrap2 .btn {
+    .join_wrap2 .btn.blue {
         width: 50%;
         padding: 13px 12px !important;
         text-align: center;
@@ -6051,6 +6059,7 @@ div.bn_box {
         box-shadow: 0 3px 0px #397bad !important;
         font-size: 16px !important;
         padding: 16px 13px 12px !important;
+        border: 0 !important;
     }
 
         .join_wrap2 .sum:hover {
@@ -6065,7 +6074,9 @@ div.bn_box {
         font-weight: 600 !important;
         box-shadow: 0 3px 0px #ccc !important;
         font-size: 16px !important;
-        padding: 16px 13px 12px !important;
+        padding: 19px 36px 19px !important;
+        border: 0 !important;
+
     }
 
         .join_wrap2 .cancel:hover {
@@ -9989,7 +10000,7 @@ i.calendar {
         font-size: 1.1em;
     }
     .join_wrap2 .choice_box .bt_txt {
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
     
     .join_wrap2 .certified {
@@ -10013,9 +10024,9 @@ i.calendar {
         width: 200px;
         height: 200px;
         padding: 50px 20px 20px 20px;
-        font-size: 18px;
+        font-size: 1.2em;
         margin: 10px 24px;
-        font-weight: 100;
+        font-weight: 600;
     }
     .join_wrap2 .certified li i {
         display: block;

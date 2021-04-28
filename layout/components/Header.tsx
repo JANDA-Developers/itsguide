@@ -118,7 +118,7 @@ export const Header: React.FC<IProp> = () => {
                         ) : (
                             <li className="join">
                                 <Link href="/member/join">
-                                    <a>JOIN</a>
+                                    <a>가이드 가입하기</a>
                                 </Link>
                             </li>
                         )}
@@ -388,7 +388,7 @@ export const Header: React.FC<IProp> = () => {
                                 ) : (
                                     <span>
                                         <Link href="/member/join">
-                                            <a>JOIN</a>
+                                            <a>가이드 가입하기</a>
                                         </Link>
                                     </span>
                                 )}
