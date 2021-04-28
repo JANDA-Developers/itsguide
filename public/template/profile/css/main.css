@@ -13935,7 +13935,7 @@ div.alignment .right_div {
             text-align: right;
         }
         div.search_mini input {
-            width: 53%;
+            width: 100%;
             margin: 0 auto;
             display: inline-block;
             border-radius: 111px;

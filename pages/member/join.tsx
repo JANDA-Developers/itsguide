@@ -183,7 +183,7 @@ const JoinResult = () => {
             </p>
             <div className="fin">
                 <Link href="/member/login">
-                    <button className="sum btn">로그인 하러가기</button>
+                    <button className="sum btn blue">로그인 하러가기</button>
                 </Link>
             </div>
         </div>

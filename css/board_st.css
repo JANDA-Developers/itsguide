@@ -63,7 +63,7 @@
         cursor: pointer;
     }
     .board_option a strong {
-        font-weight: 400;
+        font-weight: 600;
     }
 
         .board_option a:hover {
@@ -735,6 +735,8 @@ ul.boardlist_ul li .cash {
                 font-size: 13px;
                 box-sizing: border-box;
                 font-weight: 100;
+                flex: 1 1;
+                flex-grow: 1;
             }
 
         .board_list.st01 .tbody .td01 {
@@ -1964,12 +1966,12 @@ div.comment_box {
             border-color: #555 !important;
         }
 
-    .boardNavigation .pointcolor {
+   .pointcolor {
         color: #5bace9 !important;
         border: 1px solid #5bace9 !important;
     }
 
-        .boardNavigation .pointcolor:hover {
+       .pointcolor:hover {
             background: #5bace9 !important;
             color: #fff !important;
             border: 1px solid #5bace9 !important;
@@ -2290,7 +2292,7 @@ div.sum_div {
         width: 100%;
         line-height: 150%;
         font-weight: 100;
-        font-size: 0.9em;
+        font-size: 1em;
         border: 1px solid #eee;
         padding: 30px 20px 50px;   
         margin-top: -7px;
@@ -2557,10 +2559,7 @@ div.sum_div {
         padding-left: 0;
         padding-right: 0;
     }
-    .writing_in .w1200{
-        box-sizing: border-box;
-        padding: 50px 0 100px;
-    }
+  
     .tb_st__01 {
         width: 100%;
         min-width: 640px;
@@ -2664,7 +2663,7 @@ div.sum_div {
         padding: 0;
     }
     .board_list.st01 .tbody li > div{
-        padding: 10px;
+        padding: 15px 10px ;
     }
     .board_list.st01 .tbody .td01 {
         width: auto;
@@ -2942,6 +2941,12 @@ div.sum_div {
         }
 }
 
+@media (min-width:1230px) {
+    .writing_in .w1200{
+        box-sizing: border-box;
+        padding: 50px 0 100px;
+    }
+}
 @media (max-width:1000px) {
     ul.list_ul.line3 li .img {
         height: 150px;

@@ -20,6 +20,11 @@ ul.list_ul li .category span,
 .tour_details_in .boardReadBody .top_day span,
 .footer-area-bottom .janda_txt a,
 .guide__infobox p,
+p,
+.master__table .tbody div[class*=t0],
+.board_list.st01 .tbody .td04,
+.board_list.st01 .tbody .td01,
+.board_list.st01 .tbody .td02,
 ul.list_ul li .bottom_txt div[class*=tag] span,
 .main_con_box5 h2 span{
 
@@ -166,6 +171,7 @@ ul.list_ul li .bottom_txt div[class*=tag] span,
     width: 100%;
     margin-top: 180px;
     font-size: 4em;
+    box-sizing: border-box;
 }
 
 .main_con_box1 .main_top_images span {
@@ -272,8 +278,8 @@ ul.list_ul li .bottom_txt div[class*=tag] span,
     }
 
     .App .peple {
-        width: 80px;
-        height: 80px;
+        width: 140px;
+        height: 140px;
         display: inline-block;
         margin: 0 0 0 -12px;
         text-align: center;
@@ -736,6 +742,21 @@ div.goods_list {
         .main_con_box6 h2 {
             font-size: 30px;
         }
+
+
+        .main_con_box8 {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 80px 3% 230px;
+            box-sizing: border-box;
+        }
+    
+        .main_con_box8 h2 {
+            font-size: 30px;
+        }
+
+    
 
         div.theme_deal {
             width: 100%;
@@ -1582,6 +1603,13 @@ div.popup_bg_mini .page{
             color: #333;
         }
 
+    div.popup_bg_mini h6 {
+        position: relative;
+        font-size: 1em;
+        letter-spacing: -2px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+    }
     div.popup_bg_mini h3 {
         position: relative;
         font-size: 1.6em;
@@ -5670,7 +5698,7 @@ div.bn_box {
 
         .join_wrap2 .choice_box .bt_txt {
             font-weight: 400;
-            font-size: 0.8em;
+            font-size: 0.9em;
             line-height: 21px;
         }
 
@@ -5772,7 +5800,7 @@ div.bn_box {
 
         .join_wrap2 .certified .bt_txt {
             font-weight: 400;
-            font-size:0.8em;
+            font-size:0.9em;
             line-height: 21px;
         }
 
@@ -5786,7 +5814,7 @@ div.bn_box {
         .join_wrap2 .certified p {
             position: relative;
             font-size: 0.9em;
-            font-weight:300;
+            font-weight:600;
             line-height: 21px;
             color: #757575;
         }
@@ -5807,7 +5835,7 @@ div.bn_box {
             border-radius: 500px;
             padding: 25px 20px 20px 20px;
             text-align: center;
-            font-size: 18px;
+            font-size: 1.2em;
             box-sizing: border-box;
             margin: 10px 6px;
             cursor: pointer;
@@ -5889,7 +5917,7 @@ div.bn_box {
             padding: 30px 0;
         }
 
-    .join_wrap2 .btn {
+    .join_wrap2 .btn.blue {
         width: 50%;
         padding: 13px 12px !important;
         text-align: center;
@@ -6030,6 +6058,7 @@ div.bn_box {
         box-shadow: 0 3px 0px #397bad !important;
         font-size: 16px !important;
         padding: 16px 13px 12px !important;
+        border: 0 !important;
     }
 
         .join_wrap2 .sum:hover {
@@ -6044,7 +6073,9 @@ div.bn_box {
         font-weight: 600 !important;
         box-shadow: 0 3px 0px #ccc !important;
         font-size: 16px !important;
-        padding: 16px 13px 12px !important;
+        padding: 19px 36px 19px !important;
+        border: 0 !important;
+
     }
 
         .join_wrap2 .cancel:hover {
@@ -8775,8 +8806,8 @@ i.calendar {
     .guide__infobox{
         position: relative;
         display: flex;
-        border: 5px solid #cccccc;
-        background-color: #ffffff;
+        border: 5px solid #d1dbe3;
+    background-color: #f6fbfe;
         padding: 15px;
         box-sizing: border-box;
     }
@@ -8821,11 +8852,17 @@ i.calendar {
         line-height: 34px;
     }
     .guide__infobox .btn {
-        border: 1px solid #cccccc;
+        border: 1px solid #b5c2cc;
         font-size: 12px;
         font-weight: 600;
         line-height: 35px;
         padding: 4px 9px;
+        color: #98aab8;
+    }
+    .guide__infobox .btn:hover {
+        border: 1px solid #5bace9;
+        background-color: #5bace9;
+        color: #ffffff;
     }
     .guide__infobox .btn i{
        margin-left: 5px;
@@ -8840,6 +8877,7 @@ i.calendar {
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         margin-bottom: 5px;
+        color: #7991a4;
     }
     .guide__infobox .bottom_btn{
         display: block;
@@ -8901,7 +8939,7 @@ i.calendar {
         text-align: center;
     }
     .language__choice li a::after{
-        display: none
+        display: none !important;
     }
     .language__box .language__present:checked ~ .language__choice{
         display: block !important;
@@ -8916,9 +8954,34 @@ i.calendar {
     }
     #all_menu .language__box .language__present_label{
         border: 1px solid #f5f5f5;
-        font-size: 0.6em;}
+        font-size: 0.6em;
+        opacity: 0.8;
+    }
     #all_menu .language__box .language__choice{
         font-size: 0.6em !important;
+    }
+    .question_box{
+        box-sizing: border-box;
+        padding: 50px 0 100px;
+    }
+    .question_box .board_list.st01 .tbody .td03{
+        width: auto;
+    }
+    .question_box .board_list.st01 .tbody .td04{
+        width: auto;
+    }
+    .announce_box{
+        box-sizing: border-box;
+        padding: 30px 0 100px;
+    }
+    .text__infobox{
+        position: relative;
+        margin-top: 15px;
+        padding: 30px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        color: #999999;
     }
 @media (min-width: 768px) {   
     .tour_details_in .boardReadBody .con_top_tap span a{
@@ -9283,6 +9346,14 @@ i.calendar {
     }
 }
 @media (min-width: 1000px) {
+    .question_box .board_list.st01 .tbody .td04{
+        max-width: 15%;
+        text-align: center;
+    }
+    .question_box .board_list.st01 .tbody .td05{
+        max-width:15%;
+        text-align: center;
+    }
     .main_con_box3 li:nth-last-child(3n) {
         font-size: 2.5em;
     }
@@ -9927,7 +9998,7 @@ i.calendar {
         font-size: 1.1em;
     }
     .join_wrap2 .choice_box .bt_txt {
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
     
     .join_wrap2 .certified {
@@ -9951,9 +10022,9 @@ i.calendar {
         width: 200px;
         height: 200px;
         padding: 50px 20px 20px 20px;
-        font-size: 18px;
+        font-size: 1.2em;
         margin: 10px 24px;
-        font-weight: 100;
+        font-weight: 600;
     }
     .join_wrap2 .certified li i {
         display: block;
@@ -10076,6 +10147,11 @@ i.calendar {
 }
 
 @media (min-width: 1100px) {
+
+    .App .peple{
+        width: 80px;
+        height: 80px;
+    }
     div.goods_list li .title {
         margin-top: 15px;
         font-size: 16px;
@@ -10142,9 +10218,7 @@ i.calendar {
     .findmembers_box .info_txt {
         margin-top: 50px;
     }
-    .tour_details_in{
-        padding: 50px 0 100px;
-    }  
+   
 
 }
 
@@ -10250,7 +10324,10 @@ i.calendar {
     .main_con_box6 {
         padding: 130px 0;
     }
-    
+    .main_con_box8 {
+        padding: 130px 0;
+    }
+ 
     div.goods_list .line4 li {
         width: 24.1%;
         margin-bottom: 14px;
@@ -10385,37 +10462,13 @@ i.calendar {
         min-height: 700px;
         background-position: 20% center;
     }
-    .footer_in .f_detail_wrap,
-    #container .row1,
-    #container .row3,
-    #container .row5,
-    #container .row2 .row_inner,
-    #container .row4 .row_inner,
-    .w1200,
-    #content .xm {
-        width: 1200px;
-        margin: 0 auto;
-    }
+    
 
         #container .row1 ul {
             width: 983px;
         }
 
-    .iframe_box {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 1200px;
-        height: 600px;
-        margin-top: -300px;
-        margin-left: -600px;
-        z-index: 101;
-        padding: 59px 15px 15px;
-        box-sizing: border-box;
-        border-radius: 20px;
-        overflow: hidden;
-        background-color: #fff;
-    }
+   
     div.alignment {
         width: 100%;
         padding: 30px 5px 5px;
@@ -10428,17 +10481,18 @@ i.calendar {
     }
 
     div.search_mini {
-        width: 45%;
+        width: 100%;
+        max-width: 270px;
         right: 0;
         padding: 0;
-        margin: 20px 0;
+        margin: 0;
         text-align: left;
     }
         div.search_mini .in {
             text-align: right;
         }
         div.search_mini input {
-            width: 53%;
+            width: 100%;
             margin: 0 auto;
             display: inline-block;
             border-radius: 111px;
@@ -10479,6 +10533,11 @@ i.calendar {
     }
 }
 
+@media (min-width: 1250px) {
+    .tour_details_in{
+        padding: 50px 0 100px;
+    } 
+}
 @media (min-width: 1300px) {
     .main_con_box3 .w1200:before{
         right: 0;
@@ -10587,8 +10646,47 @@ i.calendar {
         font-size: 8em;
     }
 }
-
+@media (max-width: 1250px) {
+    /* .footer_in .f_detail_wrap, */
+    #container .row1,
+    #container .row3,
+    #container .row5,
+    #container .row2 .row_inner,
+    #container .row4 .row_inner,
+    .w1200,
+    #content .xm {
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .iframe_box {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 1200px;
+        height: 600px;
+        margin-top: -300px;
+        margin-left: -600px;
+        z-index: 101;
+        padding: 59px 15px 15px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+    .announce_box{
+        margin-bottom: 100px !important;
+        box-sizing: border-box;
+        padding: 3% 3%;
+    }
+    .question_box{
+        box-sizing: border-box;
+        padding: 3% 3% 10%;
+    }
+}
 @media (max-width: 1000px) {
+    .question_box{
+        padding: 5% 3%;
+    }
     .footer_in .bottom_nav ul {
         padding: 1%;
     }
@@ -10651,8 +10749,6 @@ i.calendar {
        text-align: right;
     }
    
-}
-@media (max-width: 1000px) {
     .tour_details_in .Read_box{
         width: 100%;
         position: relative;
@@ -10664,9 +10760,31 @@ i.calendar {
     .tour_details_in .boardReadBody .in_box{
         padding: 50px 30px;
     }
+    .announce_box{
+        padding: 5% 3%;
+    }
 }
 @media (max-width: 767px) {
- 
+    .pagenate .page a.first,
+    .pagenate .page a.prev,
+    .pagenate .page a.next,
+    .pagenate .page a.end{
+        width: auto;
+        box-sizing: border-box;
+        padding: 0 8px;
+        background-color: #f5f5f5;
+        color: #999999;
+    }
+    .pagenate .page a.first:hover,
+    .pagenate .page a.prev:hover,
+    .pagenate .page a.next:hover,
+    .pagenate .page a.end:hover{
+        background-color: #5bace9;
+        color: #ffffff;
+    }
+    .question_box{
+        padding: 5% 3% 15%;
+    }
     .main_con_box8 .alignment .right_div{
         display: none;
     }
@@ -10698,11 +10816,7 @@ i.calendar {
     div.alignment .view_icon{
         display: none !important;
     }
-    .announce_box{
-        margin-bottom: 100px !important;
-        box-sizing: border-box;
-        padding: 5% 3%;
-    }
+ 
     .guide_box .guide_content .con01 li {
         width: 50px;
         height: 50px;
@@ -10960,7 +11074,12 @@ i.calendar {
         padding: 50px 3% 80px;
     }
     .main_con_box7 .box01 h2{
+        font-size: 0.8em;
+        display: contents;
+    }
+    .main_con_box7 .box01 h2 span{
         font-size: 2em;
+        display: contents;
     }
     .main_con_box7 .box01 .link {
         display: inline-block;
@@ -10979,8 +11098,13 @@ i.calendar {
         padding-left: 20px;
         box-sizing: border-box;
     }
+    .main_con_box7 .box01,
+    .main_con_box7 .box02,
+    .main_con_box7 .box03 {
+        display: block;
+    }
     .main_con_box7 .box02 .left {
-        width: 40%;
+        width: 100%;
         padding: 5%;
     }
     .main_con_box7 .box02 .left br {
@@ -10988,13 +11112,16 @@ i.calendar {
     }
     .main_con_box7 .box02 .left h3 {
         font-size: 1.2em;
+        display: contents;
     }
     .main_con_box7 .box02 .left p {
         font-size: 0.8em;
         margin-top: 50px;
+        display: table-cell;
     }
     .main_con_box7 .box02 .right {
-        width: 60%;
+        width: 100%;
+        min-height: 200px;
         background-size: 250%;
     }
     .main_con_box7 .box02 .right .txt {
@@ -11006,9 +11133,10 @@ i.calendar {
     }
     .main_con_box7 .box02 .right .txt p, .main_con_box7 .box03 .left .txt p {
         font-size: 2.4em;
+        display: table-cell;
     }
     .main_con_box7 .box03 .right {
-        width: 40%;
+        width: 100%;
         padding: 5%;
     }
     .main_con_box7 .box03 .right br {
@@ -11016,15 +11144,18 @@ i.calendar {
     }
     .main_con_box7 .box03 .right h3 {
         font-size: 1.2em;
+        display: contents;
     }
     .main_con_box7 .box03 .right p {
         font-size: 0.8em;
         margin-top: 50px;
+        display: table-cell;
     }
     .main_con_box7 .box03 .left {
-        width: 60%;
+        width:100%;
+        height: 200px;
         background-size: 240%;
-        background-position: 37% top;
+        background-position: 37% 20%;
     }
     .main_con_box7 .box03 .left .txt {
         bottom: 20px;
@@ -11036,6 +11167,7 @@ i.calendar {
     .main_con_box8{
         position: relative;
         display: block;
+        padding: 0 3%;
     }
     .main_con_box8 .w1200{
         position: relative;
@@ -11270,14 +11402,15 @@ i.calendar {
     .main_con_box7 .box02,
     .main_con_box7 .box03 {
        height: 200px;
+       display: block;
     }
     .main_con_box7 .box02 .left,
     .main_con_box7 .box03 .right{
-        width: 10%;
+        width: 100%;
     }
     .main_con_box7 .box02 .right,
     .main_con_box7 .box03 .left{
-        width: 90%;
+        width: 100%;
     }
     .main_con_box7 .box02 .left h3,
     .main_con_box7 .box02 .left p,

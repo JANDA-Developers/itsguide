@@ -10,6 +10,7 @@ import { MemberTopNav } from "../../../components/topNav/MemberTopNav";
 import { useQnaList } from "../../../hook/useQna";
 import { qnaList_QnaList_data } from "../../../types/api";
 import { Change } from "../../../components/loadingList/LoadingList";
+<<<<<<< HEAD
 import { generateClientPaging } from "../../../utils/generateClientPaging";
 import { Paginater } from "../../../components/common/Paginator";
 import { PageEditor } from "../../../components/common/PageEditer";
@@ -32,6 +33,15 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
     });
     const [filterCat, setFilterCat] = useState<string>();
     const router = useRouter();
+=======
+
+export const getStaticProps = getStaticPageInfo("qna");
+export const Qna: React.FC<Ipage> = (pageInfo) => {
+    const { items, getLoading } = useQnaList({ initialViewCount: 999 });
+    const [filterCat, setFilterCat] = useState("");
+    const router = useRouter();
+    const { isManager, categoriesMap } = useContext(AppContext);
+>>>>>>> design
     const pageTools = usePageEdit(pageInfo, defaultPageInfo);
     const [openId, setOpenId] = useState("");
 
@@ -55,6 +65,7 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
         setFilterCat(catId);
     };
 
+<<<<<<< HEAD
     const filteredItems = filterCat
         ? items.filter((item) => item.category?._id === filterCat)
         : items;
@@ -147,10 +158,96 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
                                         />
                                     </div>
                                 </div>
+=======
+    return (
+        <div>
+            <SubTopNav pageTools={pageTools}>
+                <li className="homedeps1">Member</li>
+                <li className="homedeps2">
+                    <Link href="/service/qna">
+                        <a>자주하는 질문</a>
+                    </Link>
+                </li>
+            </SubTopNav>
+            <div className="qna_box w1200">
+                <MemberTopNav />
+                <div className="board_qna board_box">
+                    <div className="alignment">
+                        <div className="left_div">
+                            <ul className="board_option">
+                                <li className={checkCatEq(undefined)}>
+                                    <a>전체</a>
+                                </li>
+                                {categoriesMap.QNA.map((cat) => (
+                                    <li
+                                        className={checkCatEq(cat._id)}
+                                        onClick={handleCatFilter(cat._id)}
+                                        key={cat._id}
+                                    >
+                                        <a>
+                                            {cat.label}
+                                            <strong>
+                                                {checkCatCount(cat._id)}
+                                            </strong>
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="right_div"></div>
+                    </div>
+                    <Change change={!getLoading}>
+                        {items.map((qna) => (
+                            <div
+                                onClick={handleToogle(qna)}
+                                key={qna._id}
+                                className={`dl ${
+                                    openId === qna._id && "active"
+                                }`}
+                            >
+                                <div className="dt">
+                                    <span>
+                                        <i className="Q"></i>
+                                        {qna.category?.label}
+                                    </span>
+                                    {qna.title}
+
+                                    {isManager && (
+                                        <button
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                router.push(
+                                                    "/service/qna/write/" +
+                                                        qna._id
+                                                );
+                                            }}
+                                            type="submit"
+                                            className="btn small"
+                                        >
+                                            수정하기
+                                        </button>
+                                    )}
+
+                                    <i className="jandaicon-arr4-bottom"></i>
+                                </div>
+
+                                <div className="dd panel-collapse collapse in">
+                                    <div className="form">
+                                        <i className="A" />
+                                        <p
+                                            dangerouslySetInnerHTML={{
+                                                __html: qna.contents,
+                                            }}
+                                        />
+                                    </div>
+                                </div>
+>>>>>>> design
                             </div>
                         ))}
                     </Change>
                 </div>
+<<<<<<< HEAD
                 <Paginater setPage={setPage} pageInfo={paging} />
 
                 <div className="fin mt30 mb100">
@@ -166,6 +263,19 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
                         )}
                     </div>
                     <div className="float_right"></div>
+=======
+
+                <div className="tr list_bottom">
+                    {isManager && (
+                        <button
+                            onClick={gotoWrite}
+                            type="submit"
+                            className="btn medium footer pointcolor"
+                        >
+                            글쓰기
+                        </button>
+                    )}
+>>>>>>> design
                 </div>
             </div>
         </div>
