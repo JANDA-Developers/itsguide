@@ -8581,9 +8581,14 @@ i.calendar {
     color:#bbb;
 }
 
+.no_data i {
+    font-size: 0.8em;
+}
+
     .no_data span {
         padding: 0 0 0 2px !important;
         font-size: 0.9em;
+        font-weight: 600;
     }
 
     .approval {
@@ -9053,7 +9058,6 @@ i.calendar {
     }
  
 
-    .footer_in .f_detail_wrap,
     #container .row1, 
     #container .row3, 
     #container .row5, 
@@ -10765,6 +10769,34 @@ i.calendar {
     }
 }
 @media (max-width: 767px) {
+    .guide__infobox{
+        display: block;
+    }
+    .guide__infobox .profile{
+        margin: 0 auto;
+        margin-bottom: 5px;
+    }
+    .guide__infobox .profile .photo{
+        margin:  0 auto 5px;
+    }
+    .guide__infobox .txtbox p{
+        -webkit-line-clamp: 2;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .guide__infobox .bottom_btn{
+        text-align: center;
+        display: block;
+    }
+    .guide__infobox .btn{
+        width: 100%;
+        line-height: 17px;
+        display: block;
+    }
+    .guide__infobox .btn.ml10{
+        margin-left: 0 !important;
+        margin-top: 5px;
+    }
     .pagenate .page a.first,
     .pagenate .page a.prev,
     .pagenate .page a.next,

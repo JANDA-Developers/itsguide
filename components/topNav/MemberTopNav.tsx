@@ -9,22 +9,22 @@ export const MemberTopNav = () => {
         <ul className="memberTopNav subtop_nav">
             <li className={checkOn("announce")}>
                 <Link href="/service/announce">
-                    <a>{ln("announce")}공지사항</a>
+                    <a>{ln("announce")}</a>
                 </Link>
             </li>
             <li className={checkOn("qna")}>
                 <Link href="/service/qna">
-                    <a>자주하는 질문</a>
+                    <a>{ln("frequentQuestion")}</a>
                 </Link>
             </li>
             <li className={checkOn("event")}>
                 <Link href="/service/event">
-                    <a>이벤트</a>
+                    <a>{ln("event")}</a>
                 </Link>
             </li>
             <li className={checkOn("question")}>
                 <Link href="/service/question">
-                    <a>고객문의</a>
+                    <a>{ln("question")}</a>
                 </Link>
             </li>
         </ul>

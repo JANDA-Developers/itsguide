@@ -181,7 +181,7 @@ export const ITS_GUIDE_INFO = {
     contentTitle: {
         description: "소개글 라벨",
         kr: "소개글",
-        GB: "self introduce",
+        GB: "Self introduce",
         CH: "自我介绍",
         JP: "紹介文"
     },
@@ -211,9 +211,9 @@ export const ITS_GUIDE_INFO = {
         description: "경력 내용",
         type: JDinputType.editor,
         kr: `경력을 입력해주세요.`,
-        GB: `경력을 입력해주세요.`,
-        CH: "경력을 입력해주세요.",
-        JP: "경력을 입력해주세요."
+        GB: `-`,
+        CH: "-",
+        JP: "-"
     },
     title_guid: {
         kr: "가이드 정보",
@@ -224,7 +224,7 @@ export const ITS_GUIDE_INFO = {
     guid_info1_label: {
         // 편집불가 
         kr: "총 가이드",
-        GB: "total Guid Count",
+        GB: "Total Guid Count",
         CH: "总引导计数",
         JP: "総ガイド"
     },
@@ -270,6 +270,7 @@ export const ITS_GUIDE_INFO = {
         CH: "注册产品",
         JP: "登録された商品"
     },
+ 
     noReviewData: {
         kr: "아직 리뷰한 상품이 없습니다.",
         GB: "No Review Product yet",

@@ -29,9 +29,13 @@ export const handSearchClose = () => {
 export const Header: React.FC<IProp> = () => {
     const [search, setSearch] = useState("");
     const rotuer = useRouter();
+<<<<<<< HEAD
     const { locale, query, pathname } = rotuer;
     console.log({ pathname });
     console.log({ query });
+=======
+    const { locale, pathname, query } = rotuer;
+>>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
 
     const { isLogin, myProfile, isManager, isSeller, isAdmin, ln } = useContext(
         AppContext
@@ -133,7 +137,7 @@ export const Header: React.FC<IProp> = () => {
                         <p className="welcome_ms">
                             <strong>{myProfile?.nickName}</strong>
                             {ln("nim")}
-                            {ln("wellcome")}
+                            {ln("wellcometxt")}
                         </p>
                     )}
                     <ul className="top-menu-in">
@@ -142,7 +146,7 @@ export const Header: React.FC<IProp> = () => {
                         ) : (
                             <li className="join">
                                 <Link href="/member/join">
-                                    <a>JOIN</a>
+                                    <a>{ln("guidejoin")}</a>
                                 </Link>
                             </li>
                         )}
@@ -202,22 +206,38 @@ export const Header: React.FC<IProp> = () => {
                         </label>
                         <ul id="language__choice" className="language__choice">
                             <li>
+<<<<<<< HEAD
                                 <Link href={{ pathname, query }} locale="ko">
+=======
+                                <Link href={{ query, pathname }} locale="ko">
+>>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                     <a>KOREAN</a>
                                 </Link>
                             </li>
                             <li>
+<<<<<<< HEAD
                                 <Link href={{ pathname, query }} locale="en">
+=======
+                                <Link href={{ query, pathname }} locale="en">
+>>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                     <a>ENGLISH</a>
                                 </Link>
                             </li>
                             <li>
+<<<<<<< HEAD
                                 <Link href={{ pathname, query }} locale="ja">
+=======
+                                <Link href={{ query, pathname }} locale="ja">
+>>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                     <a>JAPANESE</a>
                                 </Link>
                             </li>
                             <li>
+<<<<<<< HEAD
                                 <Link href={{ pathname, query }} locale="chi">
+=======
+                                <Link href={{ query, pathname }} locale="chi">
+>>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                     <a>CHINESE</a>
                                 </Link>
                             </li>
@@ -273,18 +293,6 @@ export const Header: React.FC<IProp> = () => {
                                     </ul>
                                 </div>
                             </div>
-                            {/* <div className="profile">
-                            <span className="photo">프로필 사진</span>
-                            <ul>
-                                <li><span><Link href="/my-page"><a>회원정보</a></Link></span></li>
-                                <li><span><Link href="/purchase"><a>장바구니</a></Link></span></li>
-                                <li><span><Link href="/"><a>구매내역</a></Link></span></li>
-                                <li><span><Link href="/"><a>나의 게시글</a></Link></span></li>
-                                <li><span><Link href="/"><a>예약관리</a></Link></span></li>
-                                <li><span><Link href="/"><a>매출/정산관리</a></Link></span></li>
-                                <li><span><Link href="/"><a>로그아웃</a></Link></span></li>
-                            </ul>
-                        </div> */}
                             <div className="searchtop">
                                 <div className="search_btn">
                                     <img
@@ -384,7 +392,11 @@ export const Header: React.FC<IProp> = () => {
                                         >
                                             <li>
                                                 <Link
+<<<<<<< HEAD
                                                     href={{ pathname, query }}
+=======
+                                                    href={{ query, pathname }}
+>>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                                     locale="ko"
                                                 >
                                                     <a>KOREAN</a>
@@ -392,7 +404,11 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
+<<<<<<< HEAD
                                                     href={{ pathname, query }}
+=======
+                                                    href={{ query, pathname }}
+>>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                                     locale="en"
                                                 >
                                                     <a>ENGLISH</a>
@@ -400,7 +416,11 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
+<<<<<<< HEAD
                                                     href={{ pathname, query }}
+=======
+                                                    href={{ query, pathname }}
+>>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                                     locale="ja"
                                                 >
                                                     <a>JAPANESE</a>
@@ -408,7 +428,11 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
+<<<<<<< HEAD
                                                     href={{ pathname, query }}
+=======
+                                                    href={{ query, pathname }}
+>>>>>>> e8f8ddb73bcd7217d423584b8dc9512c11ee2d41
                                                     locale="chi"
                                                 >
                                                     <a>CHINESE</a>
@@ -466,7 +490,7 @@ export const Header: React.FC<IProp> = () => {
                                 ) : (
                                     <span>
                                         <Link href="/member/join">
-                                            <a>JOIN</a>
+                                            <a>{ln("guidejoin")}</a>
                                         </Link>
                                     </span>
                                 )}
@@ -507,6 +531,11 @@ export const Header: React.FC<IProp> = () => {
                                         <li>
                                             <a href="/service/announce">
                                                 {ln("announce")}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/service/qna">
+                                                {ln("frequentQuestion")}
                                             </a>
                                         </li>
                                         <li>

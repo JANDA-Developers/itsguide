@@ -11,13 +11,20 @@ const header = {
         ja: `メインページを開く`,
         chi: `直达正文`,
     },
+    guidejoin: {
+        ko: "가이드 가입하기",
+        en: `Subscribe to Guide`,
+        ja: `ガイドに登録する`,
+        chi: `加入导览`,
+    },
+    
     nim: {
         ko: "님",
         en: ``,
         ja: `さん`,
         chi: `先生左右`,
     },
-    wellcome: {
+    wellcometxt: {
         ko: "어서오세요",
         en: `Welcome`,
         ja: `いらっしゃいませ`,
@@ -84,7 +91,7 @@ const header = {
         chi: `通知`,
     },
     question: {
-        ko: "문의하기",
+        ko: "고객문의",
         en: `To make an inquiry`,
         ja: `問合せ`,
         chi: `咨询`,
@@ -167,6 +174,24 @@ const header = {
         ja: `売り上げ/精算`,
         chi: `销售/结算`,
     },
+    kakaologin: {
+        ko: "카카오 로그인",
+        en: `Kakao Login`,
+        ja: `Kakao Login`,
+        chi: `Kakao Login`,
+    },
+    googlelogin: {
+        ko: "구글 로그인",
+        en: `Google Login`,
+        ja: `Google Login`,
+        chi: `Google Login`, 
+    },
+    naverlogin: {
+        ko: "네이버 로그인",
+        en: `Naver Login`,
+        ja: `Naver Login`,
+        chi: `Naver Login`,
+    },
     login: {
         ko: "로그인",
         en: `Login`,
@@ -179,11 +204,89 @@ const header = {
         ja: `会員加入`,
         chi: `注册会员`,
     },
+    id: {
+        ko: "아이디",
+        en: `ID`,
+        ja: `ID`,
+        chi: `ID`,
+    },
+    password: {
+        ko: "비밀번호",
+        en: `Password`,
+        ja: `Password`,
+        chi: `Password`,
+    },
+    keeplogin: {
+        ko: "로그인 유지",
+        en: `Keep Login`,
+        ja:`Keep Login`,
+        chi: `Keep Login`,
+    },
+    rememberid: {
+        ko: "아이디 기억",
+        en: `Remember ID`,
+        ja:`Remember ID`,
+        chi: `Remember ID`,
+    },
     findmembers: {
         ko: "아이디/비번 찾기",
         en: `Find ID/ password`,
         ja: `IDパスワードを探す`,
         chi: `搜索用户名/密码`,
+    },
+    guideinfolink: {
+        ko: "가이드 정보 자세히보기",
+        en: `Guide information`,
+        ja: `ガイド情報`,
+        chi: `导向信息`,
+    },
+    productlist: {
+        ko: "상품리스트",
+        en: `Product list`,
+        ja: `商品リスト`,
+        chi: `商品清单`,
+    },
+    moretravels: {
+        ko: "판매자의 다른 여행 더보기",
+        en: `More Travels`,
+        ja: `他の旅行をもっと見る。`,
+        chi: `查看更多其他旅行`,
+    },
+    goodscode: {
+        ko: "상품코드",
+        en: `Product code`,
+        ja: `商品コード`,
+        chi: `商品代码`,
+    },
+    keywords: {
+        ko: "키워드",
+        en: `Keywords`,
+        ja: `キーワード`,
+        chi: `关键词`,
+    },
+    state: {
+        ko: "상태",
+        en: `State`,
+        ja: `状態`,
+        chi: `状态`,
+    },
+    nondisclosure: {
+        ko: "비공개",
+        en: `Nondisclosure`,
+        ja: `非公開`,
+        chi: `非公开`,
+    },
+    public: {
+        ko: "공개",
+        en: `Public`,
+        ja: `状態`,
+        chi: `状态`,
+    },
+    departuredate: {
+        ko: "출발일",
+        en: `출발일`,
+        ja: `출발일`,
+        chi: `출발일`,
     },
 };
 
@@ -224,6 +327,67 @@ const footer = {
         ja: `Eメール`,
         chi: `电邮`,
     },
+    businessnumber_check: {
+        ko: "사업자정보확인",
+        en: `Business number Check`,
+        ja: `事業者情報確認`,
+        chi: `企业信息确认`,
+    },
+    itsguide_CEO: {
+        ko: "최성희",
+        en:  "Sung-hee Choi",
+        ja:  "Sung-hee Choi",
+        chi:  "Sung-hee Choi",
+    },
+    case: {
+        ko: "건",
+        en: "cases",
+        ja: "件",
+        chi: "件"
+    },
+
+    noProductData: {
+        ko: "아직 등록한 상품이 없습니다.",
+        en: "No Regiseted Product yet",
+        ja: "まだ登録されて商品がありません。",
+        chi: "暂无注册产品。",
+    },
+    itsguide_adress: {
+        ko: "부산광역시 영도구 봉래나루로 33, 306-27",
+        en: `(49037)306-27, 33 Bongnaenaru-ro, Yeongdo-gu, Busan, Republic of Korea`,
+        ja: `(49037)306-27, 33 Bongnaenaru-ro, Yeongdo-gu, Busan, Republic of Korea`,
+        chi: `(49037)306-27, 33 Bongnaenaru-ro, Yeongdo-gu, Busan, Republic of Korea`,
+    },
+    itsguide_name: {
+        ko: "코리아가이드센터(주)",
+        en: "코리아가이드센터(주)",
+        ja: "코리아가이드센터(주)",
+        chi: "코리아가이드센터(주)",
+    },
+    itsguide_bank: {
+        ko: "농협 351-1150-2295-63",
+        en: `NH 351-1150-2295-63`,
+        ja: `NH 351-1150-2295-63`,
+        chi: `NH 351-1150-2295-63`,
+    },
+    itsguide_FAX: {
+        ko: "051-715-0728",
+        en: `(+82) 051-715-0728`,
+        ja: `(+82) 051-715-0728`,
+        chi: `(+82) 051-715-0728`,
+    },
+    itsguide_phone: {
+        ko: "051-715-0727",
+        en: `(+82) 051-715-0727`,
+        ja: `(+82) 051-715-0727`,
+        chi: `(+82) 051-715-0727`,
+    },
+    footer_businessNumber: {
+        ko: "사업자번호",
+        en: `Business number`,
+        ja: `事業者番号`,
+        chi: `营业执照`,
+    },
     footer_phoneNumber: {
         ko: "전화번호",
         en: `Phone number`,
@@ -244,7 +408,7 @@ const footer = {
     },
     footer_accountNum: {
         ko: "계좌번호",
-        en: `bank account number`,
+        en: `Bank account number`,
         ja: `口座番号`,
         chi: `账号`,
     },
@@ -253,6 +417,18 @@ const footer = {
         en: `Korea's No. 1 Cloud and FinTech-based Reservation Solution`,
         ja: `大韓民国1等クラウド·フィンテック基盤予約ソリューション`,
         chi: `大韩民国1等云计算·芬科技基础预约解决方案`,
+    },
+    guide: {
+        kr: "가이드",
+        en: "Guide",
+        ja: "导游",
+        chi: "ガイド"
+    },
+    master: {
+        kr: "마스터",
+        en: "Master",
+        ja: "大师",
+        chi: "マスター"
     },
 };
 
@@ -439,7 +615,7 @@ const utils_message = {
     },
     gotoList: {
         ko: "바로가기",
-        en: `to list`,
+        en: `TO LIST`,
         ja: `立ちくらべ`,
         chi: `快捷键`,
     },
@@ -499,9 +675,9 @@ const utils_message = {
     },
     announce: {
         ko: "공지사항",
-        en: `new`,
-        ja: `新しい`,
-        chi: `新的`,
+        en: `News`,
+        ja: `お知らせ事項`,
+        chi: `公告事项`,
     },
 };
 

@@ -41,7 +41,6 @@
     cursor: pointer;
     white-space: nowrap;
     max-width: 70px;
-    overflow: hidden;
     text-overflow: ellipsis;
     color: #333333;
 }
