@@ -174,7 +174,7 @@ export const BookingModal: React.FC<IProp> = ({ info, isOpen, closeModal: modalC
         if (booking) {
             setMemo(booking.memo || "");
         }
-    }, [booking])
+    }, [booking._id])
 
 
     if (!booking) {

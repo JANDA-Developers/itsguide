@@ -4,6 +4,8 @@
     margin-top: 0 !important;
     margin-bottom: 100px !important;
     padding-top: 50px !important;
+    padding-right: 3%;
+    padding-left: 3%;
     box-sizing: border-box;
     min-height: 800px;
     vertical-align: top;
@@ -84,7 +86,7 @@
 }
 .master_box .fin {
     height: auto;
-    padding:15px 0;
+    padding:15px 3%;
     box-sizing: border-box;
 }
 
@@ -2718,7 +2720,7 @@ div.master_popup .info_page h4 {
     text-align: center !important;
     line-height: 130%;
     font-size: 0.9em;
-    color: #2196F3 !important;
+    color: #2196F3;
     padding-top: 0px !important;
     vertical-align: middle;
 }
@@ -3229,7 +3231,7 @@ div.master_popup .tr .re09 {
     line-height: 20px !important;
 }
 
-div.master_popup .tr input[type=text] {
+div.master_popup .tr input[type=text],div.master_popup .tr input[type=password] {
     border: 0;
     background-color: #fff;
     border:1px solid #eee;
@@ -3237,6 +3239,7 @@ div.master_popup .tr input[type=text] {
     padding: 4px;
     font-size:12px;
 }
+
 div.master_popup .tr .re09 input[type=text] {
     width: 60% !important;
 }
@@ -3972,10 +3975,7 @@ div.master_popup div.alignment{
         border: 1px solid #eee;
         padding: 20px;
     }
-    .master_box .fin {
-        padding: 20px 0;
-        height: 77px;
-    }
+
   
     .master_box .homepage.sms .sms-list li {
         width: 262px;
@@ -4224,27 +4224,6 @@ div.master_popup .info_page div[class*=th0] {
     .master_box .partner .td09 .btn{
         width: auto;
     }
-    /* .master_box .partner .list_line .td02,
-    .master_box .partner .list_line .td03,
-    .master_box .partner .list_line .td04,
-    .master_box .partner .list_line .td06,
-    .master_box .partner .list_line .td07{
-        padding:5px!important;
-    }  
-    .master_box .partner .list_line .td09{
-        padding:5px!important;
-    }
-
-    .master_box .guide .list_line .td02,
-    .master_box .guide .list_line .td03,
-    .master_box .guide .list_line .td05,
-    .master_box .guide .list_line .td06{
-        padding:15px 5px 8px!important;
-    }
-    .master_box .guide .list_line .td08{
-        padding:8px 5px 8px!important;
-    } */
-
     
 div.master_popup .info_table .th01, 
  div.master_popup .info_table .td01 {
@@ -4514,10 +4493,7 @@ div.master_popup .info_table .th01,
     
     
 @media (min-width: 1200px) {
-    .master_box{
-        padding-left: 0;
-        padding-right: 0;
-    }
+  
     .master_box .subtop_nav {
         top: -57px;
     }
@@ -4529,9 +4505,15 @@ div.master_popup .info_table .th01,
     }
 }
     
-@media (min-width: 1500px) {
-
-
+@media (min-width: 1230px) {
+    .master_box{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .master_box .fin {
+        padding: 20px 0;
+        height: 77px;
+    }
 }
 
 @media (max-width: 767px) {

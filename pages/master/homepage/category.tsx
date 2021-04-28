@@ -8,23 +8,51 @@ import {
     useCategoryList,
     useCategoryUpdate,
 } from "../../../hook/useCategory";
-import { CategoryType, Fcategory } from "../../../types/api";
+import {
+    CategoryType,
+    Fcategory,
+    Fcategory_localeLabel,
+} from "../../../types/api";
 import { CategoryEitdor } from "../../../components/categoryEditor/CategoryEdiotr";
 import { categoryMap } from "../../../utils/categoryMap";
 import { categoryToKR } from "../../../utils/enumToKr";
 import { HomepageTopNav } from "../../../components/topNav/MasterTopNav";
 import { auth } from "../../../utils/with";
 import { ALLOW_ADMINS } from "../../../types/const";
-import { LangModal } from "../../../components/langModal/LangModal";
+import {
+    ILangModalProp,
+    LangModal,
+} from "../../../components/langModal/LangModal";
+import { useModal } from "../../../hook/useModal";
+import { omits } from "../../../utils/omit";
 
 interface IProp {}
 
 export const MsHomepageA: React.FC<IProp> = () => {
     const { data } = useCategoryList();
     const categoriesMap = categoryMap(data || []);
-    const [deleteMu] = useCategoryDelete();
-    const [create] = useCategoryCreate();
-    const [update] = useCategoryUpdate();
+    const [deleteMu] = useCategoryDelete({
+        onCompleted: ({ CategoryDelete }) => {
+            if (CategoryDelete.ok) {
+                alert("삭제 완료");
+            }
+        },
+    });
+    const [create] = useCategoryCreate({
+        onCompleted: ({ CategoryCreate }) => {
+            if (CategoryCreate.ok) {
+                alert("추가완료 완료");
+            }
+        },
+    });
+    const [update] = useCategoryUpdate({
+        onCompleted: ({ CategoryUpdate }) => {
+            if (CategoryUpdate.ok) {
+                alert("업데이트 완료");
+            }
+        },
+    });
+    const lagnModalHook = useModal<ILangModalProp>();
 
     if (!categoriesMap) throw Error("categoriesMap is not exsist");
     const cats = Object.entries(categoriesMap);
@@ -45,8 +73,18 @@ export const MsHomepageA: React.FC<IProp> = () => {
             deleteMu({ variables: { id: cat._id } });
     };
 
-    const handleUpdate = (cat: Fcategory, label: string) => {
-        update({ variables: { id: cat._id, params: { label } } });
+    const handleUpdate = (
+        cat: Fcategory,
+        label: string,
+        localeLabel?: Fcategory_localeLabel
+    ) => {
+        update({
+            variables: {
+                id: cat._id,
+                params: { label, localeLabel: omits(localeLabel) },
+            },
+        });
+        lagnModalHook.closeModal();
     };
 
     return (
@@ -61,6 +99,18 @@ export const MsHomepageA: React.FC<IProp> = () => {
                                 <h5>게시판 카테고리 설정</h5>
                                 {cats.map((catWrap) => (
                                     <CategoryEitdor
+                                        onLang={(cat) => {
+                                            lagnModalHook.openModal({
+                                                cat,
+                                                onSubmit: (localLabel) => {
+                                                    handleUpdate(
+                                                        cat,
+                                                        cat.label,
+                                                        localLabel
+                                                    );
+                                                },
+                                            });
+                                        }}
                                         onDelete={handleDelete}
                                         onEdit={handleUpdate}
                                         key={catWrap[0]}
@@ -78,6 +128,7 @@ export const MsHomepageA: React.FC<IProp> = () => {
                     </div>
                 </div>
             </div>
+            <LangModal key={lagnModalHook.info?.cat?._id} {...lagnModalHook} />
         </MasterLayout>
     );
 };

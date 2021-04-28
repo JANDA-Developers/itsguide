@@ -62,7 +62,7 @@
         font-size: 11px;
     }
     .board_option a strong {
-        font-weight: 400;
+        font-weight: 600;
     }
 
         .board_option a:hover {
@@ -1938,12 +1938,12 @@ div.comment_box {
             border-color: #555 !important;
         }
 
-    .boardNavigation .pointcolor {
+    .pointcolor {
         color: #5bace9 !important;
         border: 1px solid #5bace9 !important;
     }
 
-        .boardNavigation .pointcolor:hover {
+        .pointcolor:hover {
             background: #5bace9 !important;
             color: #fff !important;
             border: 1px solid #5bace9 !important;
@@ -2424,7 +2424,7 @@ div.sum_div {
         line-height: 55px;
     }
     .board_list.st01 .tbody li > div{
-        padding: 10px;
+        padding: 15px 10px ;
     }
     .board_list.st01 .tbody .td01 {
         width: 10%;

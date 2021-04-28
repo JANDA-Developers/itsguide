@@ -10,7 +10,7 @@ interface IProp {}
 
 export const Footer: React.FC<IProp> = () => {
     const { locale } = useRouter();
-    const { isLogin } = useContext(AppContext);
+    const { isLogin, myProfile } = useContext(AppContext);
     const ln = staticInfo(locale as any);
 
     const handleFadeClick = () => {
@@ -20,21 +20,60 @@ export const Footer: React.FC<IProp> = () => {
 
     return (
         <footer className="footer" id="footer">
-            <div id="gotop" className="">
-                <Link href="#header">
-                    <a className="top">
-                        <i className="jandaicon-arr4-top" />
-                    </a>
-                </Link>
-                {/* {isLogin && <Link href="/mypage/basket">
-                <a className="basket"><img src="/img/svg/basket.svg" alt="basket icon" /><button /></a>
-            </Link>} */}
-                <Link href="#footer">
-                    <a className="down">
-                        <i className="jandaicon-arr4-bottom" />
-                    </a>
-                </Link>
-            </div>
+            {!isLogin && (
+                <div id="gotop2" className="">
+                    <Link href="#header">
+                        <a className="top">
+                            <i className="jandaicon-arr4-top" />
+                            {/* <span className="menutxt">위로</span> */}
+                        </a>
+                    </Link>
+                    <Link href="#footer">
+                        <a className="down">
+                            <i className="jandaicon-arr4-bottom" />
+                            {/* <span className="menutxt">아래로</span> */}
+                        </a>
+                    </Link>
+                </div>
+            )}
+            {isLogin && (
+                <div id="gotop" className="">
+                    <Link href="#header">
+                        <a className="top">
+                            <i className="jandaicon-arr4-top" />
+                            {/* <span className="menutxt">위로</span> */}
+                        </a>
+                    </Link>
+
+                    <Link href="/tour/write">
+                        <a className="write">
+                            <i className="flaticon-add"></i>
+                            <span className="menutxt">상품등록</span>
+                            <button />
+                        </a>
+                    </Link>
+
+                    <Link href={`/itsguid/${myProfile?._id}`}>
+                        <a className="home">
+                            <div className="img">
+                                <img
+                                    src="/its/icon_home_g.svg"
+                                    alt="home icon"
+                                />
+                            </div>
+                            <span className="menutxt">프로필홈</span>
+                            <button />
+                        </a>
+                    </Link>
+
+                    <Link href="#footer">
+                        <a className="down">
+                            <i className="jandaicon-arr4-bottom" />
+                            {/* <span className="menutxt">아래로</span> */}
+                        </a>
+                    </Link>
+                </div>
+            )}
             <div className="footer_in">
                 <div className="bottom_nav">
                     <ul className="w1200">
@@ -87,16 +126,16 @@ export const Footer: React.FC<IProp> = () => {
                         <ul className="footer_homepage_info">
                             <li>
                                 <strong className="name">
-                                    코리아가이드센터(주)
+                                    {ln("itsguide_name")}
                                 </strong>
                             </li>
                             <li>
                                 <strong>{ln("footer_ceo")}</strong>
-                                <span>최성희</span>
+                                <span>{ln("itsguide_CEO")}</span>
                             </li>
 
                             <li>
-                                <strong>{ln("footer_phoneNumber")}</strong>
+                                <strong>{ln("footer_businessNumber")}</strong>
                                 <span>
                                     863-86-01971
                                     <a
@@ -105,7 +144,7 @@ export const Footer: React.FC<IProp> = () => {
                                         target="_blank"
                                         title="사업자정보확인확인 새창띄우기"
                                     >
-                                        사업자정보확인
+                                        {ln("businessnumber_check")}
                                     </a>
                                 </span>
                             </li>
@@ -130,19 +169,21 @@ export const Footer: React.FC<IProp> = () => {
                             <li>
                                 <strong>{ln("footer_phoneNumber")}</strong>
                                 <span>
-                                    <a href="tel:051-715-0727">051-715-0727</a>{" "}
+                                    <a href="tel:051-715-0727">
+                                        {ln("itsguide_phone")}
+                                    </a>{" "}
                                     Am 10:00 ~ pm 5:00
                                 </span>
                             </li>
                             <li>
                                 <strong>{ln("footer_fax")}</strong>
-                                <span>051-715-0728</span>
+                                <span>{ln("itsguide_FAX")}</span>
                             </li>
 
                             <li>
                                 <strong>{ln("footer_address")}</strong>
                                 <span>
-                                    부산광역시 영도구 봉래나루로 33, 306-27
+                                    {ln("itsguide_adress")}
                                     <a
                                         target="_blank"
                                         href="http://naver.me/GjR8uKKb"
@@ -158,7 +199,7 @@ export const Footer: React.FC<IProp> = () => {
                             </li>
                             <li>
                                 <strong>{ln("footer_accountNum")}</strong>
-                                <span>농협 351-1150-2295-63</span>
+                                <span>{ln("itsguide_bank")}</span>
                             </li>
                             <li className="bottom_txt m">
                                 Copyright © 2021 it's Guide Co., Ltd. All rights

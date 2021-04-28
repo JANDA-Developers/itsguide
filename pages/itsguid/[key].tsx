@@ -28,6 +28,7 @@ import { useUserUpdate } from "../../hook/useUser";
 import { omits } from "../../utils/omit";
 import { KeywardSelecter } from "../../components/keywardSelecter/KeywardSelecter";
 import { LoadEditor } from "../../components/edit/EdiotrLoading";
+import { staticInfo } from "../../info/static.json";
 const Editor = LoadEditor();
 
 //URL 링크
@@ -78,7 +79,7 @@ export const ItsGuideWrap = () => {
 
 const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
     const { guideData } = pageInfo;
-    const { isManager, myProfile, categoriesMap } = useContext(AppContext);
+    const { isManager, myProfile, categoriesMap, ln } = useContext(AppContext);
     const router = useRouter();
     const { query, push, reload, locale } = router;
 
@@ -466,7 +467,9 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                             ))}
                                         </ul>
                                         {isEmpty(guideData.products) && (
-                                            <NoData label="작성된 상품이 없습니다." />
+                                            <NoData
+                                                label={ln("noProductData")}
+                                            />
                                         )}
                                         <div className="mypage_in__paginator">
                                             <Paginater

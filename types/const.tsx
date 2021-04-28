@@ -11,7 +11,7 @@ import {
 } from "./api";
 import { generateRandomStringCode } from "../utils/codeGenerator";
 
-export const DEFAULT_LOGO = "/img/logo_1.png";
+export const DEFAULT_LOGO = "/its/img/logo_1.png";
 
 export const lastMonthFirstDate = dayjs()
     .add(-1, "month")

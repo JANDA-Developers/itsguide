@@ -24,6 +24,7 @@ import {
     ALLOW_LOGINED,
     ALLOW_SELLERS,
     LANGS,
+    Locales,
 } from "../types/const";
 import { GET_CONTEXT } from "../apollo/gql/queries";
 import PageDeny from "./Deny";
@@ -45,6 +46,8 @@ import { pageLoadingEffect } from "../utils/query";
 import { isIE } from "../utils/isIE";
 import { ISet } from "../types/interface";
 import Head from "next/head";
+import { staticInfo } from "../info/static.json";
+import { localeToLang } from "../utils/enumToKr";
 
 // Router.events.on("routeChangeStart", () => {
 //     pageLoadingEffect(true);
@@ -75,9 +78,12 @@ export type TContext = {
     isParterB?: boolean;
     homepage?: Fhomepage;
     isParterNonB?: boolean;
+    lang?: Lang;
+    locale: Locales;
     groupsMap: Record<GroupTypes, string[]>;
     categoriesMap: Record<CategoryType, Fcategory[]>;
     productGroupList: TProductGrop[];
+    ln: ReturnType<typeof staticInfo>;
 };
 
 const defaultContext: TContext = {
@@ -89,11 +95,13 @@ const defaultContext: TContext = {
     myProfile: undefined,
     homepage: undefined,
     isLogin: false,
+    locale: Locales.ko,
     isParterB: false,
     isParterNonB: false,
     groupsMap: defaultGroupMap,
     categoriesMap: defaultCatsMap,
     productGroupList: [],
+    ln: () => "",
 };
 
 export const AppContext = React.createContext<TContext>(defaultContext);
@@ -105,6 +113,9 @@ function App({ Component, pageProps }: any) {
 
     const ComponentLayout = Component.Layout ? Component.Layout : Layout;
     const ComponentAuth = Component.Auth ? Component.Auth : ALLOW_FULLESS;
+
+    const locale = router.locale as Locales;
+    const ln = staticInfo(locale || Locales.ko);
 
     const { data, loading } = useQuery<getContext>(GET_CONTEXT, {
         client: PinkClient,
@@ -155,18 +166,9 @@ function App({ Component, pageProps }: any) {
         }
     }, []);
 
-    const langOfBrowser = Lang.KO;
-    let DefaultSelectedLang: Lang = Lang.KO;
+    const lang = localeToLang[locale as Locales];
 
-    console.log({ langOfBrowser });
-    console.log({ DefaultSelectedLang });
-
-    for (const [key, values] of Object.entries(LANGS)) {
-        const target = values.find((value) => langOfBrowser === value);
-        if (target) {
-            DefaultSelectedLang = key as Lang;
-        }
-    }
+    console.log({ lang });
 
     const productList = data?.GetProfile.data?.products.map((p) => ({
         _id: p._id,
@@ -246,12 +248,15 @@ function App({ Component, pageProps }: any) {
                         myProfile,
                         isSeller,
                         isParterB,
+                        lang,
+                        locale,
                         isAdmin: role === UserRole.admin,
                         isManager: ALLOW_ADMINS.includes(role),
                         isLogin: !!myProfile,
                         isParterNonB,
                         homepage,
                         productGroupList,
+                        ln,
                     }}
                 >
                     <ComponentLayout>

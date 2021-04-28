@@ -1,9 +1,9 @@
 const info = {
     subTop_title: {
         kr: "자주하는질문",
-        en: `자주하는질문`,
-        jp: `자주하는질문`,
-        ch: `자주하는질문`,
+        en: `Frequently Asked Questions`,
+        jp: `よくあるご質問`,
+        ch: `常见问题`,
     },
     subTop_desc: {
         kr: "",

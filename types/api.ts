@@ -34,6 +34,13 @@ export interface announceFindById_AnnounceFindById_data_author_guideLicense {
   owner: string;
 }
 
+export interface announceFindById_AnnounceFindById_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface announceFindById_AnnounceFindById_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -118,6 +125,14 @@ export interface announceFindById_AnnounceFindById_data_author {
    * 가이드 자격증
    */
   guideLicense: announceFindById_AnnounceFindById_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: announceFindById_AnnounceFindById_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -258,6 +273,13 @@ export interface announceList_AnnounceList_data_author_guideLicense {
   owner: string;
 }
 
+export interface announceList_AnnounceList_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface announceList_AnnounceList_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -342,6 +364,14 @@ export interface announceList_AnnounceList_data_author {
    * 가이드 자격증
    */
   guideLicense: announceList_AnnounceList_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: announceList_AnnounceList_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -1454,6 +1484,13 @@ export interface bookingFindByCode_BookingFindByCode_data_product_author_guideLi
   owner: string;
 }
 
+export interface bookingFindByCode_BookingFindByCode_data_product_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface bookingFindByCode_BookingFindByCode_data_product_author_bankImg {
   __typename: "File";
   name: string;
@@ -1538,6 +1575,14 @@ export interface bookingFindByCode_BookingFindByCode_data_product_author {
    * 가이드 자격증
    */
   guideLicense: bookingFindByCode_BookingFindByCode_data_product_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: bookingFindByCode_BookingFindByCode_data_product_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -3142,6 +3187,13 @@ export interface newsFindById_NewsFindById_data_author_guideLicense {
   owner: string;
 }
 
+export interface newsFindById_NewsFindById_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface newsFindById_NewsFindById_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -3226,6 +3278,14 @@ export interface newsFindById_NewsFindById_data_author {
    * 가이드 자격증
    */
   guideLicense: newsFindById_NewsFindById_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: newsFindById_NewsFindById_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -3365,6 +3425,13 @@ export interface newsList_NewsList_data_author_guideLicense {
   owner: string;
 }
 
+export interface newsList_NewsList_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface newsList_NewsList_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -3449,6 +3516,14 @@ export interface newsList_NewsList_data_author {
    * 가이드 자격증
    */
   guideLicense: newsList_NewsList_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: newsList_NewsList_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -4330,6 +4405,13 @@ export interface portfolioFindById_PortfolioFindById_data_author_guideLicense {
   owner: string;
 }
 
+export interface portfolioFindById_PortfolioFindById_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface portfolioFindById_PortfolioFindById_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -4414,6 +4496,14 @@ export interface portfolioFindById_PortfolioFindById_data_author {
    * 가이드 자격증
    */
   guideLicense: portfolioFindById_PortfolioFindById_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: portfolioFindById_PortfolioFindById_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -4549,6 +4639,13 @@ export interface portfolioList_PortfolioList_data_author_guideLicense {
   owner: string;
 }
 
+export interface portfolioList_PortfolioList_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface portfolioList_PortfolioList_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -4633,6 +4730,14 @@ export interface portfolioList_PortfolioList_data_author {
    * 가이드 자격증
    */
   guideLicense: portfolioList_PortfolioList_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: portfolioList_PortfolioList_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -5346,6 +5451,13 @@ export interface productList_ProductList_data_author_guideLicense {
   owner: string;
 }
 
+export interface productList_ProductList_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productList_ProductList_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -5430,6 +5542,14 @@ export interface productList_ProductList_data_author {
    * 가이드 자격증
    */
   guideLicense: productList_ProductList_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: productList_ProductList_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -5604,6 +5724,13 @@ export interface productFindById_ProductFindById_data_productReview_author_guide
   owner: string;
 }
 
+export interface productFindById_ProductFindById_data_productReview_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productFindById_ProductFindById_data_productReview_author_bankImg {
   __typename: "File";
   name: string;
@@ -5689,6 +5816,14 @@ export interface productFindById_ProductFindById_data_productReview_author {
    */
   guideLicense: productFindById_ProductFindById_data_productReview_author_guideLicense | null;
   /**
+   * 가이드 자격증들
+   */
+  guideLicenses: productFindById_ProductFindById_data_productReview_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
    * 통장사본
    */
   bankImg: productFindById_ProductFindById_data_productReview_author_bankImg | null;
@@ -5743,6 +5878,13 @@ export interface productFindById_ProductFindById_data_author_profileImg {
 }
 
 export interface productFindById_ProductFindById_data_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface productFindById_ProductFindById_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
@@ -5834,6 +5976,14 @@ export interface productFindById_ProductFindById_data_author {
    */
   guideLicense: productFindById_ProductFindById_data_author_guideLicense | null;
   /**
+   * 가이드 자격증들
+   */
+  guideLicenses: productFindById_ProductFindById_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
    * 통장사본
    */
   bankImg: productFindById_ProductFindById_data_author_bankImg | null;
@@ -5892,6 +6042,13 @@ export interface productFindById_ProductFindById_data_questions_author_profileIm
 }
 
 export interface productFindById_ProductFindById_data_questions_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface productFindById_ProductFindById_data_questions_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
@@ -5982,6 +6139,14 @@ export interface productFindById_ProductFindById_data_questions_author {
    * 가이드 자격증
    */
   guideLicense: productFindById_ProductFindById_data_questions_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: productFindById_ProductFindById_data_questions_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -6179,6 +6344,13 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author_g
   owner: string;
 }
 
+export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -6264,6 +6436,14 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author {
    */
   guideLicense: productFindByIdForSeller_ProductFindByIdForSeller_data_author_guideLicense | null;
   /**
+   * 가이드 자격증들
+   */
+  guideLicenses: productFindByIdForSeller_ProductFindByIdForSeller_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
    * 통장사본
    */
   bankImg: productFindByIdForSeller_ProductFindByIdForSeller_data_author_bankImg | null;
@@ -6319,6 +6499,13 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
 }
 
 export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings_booker_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings_booker_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
@@ -6409,6 +6596,14 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
    * 가이드 자격증
    */
   guideLicense: productFindByIdForSeller_ProductFindByIdForSeller_data_bookings_booker_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: productFindByIdForSeller_ProductFindByIdForSeller_data_bookings_booker_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -6800,6 +6995,13 @@ export interface qnaFindById_QnaFindById_data_author_guideLicense {
   owner: string;
 }
 
+export interface qnaFindById_QnaFindById_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface qnaFindById_QnaFindById_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -6884,6 +7086,14 @@ export interface qnaFindById_QnaFindById_data_author {
    * 가이드 자격증
    */
   guideLicense: qnaFindById_QnaFindById_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: qnaFindById_QnaFindById_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -7029,6 +7239,13 @@ export interface qnaList_QnaList_data_author_guideLicense {
   owner: string;
 }
 
+export interface qnaList_QnaList_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface qnaList_QnaList_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -7113,6 +7330,14 @@ export interface qnaList_QnaList_data_author {
    * 가이드 자격증
    */
   guideLicense: qnaList_QnaList_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: qnaList_QnaList_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -7360,6 +7585,13 @@ export interface getContext_GetProfile_data_guideLicense {
   owner: string;
 }
 
+export interface getContext_GetProfile_data_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface getContext_GetProfile_data_bankImg {
   __typename: "File";
   name: string;
@@ -7513,6 +7745,14 @@ export interface getContext_GetProfile_data {
    * 가이드 자격증
    */
   guideLicense: getContext_GetProfile_data_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: getContext_GetProfile_data_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -7880,6 +8120,13 @@ export interface questionList_QuestionList_data_author_guideLicense {
   owner: string;
 }
 
+export interface questionList_QuestionList_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface questionList_QuestionList_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -7964,6 +8211,14 @@ export interface questionList_QuestionList_data_author {
    * 가이드 자격증
    */
   guideLicense: questionList_QuestionList_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: questionList_QuestionList_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -8211,6 +8466,13 @@ export interface questionFindById_QuestionFindById_data_author_guideLicense {
   owner: string;
 }
 
+export interface questionFindById_QuestionFindById_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface questionFindById_QuestionFindById_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -8295,6 +8557,14 @@ export interface questionFindById_QuestionFindById_data_author {
    * 가이드 자격증
    */
   guideLicense: questionFindById_QuestionFindById_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: questionFindById_QuestionFindById_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -8419,6 +8689,13 @@ export interface productReviewFindById_ProductReviewFindById_data_author_guideLi
   owner: string;
 }
 
+export interface productReviewFindById_ProductReviewFindById_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productReviewFindById_ProductReviewFindById_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -8503,6 +8780,14 @@ export interface productReviewFindById_ProductReviewFindById_data_author {
    * 가이드 자격증
    */
   guideLicense: productReviewFindById_ProductReviewFindById_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: productReviewFindById_ProductReviewFindById_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -8647,6 +8932,13 @@ export interface productreviewList_ProductReviewList_data_author_guideLicense {
   owner: string;
 }
 
+export interface productreviewList_ProductReviewList_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface productreviewList_ProductReviewList_data_author_bankImg {
   __typename: "File";
   name: string;
@@ -8731,6 +9023,14 @@ export interface productreviewList_ProductReviewList_data_author {
    * 가이드 자격증
    */
   guideLicense: productreviewList_ProductReviewList_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: productreviewList_ProductReviewList_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -8994,6 +9294,13 @@ export interface settlementFindById_SettlementFindById_data_product_author_guide
   owner: string;
 }
 
+export interface settlementFindById_SettlementFindById_data_product_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface settlementFindById_SettlementFindById_data_product_author_bankImg {
   __typename: "File";
   name: string;
@@ -9078,6 +9385,14 @@ export interface settlementFindById_SettlementFindById_data_product_author {
    * 가이드 자격증
    */
   guideLicense: settlementFindById_SettlementFindById_data_product_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: settlementFindById_SettlementFindById_data_product_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -9335,6 +9650,13 @@ export interface settlementList_SettlementList_data_seller_guideLicense {
   owner: string;
 }
 
+export interface settlementList_SettlementList_data_seller_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface settlementList_SettlementList_data_seller_bankImg {
   __typename: "File";
   name: string;
@@ -9420,6 +9742,14 @@ export interface settlementList_SettlementList_data_seller {
    */
   guideLicense: settlementList_SettlementList_data_seller_guideLicense | null;
   /**
+   * 가이드 자격증들
+   */
+  guideLicenses: settlementList_SettlementList_data_seller_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
    * 통장사본
    */
   bankImg: settlementList_SettlementList_data_seller_bankImg | null;
@@ -9491,6 +9821,13 @@ export interface settlementList_SettlementList_data_product_author_profileImg {
 }
 
 export interface settlementList_SettlementList_data_product_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface settlementList_SettlementList_data_product_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
@@ -9581,6 +9918,14 @@ export interface settlementList_SettlementList_data_product_author {
    * 가이드 자격증
    */
   guideLicense: settlementList_SettlementList_data_product_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: settlementList_SettlementList_data_product_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -10674,6 +11019,13 @@ export interface userList_UserList_data_guideLicense {
   owner: string;
 }
 
+export interface userList_UserList_data_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface userList_UserList_data_bankImg {
   __typename: "File";
   name: string;
@@ -10758,6 +11110,14 @@ export interface userList_UserList_data {
    * 가이드 자격증
    */
   guideLicense: userList_UserList_data_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: userList_UserList_data_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -11012,6 +11372,13 @@ export interface userFindById_UserFindById_data_guideLicense {
   owner: string;
 }
 
+export interface userFindById_UserFindById_data_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface userFindById_UserFindById_data_bankImg {
   __typename: "File";
   name: string;
@@ -11085,6 +11452,13 @@ export interface userFindById_UserFindById_data_products_author_profileImg {
 }
 
 export interface userFindById_UserFindById_data_products_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface userFindById_UserFindById_data_products_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
@@ -11175,6 +11549,14 @@ export interface userFindById_UserFindById_data_products_author {
    * 가이드 자격증
    */
   guideLicense: userFindById_UserFindById_data_products_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: userFindById_UserFindById_data_products_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -11352,6 +11734,14 @@ export interface userFindById_UserFindById_data {
    * 가이드 자격증
    */
   guideLicense: userFindById_UserFindById_data_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: userFindById_UserFindById_data_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -11547,6 +11937,13 @@ export interface Fannounce_author_guideLicense {
   owner: string;
 }
 
+export interface Fannounce_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface Fannounce_author_bankImg {
   __typename: "File";
   name: string;
@@ -11631,6 +12028,14 @@ export interface Fannounce_author {
    * 가이드 자격증
    */
   guideLicense: Fannounce_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: Fannounce_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -12131,6 +12536,13 @@ export interface Fuser_guideLicense {
   owner: string;
 }
 
+export interface Fuser_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface Fuser_bankImg {
   __typename: "File";
   name: string;
@@ -12215,6 +12627,14 @@ export interface Fuser {
    * 가이드 자격증
    */
   guideLicense: Fuser_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: Fuser_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -12543,6 +12963,13 @@ export interface Fnews_author_guideLicense {
   owner: string;
 }
 
+export interface Fnews_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface Fnews_author_bankImg {
   __typename: "File";
   name: string;
@@ -12627,6 +13054,14 @@ export interface Fnews_author {
    * 가이드 자격증
    */
   guideLicense: Fnews_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: Fnews_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -12882,6 +13317,13 @@ export interface Fportfolio_author_guideLicense {
   owner: string;
 }
 
+export interface Fportfolio_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface Fportfolio_author_bankImg {
   __typename: "File";
   name: string;
@@ -12967,6 +13409,14 @@ export interface Fportfolio_author {
    */
   guideLicense: Fportfolio_author_guideLicense | null;
   /**
+   * 가이드 자격증들
+   */
+  guideLicenses: Fportfolio_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
    * 통장사본
    */
   bankImg: Fportfolio_author_bankImg | null;
@@ -13024,6 +13474,13 @@ export interface Fqna_author_profileImg {
 }
 
 export interface Fqna_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface Fqna_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
@@ -13114,6 +13571,14 @@ export interface Fqna_author {
    * 가이드 자격증
    */
   guideLicense: Fqna_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: Fqna_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -13220,6 +13685,13 @@ export interface Fquestion_author_guideLicense {
   owner: string;
 }
 
+export interface Fquestion_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
 export interface Fquestion_author_bankImg {
   __typename: "File";
   name: string;
@@ -13305,6 +13777,14 @@ export interface Fquestion_author {
    */
   guideLicense: Fquestion_author_guideLicense | null;
   /**
+   * 가이드 자격증들
+   */
+  guideLicenses: Fquestion_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
    * 통장사본
    */
   bankImg: Fquestion_author_bankImg | null;
@@ -13356,6 +13836,13 @@ export interface FproductReview_author_profileImg {
 }
 
 export interface FproductReview_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  owner: string;
+}
+
+export interface FproductReview_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
@@ -13446,6 +13933,14 @@ export interface FproductReview_author {
    * 가이드 자격증
    */
   guideLicense: FproductReview_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: FproductReview_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
   /**
    * 통장사본
    */
@@ -14174,6 +14669,8 @@ export enum _UserSort {
 }
 
 export interface AddUserInput {
+  lang?: Lang | null;
+  guideLicenses?: FileCreateInput[] | null;
   nickName: string;
   busiRegistration?: FileCreateInput | null;
   bankImg?: FileCreateInput | null;
@@ -14765,6 +15262,8 @@ export interface TravelerInput {
 }
 
 export interface UserUpdateInput {
+  lang?: Lang | null;
+  _guideLicenses?: FileCreateInput[] | null;
   busi_department?: string | null;
   nickName?: string | null;
   acceptSms?: boolean | null;
