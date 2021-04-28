@@ -251,6 +251,10 @@ export const F_USER = gql`
         guideLicense {
             ...Ffile
         }
+        guideLicenses {
+            ...Ffile
+        }
+        lang
         bankImg {
             ...Ffile
         }
