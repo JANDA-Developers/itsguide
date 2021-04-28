@@ -56,7 +56,7 @@ export const Announce: React.FC<Ipage> = (page) => {
         const itemId = item._id;
         router.push("/service/announce/view/" + itemId);
     };
-
+    const { ln } = useContext(AppContext);
     return (
         <div>
             <SubTopNav pageTools={pageTools}>
@@ -73,7 +73,9 @@ export const Announce: React.FC<Ipage> = (page) => {
                     <div className="alignment">
                         <div className="left_div">
                             <span className="infotxt">
-                                총 <strong>{pageInfo.totalCount}</strong>개
+                                {ln("all")}
+                                <strong>{pageInfo.totalCount}</strong>
+                                {ln("case")}
                             </span>
                         </div>
                         <div className="right_div">

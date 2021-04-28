@@ -54,6 +54,7 @@ import { BG, BGprofile } from "../../../types/const";
 import { cutStr } from "../../../utils/cutStr";
 import { getDescriptionFromUser } from "../../../utils/getDescriptionFromUser";
 import { strip } from "../../../utils/stripHtml";
+import { staticInfo } from "../../../info/static.json";
 
 export const getStaticProps = getStaticPageInfo("tourView");
 export async function getStaticPaths() {
@@ -231,6 +232,8 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
     } = product;
 
     const isPast = dayjs(startDate).isBefore(new Date());
+    const { locale } = useRouter();
+    const ln = staticInfo(locale as any);
 
     if (!isSeller && !product.isOpen)
         return <PageDeny msg="해당 게시글은 비공개 상태입니다." />;
@@ -251,7 +254,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                             </li>
                             <li className="homedeps2">
                                 <Link href="/tour/list">
-                                    <a>상품리스트</a>
+                                    <a>{ln("productlist")}</a>
                                 </Link>
                             </li>
                         </>
@@ -325,7 +328,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 href={`/itsguid/${author._id}`}
                                             >
                                                 <a className="btn profil_link">
-                                                    가이드 정보 자세히보기
+                                                    {ln("guideinfolink")}
                                                     <i className="flaticon-menu-1"></i>
                                                 </a>
                                             </Link>
@@ -333,7 +336,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 href={`/itsguid/${author._id}#products`}
                                             >
                                                 <a className="btn profil_link ml10">
-                                                    판매자의 다른 여행 더보기
+                                                    {ln("moretravels")}
                                                     <i className="flaticon-menu-1"></i>
                                                 </a>
                                             </Link>
@@ -359,7 +362,8 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                             문화/예술
                                                         </span>
                                                         <span className="code">
-                                                            상품코드 {code}
+                                                            {ln("goodscode")}{" "}
+                                                            {code}
                                                         </span>
                                                     </td>
                                                 </tr>
@@ -382,7 +386,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         className="tag bt_line"
                                                     >
                                                         <div className="tt">
-                                                            키워드
+                                                            {ln("keywords")}
                                                         </div>
                                                         <ul>
                                                             {keyWards?.map(
@@ -409,21 +413,23 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 {isSeller && (
                                                     <tr>
                                                         <th className="smtitle bt_line">
-                                                            상태
+                                                            {ln("state")}
                                                         </th>
                                                         <td className="smtxt bt_line">
                                                             {productStatus(
                                                                 product.status
                                                             )}{" "}
                                                             {product.isOpen
-                                                                ? "[공개]"
-                                                                : "[비공개]"}
+                                                                ? ln("public")
+                                                                : ln(
+                                                                      "nondisclosure"
+                                                                  )}
                                                         </td>
                                                     </tr>
                                                 )}
                                                 <tr>
                                                     <th className="smtitle bt_line">
-                                                        출발일
+                                                        {ln("departuredate")}
                                                     </th>
                                                     <td className="smtxt bt_line">
                                                         <ProductDateSelecter
