@@ -264,6 +264,30 @@ const header = {
         ja: `キーワード`,
         chi: `关键词`,
     },
+    state: {
+        ko: "상태",
+        en: `State`,
+        ja: `状態`,
+        chi: `状态`,
+    },
+    nondisclosure: {
+        ko: "비공개",
+        en: `Nondisclosure`,
+        ja: `非公開`,
+        chi: `非公开`,
+    },
+    public: {
+        ko: "공개",
+        en: `Public`,
+        ja: `状態`,
+        chi: `状态`,
+    },
+    departuredate: {
+        ko: "출발일",
+        en: `출발일`,
+        ja: `출발일`,
+        chi: `출발일`,
+    },
 };
 
 const footer = {
