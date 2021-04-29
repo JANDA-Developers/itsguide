@@ -360,7 +360,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         className="category bt_no"
                                                     >
                                                         <span className="pnt">
-                                                            {categoasdasdasdasd!!!ry!!!!!!!!!!.}
+                                                            ..
                                                         </span>
                                                         <span className="code">
                                                             {ln("goodscode")}{" "}
