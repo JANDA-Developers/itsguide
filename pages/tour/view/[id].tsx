@@ -449,7 +449,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 </tr>
                                                 <tr>
                                                     <th className="smtitle bt_line">
-                                                        여행기간
+                                                        {ln("travelperiod")}
                                                     </th>
                                                     <td className="smtxt bt_line">
                                                         {getRangeString(
@@ -459,27 +459,35 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 </tr>
                                                 <tr>
                                                     <th className="smtitle bt_line">
-                                                        최소/최대 인원
+                                                        {ln("minimum")}/
+                                                        {ln("maximum")}{" "}
+                                                        {ln("personnel")}
                                                     </th>
                                                     <td className="smtxt bt_line">
-                                                        최소{minMember}명 최대
-                                                        {maxMember}명
+                                                        {ln("minimum")}
+                                                        {minMember}
+                                                        {ln("person_unit")}{" "}
+                                                        {ln("maximum")}
+                                                        {maxMember}
+                                                        {ln("person_unit")}
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th className="smtitle bt_line">
-                                                        현재인원
+                                                        {ln(
+                                                            "currentnumberofpeople"
+                                                        )}
                                                     </th>
                                                     <td className="smtxt bt_line">
                                                         {peopleCount +
                                                             "/" +
                                                             maxMember}
-                                                        명
+                                                        {ln("person_unit")}
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th className="smtitle bt_no">
-                                                        출발장소
+                                                        {ln("startPoint")}
                                                     </th>
                                                     <td className="smtxt bt_no">
                                                         {startPoint}
@@ -497,14 +505,14 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                             >
                                                 <tbody>
                                                     <tr>
-                                                        <th>대인</th>
+                                                        <th>{ln("adult")}</th>
                                                         <td>
                                                             <strong>
                                                                 {autoComma(
                                                                     adult_price
                                                                 )}
                                                             </strong>
-                                                            원
+                                                            {ln("money_unit")}
                                                             <div className="Number__box">
                                                                 <span
                                                                     onClick={handleCount(
@@ -533,14 +541,14 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <th>소인</th>
+                                                        <th>{ln("kid")}</th>
                                                         <td>
                                                             <strong>
                                                                 {autoComma(
                                                                     kids_price
                                                                 )}
                                                             </strong>
-                                                            원
+                                                            {ln("money_unit")}
                                                             <div className="Number__box">
                                                                 <span
                                                                     onClick={handleCount(
@@ -567,14 +575,14 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <th>유아</th>
+                                                        <th>{ln("baby")}</th>
                                                         <td>
                                                             <strong>
                                                                 {autoComma(
                                                                     baby_price
                                                                 )}
                                                             </strong>
-                                                            원
+                                                            {ln("money_unit")}
                                                             <div className="Number__box">
                                                                 <span
                                                                     onClick={handleCount(
@@ -610,14 +618,16 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 >
                                                     <tbody>
                                                         <tr>
-                                                            <th>총 금액</th>
+                                                            <th>{ln("sum")}</th>
                                                             <td>
                                                                 <strong>
                                                                     {autoComma(
                                                                         totalPrice
                                                                     )}
                                                                 </strong>
-                                                                원
+                                                                {ln(
+                                                                    "money_unit"
+                                                                )}
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -635,7 +645,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                     "tourBracketBtn--disabled"
                                                 }`}
                                             >
-                                                <a>장바구니 담기</a>
+                                                <a>{ln("shopping_cart")}</a>
                                             </div>
                                             <div
                                                 className={`link02 ${
@@ -645,8 +655,10 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                             >
                                                 <a onClick={handleDoPay}>
                                                     {isPast
-                                                        ? "기간종료"
-                                                        : "예약하기"}
+                                                        ? ln("end_of_sale")
+                                                        : ln(
+                                                              "make_a_reservation"
+                                                          )}
                                                 </a>
                                             </div>
                                         </div>
@@ -662,7 +674,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                         onClick={handleTab(1)}
                                         className={tabOnCheck(1)}
                                     >
-                                        <a>여행상세설명</a>
+                                        <a>{ln("travel_details")}</a>
                                     </span>
                                     {/* <span onClick={handleTab(2)} className={tabOnCheck(2)}><a>안내 및 참고</a></span>
                 <span onClick={handleTab(3)} className={tabOnCheck(3)}><a >참가자 준비물</a></span> */}
@@ -670,18 +682,18 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                         onClick={handleTab(4)}
                                         className={tabOnCheck(4)}
                                     >
-                                        <a>리뷰</a>
+                                        <a>{ln("review")}</a>
                                     </span>
                                     <span
                                         onClick={handleTab(6)}
                                         className={tabOnCheck(6)}
                                     >
-                                        <a>문의하기</a>
+                                        <a>{ln("questions")}</a>
                                     </span>
                                 </div>
                                 {/* 여행상세설명 */}
                                 <div className="in_box" id="tap__01">
-                                    <h4>여행일정</h4>
+                                    <h4>{ln("itinerary")}</h4>
                                     {itinerary.map((it) => (
                                         <div key={it._id}>
                                             <div className="hang">
@@ -724,9 +736,11 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                         </div>
                                     ))}
                                 </div>
-                                <span>이런분께 추천드려요.</span>
+                                <span className="sub__txt">
+                                    {ln("like_this")}
+                                </span>
                                 <div className="in_box" id="tap__02">
-                                    <h4>안내 및 참고</h4>
+                                    <h4>{ln("guidance_and_notes")}</h4>
                                     <div
                                         dangerouslySetInnerHTML={{
                                             __html: contents,
@@ -736,7 +750,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                 </div>
                                 {/* 참가자 준비물 */}
                                 <div className="in_box" id="tap__03">
-                                    <h4>참가자 준비물 </h4>
+                                    <h4>{ln("participant_preparation")}</h4>
                                     <div
                                         dangerouslySetInnerHTML={{
                                             __html: inOrNor,
@@ -757,7 +771,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
 
                                 {/* 리뷰 */}
                                 <div className="in_box" id="tap__04">
-                                    <h4>리뷰 </h4>
+                                    <h4>{ln("review")}</h4>
                                     <div className="text ck-content">
                                         <div className="review__box">
                                             <ul className="review__list">
@@ -830,7 +844,9 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                                         }}
                                                                         className="mini_btn small2"
                                                                     >
-                                                                        수정하기
+                                                                        {ln(
+                                                                            "tomodify"
+                                                                        )}
                                                                     </a>
                                                                 </Link>
                                                             )}
@@ -851,7 +867,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 href={`/review/write?pid=${id}&name=${title}`}
                                             >
                                                 <a className="mini_btn small">
-                                                    리뷰 쓰러가기
+                                                    {ln("fall_review")}
                                                 </a>
                                             </Link>
                                         </div>
@@ -859,13 +875,19 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                 </div>
 
                                 <div className="in_box" id="tap__06">
-                                    <h4>문의하기</h4>
+                                    <h4>{ln("questions")}</h4>
                                     <div className="board_list_mini ln04">
                                         <div className="thead">
                                             <div className="th01">No.</div>
-                                            <div className="th02">제목</div>
-                                            <div className="th03">글쓴이</div>
-                                            <div className="th04">날짜</div>
+                                            <div className="th02">
+                                                {ln("title")}
+                                            </div>
+                                            <div className="th03">
+                                                {ln("writer")}
+                                            </div>
+                                            <div className="th04">
+                                                {ln("date")}
+                                            </div>
                                         </div>
                                         <div className="tbody">
                                             <ul>
@@ -891,7 +913,9 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                     href={`/service/question/write?pid=${id}&name=${title}`}
                                                 >
                                                     <a className="mini_btn small">
-                                                        고객센터 문의하기
+                                                        {ln(
+                                                            "contact_customer_center"
+                                                        )}
                                                     </a>
                                                 </Link>
                                             </div>
@@ -908,7 +932,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                             onClick={handleEdit}
                                             className="btn medium pointcolor"
                                         >
-                                            수정
+                                            {ln("modify")}
                                         </button>
                                         {(isManager ||
                                             isAdmin ||
@@ -918,14 +942,14 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 onClick={handleDelete}
                                                 className="btn medium"
                                             >
-                                                삭제
+                                                {ln("elimination")}
                                             </button>
                                         )}
                                     </div>
                                 )}
                             </div>
                             <div className="add_list">
-                                <h4>잇츠가이드 추천여행</h4>
+                                <h4>{ln("itsguide_recommendationtxt")}</h4>
                                 {/* 랜덤노출 */}
                                 <ul className="tourView__recommendList  list_ul line3">
                                     {randomSliced.map((item) => (

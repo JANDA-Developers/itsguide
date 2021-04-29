@@ -2283,11 +2283,22 @@
         border: rgb(184, 184, 184) solid 1px;
         border-radius: 3px;
         margin: 0 10px 10px 0;
-        font-weight: 100;
+        font-weight: 600;
         line-height: 14px;
      }
     .master_box .homepage .design_table .list li:hover{
-        border: rgb(77, 77, 77) solid 1px;
+        border:  #2196f3 solid 1px;
+     }
+    .master_box .homepage .design_table .list li:active,
+    .master_box .homepage .design_table .list li:checked{
+        border: #2196f3 solid 1px;
+     }
+    .master_box .homepage .design_table .list li i{
+        font-weight: 600;
+        color: #4e4e4e;
+        font-size: 0.9em;
+        vertical-align: inherit;
+        margin-left: 3px;
      }
     .master_box .homepage .design_table .list .del{
         display: inline-block;

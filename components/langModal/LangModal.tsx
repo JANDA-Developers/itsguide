@@ -33,8 +33,8 @@ export const LangModal: React.FC<IProp> = ({ info, ...props }) => {
 
     return (
         <Modal2 id="" title="언어 설정" {...props}>
-            <div>
-                한국어
+            <div className="option__box">
+                <span className="option__title">한국어</span>
                 <input
                     type="text"
                     className="form-control w70 ml5"
@@ -45,8 +45,8 @@ export const LangModal: React.FC<IProp> = ({ info, ...props }) => {
                     }}
                 />
             </div>
-            <div>
-                일본어
+            <div className="option__box">
+                <span className="option__title">일본어</span>
                 <input
                     type="text"
                     className="form-control w70 ml5"
@@ -57,8 +57,8 @@ export const LangModal: React.FC<IProp> = ({ info, ...props }) => {
                     }}
                 />
             </div>
-            <div>
-                영어
+            <div className="option__box">
+                <span className="option__title">영어</span>
                 <input
                     type="text"
                     className="form-control w70 ml5"
@@ -69,8 +69,8 @@ export const LangModal: React.FC<IProp> = ({ info, ...props }) => {
                     }}
                 />
             </div>
-            <div>
-                중국어
+            <div className="option__box">
+                <span className="option__title">중국어</span>
                 <input
                     type="text"
                     className="form-control w70 ml5"
@@ -81,7 +81,7 @@ export const LangModal: React.FC<IProp> = ({ info, ...props }) => {
                     }}
                 />
             </div>
-            <button className="btn" onClick={handleSubmit}>
+            <button className="btn medium w100" onClick={handleSubmit}>
                 제출
             </button>
         </Modal2>
