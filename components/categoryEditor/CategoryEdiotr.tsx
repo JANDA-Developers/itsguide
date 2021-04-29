@@ -67,16 +67,17 @@ export const CategoryEitdor: React.FC<IProp> = ({
                             >
                                 {cat.label}
                                 <i
+                                    className="flaticon-worldwide"
+                                    title="다국어를 입력해주세요."
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         e.preventDefault();
                                         handleLang(cat);
                                     }}
-                                >
-                                    @
-                                </i>
+                                ></i>
                                 <i
                                     onClick={handleDelete(cat)}
+                                    title="삭제하기"
                                     className="del categoryEditer__delete"
                                 ></i>
                             </li>
@@ -92,24 +93,26 @@ export const CategoryEitdor: React.FC<IProp> = ({
                             추가
                         </li>
                     </ul>
-                    <input
-                        onKeyPress={whenEnter(
-                            selelcted ? handleUpdate : handleAdd
-                        )}
-                        value={label}
-                        onChange={(e) => {
-                            setLabel(e.currentTarget.value);
-                        }}
-                        className="w30"
-                        placeholder=""
-                        type="text"
-                    />
-                    <button
-                        onClick={selelcted ? handleUpdate : handleAdd}
-                        className="btn"
-                    >
-                        {selelcted ? "업데이트" : "추가"}
-                    </button>
+                    <div className="categoryEditer__input">
+                        <input
+                            onKeyPress={whenEnter(
+                                selelcted ? handleUpdate : handleAdd
+                            )}
+                            value={label}
+                            onChange={(e) => {
+                                setLabel(e.currentTarget.value);
+                            }}
+                            className="w30"
+                            placeholder=""
+                            type="text"
+                        />
+                        <button
+                            onClick={selelcted ? handleUpdate : handleAdd}
+                            className="btn"
+                        >
+                            {selelcted ? "업데이트" : "추가"}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

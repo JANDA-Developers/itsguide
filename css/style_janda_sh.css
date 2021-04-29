@@ -21,13 +21,13 @@ ul.list_ul li .category span,
 .footer-area-bottom .janda_txt a,
 .guide__infobox p,
 p,
+.master_box .homepage .design_table .list li,
 .master__table .tbody div[class*=t0],
 .board_list.st01 .tbody .td04,
 .board_list.st01 .tbody .td01,
 .board_list.st01 .tbody .td02,
 ul.list_ul li .bottom_txt div[class*=tag] span,
 .main_con_box5 h2 span{
-
     font-family: NanumSquareRoundOTFB,NanumSquareRoundOTF, '돋음',sans-serif;
 }
 

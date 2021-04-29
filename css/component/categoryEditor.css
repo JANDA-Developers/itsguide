@@ -8,9 +8,38 @@
     cursor: pointer;
 }
 .categoryEditer__cat--selected {
-    color:  rgb(77, 77, 77)!important;
-    border: 1px solid!important;
+    color: #0067b9!important;
+    border:#2196f3 1px solid!important;
+    background-color:#eaf6ff;
 }
-.categoryEditer__cat--selected .categoryEditer__delete {
-    color:  inherit!important;
+.categoryEditer__cat--selected i {
+    color: #0067b9!important;
+}
+/* .categoryEditer__cat--selected .categoryEditer__delete {
+    background-color: #ffffff;
+}
+.categoryEditer__cat--selected .categoryEditer__delete:hover {
+    background-color: #ffadad;
+} */
+.categoryEditer__input{
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+.categoryEditer__input input{
+    border: 1px solid #9a9a9a !important;
+}
+.option__box{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.option__title{
+    font-weight: 600;
+    width: 45px;
+    font-size: 1.1em;
+    text-align: left;
 }
