@@ -40,7 +40,6 @@ import { PageEditor } from "../../../components/common/PageEditer";
 import { yyyymmdd } from "../../../utils/yyyymmdd";
 // const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
-
 const Editor = LoadEditor();
 interface IProp {}
 
@@ -122,6 +121,8 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
             // 회차연결을 위한 조치
             setTempSavedIts(newProductData.its);
             newProductData.its = [];
+            //하지만 여기서 상태값에 대해서는 신경쓰지 말아야함.
+            newProductData.status = undefined;
         }
 
         setTourData(newProductData);
@@ -287,9 +288,6 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
     const categories =
         type === ProductType.TOUR ? categoriesMap.TOUR : categoriesMap.TOUR;
     const regionCategories = categoriesMap.REGION;
-
-    const startDate = its[0]?.date;
-    const endDate = its[its.length - 1]?.date;
 
     // if (!isManager && !isMyProduct) return <PageDeny />
     if (loading) return <PageLoading />;
@@ -707,8 +705,8 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         >
                             <div className="tourWrite__dayPikcerRangeViewer  mb10">
                                 <div>
-                                    투어 {yyyymmdd(startDate)} ~{" "}
-                                    {yyyymmdd(endDate)}
+                                    투어 {yyyymmdd(firstDate)} ~{" "}
+                                    {yyyymmdd(lastDate)}
                                 </div>
                             </div>
                             <div className="info_txt">

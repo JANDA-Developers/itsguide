@@ -1,6 +1,10 @@
 import dayjs from "dayjs";
 import { Dispatch, RefObject, SetStateAction, useRef, useState } from "react";
-import { generateitinery, TRange } from "../components/tourWrite/helper";
+import {
+    filterOver,
+    generateitinery,
+    TRange,
+} from "../components/tourWrite/helper";
 import {
     Ffile,
     ItineraryCreateInput,
@@ -392,7 +396,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
             inOrNor,
             info,
             regionId,
-            itinerary: its,
+            itinerary: omits(filterOverIts, ["isOver" as any]),
             startPoint,
             title,
             isNotice,
@@ -517,9 +521,10 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         set(key, data);
     };
 
-    const fistItDate = its[0]?.date;
+    const filterOverIts = filterOver(its);
+    const fistItDate = filterOverIts[0]?.date;
     const firstDate = fistItDate ? dayjs(fistItDate).toDate() : undefined;
-    const lastItDate = its[its.length - 1]?.date;
+    const lastItDate = filterOverIts[filterOverIts.length - 1]?.date;
     const lastDate = lastItDate ? dayjs(lastItDate).toDate() : undefined;
 
     return {

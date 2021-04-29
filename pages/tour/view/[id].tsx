@@ -226,6 +226,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
         itinerary,
         contents,
         inOrNor,
+        category,
         caution,
         code,
         peopleCount,
@@ -359,7 +360,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         className="category bt_no"
                                                     >
                                                         <span className="pnt">
-                                                            문화/예술
+                                                            {categoasdasdasdasd!!!ry!!!!!!!!!!.}
                                                         </span>
                                                         <span className="code">
                                                             {ln("goodscode")}{" "}

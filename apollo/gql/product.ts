@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import {
     F_BOOKING,
+    F_CATEGORY,
     F_PAGE,
     F_PAYMENT,
     F_PRODUCT,
@@ -247,8 +248,7 @@ export const PRODUCT_FIND_BY_ID = gql`
                     description
                 }
                 category {
-                    _id
-                    label
+                    ...Fcategory
                 }
                 questions {
                     ...Fquestion
@@ -256,6 +256,7 @@ export const PRODUCT_FIND_BY_ID = gql`
             }
         }
     }
+    ${F_CATEGORY}
     ${F_PRODUCT_REVIEW}
     ${F_USER}
     ${F_QUESTION}
