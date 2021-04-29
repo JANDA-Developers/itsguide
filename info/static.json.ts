@@ -108,6 +108,31 @@ const header = {
         ja: `イベント`,
         chi: `活动`,
     },
+    contact_customer_center: {
+        ko: "고객센터 문의하기",
+        en: `Contact Customer Center`,
+        ja: `カスタマーセンターにお問い合わせ`,
+        chi: `咨询客服中心`,
+    },
+    title: {
+        ko: "제목",
+        en: `Title`,
+        ja: `題目`,
+        chi: `题目`,
+    },
+    writer: {
+        ko: "글쓴이",
+        en: `Writer`,
+        ja: `書き手`,
+        chi: `撰文人`,
+    },
+    date: {
+        ko: "날짜",
+        en: `Date`,
+        ja: `日付`,
+        chi: `日期`,
+    },
+
     questions: {
         ko: "문의하기",
         en: `To make an inquiry`,
@@ -143,6 +168,42 @@ const header = {
         en: `Manage Profiles`,
         ja: `プロフィール管理`,
         chi: `配置管理`,
+    },
+    review: {
+        ko: "리뷰",
+        en: `Review`,
+        ja: `復習`,
+        chi: `检讨`,
+    },
+    fall_review: {
+        ko: "리뷰 쓰러가기",
+        en: `Fall Review`,
+        ja: `レビューを倒す。`,
+        chi: `评论倒下`,
+    },
+    itsguide_recommendationtxt: {
+        ko: "잇츠가이드 추천여행",
+        en: `It's Guide Recommendation Travel`,
+        ja: `おすすめ旅行`,
+        chi: `推荐旅行`,
+    },
+    elimination: {
+        ko: "삭제",
+        en: `elimination`,
+        ja: `削除`,
+        chi: `删除`,
+    },
+    modify: {
+        ko: "수정",
+        en: `Modify`,
+        ja: `修正する`,
+        chi: `修改`,
+    },
+    tomodify: {
+        ko: "수정하기",
+        en: `To modify`,
+        ja: `修正する`,
+        chi: `修改`,
     },
     review_manage: {
         ko: "리뷰관리",
@@ -284,9 +345,51 @@ const header = {
     },
     departuredate: {
         ko: "출발일",
-        en: `출발일`,
-        ja: `출발일`,
-        chi: `출발일`,
+        en: `Departure date`,
+        ja: `出発日`,
+        chi: `出发日期`,
+    },
+    travelperiod: {
+        ko: "여행기간",
+        en: `Travel Period`,
+        ja: `旅行期間`,
+        chi: `旅行期间`,
+    },
+    itinerary: {
+        ko: "여행일정",
+        en: `Itinerary`,
+        ja: `旅行日程`,
+        chi: `旅行日程`,
+    },
+    like_this: {
+        ko: "이런분께 추천드려요.",
+        en: `I recommend it to someone like this.`,
+        ja: `こんな方にお勧めします`,
+        chi: `推荐给以下各位。`,
+    },
+    guidance_and_notes: {
+        ko: "안내 및 참고",
+        en: `Guidance and Notes`,
+        ja: `案内及び参考`,
+        chi: `介绍及参考`,
+    },
+    participant_preparation: {
+        ko: "참가자 준비물",
+        en: `Participant Preparation`,
+        ja: `参加者準備物`,
+        chi: `参赛者准备物品`,
+    },
+    personnel: {
+        ko: "인원",
+        en: `Personnel`,
+        ja: `人員`,
+        chi: `人员`,
+    },
+    currentnumberofpeople: {
+        ko: "현재인원",
+        en: `Current number of people`,
+        ja: `現在の人員`,
+        chi: `现有人员`,
     },
 };
 
@@ -419,13 +522,13 @@ const footer = {
         chi: `大韩民国1等云计算·芬科技基础预约解决方案`,
     },
     guide: {
-        kr: "가이드",
+        ko: "가이드",
         en: "Guide",
         ja: "导游",
         chi: "ガイド"
     },
     master: {
-        kr: "마스터",
+        ko: "마스터",
         en: "Master",
         ja: "大师",
         chi: "マスター"
@@ -558,6 +661,49 @@ const utils_message = {
         en: `won`,
         ja: `won`,
         chi: `won`,
+    },
+    shopping_cart: {
+        ko: "장바구니 담기",
+        en: `Shopping carton`,
+        ja: `買い物かご入れ`,
+        chi: `装菜篮子`,
+    },
+    end_of_sale: {
+        ko: "기간종료",
+        en: `End of Sale`,
+        ja: `販売終了`,
+        chi: `停止销售`,
+    },
+    travel_details: {
+        ko: "여행상세설명",
+        en: `Travel Details`,
+        ja: `旅行の詳細`,
+        chi: `旅行详情说明`,
+    },
+    make_a_reservation: {
+        ko: "예약하기",
+        en: `To make a reservation`,
+        ja: `予約する`,
+        chi: `预约`,
+    },
+    sum: {
+        ko: "총 금액",
+        en: `Sum`,
+        ja: `合計`,
+        chi: `总和`,
+    },
+   
+    maximum: {
+        ko: "최대",
+        en: `Maximum`,
+        ja: `最大`,
+        chi: `最大值`,
+    },
+    minimum: {
+        ko: "최소",
+        en: `Minimum`,
+        ja: `最小`,
+        chi: `最小限度`,
     },
     order: {
         ko: "주문하기",
