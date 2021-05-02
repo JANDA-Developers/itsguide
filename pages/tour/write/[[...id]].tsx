@@ -33,11 +33,15 @@ import { cloneObject } from "../../../utils/clone";
 import { productStatus } from "../../../utils/enumToKr";
 import { Prompt } from "../../../components/promptModal/Prompt";
 import { openModal } from "../../../utils/popUp";
-import { LocalStorageBoard } from "../../../components/localStorageBoard/LocalStorageBoard";
+import {
+    LocalStorageBoard,
+    SampleBoard,
+} from "../../../components/localStorageBoard/LocalStorageBoard";
 import dayjs from "dayjs";
 import { checkIsExp } from "../../../utils/product";
 import { PageEditor } from "../../../components/common/PageEditer";
 import { yyyymmdd } from "../../../utils/yyyymmdd";
+import { useHomepage, useHomepageUpdate } from "../../../hook/useHomepage";
 // const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 const Editor = LoadEditor();
@@ -76,6 +80,64 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
         itsIndex: 0,
         contentIndex: 0,
     });
+    const { data: homepage } = useHomepage();
+    const sampleProducts = homepage?.productSamples || [];
+    const [homepageUpdate] = useHomepageUpdate();
+    const [sampleIndex, setSampleIndex] = useState<number>(-1);
+    const notSample = sampleIndex === -1;
+
+    const updateSampels = (nextSample: string[], suecssMessage: string) => {
+        homepageUpdate({
+            variables: {
+                params: {
+                    productSamples: nextSample,
+                },
+            },
+        }).then(({ data }) => {
+            if (data?.HomepageUpdate.ok) {
+                alert(suecssMessage);
+            }
+        });
+    };
+
+    const sampleUpdate = (sample: string, index: number) => {
+        const newSamples = [...sampleProducts];
+        newSamples.splice(index, 1, sample);
+        updateSampels(newSamples, "업데이트 완료");
+    };
+
+    const sampleCreate = (sample: string) => {
+        const nextSampls = [sample, ...sampleProducts];
+        updateSampels(nextSampls, "추가 완료");
+    };
+
+    const handleSampleDelete = (index: number) => {
+        const newSamples = [...sampleProducts];
+        newSamples.splice(index, 1);
+        const nextSampls = [...newSamples];
+        updateSampels(nextSampls, "삭제 완료");
+    };
+
+    const handleSampleCreate = () => {
+        const sample = JSON.stringify(tourData);
+        sampleCreate(sample);
+    };
+
+    const handleSampleUpdate = () => {
+        const sample = JSON.stringify(tourData);
+        sampleUpdate(sample, sampleIndex);
+    };
+
+    const handleSampleLoad = (index: number) => {
+        const target = sampleProducts[index];
+        const val = JSON.parse(target);
+        if (val) {
+            alert("불러오기 완료");
+            setSampleIndex(index);
+            setTourData(val);
+        }
+    };
+
     const [updateReq, { loading: updateReqLoading }] = useProductUpdateReq({
         onCompleted: ({ ProductUpdateReq }) => {
             if (ProductUpdateReq?.ok) {
@@ -178,6 +240,10 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
             ...simpleData,
             isOpen: bool,
         });
+    };
+
+    const sampleSelectOpen = () => {
+        openModal("#SampleSelecter")();
     };
 
     const tabOnCheck = (index: number) => (tab === index ? "on" : undefined);
@@ -339,20 +405,33 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         <div className="write_type">
                             <div className="title">회차연결</div>
                             <div className="input_form">
-                                <span className="category r3">
-                                    <select
-                                        onChange={handleBaseProdChange}
-                                        value={product?._id}
-                                        name="type"
-                                    >
-                                        <option value={""}>새로운상품</option>
-                                        {productGroupList.map((p) => (
-                                            <option key={p._id} value={p._id}>
-                                                {p.label}
+                                <div style={{ display: "flex" }}>
+                                    <span className="category r3">
+                                        <select
+                                            onChange={handleBaseProdChange}
+                                            value={product?._id}
+                                            name="type"
+                                        >
+                                            <option value={""}>
+                                                새로운상품
                                             </option>
-                                        ))}
-                                    </select>
-                                </span>
+                                            {productGroupList.map((p) => (
+                                                <option
+                                                    key={p._id}
+                                                    value={p._id}
+                                                >
+                                                    {p.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </span>
+                                    <button
+                                        onClick={sampleSelectOpen}
+                                        className="btn"
+                                    >
+                                        샘플 불러오기
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     )}
@@ -622,7 +701,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                     </li>
                                 )}
                                 <input
-                                    accept="image/x-png,image/gif,image/jpeg"
+                                    accept="image/*"
                                     onChange={handleChangeSumbNail}
                                     ref={hiddenFileInput}
                                     hidden
@@ -855,6 +934,21 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 등록
                             </button>
                         )}
+                        {isManager && (
+                            <button
+                                onClick={
+                                    notSample
+                                        ? handleSampleCreate
+                                        : handleSampleUpdate
+                                }
+                                type="submit"
+                                className="btn medium pointcolor"
+                            >
+                                {notSample
+                                    ? "샘플로 등록하기"
+                                    : "샘플 업데이트"}
+                            </button>
+                        )}
                         <button
                             onClick={handleCancel}
                             type="button"
@@ -874,6 +968,11 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     </div>
                 </div>
                 <LocalStorageBoard key={loadKey} onLoad={setTourData} />
+                <SampleBoard
+                    items={sampleProducts}
+                    onDelete={handleSampleDelete}
+                    onLoad={handleSampleLoad}
+                />
             </div>
             <Prompt
                 id="UpdateMemo"

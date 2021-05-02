@@ -2019,6 +2019,30 @@
             "deprecationReason": null
           },
           {
+            "name": "productSamples",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "blogLink",
             "description": null,
             "args": [],
@@ -27848,6 +27872,24 @@
             "defaultValue": null
           },
           {
+            "name": "productSamples",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
             "name": "loginRedirect",
             "description": null,
             "type": {
@@ -29803,7 +29845,7 @@
             "defaultValue": null
           },
           {
-            "name": "_guideLicenses",
+            "name": "guideLicenses",
             "description": "가이드 자격증",
             "type": {
               "kind": "LIST",
@@ -30072,6 +30114,16 @@
           },
           {
             "name": "partnerName",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "manageName",
             "description": null,
             "type": {
               "kind": "SCALAR",

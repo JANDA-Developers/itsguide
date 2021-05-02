@@ -1,39 +1,38 @@
 import { gql } from "@apollo/client";
 import { F_FILE } from "./fragments";
 
-
 export const F_MODAL = gql`
-  fragment Fmodal on Modal {
-    _id
-    link
-    startDate
-    endDate
-    content
-    linkBehavior
-    style
-    title
-    priority
-    createdAt
-    open
-  }
-`
+    fragment Fmodal on Modal {
+        _id
+        link
+        startDate
+        endDate
+        content
+        linkBehavior
+        style
+        title
+        priority
+        createdAt
+        open
+    }
+`;
 
 export const F_BANNER = gql`
-  fragment Fbanner on Banner {
-    img {
-      ...Ffile
+    fragment Fbanner on Banner {
+        img {
+            ...Ffile
+        }
+        link
+        target
+        use
     }
-    link
-    target
-    use
-  }
-  ${F_FILE}
-`
+    ${F_FILE}
+`;
 
 export const F_HOMEPAGE = gql`
-    fragment Fhomepage  on Homepage  {
+    fragment Fhomepage on Homepage {
         logo {
-          ...Ffile
+            ...Ffile
         }
         address
         addressUrl
@@ -44,8 +43,9 @@ export const F_HOMEPAGE = gql`
         signUpRedirect
         blacklist
         partnerFooter {
-          ...Ffile
+            ...Ffile
         }
+        productSamples
         instaLink
         blogLink
         facebookLink
@@ -63,69 +63,66 @@ export const F_HOMEPAGE = gql`
         partnerPolicy
         marketingPolic
         logoTop {
-          ...Ffile
+            ...Ffile
         }
         logoBottom {
-          ...Ffile
+            ...Ffile
         }
         bannerA {
-          ...Fbanner
+            ...Fbanner
         }
         bannerB {
-          ...Fbanner
+            ...Fbanner
         }
         degitalSalesNumber
         copyRight
         bankInfo {
-          accountHolder
-          accountNumber
-          bankName          
+            accountHolder
+            accountNumber
+            bankName
         }
         thirdPolicy
         modal {
-          ...Fmodal
+            ...Fmodal
         }
     }
     ${F_BANNER}
     ${F_FILE}
     ${F_MODAL}
-`
+`;
 
 export const HOMEPAGE = gql`
-  query homepage {
-    Homepage {
-      ok
-      error {
-      location
-      severity
-      code
-      message
+    query homepage {
+        Homepage {
+            ok
+            error {
+                location
+                severity
+                code
+                message
+            }
+            data {
+                ...Fhomepage
+            }
+        }
     }
-      data {
-          ...Fhomepage
-      }
-    }
-  }
-  ${F_HOMEPAGE}
-`
-
+    ${F_HOMEPAGE}
+`;
 
 export const HOMEPAGE_UPDATE = gql`
-  mutation homepageUpdate(
-      $params: HomepageUpdateInput!
-    ) {
-    HomepageUpdate(params:$params) {
-      ok
-      error {
-      location
-      severity
-      code
-      message
+    mutation homepageUpdate($params: HomepageUpdateInput!) {
+        HomepageUpdate(params: $params) {
+            ok
+            error {
+                location
+                severity
+                code
+                message
+            }
+            data {
+                ...Fhomepage
+            }
+        }
     }
-      data {
-          ...Fhomepage
-      }
-    }
-  }
-  ${F_HOMEPAGE}
-`
+    ${F_HOMEPAGE}
+`;

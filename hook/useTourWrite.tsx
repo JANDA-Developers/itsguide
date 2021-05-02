@@ -180,6 +180,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     const hiddenFileInput = useRef<HTMLInputElement>(null);
     const { signleUpload } = useUpload();
     const router = useRouter();
+    const filterOverIts = filterOver(its);
 
     const [productDelete] = useProductDelete({
         onCompleted: ({ ProductDelete }) => {
@@ -325,7 +326,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
             id: "lang",
         },
         {
-            value: !its.find((it) => Boolean(it.title) === false),
+            value: !filterOverIts?.find((it) => Boolean(it.title) === false),
             failMsg: "일정 타이틀 값은 필수 입니다.",
             failFn: () => {
                 document.getElementById("tap01")?.click();
@@ -417,6 +418,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     };
 
     const handleUploadClick = () => {
+        hiddenFileInput.current.value = "";
         hiddenFileInput.current?.click();
     };
 
@@ -521,7 +523,6 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         set(key, data);
     };
 
-    const filterOverIts = filterOver(its);
     const fistItDate = filterOverIts[0]?.date;
     const firstDate = fistItDate ? dayjs(fistItDate).toDate() : undefined;
     const lastItDate = filterOverIts[filterOverIts.length - 1]?.date;

@@ -23,7 +23,7 @@ import { generateClientPaging } from "../../../utils/generateClientPaging";
 import { Paginater } from "../../../components/common/Paginator";
 import { QnaLi } from "../../../components/qna/QnaLi";
 import PageLoading from "../../Loading";
-import { getStaticPageInfo, Ipage } from "../../../utils/page";
+import { getQueryIndex, getStaticPageInfo, Ipage } from "../../../utils/page";
 import { usePageEdit } from "../../../hook/usePageEdit";
 import defaultPageInfo from "info/tourView.json";
 import "slick-carousel/slick/slick.css";
@@ -891,15 +891,22 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                         </div>
                                         <div className="tbody">
                                             <ul>
-                                                {questionSliced.map((qs) => (
-                                                    <QnaLi
-                                                        onClick={handleQnaClick(
-                                                            qs._id
-                                                        )}
-                                                        key={qs._id}
-                                                        question={qs}
-                                                    />
-                                                ))}
+                                                {questionSliced.map(
+                                                    (qs, index) => (
+                                                        <QnaLi
+                                                            no={getQueryIndex(
+                                                                index,
+                                                                questionPageInfo,
+                                                                questionSliced.length
+                                                            )}
+                                                            onClick={handleQnaClick(
+                                                                qs._id
+                                                            )}
+                                                            key={qs._id}
+                                                            question={qs}
+                                                        />
+                                                    )
+                                                )}
                                             </ul>
                                         </div>
                                         <div className="boardNavigation">

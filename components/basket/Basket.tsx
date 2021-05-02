@@ -23,6 +23,8 @@ import { NoData } from "../common/NoData";
 
 interface IProp {
     Buttons?: TElements;
+    mode?: "single";
+    handleSingleOrder?: (item: IBasketItem & Fproduct) => void;
     updateComponent: () => void;
     items: (IBasketItem & Fproduct)[];
 }
@@ -31,6 +33,8 @@ export const Basket: React.FC<IProp> = ({
     updateComponent,
     Buttons,
     items,
+    handleSingleOrder,
+    mode,
 }) => {
     const { ln } = useContext(AppContext);
     const [popUpProduct, setPopProduct] = useState<Fproduct & IBasketItem>();
@@ -69,23 +73,27 @@ export const Basket: React.FC<IProp> = ({
         }
     };
 
+    const isSingle = mode === "single";
+
     return (
         <div className="basket_box">
             <div className="basket_list">
                 <div className="th">
-                    <div className="t01">
-                        <span className="checkbox">
-                            <input
-                                onChange={toggleAll}
-                                checked={isAllSelected}
-                                type="checkbox"
-                                name="agree"
-                                id="agree0"
-                                title="전체선택"
-                            />
-                            <label htmlFor="agree0" />
-                        </span>
-                    </div>
+                    {!isSingle && (
+                        <div className="t01">
+                            <span className="checkbox">
+                                <input
+                                    onChange={toggleAll}
+                                    checked={isAllSelected}
+                                    type="checkbox"
+                                    name="agree"
+                                    id="agree0"
+                                    title="전체선택"
+                                />
+                                <label htmlFor="agree0" />
+                            </span>
+                        </div>
+                    )}
                     <div className="t02">{ln("product_info")}</div>
                     <div className="t03">{ln("option")}</div>
                     <div className="t04">{ln("product_price")}</div>
@@ -94,19 +102,21 @@ export const Basket: React.FC<IProp> = ({
                 <NoData show={isEmpty(items)} label={ln("basket_is_empty")} />
                 {items.map((item, i) => (
                     <div key={item._id} className="td">
-                        <div className="t01">
-                            <span className="checkbox">
-                                <input
-                                    checked={isChecked(item._id)}
-                                    onChange={() => toggle(item._id)}
-                                    type="checkbox"
-                                    name="agree"
-                                    id={`agree${i}`}
-                                    title="개별선택"
-                                />
-                                <label htmlFor={`agree${i}`} />
-                            </span>
-                        </div>
+                        {!isSingle && (
+                            <div className="t01">
+                                <span className="checkbox">
+                                    <input
+                                        checked={isChecked(item._id)}
+                                        onChange={() => toggle(item._id)}
+                                        type="checkbox"
+                                        name="agree"
+                                        id={`agree${i}`}
+                                        title="개별선택"
+                                    />
+                                    <label htmlFor={`agree${i}`} />
+                                </span>
+                            </div>
+                        )}
                         <div className="t02">
                             <div
                                 className="img"
@@ -181,7 +191,16 @@ export const Basket: React.FC<IProp> = ({
                                     {autoComma(item.price)} {ln("won")}
                                 </strong>
                             </div>
-                            <button className="btn hit">{ln("order")}</button>
+                            {items.length !== 1 && (
+                                <button
+                                    onClick={() => {
+                                        handleSingleOrder?.(item);
+                                    }}
+                                    className="btn hit"
+                                >
+                                    {ln("order")}
+                                </button>
+                            )}
                         </div>
                         <div className="t05">
                             <div className="day_cunt">
@@ -217,20 +236,28 @@ export const Basket: React.FC<IProp> = ({
                     </div>
                 </div>
 
-                <div className="baket_check">
-                    <div className="left">
-                        <button onClick={reverseAll} className="btn">
-                            <input checked={isAllSelected} type="checkbox" />
-                            {ln("selectAll")}
-                        </button>
-                        <button onClick={handleDeleteSelects} className="btn">
-                            {ln("selectDelete")}
-                        </button>
-                        <button onClick={handleDeleteAll} className="btn">
-                            {ln("deleteAll")}
-                        </button>
+                {!isSingle && (
+                    <div className="baket_check">
+                        <div className="left">
+                            <button onClick={reverseAll} className="btn">
+                                <input
+                                    checked={isAllSelected}
+                                    type="checkbox"
+                                />
+                                {ln("selectAll")}
+                            </button>
+                            <button
+                                onClick={handleDeleteSelects}
+                                className="btn"
+                            >
+                                {ln("selectDelete")}
+                            </button>
+                            <button onClick={handleDeleteAll} className="btn">
+                                {ln("deleteAll")}
+                            </button>
+                        </div>
                     </div>
-                </div>
+                )}
                 {Buttons}
                 {/* popup은 언제나 class fade와 함께 있어야 한다. */}
                 <BasketModal

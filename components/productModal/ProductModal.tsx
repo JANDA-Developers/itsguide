@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import Link from 'next/link';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 // import ReactTooltip from 'react-tooltip';
 import { useIdSelecter } from '../../hook/useIdSelecter';
 import { useProductController, useProductFindByIdForSeller, useProductUpdate, } from '../../hook/useProduct';
@@ -114,6 +114,11 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
         })
     }
 
+    useEffect(() => {
+        if (product) {
+            setAdminMemo(product.adminMemo || "");
+        }
+    }, [product?._id]);
 
 
     return <div id="ProductModal" className="productModal popup_bg_full" >

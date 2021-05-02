@@ -17,7 +17,7 @@ import { guideSearchLink } from "../guide-search";
 
 export const getStaticProps = getStaticPageInfo("guideMain");
 export const GuideMain: React.FC<Ipage> = (pageInfo) => {
-    const { groupsMap, ln } = useContext(AppContext);
+    const { groupsMap, ln, lang } = useContext(AppContext);
     const pageTools = usePageEdit(pageInfo, defaultPageInfo);
     const {
         imgEdit,
@@ -29,7 +29,6 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
         imgKit,
         editMode,
         page,
-        lang,
     } = pageTools;
     // const { items } = useProductList({ initialPageIndex: 1, initialViewCount: 8 });
     // const { imgEdit, edit, bg } = useContext<IEditPage<typeof pageInfoDefault>>(EditContext as any);

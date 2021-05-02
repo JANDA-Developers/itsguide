@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { IDiv } from "../../types/interface";
-import classnames from 'classnames';
+import classnames from "classnames";
 
 interface IProp extends IDiv {
     tags: string[];
@@ -42,15 +42,18 @@ export const TagInput: React.FC<IProp> = ({
                             className="JDtagInput__close"
                             onClick={() => {
                                 handleDelete(i);
-                            }}>X</i>
+                            }}
+                        >
+                            X
+                        </i>
                     </span>
                 ))}
             </div>
-        
+
             <input
                 ref={ref}
                 className="JDtagInput__input"
-                onKeyDown={e => {
+                onKeyDown={(e) => {
                     const value = e.currentTarget.value;
                     if (e.key === "Enter") {
                         if (value) {
@@ -64,10 +67,16 @@ export const TagInput: React.FC<IProp> = ({
                     }
                 }}
             />
-            <button className="btn JDtagInput__tagsBtn" onClick={()=> {
-                const val = ref.current.value;
-                handleAddition(val);
-            }}>추가하기</button>
+            <button
+                className="btn JDtagInput__tagsBtn"
+                onClick={() => {
+                    const val = ref.current.value;
+                    handleAddition(val);
+                    if (ref.current) ref.current.value = "";
+                }}
+            >
+                추가하기
+            </button>
         </div>
     );
 };

@@ -91,29 +91,33 @@ export const Header: React.FC<IProp> = () => {
         });
     };
 
+    const closeLangs = () => {
+        const lagnBox1 = document.getElementById(
+            "language__present2"
+        ) as HTMLInputElement;
+        const lagnBox2 = document.getElementById(
+            "language__present"
+        ) as HTMLInputElement;
+        if (lagnBox2) {
+            lagnBox2.checked = false;
+        }
+        if (lagnBox1) {
+            lagnBox1.checked = false;
+        }
+    };
+
     useEffect(() => {
         $(".nav_wrap ul li").on("hover", function () {
             $(this).find("ul").stop().fadeToggle(300);
         });
         rotuer.events.on("routeChangeStart", handleAllClose);
-
-        const closeLangs = () => {
-            const lagnBox1 = document.getElementById(
-                "language__present2"
-            ) as HTMLInputElement;
-            const lagnBox2 = document.getElementById(
-                "language__present"
-            ) as HTMLInputElement;
-            if (lagnBox2) {
-                lagnBox2.checked = false;
-            }
-            if (lagnBox1) {
-                lagnBox1.checked = false;
-            }
-        };
         window.addEventListener("click", closeLangs);
         return closeLangs;
     }, []);
+
+    useEffect(() => {
+        closeLangs();
+    }, [locale]);
 
     return (
         <header className="header" id="header">

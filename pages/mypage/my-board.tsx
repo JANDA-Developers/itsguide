@@ -16,6 +16,8 @@ import Link from "next/link";
 import { BoardType, myBoardList_MyBoardList_data } from "../../types/api";
 import { useRouter } from "next/router";
 import { isOpenKr } from "../../utils/enumToKr";
+import { generateClientPaging } from "../../utils/generateClientPaging";
+import { Paginater } from "../../components/common/Paginator";
 
 interface IProp {}
 
@@ -47,8 +49,10 @@ export const MyPageBoard: React.FC<IProp> = () => {
         const isProduct = item.boardType === BoardType.PRODUCT;
         const isQuestion = item.boardType === BoardType.QUESTION;
         if (isProduct) rotuer.push(`/tour/view/${item._id}`);
-        if (isQuestion) rotuer.push(`/service/qna/view/${item._id}`);
+        if (isQuestion) rotuer.push(`/member/qna/view/${item._id}`);
     };
+
+    const { slice, paging, setPage } = generateClientPaging(items, viewCount);
 
     return (
         <MypageLayout>
@@ -96,11 +100,11 @@ export const MyPageBoard: React.FC<IProp> = () => {
                                         <div className="th02">게시판</div>
                                         <div className="th03">공개</div>
                                         <div className="th04">제목</div>
-                                        <div className="th05">날짜</div>
+                                        <div className="th05">생성일</div>
                                     </div>
                                     <div className="tbody">
                                         <ul>
-                                            {items.map((item, index) => (
+                                            {slice.map((item, index) => (
                                                 <li
                                                     onClick={handleClickBoard(
                                                         item
@@ -147,7 +151,10 @@ export const MyPageBoard: React.FC<IProp> = () => {
                                             )}
                                         </ul>
                                     </div>
-                                    {/* <Paginater pageInfo={pageInfo} /> */}
+                                    <Paginater
+                                        setPage={setPage}
+                                        pageInfo={paging}
+                                    />
                                 </div>
                             </div>
                         </Change>

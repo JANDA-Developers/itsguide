@@ -17,8 +17,10 @@ import {
     BookingsCreateInput,
     bookingsCreate_BookingsCreate_data,
     Fbooking,
+    Fproduct,
     PayMethod,
 } from "../../types/api";
+import { IBasketItem, removeItem } from "../../utils/Storage";
 import { getFromUrl } from "../../utils/url";
 
 interface IcustomParams {
@@ -36,14 +38,19 @@ export const Payment: React.FC<IProp> = ({}) => {
     >([]);
     const [customParams, setCustomParams] = useState<IcustomParams>();
     const { item: findBooking } = useBookingFindByCode(urlBKcode);
+    const [singleOrder, setSingleOrder] = useState<string>("");
     const [bookingCreate] = useBookingsCreate();
     const {
-        items,
+        items: _items,
         totalPrice,
         updateComponent,
         getLoading,
     }: IUseBasket = useBasket();
     const router = useRouter();
+
+    const items = singleOrder
+        ? [_items.find((item) => item._id === singleOrder)!]
+        : _items;
 
     const handleBooking = (param: TPaySubmitInfo) => {
         const params: BookingsCreateInput[] = items.map((item, i) => ({
@@ -80,6 +87,11 @@ export const Payment: React.FC<IProp> = ({}) => {
                     redirectUrl,
                     failRedirectUrl,
                 };
+
+                items.forEach((item) => {
+                    removeItem(item._id);
+                });
+
                 setCreatedBookings(bks);
                 setCustomParams(customParams);
                 if (param.payMethod === PayMethod.NICEPAY_CARD) {
@@ -121,6 +133,10 @@ export const Payment: React.FC<IProp> = ({}) => {
         GoodsName: "예약상품",
     };
 
+    const handleSingleOrder = (item: IBasketItem & Fproduct) => {
+        setSingleOrder(item._id);
+    };
+
     return (
         <PaymentLayout>
             <NiceElments
@@ -141,6 +157,8 @@ export const Payment: React.FC<IProp> = ({}) => {
                         <div />
                     ) : (
                         <Basket
+                            mode="single"
+                            handleSingleOrder={handleSingleOrder}
                             updateComponent={updateComponent}
                             items={items}
                         />

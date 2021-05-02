@@ -49,14 +49,14 @@ import Head from "next/head";
 import { staticInfo } from "../info/static.json";
 import { localeToLang } from "../utils/enumToKr";
 
-// Router.events.on("routeChangeStart", () => {
-//     pageLoadingEffect(true);
-// });
+Router.events.on("routeChangeStart", () => {
+    pageLoadingEffect(true, "page");
+});
 Router.events.on("routeChangeComplete", () => {
-    pageLoadingEffect(false);
+    pageLoadingEffect(false, "page");
 });
 Router.events.on("routeChangeError", () => {
-    pageLoadingEffect(false);
+    pageLoadingEffect(false, "page");
 });
 
 dayjs.locale("ko");

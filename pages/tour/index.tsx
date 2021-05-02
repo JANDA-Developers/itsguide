@@ -30,9 +30,11 @@ export const TourMain: React.FC<Ipage> = (pageInfo) => {
     const isExp = checkIsExp();
     const { data } = useHomepage();
     const pageTools = usePageEdit(pageInfo, pageInfoDefault);
-    const { categoriesMap, isSeller, groupsMap, ln } = useContext(AppContext);
+    const { categoriesMap, isSeller, groupsMap, ln, lang } = useContext(
+        AppContext
+    );
     const cats = categoriesMap?.TOUR || [];
-    const { editMode, page, linkEdit, imgKit, edit, get, lang } = pageTools;
+    const { editMode, page, linkEdit, imgKit, edit, get } = pageTools;
     const router = useRouter();
 
     const handleLink = (key: keyof typeof page) => () => {

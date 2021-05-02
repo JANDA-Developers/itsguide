@@ -1,8 +1,13 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 import { BoardWrite } from "components/board/Write";
 import { useBoard } from "hook/useBoard";
-import { useProductReviewCreate, useProductReviewDelete, useProductReviewFindById, useProductReviewUpdate } from "../../../hook/useReview";
+import {
+    useProductReviewCreate,
+    useProductReviewDelete,
+    useProductReviewFindById,
+    useProductReviewUpdate,
+} from "../../../hook/useReview";
 import { getFromUrl } from "../../../utils/url";
 import { omits } from "../../../utils/omit";
 import { auth } from "../../../utils/with";
@@ -13,7 +18,7 @@ import { Ffile } from "../../../types/api";
 import Page404 from "../../404";
 import { RatingStar } from "../../../components/rating/Rating";
 
-interface IProp { }
+interface IProp {}
 
 export const ReviewWrite: React.FC<IProp> = () => {
     const router = useRouter();
@@ -22,44 +27,54 @@ export const ReviewWrite: React.FC<IProp> = () => {
     const mode = id ? "edit" : "create";
     const urlProductId = getFromUrl("pid") || "";
     const urlProductName = getFromUrl("name") || "";
-    const [rate, setRate] = useState<number>(productreview?.rating || 0)
+    const [rate, setRate] = useState<number>(productreview?.rating || 0);
     const hiddenFileInput = useRef<HTMLInputElement>(null);
     const { signleUpload } = useUpload();
-
 
     const [productreviewUpdateMu] = useProductReviewUpdate({
         onCompleted: ({ ProductReviewUpdate }) => {
             if (ProductReviewUpdate.ok) {
                 const id = ProductReviewUpdate.data!._id;
-                router.push(`/tour/view/${urlProductId}`)
+                location.href = `/tour/view/${urlProductId}`;
             }
         },
-        awaitRefetchQueries: true
-    })
+        awaitRefetchQueries: true,
+    });
 
     const [productreviewCreateMu] = useProductReviewCreate({
+        awaitRefetchQueries: true,
         onCompleted: ({ ProductReviewCreate }) => {
             if (ProductReviewCreate.ok) {
                 const id = ProductReviewCreate.data!._id;
-                router.push(`/tour/view/${urlProductId}`)
+                location.href = `/tour/view/${urlProductId}`;
             }
         },
-        awaitRefetchQueries: true
-    })
+    });
 
     const [productreviewDeleteMu] = useProductReviewDelete({
         onCompleted: ({ ProductReviewDelete }) => {
             if (ProductReviewDelete.ok)
-                router.push(`/tour/view/${urlProductId}`)
+                location.href = `/tour/view/${urlProductId}`;
         },
-    })
+    });
 
-    const boardHook = useBoard({
-        ...productreview,
-        files: productreview?.attachFiles || []
-    }, { storeKey: "ReviewWrite" });
+    const boardHook = useBoard(
+        {
+            ...productreview,
+            files: productreview?.attachFiles || [],
+        },
+        { storeKey: "ReviewWrite" }
+    );
 
-    const { boardData, loadKey, handleCancel, handleLoad, handleTempSave, setBoardData, boardSets } = boardHook
+    const {
+        boardData,
+        loadKey,
+        handleCancel,
+        handleLoad,
+        handleTempSave,
+        setBoardData,
+        boardSets,
+    } = boardHook;
     const { files } = boardData;
     const { setFiles } = boardSets;
 
@@ -76,45 +91,42 @@ export const ReviewWrite: React.FC<IProp> = () => {
             value: 0 < rate && rate <= 5,
             failMsg: "평점을 입력 해주세요.",
         },
-
-    ]
-    );
+    ]);
 
     const handleUpdate = () => {
         if (!validate()) return;
 
         const params = {
             ...boardData,
-        }
+        };
 
         productreviewUpdateMu({
             variables: {
                 params: {
                     ...omits(params, ["categoryId", "files"]),
                     rating: rate,
-                    attachFiles: omits(files)
+                    attachFiles: omits(files),
                 },
-                id
-            }
-        })
-    }
+                id,
+            },
+        });
+    };
 
     const handleDelete = () => {
         if (confirm("정말로 게시글을 삭제 하시겠습니까?"))
             productreviewDeleteMu({
                 variables: {
-                    id
-                }
-            })
-    }
+                    id,
+                },
+            });
+    };
 
     const handleCreate = () => {
-        if (!validate()) return
+        if (!validate()) return;
 
         const next = {
             ...boardData,
-        }
-
+        };
 
         productreviewCreateMu({
             variables: {
@@ -122,95 +134,119 @@ export const ReviewWrite: React.FC<IProp> = () => {
                     ...omits(next, ["categoryId", "files"]),
                     product: urlProductId,
                     rating: rate,
-                    attachFiles: omits(files)
-                }
-            }
-        })
-    }
+                    attachFiles: omits(files),
+                },
+            },
+        });
+    };
 
     useEffect(() => {
         setBoardData({
             title: productreview?.title,
             contents: productreview?.contents,
-            files: [...productreview?.attachFiles || []]
-        })
-        setRate(productreview?.rating || 0)
-    }, [productreview?._id])
-
+            files: [...(productreview?.attachFiles || [])],
+        });
+        setRate(productreview?.rating || 0);
+    }, [productreview?._id]);
 
     const handleUploadClick = () => {
         hiddenFileInput.current?.click();
-    }
+    };
 
-
-    const handleChangeSumbNail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeSumbNail = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
         if (!event.target.files) return;
         const fileUploaded = event.target.files;
         const onUpload = (_: string, data: Ffile) => {
             files.push(data);
-            setFiles([...files])
-        }
+            setFiles([...files]);
+        };
         signleUpload(fileUploaded, onUpload);
     };
 
     const handleClearThumb = (index: number) => () => {
         files.splice(index, 1);
-        setFiles([...files])
-    }
+        setFiles([...files]);
+    };
 
     if (!urlProductId) return <Page404 />;
-    return <BoardWrite
-        author={productreview?.author}
-        useTextarea
-        WriteInjection={
-            <div>
-                <div className="write_type">
-                    <div className="title">상품명</div>
-                    <div className="input_form">
-                        <input readOnly id="title" value={urlProductName} type="text" name="title" className="inputText w100" />
+    return (
+        <BoardWrite
+            author={productreview?.author}
+            useTextarea
+            WriteInjection={
+                <div>
+                    <div className="write_type">
+                        <div className="title">상품명</div>
+                        <div className="input_form">
+                            <input
+                                readOnly
+                                id="title"
+                                value={urlProductName}
+                                type="text"
+                                name="title"
+                                className="inputText w100"
+                            />
+                        </div>
+                    </div>
+                    <div className="write_type">
+                        <div className="title">평점</div>
+                        <div className="input_form">
+                            <RatingStar
+                                initialRating={rate}
+                                onChange={setRate}
+                            />
+                        </div>
+                    </div>
+                    <div className="write_type">
+                        <div className="title">썸네일</div>
+                        <div className="img_box_add">
+                            <ul className="img_add">
+                                {files.map((thumb, i) => (
+                                    <li key={i + "thumb"} className="on_file">
+                                        {thumb.name}
+                                        <i
+                                            onClick={handleClearThumb(i)}
+                                            className="flaticon-multiply icon_x"
+                                        ></i>
+                                    </li>
+                                ))}
+                                {files.length < 6 && (
+                                    <li id="thumb" onClick={handleUploadClick}>
+                                        이미지추가
+                                        <i className="flaticon-add icon_plus"></i>
+                                    </li>
+                                )}
+                                <input
+                                    onChange={handleChangeSumbNail}
+                                    ref={hiddenFileInput}
+                                    hidden
+                                    type="file"
+                                />
+                            </ul>
+                            <p className="input_form info_txt">
+                                - 썸네일 이미지사이즈 720px * 434px
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div className="write_type">
-                    <div className="title">평점</div>
-                    <div className="input_form">
-                        <RatingStar
-                            initialRating={rate}
-                            onChange={setRate}
-                        />
-                    </div>
-                </div>
-                <div className="write_type">
-                    <div className="title">썸네일</div>
-                    <div className="img_box_add">
-                        <ul className="img_add">
-                            {files.map((thumb, i) =>
-                                <li key={i + "thumb"} className="on_file">{thumb.name}<i onClick={handleClearThumb(i)} className="flaticon-multiply icon_x"></i></li>
-                            )}
-                            {files.length < 6 && <li id="thumb" onClick={handleUploadClick}>이미지추가<i className="flaticon-add icon_plus"></i></li>}
-                            <input onChange={handleChangeSumbNail} ref={hiddenFileInput} hidden type="file" />
-                        </ul>
-                        <p className="input_form info_txt">- 썸네일 이미지사이즈 720px * 434px</p>
-                    </div>
-                </div>
-            </div>
-        }
-        boardHook={boardHook}
-        key={loadKey + (productreview?._id || "") + urlProductId}
-        mode={mode}
-        onCancel={handleCancel}
-        onCreate={handleCreate}
-        onDelete={handleDelete}
-        onEdit={handleUpdate}
-        onSave={handleTempSave}
-        onLoad={handleLoad}
-        opens={{
-            title: true,
-            open: false,
-        }}
-    />
+            }
+            boardHook={boardHook}
+            key={loadKey + (productreview?._id || "") + urlProductId}
+            mode={mode}
+            onCancel={handleCancel}
+            onCreate={handleCreate}
+            onDelete={handleDelete}
+            onEdit={handleUpdate}
+            onSave={handleTempSave}
+            onLoad={handleLoad}
+            opens={{
+                title: true,
+                open: false,
+            }}
+        />
+    );
 };
 
-
-
-
-export default auth(ALLOW_LOGINED)(ReviewWrite)
+export default auth(ALLOW_LOGINED)(ReviewWrite);

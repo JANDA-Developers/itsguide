@@ -2796,6 +2796,7 @@ export interface homepage_Homepage_data {
   signUpRedirect: string;
   blacklist: string[];
   partnerFooter: homepage_Homepage_data_partnerFooter[] | null;
+  productSamples: string[];
   instaLink: string | null;
   blogLink: string | null;
   facebookLink: string | null;
@@ -2949,6 +2950,7 @@ export interface homepageUpdate_HomepageUpdate_data {
   signUpRedirect: string;
   blacklist: string[];
   partnerFooter: homepageUpdate_HomepageUpdate_data_partnerFooter[] | null;
+  productSamples: string[];
   instaLink: string | null;
   blogLink: string | null;
   facebookLink: string | null;
@@ -5658,10 +5660,23 @@ export interface productFindById_ProductFindById_data_region {
   _id: string;
 }
 
+export interface productFindById_ProductFindById_data_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface productFindById_ProductFindById_data_category {
   __typename: "Category";
   _id: string;
   label: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: productFindById_ProductFindById_data_category_localeLabel | null;
+  type: CategoryType;
 }
 
 export interface productFindById_ProductFindById_data_bookerSummary {
@@ -7950,6 +7965,7 @@ export interface getContext_Homepage_data {
   signUpRedirect: string;
   blacklist: string[];
   partnerFooter: getContext_Homepage_data_partnerFooter[] | null;
+  productSamples: string[];
   instaLink: string | null;
   blogLink: string | null;
   facebookLink: string | null;
@@ -12902,6 +12918,7 @@ export interface Fhomepage {
   signUpRedirect: string;
   blacklist: string[];
   partnerFooter: Fhomepage_partnerFooter[] | null;
+  productSamples: string[];
   instaLink: string | null;
   blogLink: string | null;
   facebookLink: string | null;
@@ -14890,6 +14907,7 @@ export interface HomepageUpdateInput {
   siteName?: string | null;
   signUpRedirect?: string | null;
   blacklist?: string[] | null;
+  productSamples?: string[] | null;
   loginRedirect?: string | null;
   loginOutRedirect?: string | null;
   PrivacyPolicy?: string | null;
@@ -15263,7 +15281,7 @@ export interface TravelerInput {
 
 export interface UserUpdateInput {
   lang?: Lang | null;
-  _guideLicenses?: FileCreateInput[] | null;
+  guideLicenses?: FileCreateInput[] | null;
   busi_department?: string | null;
   nickName?: string | null;
   acceptSms?: boolean | null;
@@ -15290,6 +15308,7 @@ export interface UserUpdateInput {
   bank_name?: string | null;
   profileImg?: FileCreateInput | null;
   partnerName?: string | null;
+  manageName?: string | null;
   manageContact?: string | null;
   isVerifiedManager?: boolean | null;
   status?: UserStatus | null;

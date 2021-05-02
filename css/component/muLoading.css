@@ -1,7 +1,7 @@
 .muPageLoading {
     position: fixed;
-    z-index: 999999;
-    backdrop-filter: blur(2px);
+    z-index: 90;
+    backdrop-filter: blur(2px) grayscale(.7);
     top:0;
     left: 0;
     right: 0;
@@ -10,8 +10,9 @@
     display: none;
 }
 
-
-.muPageLoading--visible {
-    display: block;
+.muPageLoading:not([data-fetchingId=""]) {
+    display: flex;
     opacity: 1;
+    align-items: center;
+    justify-content: center;
 }
