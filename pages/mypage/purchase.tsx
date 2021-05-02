@@ -146,8 +146,7 @@ export const MyPagePurchase: React.FC<IProp> = () => {
                                 <div className="alignment">
                                     <div className="left_div">
                                         총{" "}
-                                        <strong>{(items || []).length}</strong>
-                                        개
+                                        <strong>{pageInfo.totalCount}</strong>개
                                     </div>
                                     <div className="right_div">
                                         <SortSelect

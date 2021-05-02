@@ -141,7 +141,9 @@ export const Basket: React.FC<IProp> = ({
                             <div className="day">
                                 {ln("startDate")} :{" "}
                                 <strong>
-                                    {dayjs(item.startDate).format("MM.DD (W)")}
+                                    {dayjs(item.startDate).format(
+                                        "MM.DD (ddd)"
+                                    )}
                                 </strong>
                             </div>
                             <div className="start_where">
