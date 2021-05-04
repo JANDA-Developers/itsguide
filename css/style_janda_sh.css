@@ -32,6 +32,7 @@ p,.mypage_in .box_right li,
 .master__table .tbody div[class*=t0],
 .board_list.st01 .tbody .td04,
 .board_list.st01 .tbody .td01,
+.master_box .in_content .con_box_body .list_line div[class*=td],
 .board_list.st01 .tbody .td02,
 ul.list_ul li .bottom_txt div[class*=tag] span,
 .main_con_box5 h2 span{
@@ -1725,6 +1726,7 @@ div.alignment {
 
         div.alignment .left_div strong {
             color: #2196F3;
+            margin-left: 2px;
         }
 
         div.alignment .left_div .infotxt {

@@ -5240,10 +5240,10 @@ div.alignment {
         line-height: 22px;
         color: #999;
     }
-
+/* 
         div.alignment .left_div strong {
             color: #2196F3;
-        }
+        } */
 
         div.alignment .left_div .infotxt {
             margin-top: 15px;
