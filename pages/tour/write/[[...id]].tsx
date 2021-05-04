@@ -42,6 +42,7 @@ import { checkIsExp } from "../../../utils/product";
 import { PageEditor } from "../../../components/common/PageEditer";
 import { yyyymmdd } from "../../../utils/yyyymmdd";
 import { useHomepage, useHomepageUpdate } from "../../../hook/useHomepage";
+import { filterOver } from "../../../components/tourWrite/helper";
 // const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 const Editor = LoadEditor();
@@ -160,6 +161,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
     const isMyProduct = product?.author?._id === myProfile?._id;
 
     const {
+        imgUploading,
         tourSets,
         tourData,
         loadKey,
@@ -500,6 +502,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         <div className="title">제목</div>
                         <div className="input_form">
                             <input
+                                maxLength={60}
                                 id="title"
                                 onChange={handleInputChange("title")}
                                 value={title}
@@ -513,6 +516,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         <div className="title">부제목</div>
                         <div className="input_form">
                             <input
+                                maxLength={60}
                                 onChange={handleInputChange("subTitle")}
                                 value={subTitle || ""}
                                 type="text"
@@ -696,12 +700,13 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 ))}
                                 {thumbs.length < 6 && (
                                     <li id="thumb" onClick={handleUploadClick}>
-                                        이미지추가
+                                        {imgUploading
+                                            ? "파입업로드중..."
+                                            : "이미지추가"}
                                         <i className="flaticon-add icon_plus"></i>
                                     </li>
                                 )}
                                 <input
-                                    accept="image/*"
                                     onChange={handleChangeSumbNail}
                                     ref={hiddenFileInput}
                                     hidden
@@ -827,7 +832,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 </ul>
                             </div>
                         </DayRangePicker>
-                        {its.map((itinery, index) => (
+                        {filterOver(its).map((itinery, index) => (
                             <div key={"itineryForm" + index}>
                                 <ItineryForm
                                     setSelectEditorIndex={setSelectEditorIndex}
@@ -849,7 +854,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         />
                     </div>
                     <div {...tapDisplay(3)} id="texta_03" className="texta">
-                        <h5>포함 / 불포함</h5>
+                        <h5>참가자 준비물</h5>
                         <Editor
                             edit={tab === 3}
                             data={inOrNor}

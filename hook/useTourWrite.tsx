@@ -48,7 +48,8 @@ type SimpleTypePart =
     | "info"
     | "contents"
     | "inOrNor"
-    | "isNotice";
+    | "isNotice"
+    | "lang";
 export type TSimpleTypePart = Pick<
     Required<ProductCreateInput>,
     SimpleTypePart
@@ -66,6 +67,7 @@ export const DEFAULT_SIMPLE_TOUR_DATA: TSimpleTypePart = {
     subTitle: "",
     title: "",
     caution: "",
+    lang: Lang.KO,
     contents: "",
     inOrNor: "",
     isNotice: false,
@@ -111,6 +113,7 @@ interface ITourDataSet {
 }
 
 export interface IUseTour {
+    imgUploading: boolean;
     loadKeyAdd: () => void;
     tourData: IUseTourData;
     tourSets: ITourDataSet;
@@ -178,7 +181,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     const [loadKey, setLoadKey] = useState<number>(0);
     const [groupCode, setGroupCode] = useState<string>();
     const hiddenFileInput = useRef<HTMLInputElement>(null);
-    const { signleUpload } = useUpload();
+    const { signleUpload, imgUploading } = useUpload();
     const router = useRouter();
     const filterOverIts = filterOver(its);
 
@@ -489,15 +492,6 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     };
 
     const handleDateState = ({ from, to }: TRange) => {
-        if (!from && !to && its.length) {
-            if (
-                !confirm(
-                    "출발 날짜를 변경하시면 입력하신 일정 정보가 초기화 됩니다. 변경을 진행 하시겠습니까?"
-                )
-            ) {
-                return;
-            }
-        }
         const newItinerary = generateitinery({ from, to }, its);
         if (newItinerary) setits([...newItinerary]);
     };
@@ -529,6 +523,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     const lastDate = lastItDate ? dayjs(lastItDate).toDate() : undefined;
 
     return {
+        imgUploading,
         tourData,
         loadKey,
         loadKeyAdd,
@@ -574,6 +569,7 @@ export const getDefault = (
         images: thumbs,
         inOrNor,
         info,
+        lang,
         isNotice,
         itinerary: its,
         keyWards,
@@ -593,6 +589,7 @@ export const getDefault = (
         adult_price,
         baby_price,
         caution,
+        lang,
         contents,
         inOrNor,
         info,

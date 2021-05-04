@@ -25,6 +25,8 @@ export const F_FILE = gql`
     fragment Ffile on File {
         name
         uri
+        fileType
+        extension
         owner
     }
 `;

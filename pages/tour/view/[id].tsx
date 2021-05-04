@@ -31,6 +31,7 @@ import { ProductPhotoBlock } from "../../../components/list/ProductPhoto";
 import { useGroupFind } from "../../../hook/useGroup";
 import { randomSort } from "../../../utils/randomSort";
 import isEmpty from "../../../utils/isEmpty";
+import { isImg, isImgFile } from "../../../utils/isImgFile";
 import { cloneObject } from "../../../utils/clone";
 import {
     productList_ProductList_data,
@@ -55,6 +56,8 @@ import { cutStr } from "../../../utils/cutStr";
 import { getDescriptionFromUser } from "../../../utils/getDescriptionFromUser";
 import { strip } from "../../../utils/stripHtml";
 import { staticInfo } from "../../../info/static.json";
+import { Video } from "../../../components/video/Video";
+import { stopAllVideo } from "../../../utils/video";
 
 export const getStaticProps = getStaticPageInfo("tourView");
 export async function getStaticPaths() {
@@ -267,13 +270,26 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                             <div className="Read_box">
                                 <div className="details_photo">
                                     <div className="main_photo">
-                                        <Slider dots={false} ref={sliderRef}>
+                                        <Slider
+                                            beforeChange={() => {
+                                                stopAllVideo();
+                                            }}
+                                            dots={false}
+                                            ref={sliderRef}
+                                        >
                                             {images?.map((img, i) => (
                                                 <Slide key={i + "sliderImg"}>
-                                                    <img
-                                                        src={img?.uri}
-                                                        alt={img.name}
-                                                    />
+                                                    {isImg(img.extension) ? (
+                                                        <img
+                                                            src={img?.uri}
+                                                            alt={img.name}
+                                                        />
+                                                    ) : (
+                                                        <Video
+                                                            controls
+                                                            src={img?.uri}
+                                                        />
+                                                    )}
                                                 </Slide>
                                             )) || ""}
                                         </Slider>
@@ -286,10 +302,14 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 key={i + "sliderImgSub"}
                                             >
                                                 <span>
-                                                    <img
-                                                        src={img?.uri}
-                                                        alt={img.name}
-                                                    />
+                                                    {isImg(img.extension) ? (
+                                                        <img
+                                                            src={img?.uri}
+                                                            alt={img.name}
+                                                        />
+                                                    ) : (
+                                                        <Video src={img?.uri} />
+                                                    )}
                                                 </span>
                                             </li>
                                         ))}
@@ -360,7 +380,12 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         className="category bt_no"
                                                     >
                                                         <span className="pnt">
-                                                            ..
+                                                            {
+                                                                category
+                                                                    .localeLabel[
+                                                                    locale
+                                                                ]
+                                                            }
                                                         </span>
                                                         <span className="code">
                                                             {ln("goodscode")}{" "}

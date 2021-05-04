@@ -20,6 +20,7 @@ import {
 } from "../../utils/Storage";
 import { BasketModal } from "../basketModal/BasketModal";
 import { NoData } from "../common/NoData";
+import { thumbNail } from "../ThunbNail/ThunbNail";
 
 interface IProp {
     Buttons?: TElements;
@@ -120,7 +121,7 @@ export const Basket: React.FC<IProp> = ({
                         <div className="t02">
                             <div
                                 className="img"
-                                style={BG(item.images?.[0]?.uri || "")}
+                                style={BG(thumbNail(item.images)?.uri || "")}
                             ></div>
                             <div className="right">
                                 <div className="ct">

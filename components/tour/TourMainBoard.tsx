@@ -11,6 +11,7 @@ import {
     updateURLParameters,
 } from "../../utils/getUpdateUrlParam";
 import { checkIsExp, getTypeFilterByUrl } from "../../utils/product";
+import { thumbNail } from "../ThunbNail/ThunbNail";
 
 interface IProp {
     cat: Fcategory;
@@ -81,7 +82,9 @@ export const TourMainBoard: React.FC<IProp> = ({ cat, group }) => {
                             <div className="tourMianListUl__imgWrap img">
                                 <div
                                     className="tourMianListUl__img"
-                                    style={BG(data.images?.[0]?.uri || "")}
+                                    style={BG(
+                                        thumbNail(data.images)?.uri || ""
+                                    )}
                                 >
                                     상품이미지
                                 </div>

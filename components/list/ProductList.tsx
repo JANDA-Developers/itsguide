@@ -6,6 +6,7 @@ import { AppContext } from "../../pages/_app";
 import { Fproduct } from "../../types/api";
 import { BG } from "../../types/const";
 import { autoComma } from "../../utils/formatter";
+import { thumbNail } from "../ThunbNail/ThunbNail";
 
 interface IProp {
     product: Fproduct;
@@ -17,13 +18,15 @@ export const ProductListBlock: React.FC<IProp> = ({ product }) => {
 
     return (
         <li className="list_in">
-            <div
-                onClick={() => {
-                    router.push(`/tour/view/${product._id}`);
-                }}
-                style={BG(product?.images?.[0]?.uri || "")}
-                className="img"
-            />
+            <div className="imgWrap">
+                <div
+                    onClick={() => {
+                        router.push(`/tour/view/${product._id}`);
+                    }}
+                    style={BG(thumbNail(product?.images)?.uri || "")}
+                    className="img"
+                />
+            </div>
             <div className="txt1">
                 <div className="title">
                     <a href={"/tour/view/" + product._id}>{product.title}</a>

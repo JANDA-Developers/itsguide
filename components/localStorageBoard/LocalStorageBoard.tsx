@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
-import React, { useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 import { useUpdate } from "../../hook/useUpdater";
+import { AppContext } from "../../pages/_app";
 import isEmpty from "../../utils/isEmpty";
 import { closeModal } from "../../utils/popUp";
 import { IProductTemp, ProductTempBoard } from "../../utils/Storage2";
@@ -79,6 +80,7 @@ export const SampleBoard: React.FC<ISampleBoardProp> = ({
     items,
     onDelete,
 }) => {
+    const { isManager } = useContext(AppContext);
     const handleDelete = (index: number) => () => {
         onDelete(index);
     };
@@ -111,9 +113,7 @@ export const SampleBoard: React.FC<ISampleBoardProp> = ({
                                     "타이틀 값이 없습니다."}
                             </div>
                             <span className="LocalStorageBoard__date">
-                                {dayjs(item.pickupAt).format(
-                                    "YYYY.MM.DD일 hh시 mm분"
-                                )}
+                                {item.simpleData.subTitle}
                             </span>
                         </h3>
                         <div className="LocalStorageBoard__btns">
@@ -123,12 +123,14 @@ export const SampleBoard: React.FC<ISampleBoardProp> = ({
                             >
                                 불러오기
                             </button>
-                            <button
-                                className="LocalStorageBoard__btn btn small"
-                                onClick={handleDelete(index)}
-                            >
-                                삭제하기
-                            </button>
+                            {isManager && (
+                                <button
+                                    className="LocalStorageBoard__btn btn small"
+                                    onClick={handleDelete(index)}
+                                >
+                                    삭제하기
+                                </button>
+                            )}
                         </div>
                     </div>
                 ))}

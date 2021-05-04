@@ -181,6 +181,8 @@ export const UswerWriteModal: React.FC<IHandWriteModalProp> = ({
             });
     };
 
+    const removeSpace = () => {} 
+
     function set<T extends keyof typeof userData>(key: T) {
         return (e: any) => {
             if (typeof e !== "object") {
@@ -190,6 +192,8 @@ export const UswerWriteModal: React.FC<IHandWriteModalProp> = ({
             } else {
                 userData[key] = e as any;
             }
+            userData.name = userData.name.replace(" ", "");
+            userData.nickName = userData.nickName.replace(" ", "");
             setUserData({ ...userData });
         };
     }

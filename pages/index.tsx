@@ -33,7 +33,7 @@ import { Lang } from "../types/api";
 
 export const getStaticProps = getStaticPageInfo("main");
 export const Main: React.FC<Ipage> = (pageInfo) => {
-    const { homepage, groupsMap, categoriesMap, lang, ln } = useContext(
+    const { homepage, groupsMap, categoriesMap, lang, locale, ln } = useContext(
         AppContext
     );
     const { items } = usePublicSellerList();
@@ -97,7 +97,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                                             })}
                                         >
                                             <a className="tourLink">
-                                                {region.label}
+                                                {region.localeLabel?.[locale]}
                                             </a>
                                         </Link>
                                     ))}

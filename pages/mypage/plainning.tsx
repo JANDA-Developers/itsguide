@@ -22,6 +22,7 @@ import { HandBookingModal } from "../../components/handBookingModal/HandBookingM
 import { PordStatusBadge } from "../../components/Status/StatusBadge";
 import { AppContext } from "../_app";
 import { Change } from "../../components/loadingList/LoadingList";
+import { thumbNail } from "../../components/ThunbNail/ThunbNail";
 
 interface IProp {}
 
@@ -266,9 +267,9 @@ export const Plainning: React.FC<IProp> = () => {
                                                         <div
                                                             className="img"
                                                             style={BG(
-                                                                item
-                                                                    ?.images?.[0]
-                                                                    ?.uri || ""
+                                                                thumbNail(
+                                                                    item?.images
+                                                                )?.uri || ""
                                                             )}
                                                         ></div>
                                                         <div className="info goods__info_title">
