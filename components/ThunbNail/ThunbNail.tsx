@@ -6,7 +6,7 @@ export const thumbNail = (
 ) => {
     const thumb = images?.find((img, i) => {
         if (!img.extension) return true;
-        if (!isImg(img.extension)) return true;
+        if (isImg(img.extension)) return true;
         return false;
     });
     return thumb;
