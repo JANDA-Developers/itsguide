@@ -15,12 +15,6 @@
 .categoryEditer__cat--selected i {
     color: #0067b9!important;
 }
-/* .categoryEditer__cat--selected .categoryEditer__delete {
-    background-color: #ffffff;
-}
-.categoryEditer__cat--selected .categoryEditer__delete:hover {
-    background-color: #ffadad;
-} */
 .categoryEditer__input{
     position: relative;
     width: 100%;

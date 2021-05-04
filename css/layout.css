@@ -83,10 +83,11 @@ i.tooltip{
 
     #setting_link i {
         display: inline-block;
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
        margin-right:3px;
         vertical-align: text-top;
+        margin-top: 4px;
     }
    #registering_link,#profile_link{
         display: flex;
@@ -111,6 +112,14 @@ i.tooltip{
     }
     #registering_link {
         margin-bottom: 10px;
+    }
+    #profile_link i.icon_home {
+        background-image: url(/its/icon_home_w.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 12px;
+        height: 12px;
+        display: inline-block;
     }
 #gotop2 {
     position: fixed;
@@ -1238,7 +1247,7 @@ rect.allmenu_svg {
                 display: block;
                 margin: 0px;
                 padding-left: 7px;
-                padding: 3% 0 5%;
+                padding: 1% 0 1%;
                 text-align:left;
             }
 
@@ -1252,10 +1261,9 @@ rect.allmenu_svg {
                         border-bottom: none;
                         display: block;
                         font-size: 13px;
-                        font-weight: normal;
-                        color: #ffffff;
+                        color:#bce1ff;
                         opacity: 0.9;
-                        font-weight: 100;
+                        font-weight: 600;
                         letter-spacing: -1px;
                         padding-bottom: 2px;
                     }
@@ -1314,7 +1322,7 @@ rect.allmenu_svg {
     }
     #all_menu .m_member {
         position: relative;
-        display: block;
+        display: none;
         width: 90%;
         margin: 0 5%;
         border-top: 1px solid #ffffff87;

@@ -27,7 +27,7 @@ export const NewProfileBtn: React.FC<IProp> = ({}) => {
         <Link href={`/itsguid/${_id}`}>
             <a>
                 <div id="profile_link">
-                    <i className="flaticon-add"></i>프로필
+                    <i className="icon_home"></i>프로필
                 </div>
             </a>
         </Link>

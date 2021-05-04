@@ -17,10 +17,15 @@ ul.list_ul li .category span,
 .option_tb .tag li,
 .board_list_mini .thead > div,
 .option_tb .smtxt,
+.history__list > li,
+.history__yearlist > li,
 .tour_details_in .boardReadBody .top_day span,
 .footer-area-bottom .janda_txt a,
 .guide__infobox p,
-p,
+div.master_popup div[class*=top0] span,
+.notification_box .right .hang,
+p,.mypage_in .box_right li,
+.master__table .tbody div[class*=t0] span,
 .master_box .homepage .design_table .list li,
 .master__table .tbody div[class*=t0],
 .board_list.st01 .tbody .td04,
@@ -1805,10 +1810,9 @@ div.alignment {
     div.alignment select {
         border-radius: 3px;
         height: 32px;
-        width: 49%;
+        width: auto;
         font-size: 12px;
         padding: 0 10px;
-        margin-top: 5px;
         font-weight: 100;
         box-sizing: border-box;
         border: 1px solid #d2d2d2;
@@ -3271,7 +3275,7 @@ ul.rank_ul {
 
     .siteInfo_in .con01 {
         padding: 3% 0;
-        height: 500px;
+        min-height: 500px;
         background-color: #f5f5f5;
         background-image: url(/its/siteinfo_bg03.jpg);
         background-position: right bottom;
@@ -3502,14 +3506,14 @@ ul.rank_ul {
         color: #ffffff;
         border-radius: 5px;
         border: 3px #fff solid;
-        padding: 10px;
+        padding: 29px 0;
         box-sizing: border-box;
         vertical-align: top;
         background-color: rgba(91, 172, 233, 0.90);
     }
 
         .siteInfo_in .con02 li i {
-            display: none;
+            display: inline-block;
         }
 
     .siteInfo_in .con02 .svg1 {
@@ -3542,7 +3546,7 @@ ul.rank_ul {
 
     .siteInfo_in .con01 h4 {
         text-align: center;
-        font-size: 1.5em;
+        font-size: 2.5em;
         line-height: 130%;
         margin-top: 70px;
         font-weight: 500;
@@ -3555,8 +3559,6 @@ ul.rank_ul {
         display: block;
         position: relative;
         text-align: left;
-        padding-left: 15%;
-        padding-right: 15%;
         box-sizing: border-box;
         z-index: 10;
     }
@@ -3564,12 +3566,13 @@ ul.rank_ul {
         position: relative;
         display: block;
         margin-bottom: 20px;
-        padding-left: 27px;
+        font-weight: 600;
     }
   .history__list > li > strong{
-      font-size: 3em;
-      position: absolute;
+      font-size: 2em;
+      position: relative;
       color: #333;
+      margin-top: 20px;
     }
   .history__list > li > strong::after{
       position: absolute;
@@ -3585,18 +3588,21 @@ ul.rank_ul {
     .history__yearlist{
         font-size: 1em;
         position: relative;
-        left: 150px;
-        padding-top: 21px;
+        /* left: 150px; */
+        padding-left: 0;
+        padding-top: 0;
         line-height: 240%;
+        width: 100%;
+        display: block;
       }
     .history__yearlist > li{
         padding-left: 15px;
         color: #333;
-        font-weight: 100;
+        font-weight: 600;
         display: block;
         box-sizing: border-box;
         line-height: 200%;
-        font-size: 1.2em;
+        font-size: 1em;
       }
       .history__yearlist > li:before {
         content: '';
@@ -3614,6 +3620,7 @@ ul.rank_ul {
     .siteInfo_in .con_block {
         position: relative;
         display: block;
+        overflow: hidden;
     }
     .siteInfo_in .con01 .w1200{
        width: 80%;
@@ -3756,7 +3763,7 @@ ul.rank_ul {
     .siteInfo_in .con03 h4 {
         text-align: center;
         width: 100%;
-        font-size: 2.8em;
+        font-size: 1.2em;
         line-height: 130%;
         color: #ffffff;
         z-index: 2;
@@ -3768,7 +3775,7 @@ ul.rank_ul {
 
 
     .siteInfo_in .con03 p {
-        font-size: 1.2em;
+        font-size: 0.9em;
         line-height: 150%;
         color: #ffffff;
         text-align: center;
@@ -4120,7 +4127,7 @@ ul.rank_ul {
         }
 
         .siteInfo_in .con06 h4 span {
-            font-size:1.3em;
+            font-size:1em;
             line-height: 160%;
             display: block;
             color: #888888;
@@ -4137,18 +4144,15 @@ ul.rank_ul {
         align-items: center;
         justify-content: center;
         position: relative;
-        width: 22%;
+        width: 28%;
         margin: 1% 1%;
         background-color: #ffffff;
         border: 1px solid #ccc;
-        height: 90px;
+        
+        display: inline-block;
+        padding: 2%;
+        box-sizing: border-box;
     }
-
-        .siteInfo_in .con06 li {
-            display: inline-block;
-            padding: 25.1px;
-            box-sizing: border-box;
-        }
 
         .siteInfo_in .con06 li img {
             width: auto;
@@ -6288,6 +6292,7 @@ i.important_icon {
                 width: 100%;
                 height: auto;
                 max-height: 384px;
+                min-height: 250px;
                 background-color: #f3f3f3;
                 margin-bottom: 5px;
                 overflow: hidden;
@@ -6310,7 +6315,7 @@ i.important_icon {
                 .tour_details_in .Read_box .details_photo .photo_list li {
                     width: 25%;
                     height: auto;
-                    max-height: 84px;
+                    max-height: 43px;
                     display: inline-block;
                     margin: 0.5%;
                     background-color: #f3f3f3;
@@ -8989,6 +8994,38 @@ i.calendar {
         color: #999999;
     }
 @media (min-width: 768px) {   
+    .siteInfo_in .con03 .info_address li{
+        position: relative;
+        width: 150px;
+        height: 150px;
+        line-height: 19px;
+        border-radius: 300px;
+        border: 3px solid #ffffff;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+        color: #ffffff;
+        margin: 0 16px 0;
+        padding: 53px 0 0 0;
+        box-sizing: border-box;
+        font-weight: 600;
+        vertical-align: top;
+    }
+    .siteInfo_in .con03 .info_address li:after {
+        position: absolute;
+        content: '';
+        top: 53px;
+        right: -29px;
+        margin-right: 0;
+        width: 16px;
+        height: 30px;
+        display: inline-block;
+        background-image: url(/img/svg/join_arr_right.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: rotate(0deg);
+    }
     .tour_details_in .boardReadBody .con_top_tap span a{
         line-height: 40px;
     }
@@ -9118,7 +9155,7 @@ i.calendar {
 
         .siteInfo_in .con02 li {
             width: 29%;
-            height: 300px;
+            height: 275px;
             margin: 5px;
             border: 7px #fff solid;
             padding: 10px;
@@ -9134,7 +9171,7 @@ i.calendar {
             }
 
             .siteInfo_in .con02 li strong {
-                font-size: 22px;
+                font-size: 1.2em;
                 margin-top: 10px;
                 text-align: center;
                 padding-left: 0;
@@ -9211,6 +9248,8 @@ i.calendar {
 
     .siteInfo_in .con06 li {
         width: 22%;
+        height: 90px;
+        padding: 25.1px;
     }
 
     .siteInfo_in .con04 .infopp {
@@ -9350,6 +9389,30 @@ i.calendar {
     }
 }
 @media (min-width: 1000px) {
+    .history__yearlist > li{
+        padding-left: 15px;
+        color: #333;
+        font-weight: 600;
+        display: block;
+        box-sizing: border-box;
+        line-height: 200%;
+        font-size: 1.1em;
+    }
+    .history__list > li > strong{
+        font-size: 3em;
+        position: absolute;
+        color: #333;
+      }
+    .history__yearlist{
+        font-size: 1em;
+        position: relative;
+        /* left: 150px; */
+        padding-left: 150px;
+        padding-top: 21px;
+        line-height: 240%;
+        width: 80%;
+        display: block;
+      }
     .question_box .board_list.st01 .tbody .td04{
         max-width: 15%;
         text-align: center;
@@ -9498,7 +9561,7 @@ i.calendar {
         height: 750px;
         padding: 310px 0 0;
         background-position: center;
-        background-size: 150%;
+        background-size: 230%;
     }
 
         .siteInfo_in .top_bg h3 {
@@ -9520,11 +9583,10 @@ i.calendar {
         }
     .siteInfo_in .con01 {
         padding: 200px 0 200px;
-        height: 493px;
-        background-size: 110%;
+        min-height: 493px;
+        background-size: 150%;
     }
-
-       
+ 
     .siteInfo_in .con02 {
         padding: 22px 0;
     }
@@ -9583,7 +9645,7 @@ i.calendar {
     }
 
         .siteInfo_in .con03 h4 {
-            font-size: 4em;
+            font-size: 2em;
             line-height: 160%;
         }
 
@@ -9935,11 +9997,12 @@ i.calendar {
     }
     .tour_details_in .Read_box .details_photo .photo_list li {
         height: auto;
-        max-height:113px ;
+        max-height:60px ;
     }
     .tour_details_in .Read_box .details_photo .main_photo{
         height: auto;
         max-height: 435px;
+        min-height: 250px;
     }
     
     .option_tb .tag .tt,
@@ -10227,7 +10290,12 @@ i.calendar {
 }
 
 @media (min-width: 1200px) {
-  
+    .siteInfo_in .con03 h4{
+        font-size: 4em;
+    }
+    .history__list > li{
+        padding-left: 27px;
+    }
   
     .siteInfo_in .con01 {
         padding: 150px 0 210px;
@@ -10241,7 +10309,7 @@ i.calendar {
     }
     .siteInfo_in .con02 li strong {
         display: block;
-        font-size: 22px;
+        font-size:1.5em;
         margin-top: 10px;
     }
 
@@ -10260,6 +10328,11 @@ i.calendar {
         background-position: center;
         transform: rotate(0deg);
     }
+    .history__list {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+       
     .siteInfo_in .con03 .info_address li {
         position: relative;
         width: 150px;
@@ -10688,6 +10761,9 @@ i.calendar {
     }
 }
 @media (max-width: 1000px) {
+    .siteInfo_in .con02 li i img{
+        width: 100%;
+    }
     .question_box{
         padding: 5% 3%;
     }
@@ -10767,8 +10843,29 @@ i.calendar {
     .announce_box{
         padding: 5% 3%;
     }
+    .siteInfo_in .con02 .svg1 {
+        width: 120px;
+    }
+    .siteInfo_in .con02 .svg2 {
+        width: 120px;
+    }
+    .siteInfo_in .con02 .svg3 {
+        width: 120px;
+    }
 }
 @media (max-width: 767px) {
+    .siteInfo_in .con01{
+        padding: 7% 0;
+    }
+    .siteInfo_in .con02 .svg1 {
+        width: 83px;
+    }
+    .siteInfo_in .con02 .svg2 {
+        width: 83px;
+    }
+    .siteInfo_in .con02 .svg3 {
+        width: 83px;
+    }
     .guide__infobox{
         display: block;
     }
@@ -10916,7 +11013,7 @@ i.calendar {
         margin-right: -350px;
     }
     .main_con_box3 .top_txt {
-        padding: 120px 3% 80px;
+        padding: 120px 3% 120px;
         text-align: center;
     }
     .main_con_box3 .top_txt h2{
@@ -11106,8 +11203,8 @@ i.calendar {
         padding: 50px 3% 80px;
     }
     .main_con_box7 .box01 h2{
-        font-size: 0.8em;
-        display: contents;
+        font-size: 1.1em;
+    display: block;
     }
     .main_con_box7 .box01 h2 span{
         font-size: 2em;
@@ -11357,9 +11454,6 @@ i.calendar {
         height: 240px;
     }
  
-    .tour_details_in .Read_box .details_photo .main_photo{
-        height: auto;
-    }
     .tour_details_in .Read_box .details_photo .photo_list li{
         height: auto;
     }
@@ -11465,6 +11559,10 @@ i.calendar {
     }
     .main_con_box5 div.goods_list .line4 li .img {
         height: 160px;
+    }
+    .main_con_box7 .box01 h2{
+        font-size: 0.9em;
+    display: block;
     }
 }
 

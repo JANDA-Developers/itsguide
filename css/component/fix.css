@@ -44,7 +44,8 @@
 
 @media (max-width: 1000px) {
     .MypageGoods__infoBox {
-        display: initial!important;
+        display: none;
+        padding: 0 !important;
     }
 
 }

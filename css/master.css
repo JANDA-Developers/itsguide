@@ -1060,7 +1060,7 @@
         box-sizing: border-box;
         border: 1px solid rgb(179, 179, 179);
         font-size: 0.9em;   
-        font-weight: 100;
+        font-weight: 600;
         opacity: 0.8;
      }
     button.btn_mini:hover  {
@@ -2920,13 +2920,13 @@ div.master_popup .people{
     line-height: 127%;
     font-size: 1.3em;
     color: #5bace9;
-    vertical-align: middle;
 }
  div.master_popup .state {
     width: auto !important;
     display: inline-block;
     line-height: 122%;
     border: 1px solid #ccc;
+    background-color: #ffffff;
     padding: 3px 15px !important;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -2935,20 +2935,26 @@ div.master_popup .people{
     font-weight: 600;
     border-radius: 100px;
     font-style: unset;
+    position: relative;
+    top: initial;
+    right: initial;
 }
      div.master_popup .state.re-ok {
         border: 1px solid #2196F3 !important;
         color: #2196F3 !important;
+        background-color: #ffffff !important;
     }
 
      div.master_popup .state.re-stay {
         border: 1px solid #616161 !important;
         color: #616161 !important;
+        background-color: #ffffff !important;
     }
 
      div.master_popup .state.re-refund {
         border: 1px solid #cf3932 !important;
         color: #cf3932 !important;
+        background-color: #ffffff !important;
     }
  div.master_popup .top_info .tt {
     font-size: 14px;

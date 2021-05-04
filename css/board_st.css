@@ -20,7 +20,7 @@
     position: relative;
     display: inline-block;
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 3px;
     line-height: 10px;
     clear: both;
     padding: 0 6px;
@@ -28,11 +28,10 @@
     vertical-align: bottom;
     border: 1px solid #cfcfcf;
     margin-right:8px;
-    vertical-align: middle;
+    vertical-align: top;
 }
 
     .board_option li {
-        float: left;
         display: inline-block;
         position: relative;
     }
@@ -2357,6 +2356,8 @@ div.sum_div {
     align-items: center;
     position: relative;
     width: 100%;
+    box-sizing: border-box;
+    padding: 3%;
 } 
   .master__table .tbody div[class*=t0] {
     width: auto;
@@ -2951,8 +2952,16 @@ div.sum_div {
     ul.list_ul.line3 li .img {
         height: 150px;
     }
+    .master__table {
+        border-top: 3px solid #333333;
+    }
+    .master__table .tbody div[class*=t0]{
+        padding: 0;
+    }
 }
 @media (max-width:767px) {
+   
+ 
     ul.list_ul.line4 li .img{
         height: 170px;
     }
