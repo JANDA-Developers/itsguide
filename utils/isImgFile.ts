@@ -13,7 +13,7 @@ const imgType = [
     "svg",
 ];
 export const isImg = (mineType: string) => {
-    console.log({ mineType });
+    if (!mineType) return true;
     const imgaMatch = !!(mineType || "").match(/image.*/);
     return imgaMatch || imgType.includes((mineType || "---").toLowerCase());
 };
