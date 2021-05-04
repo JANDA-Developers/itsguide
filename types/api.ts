@@ -19,6 +19,8 @@ export interface announceFindById_AnnounceFindById_data_author_busiRegistration 
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -31,6 +33,8 @@ export interface announceFindById_AnnounceFindById_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -38,6 +42,8 @@ export interface announceFindById_AnnounceFindById_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -45,6 +51,8 @@ export interface announceFindById_AnnounceFindById_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -143,6 +151,8 @@ export interface announceFindById_AnnounceFindById_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -150,6 +160,8 @@ export interface announceFindById_AnnounceFindById_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -258,6 +270,8 @@ export interface announceList_AnnounceList_data_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -270,6 +284,8 @@ export interface announceList_AnnounceList_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -277,6 +293,8 @@ export interface announceList_AnnounceList_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -284,6 +302,8 @@ export interface announceList_AnnounceList_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -382,6 +402,8 @@ export interface announceList_AnnounceList_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -389,6 +411,8 @@ export interface announceList_AnnounceList_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -918,6 +942,8 @@ export interface bookingList_BookingList_data_product_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -1438,6 +1464,8 @@ export interface bookingFindByCode_BookingFindByCode_data_product_itinerary_imag
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -1457,6 +1485,8 @@ export interface bookingFindByCode_BookingFindByCode_data_product_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -1469,6 +1499,8 @@ export interface bookingFindByCode_BookingFindByCode_data_product_author_busiReg
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -1481,6 +1513,8 @@ export interface bookingFindByCode_BookingFindByCode_data_product_author_guideLi
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -1488,6 +1522,8 @@ export interface bookingFindByCode_BookingFindByCode_data_product_author_guideLi
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -1495,6 +1531,8 @@ export interface bookingFindByCode_BookingFindByCode_data_product_author_bankImg
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2708,6 +2746,8 @@ export interface homepage_Homepage_data_logo {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2715,6 +2755,8 @@ export interface homepage_Homepage_data_partnerFooter {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2722,6 +2764,8 @@ export interface homepage_Homepage_data_logoTop {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2729,6 +2773,8 @@ export interface homepage_Homepage_data_logoBottom {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2736,6 +2782,8 @@ export interface homepage_Homepage_data_bannerA_img {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2751,6 +2799,8 @@ export interface homepage_Homepage_data_bannerB_img {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2862,6 +2912,8 @@ export interface homepageUpdate_HomepageUpdate_data_logo {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2869,6 +2921,8 @@ export interface homepageUpdate_HomepageUpdate_data_partnerFooter {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2876,6 +2930,8 @@ export interface homepageUpdate_HomepageUpdate_data_logoTop {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2883,6 +2939,8 @@ export interface homepageUpdate_HomepageUpdate_data_logoBottom {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2890,6 +2948,8 @@ export interface homepageUpdate_HomepageUpdate_data_bannerA_img {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -2905,6 +2965,8 @@ export interface homepageUpdate_HomepageUpdate_data_bannerB_img {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3051,6 +3113,8 @@ export interface multiUpload_MultiUpload_data {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3174,6 +3238,8 @@ export interface newsFindById_NewsFindById_data_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3186,6 +3252,8 @@ export interface newsFindById_NewsFindById_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3193,6 +3261,8 @@ export interface newsFindById_NewsFindById_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3200,6 +3270,8 @@ export interface newsFindById_NewsFindById_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3298,6 +3370,8 @@ export interface newsFindById_NewsFindById_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3305,6 +3379,8 @@ export interface newsFindById_NewsFindById_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3412,6 +3488,8 @@ export interface newsList_NewsList_data_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3424,6 +3502,8 @@ export interface newsList_NewsList_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3431,6 +3511,8 @@ export interface newsList_NewsList_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3438,6 +3520,8 @@ export interface newsList_NewsList_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3536,6 +3620,8 @@ export interface newsList_NewsList_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -3543,6 +3629,8 @@ export interface newsList_NewsList_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4392,6 +4480,8 @@ export interface portfolioFindById_PortfolioFindById_data_author_busiRegistratio
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4404,6 +4494,8 @@ export interface portfolioFindById_PortfolioFindById_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4411,6 +4503,8 @@ export interface portfolioFindById_PortfolioFindById_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4418,6 +4512,8 @@ export interface portfolioFindById_PortfolioFindById_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4516,6 +4612,8 @@ export interface portfolioFindById_PortfolioFindById_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4626,6 +4724,8 @@ export interface portfolioList_PortfolioList_data_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4638,6 +4738,8 @@ export interface portfolioList_PortfolioList_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4645,6 +4747,8 @@ export interface portfolioList_PortfolioList_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4652,6 +4756,8 @@ export interface portfolioList_PortfolioList_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -4750,6 +4856,8 @@ export interface portfolioList_PortfolioList_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5209,6 +5317,8 @@ export interface productDelete_ProductDelete_data_itinerary_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5228,6 +5338,8 @@ export interface productDelete_ProductDelete_data_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5401,6 +5513,8 @@ export interface productList_ProductList_data_itinerary_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5420,6 +5534,8 @@ export interface productList_ProductList_data_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5438,6 +5554,8 @@ export interface productList_ProductList_data_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5450,6 +5568,8 @@ export interface productList_ProductList_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5457,6 +5577,8 @@ export interface productList_ProductList_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5464,6 +5586,8 @@ export interface productList_ProductList_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5693,6 +5817,8 @@ export interface productFindById_ProductFindById_data_itinerary_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5712,6 +5838,8 @@ export interface productFindById_ProductFindById_data_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5724,6 +5852,8 @@ export interface productFindById_ProductFindById_data_productReview_author_busiR
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5736,6 +5866,8 @@ export interface productFindById_ProductFindById_data_productReview_author_guide
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5743,6 +5875,8 @@ export interface productFindById_ProductFindById_data_productReview_author_guide
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5750,6 +5884,8 @@ export interface productFindById_ProductFindById_data_productReview_author_bankI
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5848,6 +5984,8 @@ export interface productFindById_ProductFindById_data_productReview_attachFiles 
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5884,6 +6022,8 @@ export interface productFindById_ProductFindById_data_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5896,6 +6036,8 @@ export interface productFindById_ProductFindById_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5903,6 +6045,8 @@ export interface productFindById_ProductFindById_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -5910,6 +6054,8 @@ export interface productFindById_ProductFindById_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6034,6 +6180,8 @@ export interface productFindById_ProductFindById_data_questions_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6041,6 +6189,8 @@ export interface productFindById_ProductFindById_data_questions_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6048,6 +6198,8 @@ export interface productFindById_ProductFindById_data_questions_author_busiRegis
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6060,6 +6212,8 @@ export interface productFindById_ProductFindById_data_questions_author_guideLice
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6067,6 +6221,8 @@ export interface productFindById_ProductFindById_data_questions_author_guideLice
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6074,6 +6230,8 @@ export interface productFindById_ProductFindById_data_questions_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6313,6 +6471,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_itinerar
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6332,6 +6492,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6344,6 +6506,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author_b
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6356,6 +6520,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author_g
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6363,6 +6529,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author_g
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6370,6 +6538,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author_b
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6505,6 +6675,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6517,6 +6689,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6524,6 +6698,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6531,6 +6707,8 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -6995,6 +7173,8 @@ export interface qnaFindById_QnaFindById_data_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7007,6 +7187,8 @@ export interface qnaFindById_QnaFindById_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7014,6 +7196,8 @@ export interface qnaFindById_QnaFindById_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7021,6 +7205,8 @@ export interface qnaFindById_QnaFindById_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7119,6 +7305,8 @@ export interface qnaFindById_QnaFindById_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7126,6 +7314,8 @@ export interface qnaFindById_QnaFindById_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7239,6 +7429,8 @@ export interface qnaList_QnaList_data_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7251,6 +7443,8 @@ export interface qnaList_QnaList_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7258,6 +7452,8 @@ export interface qnaList_QnaList_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7265,6 +7461,8 @@ export interface qnaList_QnaList_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7363,6 +7561,8 @@ export interface qnaList_QnaList_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7370,6 +7570,8 @@ export interface qnaList_QnaList_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7585,6 +7787,8 @@ export interface getContext_GetProfile_data_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7597,6 +7801,8 @@ export interface getContext_GetProfile_data_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7604,6 +7810,8 @@ export interface getContext_GetProfile_data_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7611,6 +7819,8 @@ export interface getContext_GetProfile_data_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7877,6 +8087,8 @@ export interface getContext_Homepage_data_logo {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7884,6 +8096,8 @@ export interface getContext_Homepage_data_partnerFooter {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7891,6 +8105,8 @@ export interface getContext_Homepage_data_logoTop {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7898,6 +8114,8 @@ export interface getContext_Homepage_data_logoBottom {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7905,6 +8123,8 @@ export interface getContext_Homepage_data_bannerA_img {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -7920,6 +8140,8 @@ export interface getContext_Homepage_data_bannerB_img {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8107,6 +8329,8 @@ export interface questionList_QuestionList_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8114,6 +8338,8 @@ export interface questionList_QuestionList_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8121,6 +8347,8 @@ export interface questionList_QuestionList_data_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8133,6 +8361,8 @@ export interface questionList_QuestionList_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8140,6 +8370,8 @@ export interface questionList_QuestionList_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8147,6 +8379,8 @@ export interface questionList_QuestionList_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8453,6 +8687,8 @@ export interface questionFindById_QuestionFindById_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8460,6 +8696,8 @@ export interface questionFindById_QuestionFindById_data_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8467,6 +8705,8 @@ export interface questionFindById_QuestionFindById_data_author_busiRegistration 
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8479,6 +8719,8 @@ export interface questionFindById_QuestionFindById_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8486,6 +8728,8 @@ export interface questionFindById_QuestionFindById_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8493,6 +8737,8 @@ export interface questionFindById_QuestionFindById_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8690,6 +8936,8 @@ export interface productReviewFindById_ProductReviewFindById_data_author_busiReg
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8702,6 +8950,8 @@ export interface productReviewFindById_ProductReviewFindById_data_author_guideLi
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8709,6 +8959,8 @@ export interface productReviewFindById_ProductReviewFindById_data_author_guideLi
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8716,6 +8968,8 @@ export interface productReviewFindById_ProductReviewFindById_data_author_bankImg
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8814,6 +9068,8 @@ export interface productReviewFindById_ProductReviewFindById_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8933,6 +9189,8 @@ export interface productreviewList_ProductReviewList_data_author_busiRegistratio
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8945,6 +9203,8 @@ export interface productreviewList_ProductReviewList_data_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8952,6 +9212,8 @@ export interface productreviewList_ProductReviewList_data_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -8959,6 +9221,8 @@ export interface productreviewList_ProductReviewList_data_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9057,6 +9321,8 @@ export interface productreviewList_ProductReviewList_data_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9264,6 +9530,8 @@ export interface settlementFindById_SettlementFindById_data_product_itinerary_im
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9283,6 +9551,8 @@ export interface settlementFindById_SettlementFindById_data_product_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9295,6 +9565,8 @@ export interface settlementFindById_SettlementFindById_data_product_author_busiR
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9307,6 +9579,8 @@ export interface settlementFindById_SettlementFindById_data_product_author_guide
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9314,6 +9588,8 @@ export interface settlementFindById_SettlementFindById_data_product_author_guide
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9321,6 +9597,8 @@ export interface settlementFindById_SettlementFindById_data_product_author_bankI
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9651,6 +9929,8 @@ export interface settlementList_SettlementList_data_seller_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9663,6 +9943,8 @@ export interface settlementList_SettlementList_data_seller_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9670,6 +9952,8 @@ export interface settlementList_SettlementList_data_seller_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9677,6 +9961,8 @@ export interface settlementList_SettlementList_data_seller_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9797,6 +10083,8 @@ export interface settlementList_SettlementList_data_product_itinerary_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9816,6 +10104,8 @@ export interface settlementList_SettlementList_data_product_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9828,6 +10118,8 @@ export interface settlementList_SettlementList_data_product_author_busiRegistrat
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9840,6 +10132,8 @@ export interface settlementList_SettlementList_data_product_author_guideLicense 
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9847,6 +10141,8 @@ export interface settlementList_SettlementList_data_product_author_guideLicenses
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -9854,6 +10150,8 @@ export interface settlementList_SettlementList_data_product_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11020,6 +11318,8 @@ export interface userList_UserList_data_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11032,6 +11332,8 @@ export interface userList_UserList_data_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11039,6 +11341,8 @@ export interface userList_UserList_data_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11046,6 +11350,8 @@ export interface userList_UserList_data_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11229,6 +11535,8 @@ export interface sellerFindByKey_SellerFindByKeyPublic_data_products_itinerary_i
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11248,6 +11556,8 @@ export interface sellerFindByKey_SellerFindByKeyPublic_data_products_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11373,6 +11683,8 @@ export interface userFindById_UserFindById_data_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11385,6 +11697,8 @@ export interface userFindById_UserFindById_data_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11392,6 +11706,8 @@ export interface userFindById_UserFindById_data_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11399,6 +11715,8 @@ export interface userFindById_UserFindById_data_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11428,6 +11746,8 @@ export interface userFindById_UserFindById_data_products_itinerary_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11447,6 +11767,8 @@ export interface userFindById_UserFindById_data_products_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11459,6 +11781,8 @@ export interface userFindById_UserFindById_data_products_author_busiRegistration
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11471,6 +11795,8 @@ export interface userFindById_UserFindById_data_products_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11478,6 +11804,8 @@ export interface userFindById_UserFindById_data_products_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11485,6 +11813,8 @@ export interface userFindById_UserFindById_data_products_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11938,6 +12268,8 @@ export interface Fannounce_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11950,6 +12282,8 @@ export interface Fannounce_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11957,6 +12291,8 @@ export interface Fannounce_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -11964,6 +12300,8 @@ export interface Fannounce_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12062,6 +12400,8 @@ export interface Fannounce_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12069,6 +12409,8 @@ export interface Fannounce_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12233,6 +12575,8 @@ export interface Ffile {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12292,6 +12636,8 @@ export interface Fitinerary_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12359,6 +12705,8 @@ export interface Fproduct_itinerary_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12378,6 +12726,8 @@ export interface Fproduct_images {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12537,6 +12887,8 @@ export interface Fuser_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12549,6 +12901,8 @@ export interface Fuser_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12556,6 +12910,8 @@ export interface Fuser_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12563,6 +12919,8 @@ export interface Fuser_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12806,6 +13164,8 @@ export interface Fbanner_img {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12830,6 +13190,8 @@ export interface Fhomepage_logo {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12837,6 +13199,8 @@ export interface Fhomepage_partnerFooter {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12844,6 +13208,8 @@ export interface Fhomepage_logoTop {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12851,6 +13217,8 @@ export interface Fhomepage_logoBottom {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12858,6 +13226,8 @@ export interface Fhomepage_bannerA_img {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12873,6 +13243,8 @@ export interface Fhomepage_bannerB_img {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12965,6 +13337,8 @@ export interface Fnews_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12977,6 +13351,8 @@ export interface Fnews_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12984,6 +13360,8 @@ export interface Fnews_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -12991,6 +13369,8 @@ export interface Fnews_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13089,6 +13469,8 @@ export interface Fnews_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13096,6 +13478,8 @@ export interface Fnews_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13319,6 +13703,8 @@ export interface Fportfolio_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13331,6 +13717,8 @@ export interface Fportfolio_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13338,6 +13726,8 @@ export interface Fportfolio_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13345,6 +13735,8 @@ export interface Fportfolio_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13443,6 +13835,8 @@ export interface Fportfolio_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13482,6 +13876,8 @@ export interface Fqna_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13494,6 +13890,8 @@ export interface Fqna_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13501,6 +13899,8 @@ export interface Fqna_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13508,6 +13908,8 @@ export interface Fqna_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13606,6 +14008,8 @@ export interface Fqna_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13613,6 +14017,8 @@ export interface Fqna_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13673,6 +14079,8 @@ export interface Fquestion_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13680,6 +14088,8 @@ export interface Fquestion_thumb {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13687,6 +14097,8 @@ export interface Fquestion_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13699,6 +14111,8 @@ export interface Fquestion_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13706,6 +14120,8 @@ export interface Fquestion_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13713,6 +14129,8 @@ export interface Fquestion_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13844,6 +14262,8 @@ export interface FproductReview_author_busiRegistration {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13856,6 +14276,8 @@ export interface FproductReview_author_guideLicense {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13863,6 +14285,8 @@ export interface FproductReview_author_guideLicenses {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13870,6 +14294,8 @@ export interface FproductReview_author_bankImg {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -13968,6 +14394,8 @@ export interface FproductReview_attachFiles {
   __typename: "File";
   name: string;
   uri: string;
+  fileType: string | null;
+  extension: string | null;
   owner: string;
 }
 
@@ -14459,6 +14887,8 @@ export enum _AnnounceSort {
   title_desc = "title_desc",
   type_asc = "type_asc",
   type_desc = "type_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
   viewCount_asc = "viewCount_asc",
   viewCount_desc = "viewCount_desc",
 }
@@ -14477,6 +14907,8 @@ export enum _BoardSort {
   subTitle_desc = "subTitle_desc",
   title_asc = "title_asc",
   title_desc = "title_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
   viewCount_asc = "viewCount_asc",
   viewCount_desc = "viewCount_desc",
 }
@@ -14503,6 +14935,8 @@ export enum _INotificationHistoryItemSort {
   sender_desc = "sender_desc",
   successCount_asc = "successCount_asc",
   successCount_desc = "successCount_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
 }
 
 /**
@@ -14513,6 +14947,8 @@ export enum _ITemplateSort {
   createdAt_desc = "createdAt_desc",
   name_asc = "name_asc",
   name_desc = "name_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
 }
 
 /**
@@ -14529,6 +14965,8 @@ export enum _NewsSort {
   subTitle_desc = "subTitle_desc",
   title_asc = "title_asc",
   title_desc = "title_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
   viewCount_asc = "viewCount_asc",
   viewCount_desc = "viewCount_desc",
 }
@@ -14539,6 +14977,8 @@ export enum _NewsSort {
 export enum _PaymentSort {
   createdAt_asc = "createdAt_asc",
   createdAt_desc = "createdAt_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
 }
 
 /**
@@ -14555,6 +14995,8 @@ export enum _PortfolioSort {
   subTitle_desc = "subTitle_desc",
   title_asc = "title_asc",
   title_desc = "title_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
   viewCount_asc = "viewCount_asc",
   viewCount_desc = "viewCount_desc",
 }
@@ -14573,6 +15015,8 @@ export enum _ProductReviewSort {
   subTitle_desc = "subTitle_desc",
   title_asc = "title_asc",
   title_desc = "title_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
   viewCount_asc = "viewCount_asc",
   viewCount_desc = "viewCount_desc",
 }
@@ -14597,6 +15041,8 @@ export enum _ProductSort {
   subTitle_desc = "subTitle_desc",
   title_asc = "title_asc",
   title_desc = "title_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
   viewCount_asc = "viewCount_asc",
   viewCount_desc = "viewCount_desc",
 }
@@ -14615,6 +15061,8 @@ export enum _QnaSort {
   subTitle_desc = "subTitle_desc",
   title_asc = "title_asc",
   title_desc = "title_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
   viewCount_asc = "viewCount_asc",
   viewCount_desc = "viewCount_desc",
 }
@@ -14633,6 +15081,8 @@ export enum _QuestionSort {
   subTitle_desc = "subTitle_desc",
   title_asc = "title_asc",
   title_desc = "title_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
   viewCount_asc = "viewCount_asc",
   viewCount_desc = "viewCount_desc",
 }
@@ -14651,6 +15101,8 @@ export enum _SellerSort {
   profileImg_desc = "profileImg_desc",
   resignDate_asc = "resignDate_asc",
   resignDate_desc = "resignDate_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
 }
 
 /**
@@ -14659,6 +15111,8 @@ export enum _SellerSort {
 export enum _SettlementSort {
   createdAt_asc = "createdAt_asc",
   createdAt_desc = "createdAt_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
 }
 
 /**
@@ -14667,6 +15121,8 @@ export enum _SettlementSort {
 export enum _SystemNotiSort {
   createdAt_asc = "createdAt_asc",
   createdAt_desc = "createdAt_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
 }
 
 /**
@@ -14683,6 +15139,8 @@ export enum _UserSort {
   profileImg_desc = "profileImg_desc",
   resignDate_asc = "resignDate_asc",
   resignDate_desc = "resignDate_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
 }
 
 export interface AddUserInput {

@@ -100,6 +100,7 @@ export const ProfileListAPI: React.FC<IProp> = ({
                 <Slider
                     slidesToShow={sizeSlideCountMini}
                     autoplay
+                    speed={1000}
                     draggable={false}
                     arrows={false}
                     dots={false}

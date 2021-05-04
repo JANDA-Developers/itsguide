@@ -1,4 +1,5 @@
 @import "./editor/editor.css";
+@import "./vidoe.css";
 .BookingModal__top02 {
     display: flex!important;
     align-items: center!important;
@@ -447,4 +448,14 @@ background-color: #fff;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+}
+
+
+.master_box  .productGroup .droppable {
+    display: flex!important;
+    overflow: auto;
+}
+
+.master_box  .productGroup .droppable li {
+    min-width: 130px;
 }

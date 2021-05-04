@@ -29,6 +29,7 @@ import { omits } from "../../utils/omit";
 import { KeywardSelecter } from "../../components/keywardSelecter/KeywardSelecter";
 import { LoadEditor } from "../../components/edit/EdiotrLoading";
 import { staticInfo } from "../../info/static.json";
+import { thumbNail } from "../../components/ThunbNail/ThunbNail";
 const Editor = LoadEditor();
 
 //URL 링크
@@ -224,6 +225,8 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                                     "profileImage" +
                                                     guideData._id,
                                                 owner: guideData._id,
+                                                extension: "jpg",
+                                                fileType: "jpg",
                                                 uri,
                                             });
                                         }}
@@ -411,7 +414,11 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                                         <div
                                                             className="img"
                                                             style={{
-                                                                backgroundImage: `url(${product?.images[0]?.uri})`,
+                                                                backgroundImage: `url(${
+                                                                    thumbNail(
+                                                                        product?.images
+                                                                    ).uri
+                                                                })`,
                                                             }}
                                                         >
                                                             상품이미지

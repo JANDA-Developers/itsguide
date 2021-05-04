@@ -13,6 +13,7 @@ import { autoComma } from "../../utils/formatter";
 import { getTypeTextOfProduct } from "../../utils/product";
 import { yyyymmdd } from "../../utils/yyyymmdd";
 import { BookingStatusBadge } from "../Status/StatusBadge";
+import { thumbNail } from "../ThunbNail/ThunbNail";
 
 interface IProp {
     item: bookingList_BookingList_data;
@@ -36,7 +37,7 @@ export const PurChasedItem: React.FC<IProp> = ({
         createdAt,
     } = item;
     const { images, title, keyWards, status: productStauts } = product;
-    const img = images?.[0]?.uri || "";
+    const img = thumbNail(images)?.uri || "";
 
     const statusTip = (status: BookingStatus) => {
         if (status === BookingStatus.READY)

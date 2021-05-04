@@ -1,7 +1,8 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { useModal } from "../../hook/useModal";
 import { useUserFindById } from "../../hook/useUser";
-import { GENDER, UserRole } from "../../types/api";
+import { GENDER, UserRole, UserStatus } from "../../types/api";
 import { ALLOW_SELLERS } from "../../types/const";
 import { userRoleToKR, managerVerifiedKR } from "../../utils/enumToKr";
 import { autoHypenPhone } from "../../utils/formatter";
@@ -18,6 +19,7 @@ interface IProp {
 }
 
 export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
+    const router = useRouter();
     const { item } = useUserFindById(userId);
     const userWriteModalHook = useModal();
     const {
@@ -32,6 +34,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
     } = handlers;
     if (!item) return null;
     const {
+        status,
         isResigned,
         name,
         email,
@@ -42,6 +45,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
         role,
     } = item;
 
+    const isStopped = status === UserStatus.stop;
     const isSeller = ALLOW_SELLERS.includes(role);
     const isPartnerB = role === UserRole.partnerB;
 
@@ -97,9 +101,20 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                 회원정보{" "}
                                 <button
                                     onClick={userWriteModalHook.openModal}
-                                    className="btn"
+                                    className="btn mr10"
                                 >
                                     정보수정하기
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        window.open(
+                                            `/itsguid/${item._id}`,
+                                            "_blank"
+                                        );
+                                    }}
+                                    className="btn"
+                                >
+                                    프로필보기
                                 </button>
                             </h4>
                             <div className="info_table line8 w50">
@@ -403,27 +418,39 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                             )}
                         </div>
                         <div className="float_right">
-                            <button
-                                onClick={handleResignUser}
-                                type="submit"
-                                className="btn medium mr5"
-                            >
-                                강제탈퇴
-                            </button>
-                            <button
-                                onClick={handleStopUser}
-                                type="submit"
-                                className="btn medium"
-                            >
-                                활동정지
-                            </button>
-                            <button
-                                onClick={handleRestartUser}
-                                type="submit"
-                                className="btn medium"
-                            >
-                                활동재개
-                            </button>
+                            {!isResigned && (
+                                <button
+                                    onClick={() => {
+                                        handleResignUser(item._id);
+                                    }}
+                                    type="submit"
+                                    className="btn medium mr5"
+                                >
+                                    강제탈퇴
+                                </button>
+                            )}
+                            {!isResigned && !isStopped && (
+                                <button
+                                    onClick={() => {
+                                        handleStopUser([item._id]);
+                                    }}
+                                    type="submit"
+                                    className="btn medium"
+                                >
+                                    활동정지
+                                </button>
+                            )}
+                            {!isResigned && isStopped && (
+                                <button
+                                    onClick={() => {
+                                        handleRestartUser([item._id]);
+                                    }}
+                                    type="submit"
+                                    className="btn medium"
+                                >
+                                    활동재개
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>

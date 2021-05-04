@@ -19,6 +19,7 @@ import { NoData } from "./NoData";
 import { genrateOption } from "../../utils/query";
 import Slider from "react-slick";
 import { useResizeDetector } from "react-resize-detector";
+import { thumbNail } from "../ThunbNail/ThunbNail";
 
 interface IProp {
     initialOption?: Partial<ListInitOptions<_ProductFilter, _ProductSort>>;
@@ -106,7 +107,10 @@ export const Goods: React.FC<IGoodsProp> = ({ item, ...props }) => {
             className="list_in"
         >
             <div className="imgWrap">
-                <div className="img" style={BG(item?.images?.[0]?.uri || "")}>
+                <div
+                    className="img"
+                    style={BG(thumbNail(item?.images)?.uri || "")}
+                >
                     상품이미지
                 </div>
             </div>

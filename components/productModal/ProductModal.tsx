@@ -144,7 +144,6 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
                         <div className="info_table goodsinfo">
                             <div className="tr">
                                 <div className="top04">
-                                    {/* <div className="img" style={BG(product?.images?.[0]?.uri || "")} ></div> */}
                                     <div className="info goods__info_title">
                                         <span className="ct">{product.category?.label}</span>
                                         <strong className="title"><Link href={tourSearchLink({ title: product.title })}><a>{product.title}{product.elseReq && "[" + reqToKr(product.elseReq) + "]"}</a></Link></strong>
