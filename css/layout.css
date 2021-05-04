@@ -4050,10 +4050,7 @@ margin-bottom:0;
         .header .hd_center .nav_wrap .deps1 > li > a {
             font-size: 1.4em;
         }
-    .header .hd_right {
-        right: 2px;
-        top: 7px; 
-    }
+ 
     .header .hd_right .login,
     .header .hd_right .mypage {
         display: inline-block;
@@ -4152,7 +4149,11 @@ margin-bottom:0;
 
 }
 
-@media (min-width:1230px) {
+@media (min-width:1250px) {
+    .header .hd_right {
+        right: 2px;
+        top: 7px; 
+    }
     .top_visual .sub_bg {
         background-size:150%;
         padding: 30px 0 0;
@@ -4290,7 +4291,9 @@ margin-bottom:0;
     .footer_in .bottom_bn img {
         width: 100%;
     }
-
+    .footer-area-bottom .janda_txt a{
+        font-weight: 600;
+    }
     .footer_in .bottom_bn{
        margin-bottom: 30px;
     }

@@ -4502,7 +4502,7 @@ div.goods_list {
                 background-position: center 86px;
                 background-repeat: no-repeat;
             }
-        .main_con_box7 .box01 h2 {
+        /* .main_con_box7 .box01 h2 {
             color: #ffffff;
             font-size: 40px;
             text-align: left;
@@ -4510,7 +4510,7 @@ div.goods_list {
             .main_con_box7 .box01 h2 i {
                 color: #addbff;
                 font-style: normal;
-            }
+            } */
         .main_con_box7 .box01 .ovj {
             position: absolute;
             bottom: -25px;
@@ -4578,7 +4578,7 @@ div.goods_list {
                     font-variant: small-caps;
                 }
 
-    .main_con_box7 .box03 {
+    /* .main_con_box7 .box03 {
         position: relative;
         display: flex;
     }
@@ -4636,7 +4636,7 @@ div.goods_list {
                 color: #ffffff;
                 line-height: 66%;
                 font-variant: small-caps;
-            }
+            } */
 
 #Reservation_check,
 #Reservation {
@@ -6776,14 +6776,14 @@ ul.rank_ul {
         }
 
 
-        .siteInfo_in .top_bg p {
+        /* .siteInfo_in .top_bg p {
             font-size: 1.9em;
             line-height: 52px;
             color: #fff;
             text-align: center;
             z-index: 10;
             position: relative;
-        }
+        } */
         .siteInfo_in .top_bg .logo {
             display:none;
             text-align: center;
@@ -9907,7 +9907,7 @@ i.important_icon {
                     color: #ffffff;
                 }
 
-        .tour_details_in .boardReadBody .in_box {
+        /* .tour_details_in .boardReadBody .in_box {
             position: relative;
             display: block;
             min-height: 100px;
@@ -9978,7 +9978,7 @@ i.important_icon {
                 color: #333;
                 line-height: 40px;
                 margin-top: 15px;
-            }
+            } */
 
         .tour_details_in .boardReadBody .tour_list {
             position: relative;
@@ -10035,16 +10035,6 @@ i.important_icon {
             border-top: 1px solid #5bace9;
         }
 
-            .tour_details_in .boardReadBody .top_day h5 {
-                display: inline-block;
-                width: 15%;
-                background-color: #ffe2ee;
-                color: #5bace9;
-                font-weight: 600;
-                text-align: center;
-                font-size: 16px;
-                padding: 15px;
-            }
 
             .tour_details_in .boardReadBody .top_day span {
                 display: inline-block;
@@ -10053,7 +10043,7 @@ i.important_icon {
                 color: #838383;
             }
 
-        .tour_details_in .boardReadBody .in_box .text {
+        /* .tour_details_in .boardReadBody .in_box .text {
             display: block;
             padding-left: 5px;
             padding-bottom: 50px;
@@ -10068,7 +10058,7 @@ i.important_icon {
             font-weight: 600;
             min-width: 0px;
             flex: 1;
-        }
+        } */
 
     .tour_details_in .boardReadFooter {
         padding-bottom: 15px;
@@ -10412,16 +10402,7 @@ i.important_icon {
         margin-bottom: 10px;
     }
 
-    .option_tb .smtitle {
-        font-size: 1em;
-    }
 
-    .option_tb .smtxt {
-        color: #333;
-        text-align: left;
-        letter-spacing: 0px;
-        position: relative;
-    }
 
     .option_tb .tag .tt {
         white-space: nowrap;
@@ -13471,17 +13452,7 @@ i.calendar {
     .tour_details_in .Read_box {
         margin-bottom: 10px;
     }
-    /* .tour_details_in .Read_box .details_photo .photo_list li {
-        height: 104px;
-    } */
-    /* .tour_details_in .Read_box .details_photo .main_photo{
-        height: 434px;
-    }
-     */
-    .option_tb .tag .tt,
-    .option_tb .smtitle {
-        font-size: 1.2em;
-    }
+ 
     
     .big_pd th,
     .big_pd td {
@@ -13643,9 +13614,9 @@ i.calendar {
     .country_check li{
         line-height: 25px !important;
     }
-    .main_con_box7 .box03 .left {
+    /* .main_con_box7 .box03 .left {
         background-size: 150%;
-    }
+    } */
     .main_con_box3:before{
         right: 3%;
     }
@@ -13774,18 +13745,18 @@ div.alignment .right_div {
     .main_con_box3:before{
         right:0;
     }
-    .main_con_box7 .box03 .left {
+    /* .main_con_box7 .box03 .left {
         background-size: 110%;
-    }
+    } */
     .main_con_box7 .box02 .right {
         background-size: 154%;
     }
     .main_con_box7 .box02 .left h3{
         font-size: 1.6em;
     }
-    .main_con_box7 .box03 .right h3{
+    /* .main_con_box7 .box03 .right h3{
         font-size: 1.6em;
-    }
+    } */
     .sign_in .inner h4.join_title img{
         width: 290px;
     }
@@ -14047,12 +14018,12 @@ div.alignment .right_div {
     .tour_details_in .boardReadBody .con_top_tap span{
         font-size: 12px;
     }
-    .tour_details_in .boardReadBody .in_box {
+    /* .tour_details_in .boardReadBody .in_box {
         padding: 20px 3%;
     }
     .tour_details_in .boardReadBody .in_box h4{
         font-size: 19px;
-    }
+    } */
     .tour_details_in .boardReadBody .tour_list {
         padding: 10px 20px 20px 30px;
     }
