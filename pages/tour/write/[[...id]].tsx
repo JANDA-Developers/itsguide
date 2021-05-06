@@ -63,7 +63,7 @@ export async function getStaticPaths() {
     //   return { paths, fallback: false }
 
     return {
-        paths: [{ params: { id: [] } }],
+        paths: [{ params: { id: [""] } }],
         fallback: true,
     };
 }

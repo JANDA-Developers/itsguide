@@ -88,9 +88,11 @@ export const Payment: React.FC<IProp> = ({}) => {
                     failRedirectUrl,
                 };
 
-                items.forEach((item) => {
-                    removeItem(item._id);
-                });
+                setTimeout(() => {
+                    items.forEach((item) => {
+                        removeItem(item._id);
+                    });
+                }, 10000);
 
                 setCreatedBookings(bks);
                 setCustomParams(customParams);
