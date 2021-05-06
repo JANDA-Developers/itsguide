@@ -9,3 +9,9 @@
 .historyTable__head {
     top: auto!important
 }
+
+@media (max-width:1000px) {
+    #HistoryTable .historyTable__thead {
+        display: none;
+    }
+}

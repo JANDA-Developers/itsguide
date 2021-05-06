@@ -22,9 +22,12 @@ ul.list_ul li .category span,
 ul.list_ul li .bottom_txt,
 .tour_details_in .boardReadBody .top_day span,
 .footer-area-bottom .janda_txt a,
+.master_box .reservation .r-number,
 .guide__infobox p,
 div.master_popup div[class*=top0] span,
 .notification_box .right .hang,
+.fuction_list_mini .tbody li > div,
+.member_details_in .profile_txt .con01 .txt,
 p,.mypage_in .box_right li,
 .tour_details_in .boardReadBody .in_box .subtitle,
 .master__table .tbody div[class*=t0] span,
@@ -32,8 +35,12 @@ p,.mypage_in .box_right li,
 .master__table .tbody div[class*=t0],
 .board_list.st01 .tbody .td04,
 .board_list.st01 .tbody .td01,
+div.master_popup .info_txt span,
+.fuction_list_mini .tbody li > div,
 .master_box .in_content .con_box_body .list_line div[class*=td],
-.board_list.st01 .tbody .td02,
+.board_list .tbody .td02,
+div.master_popup .info_txt i,
+.board_list_mini .tbody li > div,
 ul.list_ul li .bottom_txt div[class*=tag] span,
 .main_con_box5 h2 span{
     font-family: NanumSquareRoundOTFB,NanumSquareRoundOTF, '돋음',sans-serif;
@@ -1403,7 +1410,7 @@ div.popup_bg_full .fin{
         height: 100%;
         width: 100%;
         border-radius: 0px;
-        padding: 55px 0px 10px 10px;
+        padding: 8px 0px 10px 10px;
         box-sizing: border-box;
         background-color: #ffffff;
         box-shadow: 2px 2px 2px #00000052;
@@ -1428,7 +1435,7 @@ div.popup_bg_full .fin{
 
     div.popup_bg_full .close_icon {
         position: absolute;
-        top: 23px;
+        top: 5px;
         right: 3px;
         display: block;
         width: 30px;
@@ -1727,6 +1734,7 @@ div.alignment {
         div.alignment .left_div strong {
             color: #2196F3;
             margin-left: 2px;
+            display: none;
         }
 
         div.alignment .left_div .infotxt {
@@ -1748,6 +1756,14 @@ div.alignment {
             line-height: 31px;
             padding-right: 5px;
             opacity: 0.5;
+        }
+        div.alignment .right_div .goto_page:after{
+            color: #999;
+            display: inline-block;
+            content: "\F1BF";
+            font-family: jandaicon;
+            font-style: normal;
+            margin-left: 5px;
         }
 
         div.alignment .right_div .goto_page:hover {
@@ -1824,7 +1840,7 @@ div.alignment {
         width: auto;
         font-size: 12px;
         padding: 0 10px;
-        font-weight: 100;
+        font-weight: 600;
         box-sizing: border-box;
         border: 1px solid #d2d2d2;
     }
@@ -8372,7 +8388,7 @@ i.calendar {
             width: 100%;
             margin-left: 0;
             font-size: 1em;
-            font-weight: 100;
+            font-weight: 600;
         }
 
         .member_details_in .profile_txt .con02 .ul_info {
@@ -10019,7 +10035,7 @@ i.calendar {
         margin-top:0;
         font-size: 12px;
         padding: 0 10px;
-        font-weight: 100;
+        font-weight: 600;
         box-sizing: border-box;
         border: 1px solid #d2d2d2;
     }

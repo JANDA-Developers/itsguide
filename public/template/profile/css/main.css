@@ -708,10 +708,10 @@ span.m_title{
         margin-bottom: 15px;
     }
     
-        .mypage_in .statement_div ul {
+        /* .mypage_in .statement_div ul {
             text-align: center;
-        }
-    
+        } */
+/*     
         .mypage_in .statement_div li {
             display: inline-block;
             width: auto;
@@ -719,9 +719,9 @@ span.m_title{
             margin-top: 22px;
             margin-bottom: 30px;
             position: relative;
-        }
+        } */
     
-            .mypage_in .statement_div li:after {
+            /* .mypage_in .statement_div li:after {
                 content: '';
                 display: inline-block;
                 position: absolute;
@@ -731,11 +731,11 @@ span.m_title{
                 height: 30px;
                 width: 1px;
                 background-color: #eeeeee;
-            }
+            } */
     
-            .mypage_in .statement_div li:last-child:after {
+            /* .mypage_in .statement_div li:last-child:after {
                 display: none;
-            }
+            } */
     
         .mypage_in .statement_div strong {
             display: block;
@@ -813,7 +813,7 @@ span.m_title{
     vertical-align: middle;
     margin-right: 10px;
 }
-.goods_div span.ct{
+/* .goods_div span.ct{
     width: auto !important;
     display: inline-block;
     line-height: 100%;
@@ -824,7 +824,7 @@ span.m_title{
     font-size: 10px;
     color: #555;
     margin-right: 5px;
-}
+} */
 .goods_div strong.title{
     width: 100% !important;
     display: block;
@@ -835,9 +835,9 @@ span.m_title{
     padding-bottom: 3px;
     margin-bottom: 5px;
 }
-.goods_div .fuction_list_mini .tbody li > div{
+/* .goods_div .fuction_list_mini .tbody li > div{
     font-size: 12px;
-}
+} */
     .goods_div .fuction_list_mini .th01 {
         width: 100%;
         text-align: left;
@@ -855,12 +855,12 @@ span.m_title{
         text-align: left;
         margin-top: 5px;
     }
-    .goods_div .fuction_list_mini .th05 {
+    /* .goods_div .fuction_list_mini .th05 {
         width: 100%;
         text-align: left;
         border-top: 1px dotted #eee;
         line-height: 25px;
-    }
+    } */
     .goods_div .fuction_list_mini .th06 {
         width: 100%;
         text-align: left;
@@ -873,11 +873,11 @@ span.m_title{
         display: inline-block !important;
         margin-right: 5px;
     }
-    .goods_div .fuction_list_mini .th06 span.m_title,
+    /* .goods_div .fuction_list_mini .th06 span.m_title,
     .goods_div .fuction_list_mini .th07 span.m_title {
         display: inline-block !important;
-    }
-    .goods_div .fuction_list_mini .th07 {
+    } */
+    /* .goods_div .fuction_list_mini .th07 {
         width: 100%;
         text-align: left;
         margin-top: 5px;
@@ -888,8 +888,8 @@ span.m_title{
         width: auto !important;
         display: inline-block !important;
         margin-right: 5px;
-    }
-    .goods_div .fuction_list_mini .th08 {
+    } */
+    /* .goods_div .fuction_list_mini .th08 {
         width: 100%;
         text-align: left;
         margin-top: 5px;
@@ -901,7 +901,7 @@ span.m_title{
         line-height: 34px;
         text-align: center;
         margin: 1px;
-    }
+    } */
         .goods_div .fuction_list_mini .thead .th01 .checkbox {
             top: 50%;
             margin-top: -8px;
@@ -949,12 +949,12 @@ span.m_title{
         width: 100%;
         text-align: center;
     }
-    .goods_div .present {
+    /* .goods_div .present {
         position: relative;
         display: block;
         width: 100%;
         text-align: center;
-    }
+    } */
 
 /*reservation_div */
 .reservation_div {
@@ -1118,7 +1118,7 @@ span.m_title{
         vertical-align: middle;
         margin-right: 15px;
     }
-    
+/*     
     .reservation_div .ct {
         width: auto !important;
         display: inline-block;
@@ -1129,7 +1129,7 @@ span.m_title{
         box-sizing: border-box;
         font-size: 10px;
         color: #555;
-    }
+    } */
     .reservation_div .con_box .title {
         width: 100% !important;
         display: block;
@@ -1849,11 +1849,11 @@ div.reservation_popup .tr select {
         position: relative;
         margin-top: 15px;
     }
-
+/* 
         .myboard_box .con_bottom .th02 {
             width: auto;
             margin-right: 15px;
-        }
+        } */
         .myboard_box .con_bottom .th03 {
             width: auto;
         }
@@ -2673,13 +2673,14 @@ div.reservation_popup .tr select {
     .mypage_purchase .fuction_list_mini .th06 {
         width: auto;
         margin-right: 15px;
-    }
+     }
+     /*
     .mypage_purchase .fuction_list_mini .th07 {
         width: auto;
         position: absolute;
         top: 0;
         right: 5px;
-    }
+    } */
     .mypage_purchase .fuction_list_mini .th08 {
         width: 100%;
         margin-top: 10px;
@@ -2687,9 +2688,9 @@ div.reservation_popup .tr select {
     .mypage_purchase .fuction_list_mini .th04 br {
         display: none;
     }
-    .mypage_purchase .fuction_list_mini .th08 .btn{
+    /* .mypage_purchase .fuction_list_mini .th08 .btn{
         width: 100%;
-    }
+    } */
     .mypage_purchase .fuction_list_mini .thead .th01 .checkbox {
         top: 50%;
         margin-top: -8px;
@@ -2861,13 +2862,13 @@ div.reservation_popup .tr select {
         width: 37%;
         text-align: center;
     }
-    .goods_div .fuction_list_mini .th05 {
+    /* .goods_div .fuction_list_mini .th05 {
         display: inline-block;
         width: 10%;
         border-top: 0;
         line-height: inherit;
         text-align: center;
-    }
+    } */
     .goods_div .fuction_list_mini .th06 {
         display: inline-block;
         width: 8%;
@@ -2883,12 +2884,12 @@ div.reservation_popup .tr select {
         line-height: inherit;
         text-align: center;
     }
-    .goods_div .fuction_list_mini .th08 {
+    /* .goods_div .fuction_list_mini .th08 {
         display: inline-block;
         width: 21%;
         text-align: center;
         margin-top: 0;
-    }
+    } */
     .goods_div .fuction_list_mini .tbody  .th02{
         padding-top: 29px;
     }
@@ -2998,21 +2999,21 @@ div.reservation_popup .tr select {
     span.m_title{
         display: none !important;
     }
-    .goods_div .fuction_list_mini .th06 span.m_title,
+    /* .goods_div .fuction_list_mini .th06 span.m_title,
     .goods_div .fuction_list_mini .th07 span.m_title {
         display: none !important;
     }
     .goods_div .fuction_list_mini .th07 span{
         display: block !important;
-    }
-        .goods_div .fuction_list_mini .th08 .btn {
+    } */
+        /* .goods_div .fuction_list_mini .th08 .btn {
             width: 45%;
             padding: 0 12px;
             font-size: 11px;
             line-height: 22px;
             text-align: center;
             margin: 1px;
-        }
+        } */
     div.reservation_popup .write_comment .text_box_bottom .float_left {
         display: block;
         position: relative;
@@ -3324,10 +3325,10 @@ div.reservation_popup .tr select {
     .mypage_in .in .box3{
         padding: 50px;
     }
-    .myboard_box .con_bottom .th02 {
+    /* .myboard_box .con_bottom .th02 {
         width: 15%;
         margin-right: 0;
-    }
+    } */
     .myboard_box .con_bottom .th03 {
         width: 10%;
     }
@@ -3374,13 +3375,13 @@ div.reservation_popup .tr select {
         width: 10%;
         margin-right: 0;
     }
-    .mypage_purchase .fuction_list_mini .th07 {
+    /* .mypage_purchase .fuction_list_mini .th07 {
         width: 10%;
         margin-right: 0;
         position: relative;
         top: unset;
         right: unset;
-    }
+    } */
     .mypage_purchase .fuction_list_mini .th08 {
         width: 10%;
         margin-top: 0;
@@ -3399,11 +3400,11 @@ div.reservation_popup .tr select {
     .mypage_purchase .fuction_list_mini .tbody .th07 {
         padding: 20px 5px 5px;
     }
-    .mypage_in .statement_div li {
+    /* .mypage_in .statement_div li {
         padding: 0 32px;
         margin-top: 22px;
         margin-bottom: 30px;
-    }
+    } */
     .mypage_in .statement_div div {
         display: block;
         text-align: left;
@@ -3563,9 +3564,9 @@ div.reservation_popup .tr select {
 }
 
 @media (max-width: 767px) {
-    .mypage_in .statement_div li:after{
+    /* .mypage_in .statement_div li:after{
         display: none;
-    }
+    } */
     .mypage_in .subtop_nav {
         top: -39px;
     }
@@ -4921,7 +4922,7 @@ div.popup_bg_full .fin{
     padding: 30px 0;
 }
 
-    div.popup_bg_full .in_txt {
+    /* div.popup_bg_full .in_txt {
         position: relative;
         height: 100%;
         width: 100%;
@@ -4947,8 +4948,8 @@ div.popup_bg_full .fin{
         height: 418px;
         width: 90%;
         margin: 0 auto;
-    }
-
+    } */
+/* 
     div.popup_bg_full .close_icon {
         position: absolute;
         top: 23px;
@@ -4967,7 +4968,7 @@ div.popup_bg_full .fin{
 
         div.popup_bg_full .close_icon:hover i {
             color: #333;
-        }
+        } */
 
     div.popup_bg_full table {
         border: 1px solid #eeeeee;
@@ -5240,10 +5241,7 @@ div.alignment {
         line-height: 22px;
         color: #999;
     }
-/* 
-        div.alignment .left_div strong {
-            color: #2196F3;
-        } */
+
 
         div.alignment .left_div .infotxt {
             margin-top: 15px;
@@ -5327,7 +5325,7 @@ div.alignment {
         color: #999999;
         cursor: pointer;
     }
-
+/* 
     div.alignment select {
         border-radius: 3px;
         height: 32px;
@@ -5341,7 +5339,7 @@ div.alignment {
 
         div.alignment select.sel02 {
             margin-left: 5px;
-        }
+        } */
 
     div.alignment .move-left,
     div.alignment .move-right {
@@ -11721,7 +11719,7 @@ i.calendar {
             position: relative;
             width: 100%;
         }
-
+/* 
         .member_details_in .profile_txt .con01 .txt,
         .member_details_in .profile_txt .con02 .txt {
             display: block;
@@ -11730,7 +11728,7 @@ i.calendar {
             margin-left: 0;
             font-size: 1em;
             font-weight: 100;
-        }
+        } */
 
         .member_details_in .profile_txt .con02 .ul_info {
             display: block;
@@ -12936,12 +12934,12 @@ i.calendar {
     .tour_box {
         padding: 0 0 100px;
     }
-    div.popup_bg_full .in_txt {
+    /* div.popup_bg_full .in_txt {
         height: 95%;
         width: 95%;
         border-radius: 10px;
         padding: 50px 20px 20px;
-    }
+    } */
 
     div.popup_bg_full h4 span.full_div__right {
         font-size: 0.9em;
@@ -12966,7 +12964,7 @@ i.calendar {
         div.popup_bg_full h3 {
             top: 35px;
         }
-     
+/*      
     div.popup_bg_full .close_icon {
             position: absolute;
             top:15px;
@@ -12974,7 +12972,7 @@ i.calendar {
             display: block;
             width: 30px;
             height: 30px;
-        }
+        } */
     .selectViewList ul.list_ul .list_in .txt2 {
         position: absolute;
         right: 0;
@@ -13409,7 +13407,7 @@ i.calendar {
             text-align: right;
             font-size: 14px;
         }
-
+/* 
     div.alignment select {
         border-radius: 5px;
         height: 32px;
@@ -13420,7 +13418,7 @@ i.calendar {
         font-weight: 100;
         box-sizing: border-box;
         border: 1px solid #d2d2d2;
-    }
+    } */
     .inquiry_box .board_list.st01 .tbody .td03 {
         width: 57%;
     }
@@ -13636,11 +13634,11 @@ i.calendar {
         position: absolute;
         width: 20%;
     }
-    .member_details_in .profile_txt .con01 .txt,
+    /* .member_details_in .profile_txt .con01 .txt,
     .member_details_in .profile_txt .con02 .txt {
         width: 75%;
         margin-left: 23%;
-    }
+    } */
     .member_details_in .profile_txt .con02 .ul_info li {
         margin-right: 60px;
     }
@@ -13764,9 +13762,9 @@ div.alignment .right_div {
         right: 11%;
         width: 577px;
     }
-        div.popup_bg_full .in_txt {
+        /* div.popup_bg_full .in_txt {
             padding:50px 20px 20px;
-        }
+        } */
  
     .findmembers_box {
         padding: 100px 0;
@@ -13891,10 +13889,10 @@ div.alignment .right_div {
     .main_con_box3:before{
         right: 9%;
     }
-    div.popup_bg_full .in_txt {
+    /* div.popup_bg_full .in_txt {
         height: 90%;
         width: 90%;
-    }
+    } */
     .main_con_box1 .main_top_images {
         background-size: 140%;
         min-height: 800px;

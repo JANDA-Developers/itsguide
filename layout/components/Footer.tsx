@@ -22,28 +22,37 @@ export const Footer: React.FC<IProp> = () => {
         <footer className="footer" id="footer">
             {!isLogin && (
                 <div id="gotop2" className="">
-                    <Link href="#header">
-                        <a className="top">
-                            <i className="jandaicon-arr4-top" />
-                            {/* <span className="menutxt">위로</span> */}
-                        </a>
-                    </Link>
-                    <Link href="#footer">
-                        <a className="down">
-                            <i className="jandaicon-arr4-bottom" />
-                            {/* <span className="menutxt">아래로</span> */}
-                        </a>
-                    </Link>
+                    <a
+                        title="위로"
+                        onClick={() => {
+                            window.scrollTo({ behavior: "smooth", top: 0 });
+                        }}
+                        className="top"
+                    >
+                        <i className="jandaicon-arr4-top" />
+                    </a>
+                    <a
+                        onClick={() => {
+                            window.scrollTo({ behavior: "smooth", top: 99999 });
+                        }}
+                        className="down"
+                        title="아래로"
+                    >
+                        <i className="jandaicon-arr4-bottom" />
+                    </a>
                 </div>
             )}
             {isLogin && (
                 <div id="gotop" className="">
-                    <Link href="#header">
-                        <a className="top">
-                            <i className="jandaicon-arr4-top" />
-                            {/* <span className="menutxt">위로</span> */}
-                        </a>
-                    </Link>
+                    <a
+                        title="위로"
+                        onClick={() => {
+                            window.scrollTo({ behavior: "smooth", top: 0 });
+                        }}
+                        className="top"
+                    >
+                        <i className="jandaicon-arr4-top" />
+                    </a>
 
                     <Link href="/tour/write">
                         <a className="write">
@@ -66,12 +75,15 @@ export const Footer: React.FC<IProp> = () => {
                         </a>
                     </Link>
 
-                    <Link href="#footer">
-                        <a className="down">
-                            <i className="jandaicon-arr4-bottom" />
-                            {/* <span className="menutxt">아래로</span> */}
-                        </a>
-                    </Link>
+                    <a
+                        title="아래로"
+                        onClick={() => {
+                            window.scrollTo({ behavior: "smooth", top: 99999 });
+                        }}
+                        className="down"
+                    >
+                        <i className="jandaicon-arr4-bottom" />
+                    </a>
                 </div>
             )}
             <div className="footer_in">

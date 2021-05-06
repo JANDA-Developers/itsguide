@@ -203,11 +203,17 @@ export const MsIndex: React.FC<IProp> = () => {
                                         </span>
                                     </div>
                                     <div className="td02">
+                                        <span className="m_title">
+                                            상품상태:{" "}
+                                        </span>
                                         <strong>
                                             {productStatus(pd.status)}
                                         </strong>
                                     </div>
                                     <div className="td03">
+                                        <span className="m_title">
+                                            판매누적:{" "}
+                                        </span>
                                         <span>
                                             예약{" "}
                                             <strong>
@@ -238,9 +244,15 @@ export const MsIndex: React.FC<IProp> = () => {
                                         </span>
                                     </div>
                                     <div className="td04">
+                                        <span className="m_title">
+                                            판매자:{" "}
+                                        </span>
                                         <strong>{pd.author?.name}</strong>
                                     </div>
                                     <div className="td05">
+                                        <span className="m_title">
+                                            게시일:{" "}
+                                        </span>
                                         {yyyymmdd(pd.createdAt)}
                                         {/* <a  className="masterMain__detailBtn btn">상세보기</a> */}
                                     </div>
@@ -437,19 +449,31 @@ export const MsIndex: React.FC<IProp> = () => {
                                         </span>
                                     </div>
                                     <div className="td02">
+                                        <span className="m_title">
+                                            정산요청일:{" "}
+                                        </span>
                                         <span>{yyyymmdd(st.requestDate)}</span>
                                     </div>
                                     <div className="td03">
+                                        <span className="m_title">
+                                            정산금액:{" "}
+                                        </span>
                                         <span>
                                             {autoComma(st.totalPrice)}원
                                         </span>
                                     </div>
                                     <div className="td04">
+                                        <span className="m_title">
+                                            정산여부:{" "}
+                                        </span>
                                         <strong>
                                             {settlementStatus(st.status)}
                                         </strong>
                                     </div>
                                     <div className="td05">
+                                        <span className="m_title">
+                                            가이드명:{" "}
+                                        </span>
                                         {/* <a className="masterMain__detailBtn btn">상세보기</a> */}
                                         {st.seller.name}
                                     </div>
@@ -508,9 +532,13 @@ export const MsIndex: React.FC<IProp> = () => {
                                         <span>{pu.email}</span>
                                     </div>
                                     <div className="td02">
+                                        <span className="m_title">
+                                            가입날짜:{" "}
+                                        </span>
                                         <span>{yyyymmdd(pu.createdAt)}</span>
                                     </div>
                                     <div className="td03">
+                                        <span className="m_title">승인: </span>
                                         <span>
                                             {confirmKr(pu.isVerifiedManager)}
                                         </span>
@@ -556,27 +584,37 @@ export const MsIndex: React.FC<IProp> = () => {
                         </div>
                         <ul className="table typeD">
                             <li className="head">
+                                <div className="td02">No.</div>
                                 <div className="td01">제목</div>
-                                <div className="td02">넘버</div>
                                 <div className="td03">답변여부</div>
                                 <div className="td04">작성일</div>
-                                <div className="td05">글쓴이</div>
+                                <div className="td05">작성자</div>
                             </li>
                             {questions.map((q) => (
                                 <li key={q._id} className="body">
+                                    <div className="td02">
+                                        <span className="m_title">No. </span>
+                                        <span>{q.no}</span>
+                                    </div>
                                     <div className="td01">
                                         <strong>{q.title}</strong>
                                     </div>
-                                    <div className="td02">
-                                        <span>{q.no}</span>
-                                    </div>
                                     <div className="td03">
+                                        <span className="m_title">
+                                            답변여부:{" "}
+                                        </span>
                                         <span>{questionSatus(q.status)}</span>
                                     </div>
                                     <div className="td04">
+                                        <span className="m_title">
+                                            작성일:{" "}
+                                        </span>
                                         <span>{yyyymmdd(q.createdAt)}</span>
                                     </div>
                                     <div className="td05">
+                                        <span className="m_title">
+                                            작성자:{" "}
+                                        </span>
                                         <span>{q.author?.nickName}</span>
                                     </div>
                                 </li>

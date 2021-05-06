@@ -181,7 +181,7 @@
 	width: 100%;
 	margin-left: 0;
 	font-size: 1em;
-	font-weight: 100;
+	font-weight: 600;
 }
 
 .profilePage .member_details_in .profile_txt .con02 .ul_info {
@@ -3507,7 +3507,7 @@
 	width: 100%;
 	margin-left: 0;
 	font-size: 1em;
-	font-weight: 100;
+	font-weight: 600;
 }
 
 .profilePage .member_details_in .profile_txt .con02 .ul_info {
@@ -3929,7 +3929,7 @@
 }
 
 .profilePage .member_details_in .right_div .goto_page {
-	line-height: 8px !important;
+	line-height: 15px !important;
 }
 
 @media (min-width: 768px) {
@@ -5028,6 +5028,7 @@
       .profilePage .member_details_in .profile_txt .con02 .txt {
 		width: 75%;
 		margin-left: 23%;
+		font-weight: 100;
 	}
 
 	.profilePage .member_details_in .profile_txt .con02 .ul_info li {

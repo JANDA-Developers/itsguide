@@ -342,18 +342,18 @@ export const Plainning: React.FC<IProp> = () => {
                                                     </div>
                                                     <div className="th07">
                                                         {/* 단위 : 건 */}
-                                                        <span className="m_title">
+                                                        {/* <span className="m_title">
                                                             상태:{" "}
-                                                        </span>
+                                                        </span> */}
                                                         <PordStatusBadge
                                                             status={item.status}
                                                         />
                                                     </div>
                                                     <div className="th08">
                                                         {/* 단위 : 건 */}
-                                                        <span className="m_title">
+                                                        {/* <span className="m_title">
                                                             상태:{" "}
-                                                        </span>
+                                                        </span> */}
                                                         <span className="present">
                                                             예약{" "}
                                                             {

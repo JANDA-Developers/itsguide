@@ -4285,15 +4285,15 @@ margin-bottom:0;
     .footer_in .bottom_nav .cs{
         margin-top: 0;
     }
-
+    .footer-area-bottom .janda_txt a{
+        font-weight: 600;
+    }
 }
 @media (max-width:767px) {
     .footer_in .bottom_bn img {
         width: 100%;
     }
-    .footer-area-bottom .janda_txt a{
-        font-weight: 600;
-    }
+ 
     .footer_in .bottom_bn{
        margin-bottom: 30px;
     }
@@ -4455,6 +4455,7 @@ margin-bottom:0;
     #all_menu .m_member {
         display: none;
     }
+    .search_box .check{margin-bottom: 3px;}
   
 }
 

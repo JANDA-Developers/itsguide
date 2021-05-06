@@ -121,7 +121,7 @@ const header = {
         chi: `题目`,
     },
     writer: {
-        ko: "글쓴이",
+        ko: "작성자",
         en: `Writer`,
         ja: `書き手`,
         chi: `撰文人`,

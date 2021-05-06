@@ -195,6 +195,22 @@ select:focus {
         border: 1px solid rgb(170, 170, 170);
         color: #333;
     }
+    .btn.mini2 {
+        display: inline-block;
+        color: #999;
+        border: 1px solid #cfcfcf;
+        border-radius: 3px;
+        box-sizing: border-box;
+        vertical-align: initial;
+        padding: 0 15px;
+        font-size: 12px;
+        line-height: 28px;
+        margin: 3px;
+    }
+    .btn.mini2:hover {
+        border: 1px solid rgb(170, 170, 170);
+        color: #333;
+    }
     .btn.medium {
         color: #6c6c6c;
         border: 1px solid #7d7d7d;
@@ -266,35 +282,33 @@ select:focus {
         width: auto;
         display: inline-block;
         line-height: 122%;
-        border: 1px solid #ccc;
-        padding: 4px 9px;
+        
+        padding:8px 16px;
         box-sizing: border-box;
-        font-size: 0.9em;
+        font-size: 1.1em;
         letter-spacing: -1px;
-        color: #555;
+        color: #ffffff;
+        background-color: #555;
         font-weight: 600;
-        border-radius: 100px;
         font-style: unset;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
     .state_icon.tour-no {
-        color: #f32121;
-        border: 1px solid #f32121;
+        background-color: #f32121;
     }
     .state_icon.tour-ok {
-        color: #2196F3;
-        border: 1px solid #2196F3;
+        background-color: #2196F3;
     }
     .state_icon.tour-yes {
-        color: #005394;
-        border: 1px solid #005394;
+        background-color: #005394;
     }
     .state_icon.plainning-no {
-        color: #f38721;
-        border: 1px solid #f38721;
+        background-color: #f38721;
     }
     .state_icon.plainning-yes {
-        color: #059600;
-        border: 1px solid #059600;
+        background-color: #059600;
     }
     /* calculate */
     .sel {
@@ -817,6 +831,49 @@ br.no {
     }
     .btn.topside {
         padding: 0 15px;
+    }
+    .state_icon{
+        width: auto;
+        display: inline-block;
+        line-height: 122%;
+        border: 1px solid #ccc;
+        padding: 4px 9px;
+        background-color: #ffffff;
+        box-sizing: border-box;
+        font-size: 0.9em;
+        letter-spacing: -1px;
+        color: #555;
+        font-weight: 600;
+        border-radius: 100px;
+        font-style: unset;
+        position: relative;
+        right: initial;
+        top: initial;
+    }
+    .state_icon.tour-no {
+        color: #f32121;
+        border: 1px solid #f32121;
+        background-color: #ffffff;
+    }
+    .state_icon.tour-ok {
+        color: #2196F3;
+        border: 1px solid #2196F3;
+        background-color: #ffffff;
+    }
+    .state_icon.tour-yes {
+        color: #005394;
+        border: 1px solid #005394;
+        background-color: #ffffff;
+    }
+    .state_icon.plainning-no {
+        color: #f38721;
+        border: 1px solid #f38721;
+        background-color: #ffffff;
+    }
+    .state_icon.plainning-yes {
+        color: #059600;
+        border: 1px solid #059600;
+        background-color: #ffffff;
     }
 }
 @media (min-width: 1230px) {

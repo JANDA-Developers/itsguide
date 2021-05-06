@@ -2044,8 +2044,7 @@ div.comment_box {
                 font-size: 12px;
                 padding: 0;
                 box-sizing: border-box;
-                position:relative;
-                font-weight: 100;
+                font-weight: 600;
                 flex: 1 1;
                 flex-grow: 1;
             }
@@ -2658,6 +2657,7 @@ div.sum_div {
         font-size: 12px;
         padding: 10px  10px;
         flex: 1 1;
+        font-weight: 100;
         flex-grow: 1;
     }
     .board_list.st01 .tbody li {
@@ -2951,6 +2951,9 @@ div.sum_div {
     }
 }
 @media (max-width:1000px) {
+    .fuction_list_mini .tbody li{
+        display: block !important;
+    }
     ul.list_ul.line3 li .img {
         height: 150px;
     }
@@ -2963,7 +2966,9 @@ div.sum_div {
 }
 @media (max-width:767px) {
    
- 
+    .board_option a{
+        padding: 10px 5px;
+    }
     ul.list_ul.line4 li .img{
         height: 170px;
     }
