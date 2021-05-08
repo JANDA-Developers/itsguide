@@ -31,7 +31,7 @@ export const Header: React.FC<IProp> = () => {
     const rotuer = useRouter();
     const { locale, pathname, query } = rotuer;
 
-    const { isLogin, myProfile, isManager, isSeller, isAdmin, ln } = useContext(
+    const { isLogin, myProfile, isManager, isSeller, ln } = useContext(
         AppContext
     );
 
@@ -202,28 +202,45 @@ export const Header: React.FC<IProp> = () => {
                             <strong>{LocaleToString(locale)}</strong>
                             <i className="jandaicon-arr4-bottom"></i>
                         </label>
-                        <ul id="language__choice" className="language__choice">
-                            <li>
-                                <Link href={{ query, pathname }} locale="ko">
-                                    <a>KOREAN</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={{ query, pathname }} locale="en">
-                                    <a>ENGLISH</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={{ query, pathname }} locale="ja">
-                                    <a>JAPANESE</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={{ query, pathname }} locale="chi">
-                                    <a>CHINESE</a>
-                                </Link>
-                            </li>
-                        </ul>
+                        {isManager && (
+                            <ul
+                                id="language__choice"
+                                className="language__choice"
+                            >
+                                <li>
+                                    <Link
+                                        href={{ query, pathname }}
+                                        locale="ko"
+                                    >
+                                        <a>KOREAN</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href={{ query, pathname }}
+                                        locale="en"
+                                    >
+                                        <a>ENGLISH</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href={{ query, pathname }}
+                                        locale="ja"
+                                    >
+                                        <a>JAPANESE</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href={{ query, pathname }}
+                                        locale="chi"
+                                    >
+                                        <a>CHINESE</a>
+                                    </Link>
+                                </li>
+                            </ul>
+                        )}
                     </div>
                 </div>
             </div>
@@ -255,17 +272,19 @@ export const Header: React.FC<IProp> = () => {
                                             </a>
                                         </li>
                                         <li className="deps">
-                                            <a href="/tour">{ln("itstour")}</a>
+                                            <Link href="/tour">
+                                                <a>{ln("itstour")}</a>
+                                            </Link>
                                         </li>
                                         <li className="deps">
-                                            <a href="/service/announce">
-                                                {ln("service")}
-                                            </a>
+                                            <Link href="/service/announce">
+                                                <a>{ln("service")}</a>
+                                            </Link>
                                         </li>
                                         <li className="deps">
-                                            <a href="/tour?searchData=%EB%A1%9C%EC%BB%AC%EC%B6%95%EC%A0%9C">
-                                                {ln("localFestival")}
-                                            </a>
+                                            <Link href="/tour?searchData=%EB%A1%9C%EC%BB%AC%EC%B6%95%EC%A0%9C">
+                                                <a>{ln("localFestival")}</a>
+                                            </Link>
                                         </li>
                                         <li className="deps">
                                             <a href="/site-info">
@@ -368,43 +387,57 @@ export const Header: React.FC<IProp> = () => {
                                             </strong>
                                             <i className="jandaicon-arr4-bottom"></i>
                                         </label>
-                                        <ul
-                                            id="language__choice2"
-                                            className="language__choice"
-                                        >
-                                            <li>
-                                                <Link
-                                                    href={{ query, pathname }}
-                                                    locale="ko"
-                                                >
-                                                    <a>KOREAN</a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    href={{ query, pathname }}
-                                                    locale="en"
-                                                >
-                                                    <a>ENGLISH</a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    href={{ query, pathname }}
-                                                    locale="ja"
-                                                >
-                                                    <a>JAPANESE</a>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    href={{ query, pathname }}
-                                                    locale="chi"
-                                                >
-                                                    <a>CHINESE</a>
-                                                </Link>
-                                            </li>
-                                        </ul>
+                                        {isManager && (
+                                            <ul
+                                                id="language__choice2"
+                                                className="language__choice"
+                                            >
+                                                <li>
+                                                    <Link
+                                                        href={{
+                                                            query,
+                                                            pathname,
+                                                        }}
+                                                        locale="ko"
+                                                    >
+                                                        <a>KOREAN</a>
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link
+                                                        href={{
+                                                            query,
+                                                            pathname,
+                                                        }}
+                                                        locale="en"
+                                                    >
+                                                        <a>ENGLISH</a>
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link
+                                                        href={{
+                                                            query,
+                                                            pathname,
+                                                        }}
+                                                        locale="ja"
+                                                    >
+                                                        <a>JAPANESE</a>
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link
+                                                        href={{
+                                                            query,
+                                                            pathname,
+                                                        }}
+                                                        locale="chi"
+                                                    >
+                                                        <a>CHINESE</a>
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        )}
                                     </div>
                                 </strong>
                             </div>
