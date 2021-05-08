@@ -562,7 +562,7 @@ export const MsGoodsMain: React.FC<IProp> = () => {
                                             )}
                                         </div>
                                         <div className="td08">
-                                            <i className="m_title">상태:</i>
+                                            {/* <i className="m_title">상태:</i> */}
                                             <PordStatusBadge
                                                 status={item.status}
                                             />{" "}

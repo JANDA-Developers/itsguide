@@ -28,6 +28,16 @@
 
 .goods__info_title {
     padding: 10px!important;
+    border: 3px solid #e5e5e5;
+    line-height: 130%;
+}
+.productModal__paginatorWrap{
+    display: block;
+    width: 100%;
+    height: 22px;
+}
+.master_popup .goods__info_title {
+    border:0;
 }
 
 .MypageGoods__img {
@@ -45,7 +55,8 @@
 
 @media (max-width: 1000px) {
     .MypageGoods__infoBox {
-        display: initial!important;
+        display: none;
+        padding: 0 !important;
     }
 
 }
@@ -56,10 +67,10 @@
 div.popup_bg_full h3 {
     position: initial!important;
 }
-
+/* 
 div.popup_bg_full .in_txt {
     padding-top: 45px!important;
-}
+} */
 
 .productModal__close {
  position: initial!important;   
@@ -94,20 +105,17 @@ div.popup_bg_full .in_txt {
 
 }
 
-.masterMain .table .body{ 
-    display: flex!important;
-    align-items: center!important;
-}
 
+/* 
 .masterMain .table .head  {
     display: flex!important;
     height: 35px;
     align-items: center;
-}
-
+} */
+/* 
 .masterMain .table .head > div {
     flex: 1 1!important
-}
+} */
 
 
 
@@ -117,9 +125,6 @@ div.popup_bg_full .in_txt {
 }
 
 
-.masterMain .table .td01 { 
-    /* min-width: 25%; */
-}
 
 .master_box .in_content .alignment {
     margin-bottom: 20px;
@@ -160,12 +165,6 @@ div.popup_bg_full .in_txt {
 .tourView__recommendList {
     display: flex!important;
 }
-@media (max-width: 767px) {
-    .tourView__recommendList {
-        display: flex!important;
-        flex-direction: column;
-    }
-}
 
 
 .BookingModal__statusBox {
@@ -201,10 +200,11 @@ div.popup_bg_full .in_txt {
 
 .goods__productinfo {
     min-width: 300px;
+    width: 100% !important;
 }
 
 .peoplelist__li {
-    display: flex!important;
+    display: inline-block;
     align-items: center;
     justify-content: center;
 }
@@ -458,4 +458,43 @@ background-color: #fff;
 
 .master_box  .productGroup .droppable li {
     min-width: 130px;
+}
+.historyTable__cell{
+    margin-right: 10px;
+}
+    .BookingModal__headerWrap{
+        position: relative;
+    }
+  
+@media (min-width: 1000px) {
+    .goods__info_title{
+        border: 0;
+    }
+}
+  
+@media (min-width: 1230px) {
+    .masterMain .table .body{ 
+        display: flex!important;
+        align-items: center!important;
+    }
+    
+    .goods__productinfo {
+        width: auto;
+    }
+}
+@media (max-width: 1000px) {
+
+    .mypageSettlement__list .th02 {
+        text-align: left !important;
+    }
+    .mypageSettlement__list{
+        text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    .tourView__recommendList {
+        display: flex!important;
+        flex-direction: column;
+    }
 }

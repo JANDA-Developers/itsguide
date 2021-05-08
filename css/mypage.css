@@ -486,6 +486,26 @@
         letter-spacing: 0;
         padding-bottom: 15px;
     }
+    .mypage_in .box_right .txt.txt--flex {
+        cursor: pointer;
+    }
+    .mypage_in .box_right .txt.txt--btn {
+        border: 1px solid #e0e0e0;
+        border-radius: 3px;
+        padding-bottom: 0;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+    .mypage_in .box_right .txt.txt--btn li {
+        border-bottom: 0;
+        line-height: 32px;
+        font-weight: 600;
+        position: relative;
+    }
+    .mypage_in .box_right .txt.txt--btn i {
+        padding: 10px;
+        right: 0;
+    }
 
         .mypage_in .box_right .txt.line2 {
             padding: 14px 0;
@@ -720,6 +740,7 @@
     
         .mypage_in .statement_div ul {
             text-align: center;
+            display: flex;
         }
     
         .mypage_in .statement_div li {
@@ -729,9 +750,11 @@
             margin-top: 22px;
             margin-bottom: 30px;
             position: relative;
+            flex-grow: 1;
+            flex: 1 1;
         }
     
-            .mypage_in .statement_div li:after {
+            /* .mypage_in .statement_div li:after {
                 content: '';
                 display: inline-block;
                 position: absolute;
@@ -741,7 +764,7 @@
                 height: 30px;
                 width: 1px;
                 background-color: #eeeeee;
-            }
+            } */
     
             .mypage_in .statement_div li:last-child:after {
                 display: none;
@@ -833,6 +856,7 @@
     box-sizing: border-box;
     font-size: 10px;
     color: #555;
+    font-weight: 600;
     margin-right: 5px;
 }
 .goods_div strong.title{
@@ -869,16 +893,16 @@
         margin-top: 5px;
     }
     .goods_div .fuction_list_mini .th05 {
-        width: 100%;
+        width: auto;
         text-align: left;
-        border-top: 1px dotted #eee;
         line-height: 25px;
+        margin-right: 10px;
     }
     .goods_div .fuction_list_mini .th06 {
-        width: 100%;
+        width: auto;
         text-align: left;
         margin-top: 5px;
-        border-top: 1px dotted #eee;
+        margin-right: 10px;
         line-height: 25px;
     }
     .goods_div .fuction_list_mini .th06 span {
@@ -891,19 +915,18 @@
         display: inline-block !important;
     }
     .goods_div .fuction_list_mini .th07 {
-        width: 100%;
+        width: auto;
         text-align: left;
         margin-top: 5px;
-        border-top: 1px dotted #eee;
+        margin-right: 10px;
         line-height: 25px;
     }
     .goods_div .fuction_list_mini .th07 span {
         width: auto !important;
         display: inline-block !important;
-        margin-right: 5px;
     }
     .goods_div .fuction_list_mini .th08 {
-        width: 100%;
+        width: auto;
         text-align: left;
         margin-top: 5px;
     }
@@ -915,7 +938,16 @@
         text-align: center;
         margin: 1px;
     }
- 
+    .goods_div .fuction_list_mini .th09 {
+        width: 100%;
+        text-align: center;
+        margin-top: 5px;
+        display: flex;
+    }
+    .goods_div .fuction_list_mini .th09 .btn {
+        padding: 10px 0;
+        font-size: 1em;
+    }
         .goods_div .btn{
             width: 39%;
             padding: 0 12px;
@@ -956,8 +988,8 @@
     }
     .goods_div .present {
         position: relative;
-        display: block;
-        width: 100%;
+        display: inline-block;
+        width: auto;
         text-align: center;
     }
 
@@ -975,9 +1007,9 @@
     .reservation_div .master__table .tbody{
       border-bottom: 1px solid #e8e8e8;
     }
-    .reservation_div .master__table .tbody > div{
+    /* .reservation_div .master__table .tbody > div{
        position: relative;
-    }
+    } */
     .reservation_div .master__table .t01 {
         width:100% !important;
         padding:0;
@@ -1011,12 +1043,12 @@
     }
     .reservation_div .master__table .t05 {
         width:  100% !important;
-        padding:0;
+        padding:5px 0 !important;
         text-align: left !important;
     }
     .reservation_div .master__table .t06 {
         width: auto !important;
-        padding: 0;
+        padding:5px 0 !important;
         text-align: left !important;
     }
     .reservation_div .master__table .t07 {
@@ -1038,7 +1070,6 @@
         display: inline-block;
         width: 100%;
         vertical-align: middle;
-        position: relative;
     }    
  
     .reservation_div .paper_div {
@@ -1072,7 +1103,7 @@
         margin-top:5px;
     }
     .reservation_div .t04 .img {
-        display:inline-block !important;
+        display:none !important;
         width:100px !important;
         height:64px;
         background-position:center;
@@ -1084,7 +1115,6 @@
     .reservation_div .t04 .info {
         display: block !important;
         width: 100% !important;
-        vertical-align: top;
         text-align: left;
         position: relative;
         padding-left: 120px;
@@ -1092,7 +1122,13 @@
         padding-bottom:15px;
         padding-top:15px;
         box-sizing: border-box;
-        border: 3px solid #f5f5f5;
+        border: 3px solid #e7e7e7;
+    }
+    
+    .reservation_div .t04 .info span {
+        color:#333;
+        display:inline-block;
+        text-align:left;
     }
     .reservation_div .memo {
         width: 100% !important;
@@ -1181,6 +1217,7 @@
         box-sizing: border-box;
         font-size: 10px;
         color: #555;
+        font-weight: 600;
     }
     .reservation_div .con_box .title {
         width: 100% !important;
@@ -1302,32 +1339,31 @@
         vertical-align: middle;
         margin-left: 15px;
     }
-    .reservation_div .state {
+    .state {
         width: auto !important;
         display: inline-block;
         line-height: 122%;
-        border: 1px solid #ccc;
-        padding: 3px 15px !important;
+        background-color: #888888;
+        color: #fff;
+        padding: 8px 15px !important;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         font-size: 13px;
-        color: #555;
         font-weight: 600;
-        border-radius: 100px;
         font-style:unset;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 
-        .reservation_div .state.re-ok {
-            border: 1px solid #2196F3 !important;
-            color: #2196F3 !important;
+        .state.re-ok {
+            background-color: #2196F3 !important;
         }
-        .reservation_div .state.re-stay {
-            border: 1px solid #616161 !important;
-            color: #616161 !important;
+        .state.re-stay {
+            background-color: #616161 !important;
         }
-        .reservation_div .state.re-refund {
-            border: 1px solid #cf3932 !important;
-            color: #cf3932 !important;
+        .state.re-refund {
+            background-color: #cf3932 !important;
         }
  div.reservation_popup .info_txt {
     position:relative;
@@ -2748,9 +2784,7 @@ div.reservation_popup .tr select {
     }
     .mypage_purchase .fuction_list_mini .th07 {
         width: auto;
-        position: absolute;
-        top: 0;
-        right: 5px;
+     
     }
     .mypage_purchase .fuction_list_mini .th08 {
         width: 100%;
@@ -2759,9 +2793,7 @@ div.reservation_popup .tr select {
     .mypage_purchase .fuction_list_mini .th04 br {
         display: none;
     }
-    .mypage_purchase .fuction_list_mini .th08 .btn{
-        width: 100%;
-    }
+   
     /* .mypage_purchase .fuction_list_mini .thead .th01 .checkbox {
         top: 50%;
         margin-top: -8px;
@@ -2833,6 +2865,12 @@ div.reservation_popup .tr select {
 
     
 @media (min-width: 1000px) {  
+    .reservation_div .t04 .img {
+        width: 150px !important;
+        height: 90px;
+        left: 10px;
+        top: 10px;
+    }
     .goods_div .btn{
         width: 100%;
     }
@@ -2841,6 +2879,7 @@ div.reservation_popup .tr select {
     }
     .mypage_in .goods_div .fuction_list_mini .th09{
         max-width: 100px;
+        display: block;
     }
     .fuction_list_mini .thead > div{
         text-align: center !important;
@@ -3048,21 +3087,42 @@ div.reservation_popup .tr select {
         max-width: 10%;
         margin-top: 0;
     }
-    /* .myplanning_box .fuction_list_mini .tbody .th02 {
-        padding-top: 30px;
+    .state {
+        width: auto !important;
+        display: inline-block;
+        line-height: 122%;
+        border: 1px solid #ccc;
+        background-color: initial;
+        color: #555;
+        padding: 3px 15px !important;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 13px;
+        background-color: #fff !important;
+        font-weight: 600;
+        border-radius: 100px;
+        font-style:unset;
+        position: relative;
+        right: initial;
+        top: initial;
+
     }
-    .myplanning_box .fuction_list_mini .tbody .th04 {
-        padding-top: 28px;
-    }
-    .myplanning_box .fuction_list_mini .tbody .th06 {
-        padding-top: 28px;
-    }
-    .myplanning_box .fuction_list_mini .tbody .th07 {
-        padding-top: 25px;
-    }
-    .myplanning_box .fuction_list_mini .tbody .th08 {
-        padding-top: 20px;
-    } */
+
+        .state.re-ok {
+            border: 1px solid #2196F3 !important;
+            color: #2196F3 !important;
+            background-color: #fff !important;
+        }
+        .state.re-stay {
+            border: 1px solid #616161 !important;
+            color: #616161 !important;
+            background-color: #fff !important;
+        }
+        .state.re-refund {
+            border: 1px solid #cf3932 !important;
+            color: #cf3932 !important;
+            background-color: #fff !important;
+        }
     .myplanning_box .fuction_list_mini .tbody .th03 {
         /* padding-top: 28px; */
         font-weight: 600;
@@ -3404,6 +3464,10 @@ div.reservation_popup .tr select {
         padding: 15px 0;
         box-sizing: border-box;
     }
+    .mypage_in .box_right .txt.txt--btn {
+        padding: 0;
+        margin-top: 15px;
+    }
     .mypage_in .in .box3{
         padding: 50px;
     }
@@ -3471,9 +3535,7 @@ div.reservation_popup .tr select {
        width: auto;
         max-width: 10%;
         margin-right: 0;
-        position: relative;
-        top: unset;
-        right: unset;
+      
     }
     .mypage_purchase .fuction_list_mini .th08 {
         width: auto;
@@ -3563,6 +3625,7 @@ div.reservation_popup .tr select {
     .reservation_div .master__table .t05 {
         width: auto !important;
         display: inline-block;
+        padding: 0;
         max-width: 13% !important;
         text-align: center !important;
     }
@@ -3657,6 +3720,20 @@ div.reservation_popup .tr select {
     }
 }
     
+    
+@media (min-width: 1230px) {
+    .goods_div .fuction_list_mini .th09 {
+        width: auto;
+        text-align: center;
+        margin-top: 5px;
+        display: block;
+    }
+    .goods_div .fuction_list_mini .th09 .btn {
+        padding: 0;
+        font-size: 0.9em;
+    }
+}
+    
 @media (min-width: 1500px) {
     .mypage_in .subtop_nav {
         top: -53px;
@@ -3665,6 +3742,21 @@ div.reservation_popup .tr select {
 }
 
 @media (max-width:1000px) {
+    .mypage_in .statement_div ul{
+        display: block;
+    }
+    .mypage_in .statement_div li{
+        padding: 0 20px;
+    }
+    .mypage_purchase .fuction_list_mini .th08 .btn{
+        width: 100%;
+            line-height: 40px;
+    }
+    .mypage_in .MypageGoods__btn .btn{
+        width: 100%;
+        text-align: center;
+        line-height: 38px;
+    }
     .mypage_in .lnb .profile_box .point{
         margin-top: 15px;
     }
@@ -3675,8 +3767,38 @@ div.reservation_popup .tr select {
     .country_check {
         margin-left: 25px;
     }
+    .reservation_div .money{
+        font-size: 1em;
+    }
+    .reservation_div .master__table .t04 .info span{
+        margin-right: 10px;
+    }
+    .myboard_box .con_bottom .th02::after {
+        display: inline-block;
+        content: '';
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        margin-top: -3px;
+        background-color: #b3b3b3;
+        width: 1px;
+        height: 7px;
+    }
+    .myboard_box .con_bottom .th02,
+    .myboard_box .con_bottom .th03{
+        font-weight: 600;
+        position: relative;
+    }
 }
 @media (max-width: 767px) {
+    .mypage_in .statement_div li{
+        padding: 0 10px;
+    }
+    .mypage_in .lnb i{
+        font-size: 13px;
+        vertical-align: baseline;
+        font-weight: 600;
+    }
     .notification_box .alignment .re-set{
         margin-left: 0;
     }
@@ -3684,9 +3806,9 @@ div.reservation_popup .tr select {
         width: auto !important;
         margin-right: 15px;
     }
-    .mypage_in .statement_div li:after{
+    /* .mypage_in .statement_div li:after{
         display: none;
-    }
+    } */
     .mypage_in .subtop_nav {
         top: -35px;
     }
@@ -3780,14 +3902,14 @@ div.reservation_popup .tr select {
     .mypage_in .box_right .txt{
         text-align: left !important;
     }
+   
 
 }
 
 
 @media (max-width:360px) {
-
+    .mypage_in .statement_div li{
+        padding: 0 2px;
+    }
 }
 
-.mypage__keywards {
-    
-}

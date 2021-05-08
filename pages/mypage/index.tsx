@@ -691,7 +691,7 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                         <div className="title">
                                             가이드 자격증
                                         </div>
-                                        <div className="txt txt--flex">
+                                        <div className="txt txt--btn">
                                             <ul>
                                                 {profile.guideLicenses?.map(
                                                     (thumb, i) => (

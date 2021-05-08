@@ -17,15 +17,30 @@ ul.list_ul li .category span,
 .option_tb .tag li,
 .board_list_mini .thead > div,
 .option_tb .smtxt,
+.history__list > li,
+.history__yearlist > li,
+ul.list_ul li .bottom_txt,
 .tour_details_in .boardReadBody .top_day span,
 .footer-area-bottom .janda_txt a,
+.master_box .reservation .r-number,
 .guide__infobox p,
-p,
+div.master_popup div[class*=top0] span,
+.notification_box .right .hang,
+.fuction_list_mini .tbody li > div,
+.member_details_in .profile_txt .con01 .txt,
+p,.mypage_in .box_right li,
+.tour_details_in .boardReadBody .in_box .subtitle,
+.master__table .tbody div[class*=t0] span,
 .master_box .homepage .design_table .list li,
 .master__table .tbody div[class*=t0],
 .board_list.st01 .tbody .td04,
 .board_list.st01 .tbody .td01,
-.board_list.st01 .tbody .td02,
+div.master_popup .info_txt span,
+.fuction_list_mini .tbody li > div,
+.master_box .in_content .con_box_body .list_line div[class*=td],
+.board_list .tbody .td02,
+div.master_popup .info_txt i,
+.board_list_mini .tbody li > div,
 ul.list_ul li .bottom_txt div[class*=tag] span,
 .main_con_box5 h2 span{
     font-family: NanumSquareRoundOTFB,NanumSquareRoundOTF, '돋음',sans-serif;
@@ -967,6 +982,8 @@ div.goods_list {
             color: #ffffff;
             font-size: 40px;
             text-align: left;
+            word-wrap: break-word;
+            word-break: break-word;
         }
             .main_con_box7 .box01 h2 i {
                 color: #addbff;
@@ -1000,12 +1017,14 @@ div.goods_list {
                 font-size: 1.8em;
                 font-weight: 600;
                 color: #ffffff;
+                white-space: break-spaces;
             }
             .main_con_box7 .box02 .left p {
                 color: #ffffff;
                 display: block;
                 font-size: 16px;
                 margin-top: 100px;
+                white-space: break-spaces;
             }
         .main_con_box7 .box02 .right {
             position: relative;
@@ -1037,6 +1056,7 @@ div.goods_list {
                     color: #ffffff;
                     line-height: 66%;
                     font-variant: small-caps;
+                    white-space: break-spaces;
                 }
 
     .main_con_box7 .box03 {
@@ -1060,6 +1080,7 @@ div.goods_list {
                 font-size: 2em;
                 font-weight: 600;
                 color: #ffffff;
+                white-space: break-spaces;
             }
 
             .main_con_box7 .box03 .right p {
@@ -1067,6 +1088,7 @@ div.goods_list {
                 display: block;
                 font-size: 16px;
                 margin-top: 100px;
+                white-space: break-spaces;
             }
 
         .main_con_box7 .box03 .left {
@@ -1388,7 +1410,7 @@ div.popup_bg_full .fin{
         height: 100%;
         width: 100%;
         border-radius: 0px;
-        padding: 55px 0px 10px 10px;
+        padding: 8px 0px 10px 10px;
         box-sizing: border-box;
         background-color: #ffffff;
         box-shadow: 2px 2px 2px #00000052;
@@ -1413,7 +1435,7 @@ div.popup_bg_full .fin{
 
     div.popup_bg_full .close_icon {
         position: absolute;
-        top: 23px;
+        top: 5px;
         right: 3px;
         display: block;
         width: 30px;
@@ -1711,6 +1733,8 @@ div.alignment {
 
         div.alignment .left_div strong {
             color: #2196F3;
+            margin-left: 2px;
+            display: none;
         }
 
         div.alignment .left_div .infotxt {
@@ -1732,6 +1756,14 @@ div.alignment {
             line-height: 31px;
             padding-right: 5px;
             opacity: 0.5;
+        }
+        div.alignment .right_div .goto_page:after{
+            color: #999;
+            display: inline-block;
+            content: "\F1BF";
+            font-family: jandaicon;
+            font-style: normal;
+            margin-left: 5px;
         }
 
         div.alignment .right_div .goto_page:hover {
@@ -1805,11 +1837,10 @@ div.alignment {
     div.alignment select {
         border-radius: 3px;
         height: 32px;
-        width: 49%;
+        width: auto;
         font-size: 12px;
         padding: 0 10px;
-        margin-top: 5px;
-        font-weight: 100;
+        font-weight: 600;
         box-sizing: border-box;
         border: 1px solid #d2d2d2;
     }
@@ -3249,6 +3280,7 @@ ul.rank_ul {
             text-align: center;
             z-index: 10;
             position: relative;
+            white-space: break-spaces;
         }
 
 
@@ -3260,7 +3292,7 @@ ul.rank_ul {
             z-index: 10;
             position: relative;
             width: 100%;
-            font-weight: 100;
+            font-weight: 600;
         }
         .siteInfo_in .top_bg .logo {
             display:none;
@@ -3270,8 +3302,8 @@ ul.rank_ul {
         }
 
     .siteInfo_in .con01 {
-        padding: 3% 0;
-        height: 500px;
+        padding: 10% 0;
+        min-height: 500px;
         background-color: #f5f5f5;
         background-image: url(/its/siteinfo_bg03.jpg);
         background-position: right bottom;
@@ -3502,14 +3534,14 @@ ul.rank_ul {
         color: #ffffff;
         border-radius: 5px;
         border: 3px #fff solid;
-        padding: 10px;
+        padding: 29px 0;
         box-sizing: border-box;
         vertical-align: top;
         background-color: rgba(91, 172, 233, 0.90);
     }
 
         .siteInfo_in .con02 li i {
-            display: none;
+            display: inline-block;
         }
 
     .siteInfo_in .con02 .svg1 {
@@ -3529,6 +3561,7 @@ ul.rank_ul {
         font-size: 1.3em;
         margin-top: 10px;
         margin-bottom: 10px;
+        white-space: break-spaces;
     }
 
     .siteInfo_in .con02 li p {
@@ -3542,7 +3575,7 @@ ul.rank_ul {
 
     .siteInfo_in .con01 h4 {
         text-align: center;
-        font-size: 1.5em;
+        font-size: 2.5em;
         line-height: 130%;
         margin-top: 70px;
         font-weight: 500;
@@ -3555,8 +3588,6 @@ ul.rank_ul {
         display: block;
         position: relative;
         text-align: left;
-        padding-left: 15%;
-        padding-right: 15%;
         box-sizing: border-box;
         z-index: 10;
     }
@@ -3564,12 +3595,13 @@ ul.rank_ul {
         position: relative;
         display: block;
         margin-bottom: 20px;
-        padding-left: 27px;
+        font-weight: 600;
     }
   .history__list > li > strong{
-      font-size: 3em;
-      position: absolute;
+      font-size: 2em;
+      position: relative;
       color: #333;
+      margin-top: 20px;
     }
   .history__list > li > strong::after{
       position: absolute;
@@ -3585,18 +3617,22 @@ ul.rank_ul {
     .history__yearlist{
         font-size: 1em;
         position: relative;
-        left: 150px;
-        padding-top: 21px;
+        /* left: 150px; */
+        padding-left: 0;
+        padding-top: 0;
         line-height: 240%;
+        width: 100%;
+        display: block;
       }
     .history__yearlist > li{
         padding-left: 15px;
         color: #333;
-        font-weight: 100;
+        font-weight: 600;
         display: block;
         box-sizing: border-box;
         line-height: 200%;
-        font-size: 1.2em;
+        font-size: 1em;
+        white-space: break-spaces;
       }
       .history__yearlist > li:before {
         content: '';
@@ -3614,6 +3650,7 @@ ul.rank_ul {
     .siteInfo_in .con_block {
         position: relative;
         display: block;
+        overflow: hidden;
     }
     .siteInfo_in .con01 .w1200{
        width: 80%;
@@ -3756,7 +3793,7 @@ ul.rank_ul {
     .siteInfo_in .con03 h4 {
         text-align: center;
         width: 100%;
-        font-size: 2.8em;
+        font-size:2.4em;
         line-height: 130%;
         color: #ffffff;
         z-index: 2;
@@ -3764,17 +3801,19 @@ ul.rank_ul {
         display: block;
         position: relative;
         margin-bottom: 0;
+        white-space: break-spaces;
     }
 
 
     .siteInfo_in .con03 p {
-        font-size: 1.2em;
+        font-size:1.1em; 
         line-height: 150%;
         color: #ffffff;
         text-align: center;
         z-index: 28;
         display: block;
         position: relative;
+        white-space: break-spaces;
     }
 
 
@@ -4120,7 +4159,7 @@ ul.rank_ul {
         }
 
         .siteInfo_in .con06 h4 span {
-            font-size:1.3em;
+            font-size:1em;
             line-height: 160%;
             display: block;
             color: #888888;
@@ -4137,18 +4176,15 @@ ul.rank_ul {
         align-items: center;
         justify-content: center;
         position: relative;
-        width: 22%;
+        width: 28%;
         margin: 1% 1%;
         background-color: #ffffff;
         border: 1px solid #ccc;
-        height: 90px;
+        
+        display: inline-block;
+        padding: 2%;
+        box-sizing: border-box;
     }
-
-        .siteInfo_in .con06 li {
-            display: inline-block;
-            padding: 25.1px;
-            box-sizing: border-box;
-        }
 
         .siteInfo_in .con06 li img {
             width: auto;
@@ -6288,6 +6324,7 @@ i.important_icon {
                 width: 100%;
                 height: auto;
                 max-height: 384px;
+                min-height: 250px;
                 background-color: #f3f3f3;
                 margin-bottom: 5px;
                 overflow: hidden;
@@ -6310,7 +6347,7 @@ i.important_icon {
                 .tour_details_in .Read_box .details_photo .photo_list li {
                     width: 25%;
                     height: auto;
-                    max-height: 84px;
+                    max-height: 43px;
                     display: inline-block;
                     margin: 0.5%;
                     background-color: #f3f3f3;
@@ -6483,6 +6520,7 @@ i.important_icon {
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-top: 2px #333333 solid;
+            font-weight: 600;
         }
 
             .tour_details_in .boardReadBody .in_box .hang {
@@ -6604,13 +6642,14 @@ i.important_icon {
 
             .tour_details_in .boardReadBody .top_day h5 {
                 display: inline-block;
-                width: 15%;
+                width: auto;
                 background-color: #e0f2ff;
                 color: #5bace9;
                 font-weight: 600;
                 text-align: center;
                 font-size: 16px;
                 padding: 15px;
+                box-sizing: border-box;
             }
 
             .tour_details_in .boardReadBody .top_day span {
@@ -6877,7 +6916,8 @@ i.important_icon {
         text-align: left;
         border-bottom: 1px dotted;
         border-color: #e1e1e1;
-        color: #555
+        color: #555;
+        box-sizing: border-box;
     }
 
     .option_tb th {
@@ -6894,6 +6934,11 @@ i.important_icon {
         font-size: 1em;
         color: #9e9e9e;
         font-weight: 100
+    }
+
+    .option_tb tr {
+        word-wrap: break-word;
+        word-break: break-word;
     }
 
         .option_tb td strong {
@@ -6983,7 +7028,7 @@ i.important_icon {
     }
 
     .option_tb .smtitle {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 
     .option_tb .smtxt {
@@ -6991,6 +7036,7 @@ i.important_icon {
         text-align: left;
         letter-spacing: 0px;
         position: relative;
+        font-weight: 600;
     }
 
     .option_tb .tag .tt {
@@ -7074,6 +7120,7 @@ i.important_icon {
 .big_pd th,
 .big_pd td {
     padding: 7px 13px;
+    box-sizing: border-box;
 }
 
 
@@ -8341,7 +8388,7 @@ i.calendar {
             width: 100%;
             margin-left: 0;
             font-size: 1em;
-            font-weight: 100;
+            font-weight: 600;
         }
 
         .member_details_in .profile_txt .con02 .ul_info {
@@ -8988,7 +9035,71 @@ i.calendar {
         background-color: #fff;
         color: #999999;
     }
+    .guide__name{
+        display: inline-block;
+        width: auto;
+        padding: 3px;
+        box-sizing: border-box;
+        background-color: #e3f3ff;
+        border: 1px solid #2196f3;
+        color: #2196f3;
+        font-weight: 600;
+        font-size: 0.8em;
+        margin-left: 5px;
+    }
+    .simbol__best{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 50px;
+        height: 50px;
+        border-radius: 115% 140% 145% 110%/125% 140% 110% 125%;
+        background-color: #039ce0;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 0.9em;
+        line-height: 50px;
+        text-align: center;
+    }
 @media (min-width: 768px) {   
+    .siteInfo_in .con03 h4{
+        font-size: 1.9em;
+    }
+    .siteInfo_in .con03 p{
+        font-size: 0.9em;
+    }
+    .siteInfo_in .con03 .info_address li{
+        position: relative;
+        width: 130px;
+        height: 130px;
+        line-height: 17px;
+        border-radius: 300px;
+        border: 3px solid #ffffff;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+        color: #ffffff;
+        margin: 0 16px 0;
+        padding: 48px 0 0 0;
+        box-sizing: border-box;
+        font-weight: 600;
+        vertical-align: top;
+    }
+    .siteInfo_in .con03 .info_address li:after {
+        position: absolute;
+        content: '';
+        top: 53px;
+        right: -29px;
+        margin-right: 0;
+        width: 16px;
+        height: 30px;
+        display: inline-block;
+        background-image: url(/img/svg/join_arr_right.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: rotate(0deg);
+    }
     .tour_details_in .boardReadBody .con_top_tap span a{
         line-height: 40px;
     }
@@ -9091,12 +9202,12 @@ i.calendar {
         height: 560px;
         padding: 250px 0 0;
         background-position: center 650px;
-        background-size: 200%;
+        background-size: 230%;
     }
 
         .siteInfo_in .top_bg h3 {
-            font-size: 4em;
-            line-height: 160%;
+            font-size: 3em;
+            line-height: 114%;
         }
 
         .siteInfo_in .top_bg span {
@@ -9118,7 +9229,7 @@ i.calendar {
 
         .siteInfo_in .con02 li {
             width: 29%;
-            height: 300px;
+            height: 275px;
             margin: 5px;
             border: 7px #fff solid;
             padding: 10px;
@@ -9134,7 +9245,7 @@ i.calendar {
             }
 
             .siteInfo_in .con02 li strong {
-                font-size: 22px;
+                font-size: 1.2em;
                 margin-top: 10px;
                 text-align: center;
                 padding-left: 0;
@@ -9211,6 +9322,8 @@ i.calendar {
 
     .siteInfo_in .con06 li {
         width: 22%;
+        height: 90px;
+        padding: 25.1px;
     }
 
     .siteInfo_in .con04 .infopp {
@@ -9350,6 +9463,31 @@ i.calendar {
     }
 }
 @media (min-width: 1000px) {
+   
+    .history__yearlist > li{
+        padding-left: 15px;
+        color: #333;
+        font-weight: 600;
+        display: block;
+        box-sizing: border-box;
+        line-height: 200%;
+        font-size: 1.1em;
+    }
+    .history__list > li > strong{
+        font-size: 3em;
+        position: absolute;
+        color: #333;
+      }
+    .history__yearlist{
+        font-size: 1em;
+        position: relative;
+        /* left: 150px; */
+        padding-left: 150px;
+        padding-top: 21px;
+        line-height: 240%;
+        width: 80%;
+        display: block;
+      }
     .question_box .board_list.st01 .tbody .td04{
         max-width: 15%;
         text-align: center;
@@ -9498,7 +9636,7 @@ i.calendar {
         height: 750px;
         padding: 310px 0 0;
         background-position: center;
-        background-size: 150%;
+        background-size: 230%;
     }
 
         .siteInfo_in .top_bg h3 {
@@ -9520,11 +9658,10 @@ i.calendar {
         }
     .siteInfo_in .con01 {
         padding: 200px 0 200px;
-        height: 493px;
-        background-size: 110%;
+        min-height: 493px;
+        background-size: 150%;
     }
-
-       
+ 
     .siteInfo_in .con02 {
         padding: 22px 0;
     }
@@ -9583,7 +9720,7 @@ i.calendar {
     }
 
         .siteInfo_in .con03 h4 {
-            font-size: 4em;
+            font-size: 2em;
             line-height: 160%;
         }
 
@@ -9898,7 +10035,7 @@ i.calendar {
         margin-top:0;
         font-size: 12px;
         padding: 0 10px;
-        font-weight: 100;
+        font-weight: 600;
         box-sizing: border-box;
         border: 1px solid #d2d2d2;
     }
@@ -9935,11 +10072,12 @@ i.calendar {
     }
     .tour_details_in .Read_box .details_photo .photo_list li {
         height: auto;
-        max-height:113px ;
+        max-height:60px ;
     }
     .tour_details_in .Read_box .details_photo .main_photo{
         height: auto;
         max-height: 435px;
+        min-height: 250px;
     }
     
     .option_tb .tag .tt,
@@ -10227,7 +10365,15 @@ i.calendar {
 }
 
 @media (min-width: 1200px) {
-  
+    .option_tb .smtxt {
+        font-weight: 100;
+    }
+    .siteInfo_in .con03 h4{
+        font-size: 4em;
+    }
+    .history__list > li{
+        padding-left: 27px;
+    }
   
     .siteInfo_in .con01 {
         padding: 150px 0 210px;
@@ -10241,7 +10387,7 @@ i.calendar {
     }
     .siteInfo_in .con02 li strong {
         display: block;
-        font-size: 22px;
+        font-size:1.5em;
         margin-top: 10px;
     }
 
@@ -10260,6 +10406,11 @@ i.calendar {
         background-position: center;
         transform: rotate(0deg);
     }
+    /* .history__list {
+        padding-left: 15%;
+        padding-right: 15%;
+    } */
+       
     .siteInfo_in .con03 .info_address li {
         position: relative;
         width: 150px;
@@ -10339,9 +10490,7 @@ i.calendar {
     .main_con_box7 .box01 .ovj{
         bottom: -23px;
     }
-     .main_con_box7 .box01 {
-        padding: 50px 0;
-    }
+ 
      .main_con_box7 .box02 .left {
         width: 40%;
     }
@@ -10538,9 +10687,15 @@ i.calendar {
 }
 
 @media (min-width: 1250px) {
+    .siteInfo_in .top_bg p{
+        font-weight: 100;
+    }
     .tour_details_in{
         padding: 50px 0 100px;
     } 
+    .main_con_box7 .box01 {
+        padding: 50px 0;
+    }
 }
 @media (min-width: 1300px) {
     .main_con_box3 .w1200:before{
@@ -10688,6 +10843,9 @@ i.calendar {
     }
 }
 @media (max-width: 1000px) {
+    .siteInfo_in .con02 li i img{
+        width: 100%;
+    }
     .question_box{
         padding: 5% 3%;
     }
@@ -10767,8 +10925,34 @@ i.calendar {
     .announce_box{
         padding: 5% 3%;
     }
+    .siteInfo_in .con02 .svg1 {
+        width: 120px;
+    }
+    .siteInfo_in .con02 .svg2 {
+        width: 120px;
+    }
+    .siteInfo_in .con02 .svg3 {
+        width: 120px;
+    }
+    #viewControl .btn_box .link02 a, #viewControl .btn_box .link01 > a, #viewControl .btn_box .link04 a, #viewControl .btn_box .link05 a, #viewControl .btn_box .link08 a, #viewControl .btn_box .link09 a {
+        padding: 26px 5px;
+        font-size: 1.1em;
+    }
 }
 @media (max-width: 767px) {
+   
+    .siteInfo_in .con01{
+        padding: 7% 0;
+    }
+    .siteInfo_in .con02 .svg1 {
+        width: 83px;
+    }
+    .siteInfo_in .con02 .svg2 {
+        width: 83px;
+    }
+    .siteInfo_in .con02 .svg3 {
+        width: 83px;
+    }
     .guide__infobox{
         display: block;
     }
@@ -10827,16 +11011,16 @@ i.calendar {
     }
    
     .tour_details_in .boardReadBody .top_day{
-        display: flex;
+        display: block;
         align-items: center;
     }
     .tour_details_in .boardReadBody .top_day h5{
         text-align: center;
-        width: 50%;
+        width: 100%;
     }
     .tour_details_in .boardReadBody .top_day span{
         text-align: center;
-        width: 50%;
+        width: 100%;
     }
 
     .siteInfo_in .con02 li br {
@@ -10916,7 +11100,7 @@ i.calendar {
         margin-right: -350px;
     }
     .main_con_box3 .top_txt {
-        padding: 120px 3% 80px;
+        padding: 120px 3% 120px;
         text-align: center;
     }
     .main_con_box3 .top_txt h2{
@@ -11106,12 +11290,14 @@ i.calendar {
         padding: 50px 3% 80px;
     }
     .main_con_box7 .box01 h2{
-        font-size: 0.8em;
-        display: contents;
+        font-size: 1.9em;
+    display: block;
+    white-space: break-spaces;
     }
     .main_con_box7 .box01 h2 span{
         font-size: 2em;
         display: contents;
+        white-space: break-spaces;
     }
     .main_con_box7 .box01 .link {
         display: inline-block;
@@ -11135,6 +11321,13 @@ i.calendar {
     .main_con_box7 .box03 {
         display: block;
     }
+
+    .main_con_box7 .box03{
+        margin-top: -3px;
+    }
+    .main_con_box7 .box03 .right{
+        margin-top: -3px;
+    }
     .main_con_box7 .box02 .left {
         width: 100%;
         padding: 5%;
@@ -11145,11 +11338,13 @@ i.calendar {
     .main_con_box7 .box02 .left h3 {
         font-size: 1.2em;
         display: contents;
+        white-space: break-spaces;
     }
     .main_con_box7 .box02 .left p {
         font-size: 0.8em;
         margin-top: 50px;
         display: table-cell;
+        
     }
     .main_con_box7 .box02 .right {
         width: 100%;
@@ -11170,6 +11365,7 @@ i.calendar {
     .main_con_box7 .box03 .right {
         width: 100%;
         padding: 5%;
+        margin-top: -4px;
     }
     .main_con_box7 .box03 .right br {
         display: none;
@@ -11177,11 +11373,13 @@ i.calendar {
     .main_con_box7 .box03 .right h3 {
         font-size: 1.2em;
         display: contents;
+        white-space: break-spaces;
     }
     .main_con_box7 .box03 .right p {
         font-size: 0.8em;
         margin-top: 50px;
         display: table-cell;
+        white-space: break-spaces;
     }
     .main_con_box7 .box03 .left {
         width:100%;
@@ -11208,6 +11406,9 @@ i.calendar {
     }
     .main_con_box8 .w1200 .deal_list{
         margin-bottom: 50px;
+    }
+    .siteInfo_in .top_bg p {
+        font-size: 1.6em;
     }
     .main_con_box8 .w1200 h2{
         font-size: 2em;position: relative;
@@ -11357,9 +11558,6 @@ i.calendar {
         height: 240px;
     }
  
-    .tour_details_in .Read_box .details_photo .main_photo{
-        height: auto;
-    }
     .tour_details_in .Read_box .details_photo .photo_list li{
         height: auto;
     }
@@ -11465,6 +11663,10 @@ i.calendar {
     }
     .main_con_box5 div.goods_list .line4 li .img {
         height: 160px;
+    }
+    .main_con_box7 .box01 h2{
+        font-size: 0.9em;
+    display: block;
     }
 }
 

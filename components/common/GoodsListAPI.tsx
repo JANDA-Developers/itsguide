@@ -113,10 +113,12 @@ export const Goods: React.FC<IGoodsProp> = ({ item, ...props }) => {
                 >
                     상품이미지
                 </div>
+                <i className="simbol__best">BEST</i>
             </div>
             <div className="box">
                 <div className="category">
                     <span>{item.category?.label}</span>
+                    <div className="guide__name">가이드이름</div>
                 </div>
                 <div className="title">{item.title}</div>
                 <div className="bottom_txt">

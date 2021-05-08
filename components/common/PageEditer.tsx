@@ -61,8 +61,8 @@ export const PageEditor: React.FC<IProp> = ({
                     onSubmit={submit}
                     editMode={editMode}
                 />
-                {/* <NewGoodsBtn /> */}
-                {/* <NewProfileBtn /> */}
+                <NewGoodsBtn />
+                <NewProfileBtn />
             </div>
         </div>
     );

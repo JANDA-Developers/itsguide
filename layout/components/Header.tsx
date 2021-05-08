@@ -567,7 +567,7 @@ export const Header: React.FC<IProp> = () => {
                                 <li className="a_menu_tit deps">
                                     <Link href="/site-info">
                                         <a>
-                                            {ln("service")}
+                                            {ln("site_info")}
                                             <i className="jandaicon-arr4-right"></i>
                                         </a>
                                     </Link>

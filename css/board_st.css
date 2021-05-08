@@ -20,7 +20,7 @@
     position: relative;
     display: inline-block;
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 3px;
     line-height: 10px;
     clear: both;
     padding: 0 6px;
@@ -28,11 +28,10 @@
     vertical-align: bottom;
     border: 1px solid #cfcfcf;
     margin-right:8px;
-    vertical-align: middle;
+    vertical-align: top;
 }
 
     .board_option li {
-        float: left;
         display: inline-block;
         position: relative;
     }
@@ -440,6 +439,7 @@ ul.list_ul li .bottom_txt div[class*=tag] span {
 }
 ul.list_ul li .imgWrap { 
     margin-bottom: 15px;
+    position: relative;
 }
 
 ul.list_ul li .img {
@@ -488,7 +488,8 @@ ul.list_ul li .category {
         display: inline-block;
         padding: 3px 8px;
         border: 1px solid #ccc;
-        font-size: 11px;
+        font-size: 0.8em;
+        font-weight: 600;
         color: #999;
         background-color: #fff !important;
     }
@@ -2043,8 +2044,7 @@ div.comment_box {
                 font-size: 12px;
                 padding: 0;
                 box-sizing: border-box;
-                position:relative;
-                font-weight: 100;
+                font-weight: 600;
                 flex: 1 1;
                 flex-grow: 1;
             }
@@ -2357,6 +2357,8 @@ div.sum_div {
     align-items: center;
     position: relative;
     width: 100%;
+    box-sizing: border-box;
+    padding: 3%;
 } 
   .master__table .tbody div[class*=t0] {
     width: auto;
@@ -2655,6 +2657,7 @@ div.sum_div {
         font-size: 12px;
         padding: 10px  10px;
         flex: 1 1;
+        font-weight: 100;
         flex-grow: 1;
     }
     .board_list.st01 .tbody li {
@@ -2948,11 +2951,24 @@ div.sum_div {
     }
 }
 @media (max-width:1000px) {
+    .fuction_list_mini .tbody li{
+        display: block !important;
+    }
     ul.list_ul.line3 li .img {
         height: 150px;
     }
+    .master__table {
+        border-top: 3px solid #333333;
+    }
+    .master__table .tbody div[class*=t0]{
+        padding: 0;
+    }
 }
 @media (max-width:767px) {
+   
+    .board_option a{
+        padding: 10px 5px;
+    }
     ul.list_ul.line4 li .img{
         height: 170px;
     }
