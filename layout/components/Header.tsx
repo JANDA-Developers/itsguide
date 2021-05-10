@@ -544,11 +544,15 @@ export const Header: React.FC<IProp> = () => {
                                                     <a>{ln("user_info")}</a>
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link href="/mypage/notification">
-                                                    <a>{ln("notification")}</a>
-                                                </Link>
-                                            </li>
+                                            {!isManager && isSeller && (
+                                                <li>
+                                                    <Link href="/mypage/notification">
+                                                        <a>
+                                                            {ln("notification")}
+                                                        </a>
+                                                    </Link>
+                                                </li>
+                                            )}
                                             <li>
                                                 <Link href={`/itsguid/${myId}`}>
                                                     <a>
@@ -556,11 +560,17 @@ export const Header: React.FC<IProp> = () => {
                                                     </a>
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link href="/mypage/basket">
-                                                    <a>{ln("review_manage")}</a>
-                                                </Link>
-                                            </li>
+                                            {!isManager && isSeller && (
+                                                <li>
+                                                    <Link href="/mypage/basket">
+                                                        <a>
+                                                            {ln(
+                                                                "review_manage"
+                                                            )}
+                                                        </a>
+                                                    </Link>
+                                                </li>
+                                            )}
                                             <li>
                                                 <Link href="/mypage/write">
                                                     <a>{ln("mypage_write")}</a>
@@ -580,15 +590,17 @@ export const Header: React.FC<IProp> = () => {
                                                     <a>{ln("itstour")}</a>
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link href="/mypage/settlement">
-                                                    <a>
-                                                        {ln(
-                                                            "mypage_settlement"
-                                                        )}
-                                                    </a>
-                                                </Link>
-                                            </li>
+                                            {!isManager && isSeller && (
+                                                <li>
+                                                    <Link href="/mypage/settlement">
+                                                        <a>
+                                                            {ln(
+                                                                "mypage_settlement"
+                                                            )}
+                                                        </a>
+                                                    </Link>
+                                                </li>
+                                            )}
                                         </ul>
                                     </li>
                                 )}
