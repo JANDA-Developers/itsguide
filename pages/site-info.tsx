@@ -236,7 +236,6 @@ export const StieInfo: React.FC<Ipage> = (pageInfo) => {
                             <h2 {...edit("con07_title")} />
                             <div className="link">
                                 <Link href="../sub/join.html">
-                                    {" "}
                                     <a {...edit("con07_linktxt")} />
                                 </Link>
                             </div>

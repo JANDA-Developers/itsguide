@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { BoardWrite } from "components/board/Write";
 import { useBoard } from "hook/useBoard";
 import {
+    useProductReviewConfirm,
     useProductReviewCreate,
     useProductReviewDelete,
     useProductReviewFindById,
@@ -30,6 +31,8 @@ export const ReviewWrite: React.FC<IProp> = () => {
     const [rate, setRate] = useState<number>(productreview?.rating || 0);
     const hiddenFileInput = useRef<HTMLInputElement>(null);
     const { signleUpload } = useUpload();
+
+    const [confirm] = useProductReviewConfirm();
 
     const [productreviewUpdateMu] = useProductReviewUpdate({
         onCompleted: ({ ProductReviewUpdate }) => {

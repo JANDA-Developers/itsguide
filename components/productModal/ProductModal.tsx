@@ -177,7 +177,7 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
                                     상품번호: {product.code}
                                 </span>
                                 <span className="goods-state1 st01">
-                                    확정여부:{" "}
+                                    확정여부:
                                     <i>{determinedKr(product.determined)}</i>
                                 </span>
                                 {/* 출발확정/출발미정 */}
@@ -241,14 +241,14 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
                                     <div className="top05">
                                         <div className="align">
                                             <span className="s-day">
-                                                출발일:{" "}
+                                                출발일:
                                                 {yyyymmdd(product.startDate)}
                                             </span>
                                             <span className="where">
                                                 출발장소: {product.startPoint}
                                             </span>
                                             <span className="people">
-                                                인원:{" "}
+                                                인원:
                                                 {product.compeltePeopleCnt}
                                             </span>
                                         </div>
@@ -299,7 +299,7 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
                                                 </div>
                                                 <div className="td02">
                                                     <span className="red_font">
-                                                        -{" "}
+                                                        -
                                                         {autoComma(
                                                             arraySum(cancelAmt)
                                                         )}
@@ -337,13 +337,13 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
                                                 <div className="td03">
                                                     <span>
                                                         {seller?.busi_name ||
-                                                            seller?.name}{" "}
+                                                            seller?.name}
                                                         (
                                                         <a href="tel:">
                                                             {autoHypenPhone(
                                                                 seller?.phoneNumber
                                                             )}
-                                                        </a>{" "}
+                                                        </a>
                                                         )
                                                     </span>
                                                 </div>
@@ -353,7 +353,7 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
                                                 <div className="td04">
                                                     <span>
                                                         ({seller?.bank_name})
-                                                        {seller?.account_number}{" "}
+                                                        {seller?.account_number}
                                                         / {seller?.name}
                                                     </span>
                                                 </div>
@@ -380,14 +380,14 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
                                                     예약인원
                                                 </span>
                                                 <span>
-                                                    총 {product.peopleCount}명{" "}
+                                                    총 {product.peopleCount}명
                                                 </span>
                                                 <span className="float_right">
-                                                    예약완료{" "}
+                                                    예약완료
                                                     {completeBookingsTotalCount}
-                                                    명 / 예약취소{" "}
+                                                    명 / 예약취소
                                                     {totalCacnelPeopleCount}명 /
-                                                    예약대기{" "}
+                                                    예약대기
                                                     {readyBookingsPeopleCount}명
                                                 </span>
                                             </div>
@@ -536,7 +536,7 @@ export const ProductModal: React.FC<IProp> = ({ productId }) => {
                                                         className="comment_btn"
                                                     >
                                                         저장
-                                                    </button>{" "}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>

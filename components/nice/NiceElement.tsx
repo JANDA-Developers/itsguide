@@ -137,54 +137,54 @@ const NiceElments: React.FC<INiceElementProp> = ({
                     name="CharSet"
                     onChange={() => {}}
                     value="utf-8"
-                />{" "}
+                />
                 <input
                     type="hidden"
                     name="BuyerEmail"
                     onChange={() => {}}
                     defaultValue={BuyerEmail}
-                />{" "}
+                />
                 <input
                     type="hidden"
                     name="GoodsCl"
                     onChange={() => {}}
                     defaultValue={1}
-                />{" "}
+                />
                 <input
                     type="hidden"
                     name="TransType"
                     onChange={() => {}}
                     defaultValue={0}
-                />{" "}
+                />
                 <input
                     type="hidden"
                     name="EdiDate"
                     onChange={() => {}}
                     value={EdiDate}
-                />{" "}
+                />
                 <input
                     type="hidden"
                     name="SignData"
                     onChange={() => {}}
                     value={hex}
-                />{" "}
+                />
                 <input
                     type="hidden"
                     name="GoodsCl"
                     onChange={() => {}}
                     value={hex}
-                />{" "}
+                />
                 <input
                     type="hidden"
                     name="IspCancelUrl"
                     onChange={() => {}}
                     value={IspCancelUrl}
-                />{" "}
+                />
                 <input
                     id="ReqReserved"
                     name="ReqReserved"
                     value={ReqReserved}
-                />{" "}
+                />
                 <input name="ReturnURL" onChange={() => {}} value={ReturnURL} />
                 <input
                     type="hidden"

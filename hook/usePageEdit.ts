@@ -67,6 +67,9 @@ export const usePageEdit = <Page>(
                 originPage || {}
             )
         );
+
+    console.log({ originPage });
+    console.log(pageMerge());
     const [page, setPage] = useState(pageMerge());
 
     const editUtils = getEditUtils<Page>(editMode, page, setPage, ln);
@@ -125,11 +128,15 @@ export const usePageEdit = <Page>(
 
 export interface IEditPage<T> extends IUsePageEdit<T> {}
 
-export const usePageEditClientSide = (key: TPageKeys, originPage: any) => {
-    const { item } = usePageFindByKey(key);
+export const usePageEditClientSide = (
+    key: TPageKeys,
+    originPage,
+    defaultPage: any
+) => {
     const pageTools = usePageEdit(
-        { pageInfo: item, pageKey: key, locale: "ko" },
-        originPage
+        { pageInfo: originPage, pageKey: key, locale: "ko" },
+        defaultPage
     );
+
     return { ...pageTools };
 };

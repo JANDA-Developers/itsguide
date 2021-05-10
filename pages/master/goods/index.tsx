@@ -536,8 +536,7 @@ export const MsGoodsMain: React.FC<IProp> = () => {
                                                     })}
                                                 >
                                                     <a className="title">
-                                                        {" "}
-                                                        {item.title}{" "}
+                                                        {item.title}
                                                         <ReqBadge
                                                             req={item.elseReq}
                                                         />
@@ -550,7 +549,7 @@ export const MsGoodsMain: React.FC<IProp> = () => {
                                             {yyyymmdd(item.createdAt)}
                                         </div>
                                         <div className="td06">
-                                            <i className="m_title">인원:</i>{" "}
+                                            <i className="m_title">인원:</i>
                                             {item.compeltePeopleCnt}/
                                             {item.maxMember}
                                         </div>
@@ -565,7 +564,7 @@ export const MsGoodsMain: React.FC<IProp> = () => {
                                             {/* <i className="m_title">상태:</i> */}
                                             <PordStatusBadge
                                                 status={item.status}
-                                            />{" "}
+                                            />
                                         </div>
                                         <div className="td09">
                                             <i className="m_title">

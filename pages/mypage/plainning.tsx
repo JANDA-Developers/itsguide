@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { MypageLayout } from "layout/MypageLayout";
+import { MypageLayoutWrap } from "layout/MypageLayout";
 import { auth } from "../../utils/with";
 import { ALLOW_LOGINED, BG } from "../../types/const";
 import { SearchBar } from "../../components/searchBar/SearchBar";
@@ -106,7 +106,7 @@ export const Plainning: React.FC<IProp> = () => {
     };
 
     return (
-        <MypageLayout>
+        <MypageLayoutWrap>
             <div className="in goods_div">
                 <h4>상품관리</h4>
                 <div className="paper_div">
@@ -209,7 +209,7 @@ export const Plainning: React.FC<IProp> = () => {
                                     handleSelectAll={toggleAll}
                                     LeftDiv={
                                         <span className="infotxt">
-                                            총{" "}
+                                            총
                                             <strong>
                                                 {pageInfo.totalCount}
                                             </strong>
@@ -249,7 +249,7 @@ export const Plainning: React.FC<IProp> = () => {
                                             </div> */}
                                                     <div className="th02">
                                                         <span className="m_title">
-                                                            유형:{" "}
+                                                            유형:
                                                         </span>
                                                         {itemTypeToKr(
                                                             item.type
@@ -257,7 +257,7 @@ export const Plainning: React.FC<IProp> = () => {
                                                     </div>
                                                     <div className="th03">
                                                         <span className="m_title">
-                                                            개시일:{" "}
+                                                            개시일:
                                                         </span>
                                                         {yyyymmdd(
                                                             item.createdAt
@@ -281,11 +281,11 @@ export const Plainning: React.FC<IProp> = () => {
                                                                 }
                                                             </span>
                                                             <span className="g-number">
-                                                                상품번호:{" "}
+                                                                상품번호:
                                                                 {item.code}
                                                             </span>
                                                             <strong className="title">
-                                                                {item.title}{" "}
+                                                                {item.title}
                                                                 <ReqBadge
                                                                     req={
                                                                         item.elseReq
@@ -296,7 +296,7 @@ export const Plainning: React.FC<IProp> = () => {
                                                     </div>
                                                     <div className="th05">
                                                         <span className="m_title">
-                                                            출발일:{" "}
+                                                            출발일:
                                                         </span>
                                                         {yyyymmdd(
                                                             item.startDate
@@ -305,10 +305,10 @@ export const Plainning: React.FC<IProp> = () => {
                                                     <div className="th06">
                                                         {/* 단위 : 명 */}
                                                         <span className="m_title">
-                                                            누적:{" "}
+                                                            누적:
                                                         </span>
                                                         <span className="people">
-                                                            성인{" "}
+                                                            성인
                                                             {
                                                                 item
                                                                     .bookerSummary
@@ -316,11 +316,10 @@ export const Plainning: React.FC<IProp> = () => {
                                                             }
                                                         </span>
                                                         <span className="m_title">
-                                                            {" "}
-                                                            /{" "}
+                                                            /
                                                         </span>
                                                         <span className="people">
-                                                            소아{" "}
+                                                            소아
                                                             {
                                                                 item
                                                                     .bookerSummary
@@ -328,11 +327,10 @@ export const Plainning: React.FC<IProp> = () => {
                                                             }
                                                         </span>
                                                         <span className="m_title">
-                                                            {" "}
-                                                            /{" "}
+                                                            /
                                                         </span>
                                                         <span className="people">
-                                                            유아{" "}
+                                                            유아
                                                             {
                                                                 item
                                                                     .bookerSummary
@@ -343,7 +341,7 @@ export const Plainning: React.FC<IProp> = () => {
                                                     <div className="th07">
                                                         {/* 단위 : 건 */}
                                                         {/* <span className="m_title">
-                                                            상태:{" "}
+                                                            상태:
                                                         </span> */}
                                                         <PordStatusBadge
                                                             status={item.status}
@@ -352,10 +350,10 @@ export const Plainning: React.FC<IProp> = () => {
                                                     <div className="th08">
                                                         {/* 단위 : 건 */}
                                                         {/* <span className="m_title">
-                                                            상태:{" "}
+                                                            상태:
                                                         </span> */}
                                                         <span className="present">
-                                                            예약{" "}
+                                                            예약
                                                             {
                                                                 item
                                                                     .bookerSummary
@@ -363,11 +361,10 @@ export const Plainning: React.FC<IProp> = () => {
                                                             }
                                                         </span>
                                                         <span className="m_title">
-                                                            {" "}
-                                                            /{" "}
+                                                            /
                                                         </span>
                                                         <span className="present">
-                                                            대기{" "}
+                                                            대기
                                                             {
                                                                 item
                                                                     .bookerSummary
@@ -375,11 +372,10 @@ export const Plainning: React.FC<IProp> = () => {
                                                             }
                                                         </span>
                                                         <span className="m_title">
-                                                            {" "}
-                                                            /{" "}
+                                                            /
                                                         </span>
                                                         <span className="present">
-                                                            환불{" "}
+                                                            환불
                                                             {
                                                                 item
                                                                     .bookerSummary
@@ -440,20 +436,20 @@ export const Plainning: React.FC<IProp> = () => {
                 defaultProductId={popupProductId}
             />
             <ProductModal key={popupProductId} productId={popupProductId} />
-        </MypageLayout>
+        </MypageLayoutWrap>
     );
 };
 
 export default auth(ALLOW_LOGINED)(Plainning);
 
-// import { MypageLayout } from 'layout/MypageLayout';
+// import { MypageLayoutWrap } from 'layout/MypageLayoutWrap';
 // import { Paginater } from 'components/common/Paginator';
 // import React from 'react';
 
 // interface IProp { }
 
 // export const MyPlanning: React.FC<IProp> = () => {
-//     return <MypageLayout>
+//     return <MypageLayoutWrap>
 //         <div className="in myplanning_box">
 //             <h4>기획관리</h4>
 //             <div className="paper_div">
@@ -627,7 +623,7 @@ export default auth(ALLOW_LOGINED)(Plainning);
 //                 </div>
 //             </div>
 //         </div>
-//     </MypageLayout>
+//     </MypageLayoutWrap>
 // };
 
 // export default MyPlanning;

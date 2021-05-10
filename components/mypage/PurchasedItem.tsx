@@ -86,7 +86,7 @@ export const PurChasedItem: React.FC<IProp> = ({
                 <span>예약일 : {yyyymmdd(item.createdAt)}</span>
                 <span>집합장소 : {product.startPoint}</span>
                 <span>
-                    여행방식 :{" "}
+                    여행방식 :
                     {getTypeTextOfProduct(product.type, product.dateRange)}
                 </span>
                 <span>

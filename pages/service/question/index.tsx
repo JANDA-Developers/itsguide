@@ -22,6 +22,7 @@ import { MemberTopNav } from "../../../components/topNav/MemberTopNav";
 import { Change } from "../../../components/loadingList/LoadingList";
 import dayjs from "dayjs";
 import { AppContext } from "../../_app";
+import { PageEditor } from "../../../components/common/PageEditer";
 
 export const getStaticProps = getStaticPageInfo("question");
 export const Question: React.FC<Ipage> = (pageInfo) => {
@@ -56,7 +57,7 @@ export const Question: React.FC<Ipage> = (pageInfo) => {
     };
 
     const handleSearch = (value: string) => {
-        setOR(["no_eq", "title_eq", "code_eq"], value);
+        setOR(["no_eq", "title_contains", "code_eq"], value);
     };
 
     const gotoView = (inq: questionList_QuestionList_data) => () => {
@@ -68,6 +69,7 @@ export const Question: React.FC<Ipage> = (pageInfo) => {
 
     return (
         <div>
+            <PageEditor pageTools={pageTool} />
             <SubTopNav pageTools={pageTool}>
                 <li className="homedeps1">Member</li>
                 <li className="homedeps2">

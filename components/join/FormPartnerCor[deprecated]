@@ -337,7 +337,7 @@ const FormPartnerCor: React.FC<TForm> = ({ openPopup, handleJoinProcess }) => {
               name="department"
               value={formInfo.department}
               onChange={(e) => { handleForm(e) }}
-            />{" "}
+            />
             <input
               type="text"
               className="form-control w70"

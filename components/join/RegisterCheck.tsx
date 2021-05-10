@@ -232,7 +232,7 @@ const RegisterCheck: React.FC<IProps> = ({ registerInfo }) => {
                                 onChange={() => {
                                     handleSMSAgree("sns");
                                 }}
-                            />{" "}
+                            />
                             예
                         </label>
                         <label htmlFor="snsNo" className="radio-inline">
@@ -244,7 +244,7 @@ const RegisterCheck: React.FC<IProps> = ({ registerInfo }) => {
                                 onChange={() => {
                                     handleSMSAgree("sns");
                                 }}
-                            />{" "}
+                            />
                             아니오
                         </label>
                     </div>
@@ -264,7 +264,7 @@ const RegisterCheck: React.FC<IProps> = ({ registerInfo }) => {
                                 onChange={() => {
                                     handleSMSAgree("email");
                                 }}
-                            />{" "}
+                            />
                             예
                         </label>
                         <label htmlFor="mailNo" className="radio-inline">
@@ -276,7 +276,7 @@ const RegisterCheck: React.FC<IProps> = ({ registerInfo }) => {
                                 onChange={() => {
                                     handleSMSAgree("sns");
                                 }}
-                            />{" "}
+                            />
                             아니오
                         </label>
                     </div>

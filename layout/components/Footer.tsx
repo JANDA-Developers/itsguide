@@ -121,7 +121,6 @@ export const Footer: React.FC<IProp> = () => {
                             </div>
                         </li>
                         <li className="cs">
-                            {" "}
                             <Link href="mailto:kgcenter727@gmail.com">
                                 <a>CONTACT</a>
                             </Link>
@@ -183,7 +182,7 @@ export const Footer: React.FC<IProp> = () => {
                                 <span>
                                     <a href="tel:051-715-0727">
                                         {ln("itsguide_phone")}
-                                    </a>{" "}
+                                    </a>
                                     Am 10:00 ~ pm 5:00
                                 </span>
                             </li>

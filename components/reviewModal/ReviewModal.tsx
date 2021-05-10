@@ -104,6 +104,10 @@ export const ReviewModal: React.FC<IProp> = ({ info, isOpen, closeModal }) => {
         return !!result.data?.AnswerUpdate.ok
     }
 
+    const handleConfirm = () => {
+        
+    }
+
     if (!review) return null;
     return <Change change={!loading}>
         <div onClick={closeModal} className={`popup_bg__review ${isOpen && "popup_bg__review--open"}`}>
@@ -166,6 +170,9 @@ export const ReviewModal: React.FC<IProp> = ({ info, isOpen, closeModal }) => {
                             }
                             {isReplayAble &&
                                 <button onClick={handleReply} className="btn samll">답변하기</button>
+                            }
+                            {isReplayAble &&
+                                <button onClick={handleConfirm} className="btn samll">노출승인</button>
                             }
                         </div>
                     </div>

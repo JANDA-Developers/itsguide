@@ -37,7 +37,6 @@ export const LocalStorageBoard: React.FC<IProp> = ({ onLoad }) => {
                 {items?.map((item) => (
                     <div className="LocalStorageBoard__block" key={item._id}>
                         <h3 className="LocalStorageBoard__title">
-                            {" "}
                             <div>
                                 {item.simpleData.title ||
                                     "타이틀 값이 없습니다."}
@@ -107,7 +106,6 @@ export const SampleBoard: React.FC<ISampleBoardProp> = ({
                 {sampleProducts?.map((item, index) => (
                     <div className="LocalStorageBoard__block" key={item._id}>
                         <h3 className="LocalStorageBoard__title">
-                            {" "}
                             <div>
                                 {item.simpleData.title ||
                                     "타이틀 값이 없습니다."}

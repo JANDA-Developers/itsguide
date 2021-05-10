@@ -16,7 +16,11 @@ import { ItineryForm } from "components/tourWrite/ItineryForm";
 import { AppContext } from "pages/_app";
 import { tapCheck } from "../../../utils/style";
 import TagInput from "../../../components/tagInput/TagInput";
-import { getDefault, useTourWrite } from "../../../hook/useTourWrite";
+import {
+    getDefault,
+    TRangeType,
+    useTourWrite,
+} from "../../../hook/useTourWrite";
 import {
     useProductFindById,
     useProductUpdateReq,
@@ -43,6 +47,7 @@ import { PageEditor } from "../../../components/common/PageEditer";
 import { yyyymmdd } from "../../../utils/yyyymmdd";
 import { useHomepage, useHomepageUpdate } from "../../../hook/useHomepage";
 import { filterOver } from "../../../components/tourWrite/helper";
+import { toNumber } from "../../../utils/toNumber";
 // const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 const Editor = LoadEditor();
@@ -76,7 +81,6 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
     const id = query.id?.[0] as string | undefined;
     const isCreateMode = id ? false : true;
     const { item: product, getData, loading } = useProductFindById(id);
-    const [tempSavedIts, setTempSavedIts] = useState<ItineraryCreateInput[]>();
     const [selectEditorIndex, setSelectEditorIndex] = useState({
         itsIndex: 0,
         contentIndex: 0,
@@ -161,6 +165,10 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
     const isMyProduct = product?.author?._id === myProfile?._id;
 
     const {
+        rangeType,
+        setRangeType,
+        range,
+        setRange,
         imgUploading,
         tourSets,
         tourData,
@@ -175,6 +183,8 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
         setGroupCode,
         hiddenFileInput,
         lastDate,
+        tempSavedIts,
+        setTempSavedIts,
     } = useTourWrite(getDefault(cloneObject(product)));
 
     useEffect(() => {
@@ -325,16 +335,6 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
         });
     };
 
-    const handleTempDateMove = ({ from }: { from?: Date; to?: Date }) => {
-        const temps =
-            tempSavedIts?.map((data, index) => {
-                data.date = dayjs(from).add(index, "day").toDate();
-                return data;
-            }) || [];
-        setits(temps);
-        setTempSavedIts(undefined);
-    };
-
     useEffect(() => {
         initStorage();
     }, []);
@@ -424,21 +424,69 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     <div className="write_type">
                         <div className="title">상품타입</div>
                         <div className="input_form">
-                            <span className="category r3">
+                            <span className="category r3 mr20">
                                 <select
                                     onChange={changeVal(setType)}
                                     value={type}
                                     name="type"
                                 >
                                     <option value={ProductType.TOUR}>
-                                        투어(연일)
+                                        투어
                                     </option>
                                     <option value={ProductType.EXPERIENCE}>
-                                        체험(당일)
+                                        체험
                                     </option>
                                     <option value="">선택없음</option>
                                 </select>
                             </span>
+                            <input
+                                onChange={(e) => {
+                                    const val = e.currentTarget.value;
+                                    setRangeType(val as TRangeType);
+                                }}
+                                type="radio"
+                                id="single"
+                                name="gender"
+                                value="Single"
+                                checked={rangeType === "Single"}
+                            />
+                            <label htmlFor="single">당일여행</label>
+                            <input
+                                onChange={(e) => {
+                                    const val = e.currentTarget.value;
+                                    setRangeType(val as TRangeType);
+                                }}
+                                type="radio"
+                                id="range"
+                                name="gender"
+                                value="Range"
+                                checked={rangeType === ("Range" as TRangeType)}
+                            />
+                            <label htmlFor="range">연일여행</label>
+                            {rangeType === "Range" && (
+                                <div>
+                                    <input
+                                        onChange={(e) => {
+                                            const range = toNumber(
+                                                e.currentTarget.value
+                                            );
+                                            setRange(range);
+                                        }}
+                                        className="w10 mr10"
+                                        type="text"
+                                        value={range || ""}
+                                    />
+                                    박
+                                    <span className="mr10" />
+                                    <input
+                                        className="w10 mr10"
+                                        type="text"
+                                        readOnly
+                                        value={range + 1 || ""}
+                                    />
+                                    일
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div className="write_type">
@@ -750,10 +798,11 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     >
                         <h5 id="itinerary">여행일정</h5>
                         <DayRangePicker
+                            intercept
                             Header={
                                 tempSavedIts && (
                                     <h2 style={{ marginBottom: "1rem" }}>
-                                        새로운 출발일을 선택 해주세요{" "}
+                                        새로운 출발일을 선택 해주세요
                                     </h2>
                                 )
                             }
@@ -763,17 +812,13 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 after: dayjs().add(90, "day").toDate(),
                             }}
                             isRange={type === ProductType.TOUR}
-                            onRangeChange={
-                                tempSavedIts
-                                    ? handleTempDateMove
-                                    : handleDateState
-                            }
+                            onRangeChange={handleDateState}
                             from={firstDate}
                             to={lastDate}
                         >
                             <div className="tourWrite__dayPikcerRangeViewer  mb10">
                                 <div>
-                                    투어 {yyyymmdd(firstDate)} ~{" "}
+                                    투어 {yyyymmdd(firstDate)} ~
                                     {yyyymmdd(lastDate)}
                                 </div>
                             </div>

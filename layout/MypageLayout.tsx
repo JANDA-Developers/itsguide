@@ -1,6 +1,4 @@
-import dayjs from "dayjs";
 import Link from "next/link";
-import { userInfo } from "os";
 import React, { useContext, useRef } from "react";
 import { useCount } from "../hook/useCount";
 import { usePageEditClientSide } from "../hook/usePageEdit";
@@ -8,19 +6,32 @@ import { useUnReadSystemNotiFind } from "../hook/useSystemNoti";
 import { useUpload } from "../hook/useUpload";
 import { useUserUpdate } from "../hook/useUser";
 import { AppContext } from "../pages/_app";
-import { Ffile, ProductStatus } from "../types/api";
-import { BG, BGprofile } from "../types/const";
+import { Ffile, pageInfoRead_PageInfoRead_data } from "../types/api";
+import { BGprofile } from "../types/const";
 import { autoComma } from "../utils/formatter";
 import { omits } from "../utils/omit";
 import { getItemCount, Storage } from "../utils/Storage";
 import mypageLayout from "../info/mypageLayout.json";
 import SubTopNav from "./components/SubTop";
 import { PageEditor } from "../components/common/PageEditer";
+import { usePageFindByKey } from "../hook/usePageInfo";
 
-interface IProp {}
+interface IProp {
+    item: pageInfoRead_PageInfoRead_data;
+}
 
-export const MypageLayout: React.FC<IProp> = ({ children }) => {
-    const pageTools = usePageEditClientSide("mypageLayout", mypageLayout);
+export const MypageLayoutWrap: React.FC = (props) => {
+    const { item } = usePageFindByKey("mypageLayout");
+    if (!item) return null;
+    return <MypageLayout item={item} {...props} />;
+};
+export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
+    console.log({ item });
+    const pageTools = usePageEditClientSide(
+        "mypageLayout",
+        item.value,
+        mypageLayout
+    );
     const [userUpdate] = useUserUpdate();
     const { signleUpload } = useUpload();
     const { items } = useUnReadSystemNotiFind();

@@ -5996,6 +5996,7 @@ export interface productFindById_ProductFindById_data_productReview {
   updatedAt: any;
   isDelete: boolean;
   title: string;
+  isConfiremd: boolean;
   contents: string;
   author: productFindById_ProductFindById_data_productReview_author | null;
   num: number;
@@ -7836,6 +7837,7 @@ export interface getContext_GetProfile_data_unReadNoties {
    */
   content: string;
   isRead: boolean;
+  severity: SystemNotiSeverity;
 }
 
 export interface getContext_GetProfile_data_products {
@@ -9081,6 +9083,7 @@ export interface productReviewFindById_ProductReviewFindById_data {
   updatedAt: any;
   isDelete: boolean;
   title: string;
+  isConfiremd: boolean;
   contents: string;
   author: productReviewFindById_ProductReviewFindById_data_author | null;
   num: number;
@@ -9333,6 +9336,7 @@ export interface productreviewList_ProductReviewList_data {
   updatedAt: any;
   isDelete: boolean;
   title: string;
+  isConfiremd: boolean;
   contents: string;
   author: productreviewList_ProductReviewList_data_author | null;
   num: number;
@@ -9408,6 +9412,43 @@ export interface productreviewCreate {
 
 export interface productreviewCreateVariables {
   params: ProductReviewCreateInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: productreviewConfirm
+// ====================================================
+
+export interface productreviewConfirm_ProductReviewConfirm_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface productreviewConfirm_ProductReviewConfirm_data {
+  __typename: "ProductReview";
+  _id: string;
+}
+
+export interface productreviewConfirm_ProductReviewConfirm {
+  __typename: "ProductReviewConfirmResponse";
+  ok: boolean;
+  error: productreviewConfirm_ProductReviewConfirm_error | null;
+  data: productreviewConfirm_ProductReviewConfirm_data | null;
+}
+
+export interface productreviewConfirm {
+  ProductReviewConfirm: productreviewConfirm_ProductReviewConfirm;
+}
+
+export interface productreviewConfirmVariables {
+  id: string;
 }
 
 /* tslint:disable */
@@ -10478,6 +10519,7 @@ export interface unReadSystemNotiFind_UnReadSystemNotiFind_data {
    */
   content: string;
   isRead: boolean;
+  severity: SystemNotiSeverity;
 }
 
 export interface unReadSystemNotiFind_UnReadSystemNotiFind {
@@ -10568,6 +10610,7 @@ export interface systemNotiList_SystemNotiList_data {
    */
   content: string;
   isRead: boolean;
+  severity: SystemNotiSeverity;
 }
 
 export interface systemNotiList_SystemNotiList {
@@ -10648,6 +10691,626 @@ export interface systemNotiHide {
 
 export interface systemNotiHideVariables {
   ids: string[];
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: ticketFindById
+// ====================================================
+
+export interface ticketFindById_TicketFindById_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface ticketFindById_TicketFindById_data_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketFindById_TicketFindById_data_author_profileImg {
+  __typename: "File";
+  uri: string;
+}
+
+export interface ticketFindById_TicketFindById_data_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketFindById_TicketFindById_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketFindById_TicketFindById_data_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketFindById_TicketFindById_data_author {
+  __typename: "User";
+  _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: ticketFindById_TicketFindById_data_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
+  phoneNumber: string;
+  /**
+   * 프로필 사진
+   */
+  profileImg: ticketFindById_TicketFindById_data_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: ticketFindById_TicketFindById_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: ticketFindById_TicketFindById_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
+   * 통장사본
+   */
+  bankImg: ticketFindById_TicketFindById_data_author_bankImg | null;
+}
+
+export interface ticketFindById_TicketFindById_data_answers_author_profileImg {
+  __typename: "File";
+  uri: string;
+}
+
+export interface ticketFindById_TicketFindById_data_answers_author {
+  __typename: "User";
+  _id: string;
+  name: string;
+  /**
+   * 프로필 사진
+   */
+  profileImg: ticketFindById_TicketFindById_data_answers_author_profileImg | null;
+}
+
+export interface ticketFindById_TicketFindById_data_answers {
+  __typename: "Answer";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  content: string;
+  author: ticketFindById_TicketFindById_data_answers_author;
+}
+
+export interface ticketFindById_TicketFindById_data_attachFiles {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketFindById_TicketFindById_data_thumb {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketFindById_TicketFindById_data {
+  __typename: "Ticket";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  title: string;
+  contents: string;
+  author: ticketFindById_TicketFindById_data_author | null;
+  isNotice: boolean | null;
+  isOpen: boolean | null;
+  answers: (ticketFindById_TicketFindById_data_answers | null)[];
+  summary: string | null;
+  subTitle: string | null;
+  recipientId: string;
+  keyWards: string[] | null;
+  attachFiles: ticketFindById_TicketFindById_data_attachFiles[] | null;
+  thumb: ticketFindById_TicketFindById_data_thumb | null;
+  viewCount: number;
+  recipientName: string;
+  recipientEmail: string;
+  url: string;
+}
+
+export interface ticketFindById_TicketFindById {
+  __typename: "TicketFindByIdResponse";
+  ok: boolean;
+  error: ticketFindById_TicketFindById_error | null;
+  data: ticketFindById_TicketFindById_data | null;
+}
+
+export interface ticketFindById {
+  TicketFindById: ticketFindById_TicketFindById;
+}
+
+export interface ticketFindByIdVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: ticketList
+// ====================================================
+
+export interface ticketList_TicketList_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface ticketList_TicketList_page {
+  __typename: "Page";
+  /**
+   * 현재 페이지 번호
+   */
+  page: number;
+  /**
+   * 페이지당 문서 갯수
+   */
+  cntPerPage: number;
+  /**
+   * 페이지 총 갯수
+   */
+  totalPageSize: number;
+  /**
+   * 시작 페이지 번호
+   */
+  start_page_num: number;
+  /**
+   * 마지막 페이지 번호
+   */
+  end_page_num: number;
+  /**
+   * 이전(<<) 표시 여부
+   */
+  isPrev: boolean;
+  /**
+   * 다음(>>) 표시 여부
+   */
+  isNext: boolean;
+  /**
+   * 이전(<<) 클릭시 표시할 페이지 번호
+   */
+  prev_page_num: number;
+  /**
+   * 다음(>>) 클릭시 표시할 페이지 번호
+   */
+  next_page_num: number;
+  /**
+   * 총 갯수
+   */
+  totalCount: number;
+  /**
+   * 마지막 패이지의 갯수 (index계산 하는데 사용함)
+   */
+  remainder: number;
+}
+
+export interface ticketList_TicketList_data_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketList_TicketList_data_author_profileImg {
+  __typename: "File";
+  uri: string;
+}
+
+export interface ticketList_TicketList_data_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketList_TicketList_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketList_TicketList_data_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketList_TicketList_data_author {
+  __typename: "User";
+  _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: ticketList_TicketList_data_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
+  phoneNumber: string;
+  /**
+   * 프로필 사진
+   */
+  profileImg: ticketList_TicketList_data_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: ticketList_TicketList_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: ticketList_TicketList_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
+   * 통장사본
+   */
+  bankImg: ticketList_TicketList_data_author_bankImg | null;
+}
+
+export interface ticketList_TicketList_data_answers_author_profileImg {
+  __typename: "File";
+  uri: string;
+}
+
+export interface ticketList_TicketList_data_answers_author {
+  __typename: "User";
+  _id: string;
+  name: string;
+  /**
+   * 프로필 사진
+   */
+  profileImg: ticketList_TicketList_data_answers_author_profileImg | null;
+}
+
+export interface ticketList_TicketList_data_answers {
+  __typename: "Answer";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  content: string;
+  author: ticketList_TicketList_data_answers_author;
+}
+
+export interface ticketList_TicketList_data_attachFiles {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketList_TicketList_data_thumb {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface ticketList_TicketList_data {
+  __typename: "Ticket";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  title: string;
+  contents: string;
+  author: ticketList_TicketList_data_author | null;
+  isNotice: boolean | null;
+  isOpen: boolean | null;
+  answers: (ticketList_TicketList_data_answers | null)[];
+  summary: string | null;
+  subTitle: string | null;
+  recipientId: string;
+  keyWards: string[] | null;
+  attachFiles: ticketList_TicketList_data_attachFiles[] | null;
+  thumb: ticketList_TicketList_data_thumb | null;
+  viewCount: number;
+  recipientName: string;
+  recipientEmail: string;
+  url: string;
+}
+
+export interface ticketList_TicketList {
+  __typename: "TicketListResponse";
+  ok: boolean;
+  error: ticketList_TicketList_error | null;
+  page: ticketList_TicketList_page;
+  data: ticketList_TicketList_data[];
+}
+
+export interface ticketList {
+  TicketList: ticketList_TicketList;
+}
+
+export interface ticketListVariables {
+  sort?: _TicketSort[] | null;
+  filter?: _TicketFilter | null;
+  pageInput: pageInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: ticketCreate
+// ====================================================
+
+export interface ticketCreate_TicketCreate_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface ticketCreate_TicketCreate_data {
+  __typename: "Ticket";
+  _id: string;
+}
+
+export interface ticketCreate_TicketCreate {
+  __typename: "TicketCreateResponse";
+  ok: boolean;
+  error: ticketCreate_TicketCreate_error | null;
+  data: ticketCreate_TicketCreate_data | null;
+}
+
+export interface ticketCreate {
+  TicketCreate: ticketCreate_TicketCreate;
+}
+
+export interface ticketCreateVariables {
+  params: TicketCreateInput;
+  recipientId: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: ticketDelete
+// ====================================================
+
+export interface ticketDelete_TicketDelete_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface ticketDelete_TicketDelete {
+  __typename: "TicketDeleteResponseResponse";
+  ok: boolean;
+  error: ticketDelete_TicketDelete_error | null;
+}
+
+export interface ticketDelete {
+  TicketDelete: ticketDelete_TicketDelete;
+}
+
+export interface ticketDeleteVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: ticketUpdate
+// ====================================================
+
+export interface ticketUpdate_TicketUpdate_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface ticketUpdate_TicketUpdate_data {
+  __typename: "Ticket";
+  _id: string;
+}
+
+export interface ticketUpdate_TicketUpdate {
+  __typename: "TicketUpdateResponse";
+  ok: boolean;
+  error: ticketUpdate_TicketUpdate_error | null;
+  data: ticketUpdate_TicketUpdate_data | null;
+}
+
+export interface ticketUpdate {
+  TicketUpdate: ticketUpdate_TicketUpdate;
+}
+
+export interface ticketUpdateVariables {
+  params: TicketUpdateInput;
+  id: string;
 }
 
 /* tslint:disable */
@@ -14406,6 +15069,7 @@ export interface FproductReview {
   updatedAt: any;
   isDelete: boolean;
   title: string;
+  isConfiremd: boolean;
   contents: string;
   author: FproductReview_author | null;
   num: number;
@@ -14509,6 +15173,215 @@ export interface FsystemNoti {
    */
   content: string;
   isRead: boolean;
+  severity: SystemNotiSeverity;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL fragment: Fticket
+// ====================================================
+
+export interface Fticket_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fticket_author_profileImg {
+  __typename: "File";
+  uri: string;
+}
+
+export interface Fticket_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fticket_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fticket_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fticket_author {
+  __typename: "User";
+  _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: Fticket_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
+  phoneNumber: string;
+  /**
+   * 프로필 사진
+   */
+  profileImg: Fticket_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: Fticket_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: Fticket_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
+   * 통장사본
+   */
+  bankImg: Fticket_author_bankImg | null;
+}
+
+export interface Fticket_answers_author_profileImg {
+  __typename: "File";
+  uri: string;
+}
+
+export interface Fticket_answers_author {
+  __typename: "User";
+  _id: string;
+  name: string;
+  /**
+   * 프로필 사진
+   */
+  profileImg: Fticket_answers_author_profileImg | null;
+}
+
+export interface Fticket_answers {
+  __typename: "Answer";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  content: string;
+  author: Fticket_answers_author;
+}
+
+export interface Fticket_attachFiles {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fticket_thumb {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fticket {
+  __typename: "Ticket";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  title: string;
+  contents: string;
+  author: Fticket_author | null;
+  isNotice: boolean | null;
+  isOpen: boolean | null;
+  answers: (Fticket_answers | null)[];
+  summary: string | null;
+  subTitle: string | null;
+  recipientId: string;
+  keyWards: string[] | null;
+  attachFiles: Fticket_attachFiles[] | null;
+  thumb: Fticket_thumb | null;
+  viewCount: number;
+  recipientName: string;
+  recipientEmail: string;
+  url: string;
 }
 
 /* tslint:disable */
@@ -14806,6 +15679,14 @@ export enum SettlementStatus {
   COMPLETE = "COMPLETE",
   READY = "READY",
   REQUEST = "REQUEST",
+}
+
+/**
+ * 시스템 노티피케이션 심각도
+ */
+export enum SystemNotiSeverity {
+  Normal = "Normal",
+  Serious = "Serious",
 }
 
 /**
@@ -15123,6 +16004,26 @@ export enum _SystemNotiSort {
   createdAt_desc = "createdAt_desc",
   updatedAt_asc = "updatedAt_asc",
   updatedAt_desc = "updatedAt_desc",
+}
+
+/**
+ * Auto generated sort type
+ */
+export enum _TicketSort {
+  createdAt_asc = "createdAt_asc",
+  createdAt_desc = "createdAt_desc",
+  isNotice_asc = "isNotice_asc",
+  isNotice_desc = "isNotice_desc",
+  likeCount_asc = "likeCount_asc",
+  likeCount_desc = "likeCount_desc",
+  subTitle_asc = "subTitle_asc",
+  subTitle_desc = "subTitle_desc",
+  title_asc = "title_asc",
+  title_desc = "title_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
+  viewCount_asc = "viewCount_asc",
+  viewCount_desc = "viewCount_desc",
 }
 
 /**
@@ -15569,6 +16470,7 @@ export interface ProductReviewUpdateInput {
   attachFiles?: FileUpdateInput[] | null;
   thumb?: FileUpdateInput | null;
   rating?: number | null;
+  isConfiremd?: boolean | null;
 }
 
 export interface ProductUpdateInput {
@@ -15728,6 +16630,31 @@ export interface SmsTemplateUpdateInput {
   description?: string | null;
   trigger?: NotificationTriggerCreateInput | null;
   tags?: GqlTagInput[] | null;
+}
+
+export interface TicketCreateInput {
+  title: string;
+  content: string;
+  url: string;
+  isNotice?: boolean | null;
+  isOpen?: boolean | null;
+  summary?: string | null;
+  subTitle?: string | null;
+  keyWards?: string[] | null;
+  attachFiles?: FileCreateInput[] | null;
+  thumb?: FileCreateInput | null;
+}
+
+export interface TicketUpdateInput {
+  title?: string | null;
+  contents: string;
+  isNotice?: boolean | null;
+  isOpen?: boolean | null;
+  summary?: string | null;
+  subTitle?: string | null;
+  keyWards?: string[] | null;
+  attachFiles?: FileUpdateInput[] | null;
+  thumb?: FileUpdateInput | null;
 }
 
 export interface TravelerInput {
@@ -16235,6 +17162,8 @@ export interface _ProductReviewFilter {
   groupCode_eq?: string | null;
   groupCode_not_eq?: string | null;
   groupCode_in?: string[] | null;
+  isConfiremd_eq?: boolean | null;
+  isConfiremd_not_eq?: boolean | null;
   title_eq?: string | null;
   title_not_eq?: string | null;
   title_contains?: string | null;
@@ -16467,6 +17396,63 @@ export interface _SystemNotiFilter {
   type_eq?: string | null;
   type_not_eq?: string | null;
   type_in?: string[] | null;
+  _id_eq?: string | null;
+  _id_not_eq?: string | null;
+  _id_in?: string[] | null;
+  createdAt_eq?: any | null;
+  createdAt_not_eq?: any | null;
+  createdAt_lte?: any | null;
+  createdAt_lt?: any | null;
+  createdAt_gte?: any | null;
+  createdAt_gt?: any | null;
+}
+
+export interface _TicketFilter {
+  AND?: _TicketFilter[] | null;
+  OR?: _TicketFilter[] | null;
+  recipientId_eq?: string | null;
+  recipientId_not_eq?: string | null;
+  recipientId_contains?: string | null;
+  recipientId_not_contains?: string | null;
+  recipientId_in?: string[] | null;
+  recipientId_not_in?: string[] | null;
+  recipientName_eq?: string | null;
+  recipientName_not_eq?: string | null;
+  recipientName_contains?: string | null;
+  recipientName_not_contains?: string | null;
+  recipientName_in?: string[] | null;
+  recipientName_not_in?: string[] | null;
+  recipientEmail_eq?: string | null;
+  recipientEmail_not_eq?: string | null;
+  recipientEmail_contains?: string | null;
+  recipientEmail_not_contains?: string | null;
+  recipientEmail_in?: string[] | null;
+  recipientEmail_not_in?: string[] | null;
+  title_eq?: string | null;
+  title_not_eq?: string | null;
+  title_contains?: string | null;
+  title_not_contains?: string | null;
+  title_in?: string[] | null;
+  title_not_in?: string[] | null;
+  authorEmail_eq?: string | null;
+  authorEmail_not_eq?: string | null;
+  authorEmail_in?: string[] | null;
+  authorNick_eq?: string | null;
+  authorNick_not_eq?: string | null;
+  isNotice_eq?: boolean | null;
+  isNotice_not_eq?: boolean | null;
+  isOpen_eq?: boolean | null;
+  isOpen_not_eq?: boolean | null;
+  subTitle_eq?: string | null;
+  subTitle_not_eq?: string | null;
+  subTitle_contains?: string | null;
+  subTitle_not_contains?: string | null;
+  subTitle_in?: string[] | null;
+  subTitle_not_in?: string[] | null;
+  keyWards_eq?: string | null;
+  keyWards_not_eq?: string | null;
+  keyWards_in?: string[] | null;
+  keyWards_contains?: string | null;
   _id_eq?: string | null;
   _id_not_eq?: string | null;
   _id_in?: string[] | null;

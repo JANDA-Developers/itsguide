@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { MypageLayout } from "layout/MypageLayout";
+import { MypageLayoutWrap } from "layout/MypageLayout";
 import { AppContext } from "../_app";
 import { getItemCount } from "../../utils/Storage";
 import { GENDER, Lang, UserRole } from "../../types/api";
@@ -248,7 +248,7 @@ export const MyPageProfile: React.FC<IProp> = () => {
     }));
 
     return (
-        <MypageLayout>
+        <MypageLayoutWrap>
             <div className="in">
                 <h4>회원정보</h4>
                 <div className="mypage_page">
@@ -296,7 +296,7 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                         <li className="ct">
                                             <span>{bookings.length}</span>
                                             <p>
-                                                총 구매 수{" "}
+                                                총 구매 수
                                                 {/* <i className="jandaicon-info2" /> */}
                                             </p>
                                         </li>
@@ -955,7 +955,7 @@ export const MyPageProfile: React.FC<IProp> = () => {
                 onSubmit={submitPassword}
                 id="PsswordModal"
             />
-        </MypageLayout>
+        </MypageLayoutWrap>
     );
 };
 

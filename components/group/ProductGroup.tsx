@@ -149,8 +149,8 @@ export const ProductGroup: React.FC<IProp> = ({
                                                         <div className="date">
                                                             {yyyymmdd(
                                                                 pd.startDate
-                                                            )}{" "}
-                                                            ~{" "}
+                                                            )}
+                                                            ~
                                                             {yyyymmdd(
                                                                 pd.endDate
                                                             )}

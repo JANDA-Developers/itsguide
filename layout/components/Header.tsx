@@ -31,7 +31,7 @@ export const Header: React.FC<IProp> = () => {
     const rotuer = useRouter();
     const { locale, pathname, query } = rotuer;
 
-    const { isLogin, myProfile, isManager, isSeller, isAdmin, ln } = useContext(
+    const { isLogin, myProfile, isManager, isSeller, ln } = useContext(
         AppContext
     );
 
@@ -365,7 +365,10 @@ export const Header: React.FC<IProp> = () => {
                                         >
                                             <li>
                                                 <Link
-                                                    href={{ query, pathname }}
+                                                    href={{
+                                                        query,
+                                                        pathname,
+                                                    }}
                                                     locale="ko"
                                                 >
                                                     <a>KOREAN</a>
@@ -373,7 +376,10 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
-                                                    href={{ query, pathname }}
+                                                    href={{
+                                                        query,
+                                                        pathname,
+                                                    }}
                                                     locale="en"
                                                 >
                                                     <a>ENGLISH</a>
@@ -381,7 +387,10 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
-                                                    href={{ query, pathname }}
+                                                    href={{
+                                                        query,
+                                                        pathname,
+                                                    }}
                                                     locale="ja"
                                                 >
                                                     <a>JAPANESE</a>
@@ -389,7 +398,10 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
-                                                    href={{ query, pathname }}
+                                                    href={{
+                                                        query,
+                                                        pathname,
+                                                    }}
                                                     locale="chi"
                                                 >
                                                     <a>CHINESE</a>

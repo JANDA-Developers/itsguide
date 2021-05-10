@@ -86,7 +86,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                         <div className="th01">탈퇴사유</div>
                                         <div className="td01">
                                             <span>
-                                                [{resignReasonType}]{" "}
+                                                [{resignReasonType}]
                                                 {resignReason}
                                             </span>
                                         </div>
@@ -99,7 +99,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                     <div className="info_page">
                         <div className="full_div">
                             <h4>
-                                회원정보{" "}
+                                회원정보
                                 <button
                                     onClick={userWriteModalHook.openModal}
                                     className="btn mr10"

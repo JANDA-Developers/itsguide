@@ -153,7 +153,7 @@ export const Basket: React.FC<IProp> = ({
                         </div>
                         <div className="t03">
                             <div className="day">
-                                {ln("startDate")} :{" "}
+                                {ln("startDate")} :
                                 <strong>
                                     {dayjs(item.startDate).format(
                                         "MM.DD (ddd)"
@@ -171,7 +171,7 @@ export const Basket: React.FC<IProp> = ({
                                 )}
                             </div>
                             <div className="men">
-                                {ln("select_people")} :{" "}
+                                {ln("select_people")} :
                                 <strong>
                                     {ln("total")} {getTotalCount(item.count)}
                                     {ln("person_unit")}
@@ -211,8 +211,8 @@ export const Basket: React.FC<IProp> = ({
                                 {ln("start_travel")} D-{item.Dday}
                             </div>
                             <div className="men_cunt">
-                                {ln("party_members")} :{" "}
-                                <strong>{item.compeltePeopleCnt}</strong> /{" "}
+                                {ln("party_members")} :
+                                <strong>{item.compeltePeopleCnt}</strong> /
                                 {item.maxMember}
                             </div>
                             <div className="state onsale">{item.status}</div>

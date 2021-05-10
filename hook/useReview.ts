@@ -1,5 +1,6 @@
 import { PRODUCT_FIND_BY_ID, PRODUCT_LIST } from "../apollo/gql/product";
 import {
+    PRODUCTREVIEW_CONFIRM,
     PRODUCTREVIEW_CREATE,
     PRODUCTREVIEW_DELETE,
     PRODUCTREVIEW_UPDAET,
@@ -9,6 +10,8 @@ import {
     PRODUCT_REVIEW_LIST,
 } from "../apollo/gql/review";
 import {
+    productreviewConfirm,
+    productreviewConfirmVariables,
     productreviewDelete,
     productreviewDeleteVariables,
     productreviewCreate,
@@ -22,6 +25,17 @@ import {
 import { getRefetch } from "../utils/api";
 import { generateFindQuery, generateMutationHook } from "../utils/query";
 
+export const useProductReviewConfirm = generateMutationHook<
+    productreviewConfirm,
+    productreviewConfirmVariables
+>(PRODUCTREVIEW_CONFIRM, {
+    ...getRefetch(
+        PRODUCT_REVIEW_LIST,
+        PRODUCT_LIST,
+        PRODUCT_FIND_BY_ID,
+        PRODUCT_REVIEW_FIND_BY_ID
+    ),
+});
 export const useProductReviewCreate = generateMutationHook<
     productreviewCreate,
     productreviewCreateVariables
@@ -44,6 +58,7 @@ export const useProductReviewUpdate = generateMutationHook<
         PRODUCT_REVIEW_FIND_BY_ID
     ),
 });
+e;
 export const useProductReviewDelete = generateMutationHook<
     productreviewDelete,
     productreviewDeleteVariables

@@ -1,5 +1,5 @@
 import React from "react";
-import { MypageLayout } from "../../layout/MypageLayout";
+import { MypageLayoutWrap } from "../../layout/MypageLayout";
 import { ALLOW_LOGINED } from "../../types/const";
 import { auth } from "../../utils/with";
 import dayjs from "dayjs";
@@ -55,7 +55,7 @@ export const MyPageBoard: React.FC<IProp> = () => {
     const { slice, paging, setPage } = generateClientPaging(items, viewCount);
 
     return (
-        <MypageLayout>
+        <MypageLayoutWrap>
             <div className="in myboard_box">
                 <h4>나의 게시글</h4>
                 <div className="paper_div">
@@ -81,7 +81,7 @@ export const MyPageBoard: React.FC<IProp> = () => {
                             <div className="con_bottom">
                                 <div className="alignment">
                                     <div className="left_div">
-                                        총{" "}
+                                        총
                                         <strong>
                                             {autoComma(items.length)}
                                         </strong>
@@ -161,7 +161,7 @@ export const MyPageBoard: React.FC<IProp> = () => {
                     </div>
                 </div>
             </div>
-        </MypageLayout>
+        </MypageLayoutWrap>
     );
 };
 

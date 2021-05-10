@@ -276,7 +276,7 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                             <input
                                                                 checked={true}
                                                                 type="radio"
-                                                            />{" "}
+                                                            />
                                                             본인 계좌환불
                                                         </div>
                                                         <div className="bank_info">
