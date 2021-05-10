@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { useIdSelecter } from "../../hook/useIdSelecter";
 import { useUpdate } from "../../hook/useUpdater";
@@ -129,7 +130,9 @@ export const Basket: React.FC<IProp> = ({
                                 </div>
                                 <div className="code">{item.code}</div>
                                 <div className="title">
-                                    <a href="/">{item.title}</a>
+                                    <Link href="/">
+                                        <a>{item.title}</a>
+                                    </Link>
                                 </div>
                                 <div className="subtitle">{item.subTitle}</div>
                             </div>

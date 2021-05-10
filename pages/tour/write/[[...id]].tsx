@@ -386,23 +386,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                             {productStatus(product.status)}
                         </h3>
                     )}
-                    {/* 아래는 오직 관리자만 적용할 수 있음 아래는 상태가 CANCEL상태이거나  */}
-                    {/* {isManager && <div className="write_type">
-                    <div className="title">상태관리</div>
-                    <div className="input_form">
-                        <ul>
-                            <li><input onChange={handleChangeStatus} type="radio" name="status" id="status-sale" value={ProductStatus.OPEN} checked={status === ProductStatus.OPEN} className="radio" /><label htmlFor="status-sale">판매중</label></li>
-                            <li><input onChange={handleChangeStatus} type="radio" name="status" id="status-cancel" value={ProductStatus.CANCELD} checked={status === ProductStatus.CANCELD} className="radio" /><label htmlFor="status-cancel">취소</label></li>
-                            <li><input onChange={handleChangeStatus} type="radio" name="status" id="status-ready" value={ProductStatus.READY} checked={status === ProductStatus.READY} className="radio" /><label htmlFor="status-ready">생성요청</label></li>
-                            <li><input onChange={handleChangeStatus} type="radio" name="status" id="status-refused" value={ProductStatus.REFUSED} checked={status === ProductStatus.REFUSED} className="radio" /><label htmlFor="status-refused">생성거절</label></li>
-                            <li><input onChange={handleChangeStatus} type="radio" name="status" id="status-updateRefuse" value={ProductStatus.UPDATE_REQ_REFUSED} checked={status === ProductStatus.UPDATE_REQ_REFUSED} className="radio" /><label htmlFor="updateRefuse">업데이트거절</label></li>
-                            <li><input onChange={handleChangeStatus} type="radio" name="status" id="status-upReq" value={ProductStatus.UPDATE_REQ} checked={status === ProductStatus.UPDATE_REQ} className="radio" /><label htmlFor="status-upReq">업데이트 요청</label></li>
-                            <li><input onChange={handleChangeStatus} type="radio" name="status" id="status-complete" value={ProductStatus.COMPLETED} checked={status === ProductStatus.COMPLETED} className="radio" /><label htmlFor="status-complete">판매완료</label></li>
-                            <li><input onChange={handleChangeStatus} type="radio" name="status" id="status-expire" value={ProductStatus.EXPIRED} checked={status === ProductStatus.EXPIRED} className="radio" /><label htmlFor="status-expire">만료</label></li>
-                        </ul>
-                    </div>
-                </div>
-                } */}
+
                     {isCreateMode && (
                         <div className="write_type">
                             <div className="title">회차연결</div>

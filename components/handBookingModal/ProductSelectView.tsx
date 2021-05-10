@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { useProductFindById } from "../../hook/useProduct";
 import { Fproduct } from "../../types/api";
@@ -12,9 +13,11 @@ interface IProp {
 export const ProductSelectView: React.FC<IProp> = ({ id, item }) => {
     return (
         <div className="goodsall__choice_info">
-            <a className="close_icon">
-                <i className="flaticon-multiply"></i>
-            </a>
+            <Link href="/">
+                <a className="close_icon">
+                    <i className="flaticon-multiply"></i>
+                </a>
+            </Link>
             <div className="goodsall__list__img">
                 <img src={thumbNail(item?.images)?.uri} alt="상품이미지" />
             </div>

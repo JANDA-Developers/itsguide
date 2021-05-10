@@ -1,5 +1,6 @@
 import { from } from "@apollo/client";
 import Head from "next/head";
+import Link from "next/link";
 import React, { useEffect, useLayoutEffect } from "react";
 
 export interface INiceElementProp {
@@ -63,7 +64,6 @@ const NiceElments: React.FC<INiceElementProp> = ({
     endPoint,
     ReqReserved,
 }) => {
-
     return (
         <div
             style={{
@@ -204,9 +204,11 @@ const NiceElments: React.FC<INiceElementProp> = ({
                     onChange={() => {}}
                     value="KO"
                 />
-                <a href="#" className="btn_blue" onClick={() => {}}>
-                    REQUEST
-                </a>
+                <Link href="#">
+                    <a className="btn_blue" onClick={() => {}}>
+                        REQUEST
+                    </a>
+                </Link>
             </form>
         </div>
     );

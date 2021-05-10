@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { genderToKR, userStatusKR, withNick } from "../../utils/enumToKr";
 import { autoHypenPhone } from "../../utils/formatter";
@@ -85,11 +86,13 @@ export const PartnerTable: React.FC<IMemberTableProp> = ({
                     <div className="td03">{user.email}</div>
                     <div className="td04">
                         <i className="m_title">휴대폰:</i>
-                        <a href={`tel:${user.phoneNumber}`}>
-                            {autoHypenPhone(
-                                user.busi_contact || user.phoneNumber
-                            )}
-                        </a>
+                        <Link href={`tel:${user.phoneNumber}`}>
+                            <a>
+                                {autoHypenPhone(
+                                    user.busi_contact || user.phoneNumber
+                                )}
+                            </a>
+                        </Link>
                     </div>
                     <div className="td05">
                         <i className="m_title">성별:</i>

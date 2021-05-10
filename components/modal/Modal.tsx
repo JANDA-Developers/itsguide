@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Link from "next/link";
 import React from "react";
 import ReactDOM from "react-dom";
 import { IUseModal } from "../../hook/useModal";

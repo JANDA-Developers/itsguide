@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { useModal } from "../../hook/useModal";
@@ -130,9 +131,9 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                             </div>
                                             <div className="th02">아이디</div>
                                             <div className="td02">
-                                                <a href={`mailto:${email}`}>
-                                                    {email}
-                                                </a>
+                                                <Link href={`mailto:${email}`}>
+                                                    <a>{email}</a>
+                                                </Link>
                                             </div>
                                             <div className="th03">휴대폰</div>
                                             <div className="td03">

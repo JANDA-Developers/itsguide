@@ -164,37 +164,59 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             />
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link03")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link03")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link04")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link04")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link05")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link05")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link06")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link06")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link07")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link07")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link08")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link08")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link09")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link09")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link10")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link10")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link11")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link11")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link12")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link12")} />
+                            </Link>
                         </li>
                         <li>
-                            <a href="/tour" {...edit("m_03_link13")} />
+                            <Link href="/tour">
+                                <a {...edit("m_03_link13")} />
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -211,10 +233,12 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             </div>
                             <div className="right_div">
                                 <span className="goto_page">
-                                    <a href="/tour">
-                                        {ln("gotoList")}
-                                        <i className="flaticon-menu-1"></i>
-                                    </a>
+                                    <Link href="/tour">
+                                        <a>
+                                            {ln("gotoList")}
+                                            <i className="flaticon-menu-1"></i>
+                                        </a>
+                                    </Link>
                                 </span>
                             </div>
                         </div>
@@ -241,10 +265,12 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             </div>
                             <div className="right_div">
                                 <span className="goto_page">
-                                    <a href="/tour">
-                                        {ln("gotoList")}
-                                        <i className="flaticon-menu-1"></i>
-                                    </a>
+                                    <Link href="/tour">
+                                        <a>
+                                            {ln("gotoList")}
+                                            <i className="flaticon-menu-1"></i>
+                                        </a>
+                                    </Link>
                                 </span>
                             </div>
                         </div>
@@ -409,10 +435,12 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             </div>
                             <div className="right_div">
                                 <span className="goto_page">
-                                    <a href="/tour">
-                                        {ln("gotoList")}
-                                        <i className="flaticon-menu-1"></i>
-                                    </a>
+                                    <Link href="/tour">
+                                        <a>
+                                            {ln("gotoList")}
+                                            <i className="flaticon-menu-1"></i>
+                                        </a>
+                                    </Link>
                                 </span>
                             </div>
                         </div>
@@ -437,10 +465,12 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             </div>
                             <div className="right_div">
                                 <span className="goto_page">
-                                    <a href="/tour">
-                                        {ln("gotoList")}
-                                        <i className="flaticon-menu-1"></i>
-                                    </a>
+                                    <Link href="/tour">
+                                        <a>
+                                            {ln("gotoList")}
+                                            <i className="flaticon-menu-1"></i>
+                                        </a>
+                                    </Link>
                                 </span>
                             </div>
                         </div>
@@ -471,10 +501,9 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <span {...edit("m_07_box01_title")} />
                         </h2>
                         <div className="link">
-                            <a
-                                href="/member/join"
-                                {...edit("m_07_box01_link")}
-                            ></a>
+                            <Link href="/member/join">
+                                <a {...edit("m_07_box01_link")}></a>
+                            </Link>
                         </div>
                     </div>
                     <div className="ovj" {...edit("m_07_box01_ovj")} />

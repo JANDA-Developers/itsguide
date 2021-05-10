@@ -235,10 +235,10 @@ export const StieInfo: React.FC<Ipage> = (pageInfo) => {
                             />
                             <h2 {...edit("con07_title")} />
                             <div className="link">
-                                <a
-                                    href="../sub/join.html"
-                                    {...edit("con07_linktxt")}
-                                />
+                                <Link href="../sub/join.html">
+                                    {" "}
+                                    <a {...edit("con07_linktxt")} />
+                                </Link>
                             </div>
                         </div>
                         <div className="ovj" {...edit("con07_ovj")} />

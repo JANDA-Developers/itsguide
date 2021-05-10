@@ -29,7 +29,9 @@ export const ProductListBlock: React.FC<IProp> = ({ product }) => {
             </div>
             <div className="txt1">
                 <div className="title">
-                    <a href={"/tour/view/" + product._id}>{product.title}</a>
+                    <Link href={"/tour/view/" + product._id}>
+                        <a>{product.title}</a>
+                    </Link>
                 </div>
                 <div className="subtitle">{product.subTitle}</div>
                 <div className="tag">

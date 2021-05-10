@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { useHomepage } from "../../hook/useHomepage";
 import Payment from "../../pages/payment";
