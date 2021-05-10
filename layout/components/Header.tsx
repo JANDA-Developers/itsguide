@@ -659,32 +659,33 @@ export const Header: React.FC<IProp> = () => {
                                         </ul>
                                     </li>
                                 )}
-
-                                <li className="a_menu_tit deps">
-                                    <Link href="/member/login">
-                                        <a>
-                                            Member
-                                            <i className="jandaicon-arr4-right"></i>
-                                        </a>
-                                    </Link>
-                                    <ul className="depth1">
-                                        <li>
-                                            <Link href="/member/login">
-                                                <a>{ln("login")}</a>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/member/join">
-                                                <a>{ln("join")}</a>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/member/findmembers">
-                                                <a>{ln("findmembers")}</a>
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </li>
+                                {isLogin && (
+                                    <li className="a_menu_tit deps">
+                                        <Link href="/member/login">
+                                            <a>
+                                                Member
+                                                <i className="jandaicon-arr4-right"></i>
+                                            </a>
+                                        </Link>
+                                        <ul className="depth1">
+                                            <li>
+                                                <Link href="/member/login">
+                                                    <a>{ln("login")}</a>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/member/join">
+                                                    <a>{ln("join")}</a>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/member/findmembers">
+                                                    <a>{ln("findmembers")}</a>
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                )}
                             </ul>
                             <button
                                 className="btn_all_close"

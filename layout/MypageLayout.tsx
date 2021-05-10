@@ -15,6 +15,7 @@ import mypageLayout from "../info/mypageLayout.json";
 import SubTopNav from "./components/SubTop";
 import { PageEditor } from "../components/common/PageEditer";
 import { usePageFindByKey } from "../hook/usePageInfo";
+import { isMaster } from "cluster";
 
 interface IProp {
     item: pageInfoRead_PageInfoRead_data;
@@ -113,11 +114,13 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
                                 <a>회원정보</a>
                             </Link>
                         </li>
-                        <li className={isTapOn("notification")}>
-                            <Link href="/mypage/notification">
-                                <a>알림</a>
-                            </Link>
-                        </li>
+                        {!isMaster && isSeller && (
+                            <li className={isTapOn("notification")}>
+                                <Link href="/mypage/notification">
+                                    <a>알림</a>
+                                </Link>
+                            </li>
+                        )}
                         {/* 개인/가이드/가이드 -*/}
                         {isSeller || (
                             <li className={isTapOn("purchase")}>
@@ -149,7 +152,7 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
                             </li>
                         )}
                         {/* 가이드/가이드 -*/}
-                        {isParterB && (
+                        {isSeller && (
                             <li className={isTapOn("plainning")}>
                                 <Link href="/mypage/plainning">
                                     <a>상품관리</a>
