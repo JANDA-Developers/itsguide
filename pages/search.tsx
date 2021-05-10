@@ -23,6 +23,7 @@ import { AppContext } from "./_app";
 import { PageEditor } from "../components/common/PageEditer";
 import { Change } from "../components/loadingList/LoadingList";
 import { removeSpecialChar } from "../utils/formatter";
+import Link from "next/link";
 
 type TSearchParam = {
     authorNick?: string;
@@ -137,7 +138,9 @@ export const Search: React.FC<Ipage> = (_pageInfo) => {
             <SubTopNav pageTools={pageTools}>
                 <li className="homedeps1">Member</li>
                 <li className="homedeps2">
-                    <a href="/">상품검색</a>
+                    <Link href="/">
+                        <a>상품검색</a>
+                    </Link>
                 </li>
             </SubTopNav>
             <PageEditor pageTools={pageTools} />

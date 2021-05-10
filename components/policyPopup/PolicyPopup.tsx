@@ -1,4 +1,5 @@
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
 interface IProps {
     closePopup: (element: string | null) => void;
@@ -8,40 +9,42 @@ const PolicyPopup: React.FC<IProps> = ({ closePopup }) => {
     return (
         <>
             <div id="Popup01" className="popup_bg" style={{ display: "none" }}>
-
                 <div className="policyA in_txt">
                     <a className="close_icon">
                         <i
                             className="flaticon-multiply"
                             onClick={() => {
-                                closePopup('Popup01');
+                                closePopup("Popup01");
                             }}
                         />
                     </a>
                     <div className="page">
                         <h4 className="rule_tit">이용약관</h4>
                         <div className="terms-contents">
-                            <h5>제 1조 목적</h5>
-                           -
-                    </div>
+                            <h5>제 1조 목적</h5>-
+                        </div>
                     </div>
                 </div>
                 {/* // Popup:이용약관 */}
                 {/* Popup:개인정보 수집 및 이용 동의 */}
-                <div id="Popup02" className="popup_bg" style={{ display: "none" }}>
+                <div
+                    id="Popup02"
+                    className="popup_bg"
+                    style={{ display: "none" }}
+                >
                     <div className="policyA in_txt">
                         <a className="close_icon">
                             <i
                                 className="flaticon-multiply"
                                 onClick={() => {
-                                    closePopup('Popup02');
+                                    closePopup("Popup02");
                                 }}
                             />
                         </a>
                         <div className="page">
-                            <h4>개인정보 수집 및 이용 동의</h4>
-                          -
-                        </div></div>
+                            <h4>개인정보 수집 및 이용 동의</h4>-
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* // Popup:개인정보 수집 및 이용 동의 */}
@@ -52,7 +55,7 @@ const PolicyPopup: React.FC<IProps> = ({ closePopup }) => {
                         <i
                             className="flaticon-multiply"
                             onClick={() => {
-                                closePopup('Popup03');
+                                closePopup("Popup03");
                             }}
                         />
                     </a>
@@ -73,7 +76,10 @@ const PolicyPopup: React.FC<IProps> = ({ closePopup }) => {
                             <tbody>
                                 <tr>
                                     <td>잔다</td>
-                                    <td>예약 및 예약관리와 정산을 위한 서비스 제공</td>
+                                    <td>
+                                        예약 및 예약관리와 정산을 위한 서비스
+                                        제공
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -89,7 +95,7 @@ const PolicyPopup: React.FC<IProps> = ({ closePopup }) => {
                         <i
                             className="flaticon-multiply"
                             onClick={() => {
-                                closePopup('Popup04');
+                                closePopup("Popup04");
                             }}
                         />
                     </a>
@@ -97,7 +103,7 @@ const PolicyPopup: React.FC<IProps> = ({ closePopup }) => {
                         <h4>여행자약관</h4>
                         <p>
                             여행자약관여행자약관여행자약관여행자약관여행자약관여행자약관여행자약관여행자약관
-                </p>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -109,7 +115,7 @@ const PolicyPopup: React.FC<IProps> = ({ closePopup }) => {
                         <i
                             className="flaticon-multiply"
                             onClick={() => {
-                                closePopup('Popup05');
+                                closePopup("Popup05");
                             }}
                         />
                     </a>
@@ -127,16 +133,17 @@ const PolicyPopup: React.FC<IProps> = ({ closePopup }) => {
                         <i
                             className="flaticon-multiply"
                             onClick={() => {
-                                closePopup('Popup06');
+                                closePopup("Popup06");
                             }}
                         />
                     </a>
                     <div className="page">
                         <h4>마케팅정보 수신동의</h4>
                         <p>
-                            마케팅정보 수신동의마케팅정보 수신동의마케팅정보 수신동의마케팅정보
-                            수신동의마케팅정보 수신동의마케팅정보 수신동의마케팅정보 수신동의
-                </p>
+                            마케팅정보 수신동의마케팅정보 수신동의마케팅정보
+                            수신동의마케팅정보 수신동의마케팅정보
+                            수신동의마케팅정보 수신동의마케팅정보 수신동의
+                        </p>
                     </div>
                 </div>
             </div>
@@ -148,7 +155,7 @@ const PolicyPopup: React.FC<IProps> = ({ closePopup }) => {
                         <i
                             className="flaticon-multiply"
                             onClick={() => {
-                                closePopup('Popup07');
+                                closePopup("Popup07");
                             }}
                         />
                     </a>
@@ -159,7 +166,7 @@ const PolicyPopup: React.FC<IProps> = ({ closePopup }) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default PolicyPopup
+export default PolicyPopup;

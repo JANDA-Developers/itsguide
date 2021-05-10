@@ -57,7 +57,9 @@ export const PurChasedItem: React.FC<IProp> = ({
             </div>
             <div className="txt1">
                 <div className="title">
-                    <a href="/">{title}</a>
+                    <Link href="/">
+                        <a>{title}</a>
+                    </Link>
                 </div>
                 <div className="tag">
                     {keyWards?.map((keyward, index) => (

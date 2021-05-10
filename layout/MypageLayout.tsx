@@ -8,11 +8,15 @@ import { useUnReadSystemNotiFind } from "../hook/useSystemNoti";
 import { useUpload } from "../hook/useUpload";
 import { useUserUpdate } from "../hook/useUser";
 import { AppContext } from "../pages/_app";
+<<<<<<< HEAD
 import {
     Ffile,
     pageInfoRead_PageInfoRead_data,
     ProductStatus,
 } from "../types/api";
+=======
+import { Ffile, ProductStatus } from "../types/api";
+>>>>>>> its/design
 import { BG, BGprofile } from "../types/const";
 import { autoComma } from "../utils/formatter";
 import { omits } from "../utils/omit";
@@ -20,6 +24,7 @@ import { getItemCount, Storage } from "../utils/Storage";
 import mypageLayout from "../info/mypageLayout.json";
 import SubTopNav from "./components/SubTop";
 import { PageEditor } from "../components/common/PageEditer";
+<<<<<<< HEAD
 import { usePageFindByKey } from "../hook/usePageInfo";
 
 interface IProp {
@@ -38,6 +43,13 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
         item.value,
         mypageLayout
     );
+=======
+
+interface IProp {}
+
+export const MypageLayout: React.FC<IProp> = ({ children }) => {
+    const pageTools = usePageEditClientSide("mypageLayout", mypageLayout);
+>>>>>>> its/design
     const [userUpdate] = useUserUpdate();
     const { signleUpload } = useUpload();
     const { items } = useUnReadSystemNotiFind();
@@ -265,9 +277,18 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
                                         {/* //최근접속시간은 최근에 본 상품으로 변경함 */}
                                         <ul>
                                             <li>
+<<<<<<< HEAD
                                                 <a href="/">
                                                     알림<i>{items.length}</i>
                                                 </a>
+=======
+                                                <Link href="/">
+                                                    <a>
+                                                        알림
+                                                        <i>{items.length}</i>
+                                                    </a>
+                                                </Link>
+>>>>>>> its/design
                                             </li>
                                             {/* 개인/가이드/가이드 -*/}
                                             {isSeller || (

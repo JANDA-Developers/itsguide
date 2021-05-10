@@ -233,10 +233,12 @@ export const TourMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                     <div className="right_div">
                                         <span className="goto_page">
-                                            <a href="tour/list">
-                                                {ln("gotoList")}
-                                                <i className="flaticon-menu-1"></i>
-                                            </a>
+                                            <Link href="tour/list">
+                                                <a>
+                                                    {ln("gotoList")}
+                                                    <i className="flaticon-menu-1"></i>
+                                                </a>
+                                            </Link>
                                         </span>
                                     </div>
                                 </div>
@@ -264,10 +266,12 @@ export const TourMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                     <div className="right_div">
                                         <span className="goto_page">
-                                            <a href="tour/list">
-                                                {ln("gotoList")}
-                                                <i className="flaticon-menu-1"></i>
-                                            </a>
+                                            <Link href="tour/list">
+                                                <a>
+                                                    {ln("gotoList")}
+                                                    <i className="flaticon-menu-1"></i>
+                                                </a>
+                                            </Link>
                                         </span>
                                     </div>
                                 </div>

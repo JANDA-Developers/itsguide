@@ -6,6 +6,7 @@ import isEmpty from "../../utils/isEmpty";
 import { yyyymmdd } from "../../utils/yyyymmdd";
 import { Paginater } from "../common/Paginator";
 import { NoData } from "../common/NoData";
+import Link from "next/link";
 
 interface IProp {
     id: string;
@@ -27,13 +28,17 @@ export const UserModalResvCancelList: React.FC<IProp> = ({ id }) => {
                 <div className="tr">
                     <div className="re01">
                         예약번호
-                        <a href="R-398234">{bk.code}</a>
+                        <Link href="R-398234">
+                            <a>{bk.code}</a>
+                        </Link>
                     </div>
                     <div className="re02">상품</div>
                     <div className="re03">
-                        <a href="/">
-                            [{bk.product.code}] {bk.product.title}{" "}
-                        </a>
+                        <Link href="/">
+                            <a>
+                                [{bk.product.code}] {bk.product.title}{" "}
+                            </a>
+                        </Link>
                     </div>
                     <div className="re04">예약일/취소일</div>
                     <div className="re05">

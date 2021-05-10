@@ -120,9 +120,7 @@ export const JDpayCompleteUI: React.FC<IProp> = () => {
                             <a className="btn">구매내역 확인하기</a>
                         </Link>
                     )}
-                    <Link href="/">
-                        <a className="btn">홈으로</a>
-                    </Link>
+                    <a className="btn">홈으로</a>
                 </div>
             </div>
         </PaymentLayout>

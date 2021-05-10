@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import Link from "next/link";
 import { Router, useRouter } from "next/router";
 import React from "react";
 import { useIdSelecter } from "../../hook/useIdSelecter";
@@ -67,9 +68,15 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
     return (
         <div id="BoardModal" className="popup_bg_full">
             <div className="in_txt master_popup">
-                <a className="close_icon" onClick={closeModal("#BoardModal")}>
-                    <i className="flaticon-multiply"></i>
-                </a>
+                <Link href="/">
+                    {" "}
+                    <a
+                        className="close_icon"
+                        onClick={closeModal("#BoardModal")}
+                    >
+                        <i className="flaticon-multiply"></i>
+                    </a>
+                </Link>
                 <div className="page">
                     <h3>
                         <strong>{name}</strong>님이 작성한 글{" "}

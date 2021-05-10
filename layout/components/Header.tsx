@@ -171,17 +171,6 @@ export const Header: React.FC<IProp> = () => {
                                 </Link>
                             </li>
                         )}
-
-                        {/* 추후 오픈 지금 신경 못씀! */}
-                        {/* <li className="language">
-                        <button className="btn" onClick={languageOpen}>English<i className="jandaicon-arr4-bottom"></i></button>
-                        <ul className="languageBox" onClick={languageClose}>
-                            <li><a href="/">English</a></li>
-                            <li><a href="/">Chinese</a></li>
-                            <li><a href="/">Japanese</a></li>
-                            <li><a href="/">Korean</a></li>
-                        </ul>2
-                    </li> */}
                     </ul>
                     <div
                         onClick={(e) => {
@@ -250,9 +239,9 @@ export const Header: React.FC<IProp> = () => {
                                 <div className="nav_wrap" id="nav_wrap">
                                     <ul className="deps1">
                                         <li className="deps">
-                                            <a href="/guide">
-                                                {ln("itsguide")}
-                                            </a>
+                                            <Link href="/guide">
+                                                <a>{ln("itsguide")}</a>
+                                            </Link>
                                         </li>
                                         <li className="deps">
                                             <Link href="/tour">
@@ -270,9 +259,9 @@ export const Header: React.FC<IProp> = () => {
                                             </Link>
                                         </li>
                                         <li className="deps">
-                                            <a href="/site-info">
-                                                {ln("site_info")}
-                                            </a>
+                                            <Link href="/site-info">
+                                                <a>{ln("site_info")}</a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -509,39 +498,39 @@ export const Header: React.FC<IProp> = () => {
                                     </Link>
                                     <ul className="depth1">
                                         <li>
-                                            <a href="/service/announce">
-                                                {ln("announce")}
-                                            </a>
+                                            <Link href="/service/announce">
+                                                <a>{ln("announce")}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/service/qna">
-                                                {ln("frequentQuestion")}
-                                            </a>
+                                            <Link href="/service/qna">
+                                                <a>{ln("frequentQuestion")}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/service/event">
-                                                {ln("event")}
-                                            </a>
+                                            <Link href="/service/event">
+                                                <a>{ln("event")}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/service/question">
-                                                {ln("question")}
-                                            </a>
+                                            <Link href="/service/question">
+                                                <a>{ln("question")}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/search">
-                                                {ln("searchi")}
-                                            </a>
+                                            <Link href="/search">
+                                                <a>{ln("searchi")}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/service/rule">
-                                                {ln("rule")}
-                                            </a>
+                                            <Link href="/service/rule">
+                                                <a>{ln("rule")}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/service/privacy-policy">
-                                                {ln("privacy_policy")}
-                                            </a>
+                                            <Link href="/service/privacy-policy">
+                                                <a>{ln("privacy_policy")}</a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </li>
@@ -563,44 +552,54 @@ export const Header: React.FC<IProp> = () => {
                                         </Link>
                                         <ul className="depth1">
                                             <li>
-                                                <a href="/mypage">
-                                                    {ln("user_info")}
-                                                </a>
+                                                <Link href="/mypage">
+                                                    <a>{ln("user_info")}</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/mypage/notification">
-                                                    {ln("notification")}
-                                                </a>
+                                                <Link href="/mypage/notification">
+                                                    <a>{ln("notification")}</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href={`/itsguid/${myId}`}>
-                                                    {ln("profile_manager")}
-                                                </a>
+                                                <Link href={`/itsguid/${myId}`}>
+                                                    <a>
+                                                        {ln("profile_manager")}
+                                                    </a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/mypage/basket">
-                                                    {ln("review_manage")}
-                                                </a>
+                                                <Link href="/mypage/basket">
+                                                    <a>{ln("review_manage")}</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/mypage/write">
-                                                    {ln("mypage_write")}
-                                                </a>
+                                                <Link href="/mypage/write">
+                                                    <a>{ln("mypage_write")}</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/mypage/reservation">
-                                                    {ln("reservation_manager")}
-                                                </a>
+                                                <Link href="/mypage/reservation">
+                                                    <a>
+                                                        {ln(
+                                                            "reservation_manager"
+                                                        )}
+                                                    </a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/mypage/plainning">
-                                                    {ln("itstour")}
-                                                </a>
+                                                <Link href="/mypage/plainning">
+                                                    <a>{ln("itstour")}</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/mypage/settlement">
-                                                    {ln("mypage_settlement")}
-                                                </a>
+                                                <Link href="/mypage/settlement">
+                                                    <a>
+                                                        {ln(
+                                                            "mypage_settlement"
+                                                        )}
+                                                    </a>
+                                                </Link>
                                             </li>
                                         </ul>
                                     </li>
@@ -608,65 +607,69 @@ export const Header: React.FC<IProp> = () => {
 
                                 {isManager && (
                                     <li className="a_menu_tit deps">
-                                        <a href="/master">
-                                            Master
-                                            <i className="jandaicon-arr4-right"></i>
-                                        </a>
+                                        <Link href="/master">
+                                            <a>
+                                                Master
+                                                <i className="jandaicon-arr4-right"></i>
+                                            </a>
+                                        </Link>
                                         <ul className="depth1">
                                             <li>
-                                                <a href="/master/notification">
-                                                    알림
-                                                </a>
+                                                <Link href="/master/notification">
+                                                    <a>알림</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/master/member/busipartner">
-                                                    회원관리
-                                                </a>
+                                                <Link href="/master/member/busipartner">
+                                                    <a>회원관리</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/master/goods">
-                                                    상품관리
-                                                </a>
+                                                <Link href="/master/goods">
+                                                    <a>상품관리</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/master/reservation">
-                                                    예약관리
-                                                </a>
+                                                <Link href="/master/reservation">
+                                                    <a>예약관리</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/master/design">
-                                                    디자인 설정
-                                                </a>
+                                                <Link href="/master/design">
+                                                    <a>디자인 설정</a>
+                                                </Link>
                                             </li>
                                             <li>
-                                                <a href="/master/homepage">
-                                                    홈페이지 설정
-                                                </a>
+                                                <Link href="/master/homepage">
+                                                    <a>홈페이지 설정</a>
+                                                </Link>
                                             </li>
                                         </ul>
                                     </li>
                                 )}
 
                                 <li className="a_menu_tit deps">
-                                    <a href="/member/login">
-                                        Member
-                                        <i className="jandaicon-arr4-right"></i>
-                                    </a>
+                                    <Link href="/member/login">
+                                        <a>
+                                            Member
+                                            <i className="jandaicon-arr4-right"></i>
+                                        </a>
+                                    </Link>
                                     <ul className="depth1">
                                         <li>
-                                            <a href="/member/login">
-                                                {ln("login")}
-                                            </a>
+                                            <Link href="/member/login">
+                                                <a>{ln("login")}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/member/join">
-                                                {ln("join")}
-                                            </a>
+                                            <Link href="/member/join">
+                                                <a>{ln("join")}</a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/member/findmembers">
-                                                {ln("findmembers")}
-                                            </a>
+                                            <Link href="/member/findmembers">
+                                                <a>{ln("findmembers")}</a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </li>

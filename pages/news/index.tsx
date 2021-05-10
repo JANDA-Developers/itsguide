@@ -12,6 +12,7 @@ import { usePageEdit } from "../../hook/usePageEdit";
 import { PageEditor } from "../../components/common/PageEditer";
 import { getFromUrl } from "../../utils/url";
 import { AppContext } from "../_app";
+import Link from "next/link";
 
 export const getStaticProps = getStaticPageInfo("news");
 export const News: React.FC<Ipage> = (_pageInfo) => {
@@ -53,7 +54,9 @@ export const News: React.FC<Ipage> = (_pageInfo) => {
             <SubTopNav pageTools={pageTools}>
                 <li className="homedeps1">News</li>
                 <li className="homedeps2">
-                    <a href="/news">언론보도</a>
+                    <Link href="/news">
+                        <a>언론보도</a>
+                    </Link>
                 </li>
             </SubTopNav>
             <PageEditor pageTools={pageTools} />

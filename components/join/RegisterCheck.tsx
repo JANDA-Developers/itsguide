@@ -9,6 +9,7 @@ import { ISignUpInput } from "../../hook/useJoin";
 import { omits } from "../../utils/omit";
 import { Modal } from "../modal/Modal";
 import { Policy } from "../policy/PriviacyPolicy";
+import Link from "next/link";
 
 type TSMS = {
     sns: true;
@@ -474,9 +475,7 @@ const RegisterCheck: React.FC<IProps> = ({ registerInfo }) => {
                 <Policy type="thirdPolicy" />
             </Modal>
             <div className="fin">
-                <a href="/" className="joinWrapBtn cancel btn">
-                    취소
-                </a>
+                <a className="joinWrapBtn cancel btn">취소</a>
                 <button
                     className="joinWrapBtn sum btn"
                     onClick={() => {

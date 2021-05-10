@@ -142,10 +142,12 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                     <div className="right_div">
                                         <span className="goto_page">
-                                            <a href="/">
-                                                {ln("gotoList")}
-                                                <i className="flaticon-menu-1"></i>
-                                            </a>
+                                            <Link href="/">
+                                                <a>
+                                                    {ln("gotoList")}
+                                                    <i className="flaticon-menu-1"></i>
+                                                </a>
+                                            </Link>
                                         </span>
                                     </div>
                                 </div>
@@ -173,10 +175,12 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                     <div className="right_div">
                                         <span className="goto_page">
-                                            <a href="../sub/tour_list.html">
-                                                {ln("gotoList")}
-                                                <i className="flaticon-menu-1"></i>
-                                            </a>
+                                            <Link href="../sub/tour_list.html">
+                                                <a>
+                                                    {ln("gotoList")}
+                                                    <i className="flaticon-menu-1"></i>
+                                                </a>
+                                            </Link>
                                         </span>
                                     </div>
                                 </div>
@@ -192,20 +196,6 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     }}
                                 />
                             </div>
-                            {/* <div className="deal_list">
-                            <div className="alignment">
-                                <div className="left_div"><h2><span {...edit("goods_list3_title")} /></h2></div>
-                                <div className="right_div">
-                                    <span className="goto_page"><a href="/">바로가기<i className="flaticon-menu-1"></i></a></span>
-                                </div>
-                            </div>
-                            <GoodsListAPI initialOption={{
-                                initialViewCount: 4,
-                                initialFilter: {
-                                    _id_in: groupsMap.guideMain3
-                                }
-                            }} />
-                        </div> */}
                         </div>
                     </div>
 
@@ -225,10 +215,12 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                     <div className="right_div">
                                         <span className="goto_page">
-                                            <a href="/">
-                                                {ln("gotoList")}
-                                                <i className="flaticon-menu-1"></i>
-                                            </a>
+                                            <Link href="/">
+                                                <a>
+                                                    {ln("gotoList")}
+                                                    <i className="flaticon-menu-1"></i>
+                                                </a>
+                                            </Link>
                                         </span>
                                     </div>
                                 </div>
@@ -248,10 +240,9 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     <span {...edit("guideMain07_title")} />
                                 </h2>
                                 <div className="link">
-                                    <a
-                                        href="/member/join"
-                                        {...edit("guideMain07_link")}
-                                    />
+                                    <Link href="/member/join">
+                                        <a {...edit("guideMain07_link")} />
+                                    </Link>
                                 </div>
                             </div>
                             <div className="ovj" {...edit("guideMain07_ovj")} />
