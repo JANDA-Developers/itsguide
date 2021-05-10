@@ -1,5 +1,5 @@
 import { PurChasedItem } from "components/mypage/PurchasedItem";
-import { MypageLayout } from "layout/MypageLayout";
+import { MypageLayoutWrap } from "layout/MypageLayout";
 import React from "react";
 import { BookingModal } from "../../components/bookingModal/BookingModal";
 import { Paginater } from "../../components/common/Paginator";
@@ -52,7 +52,7 @@ export const MyPagePurchase: React.FC<IProp> = () => {
     const { hanldeCreateDateChange } = dateFilterHook;
 
     return (
-        <MypageLayout>
+        <MypageLayoutWrap>
             <div className="in mypage_purchase">
                 <h4>구매내역</h4>
                 <div className="paper_div">
@@ -200,7 +200,7 @@ export const MyPagePurchase: React.FC<IProp> = () => {
                     });
                 }}
             />
-        </MypageLayout>
+        </MypageLayoutWrap>
     );
 };
 

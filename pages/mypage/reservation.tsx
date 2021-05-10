@@ -1,5 +1,5 @@
 import CalendarIcon from "components/common/icon/CalendarIcon";
-import { MypageLayout } from "layout/MypageLayout";
+import { MypageLayoutWrap } from "layout/MypageLayout";
 import { Paginater } from "components/common/Paginator";
 import React, { useState } from "react";
 import { SearchBar } from "../../components/searchBar/SearchBar";
@@ -129,7 +129,7 @@ export const MyReservation: React.FC<IProp> = () => {
     // const checkStatusOn = (status?: BookingStatus) => filter.status_eq === status ? "check on" : "check"
 
     return (
-        <MypageLayout>
+        <MypageLayoutWrap>
             <div className="in reservation_div">
                 <h4>예약관리</h4>
                 <div className="paper_div">
@@ -483,7 +483,7 @@ export const MyReservation: React.FC<IProp> = () => {
                 {...bookingModalHook}
             />
             {/* popup-상세보기 = 마스터>예약관리>예약.결제관리 상세보기와 같음*/}
-        </MypageLayout>
+        </MypageLayoutWrap>
     );
 };
 

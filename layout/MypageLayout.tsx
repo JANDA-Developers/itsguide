@@ -26,13 +26,18 @@ interface IProp {
     item: pageInfoRead_PageInfoRead_data;
 }
 
-export const MypageLayoutWrap: React.FC = () => {
+export const MypageLayoutWrap: React.FC = (props) => {
     const { item } = usePageFindByKey("mypageLayout");
     if (!item) return null;
-    return <MypageLayout item={item} />;
+    return <MypageLayout item={item} {...props} />;
 };
 export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
-    const pageTools = usePageEditClientSide("mypageLayout", item, mypageLayout);
+    console.log({ item });
+    const pageTools = usePageEditClientSide(
+        "mypageLayout",
+        item.value,
+        mypageLayout
+    );
     const [userUpdate] = useUserUpdate();
     const { signleUpload } = useUpload();
     const { items } = useUnReadSystemNotiFind();

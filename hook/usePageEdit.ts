@@ -67,6 +67,9 @@ export const usePageEdit = <Page>(
                 originPage || {}
             )
         );
+
+    console.log({ originPage });
+    console.log(pageMerge());
     const [page, setPage] = useState(pageMerge());
 
     const editUtils = getEditUtils<Page>(editMode, page, setPage, ln);

@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { MypageLayout } from "layout/MypageLayout";
+import { MypageLayoutWrap } from "layout/MypageLayout";
 import React, { useState } from "react";
 import { BookingModal } from "../../components/bookingModal/BookingModal";
 import { Paginater } from "../../components/common/Paginator";
@@ -106,7 +106,7 @@ export const MySettlement: React.FC<IProp> = () => {
     };
 
     return (
-        <MypageLayout>
+        <MypageLayoutWrap>
             <div className="in mypage_purchase">
                 <h4>매출/정산관리</h4>
                 <div className="paper_div">
@@ -354,7 +354,7 @@ export const MySettlement: React.FC<IProp> = () => {
             </div>
             {/* 정산모달 */}
             <SettlementModal settlementId={settlementId} />
-        </MypageLayout>
+        </MypageLayoutWrap>
     );
 };
 

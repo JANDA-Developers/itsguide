@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { MypageLayout } from "layout/MypageLayout";
+import { MypageLayoutWrap } from "layout/MypageLayout";
 import { auth } from "../../utils/with";
 import { ALLOW_LOGINED, BG } from "../../types/const";
 import { SearchBar } from "../../components/searchBar/SearchBar";
@@ -106,7 +106,7 @@ export const Plainning: React.FC<IProp> = () => {
     };
 
     return (
-        <MypageLayout>
+        <MypageLayoutWrap>
             <div className="in goods_div">
                 <h4>상품관리</h4>
                 <div className="paper_div">
@@ -440,20 +440,20 @@ export const Plainning: React.FC<IProp> = () => {
                 defaultProductId={popupProductId}
             />
             <ProductModal key={popupProductId} productId={popupProductId} />
-        </MypageLayout>
+        </MypageLayoutWrap>
     );
 };
 
 export default auth(ALLOW_LOGINED)(Plainning);
 
-// import { MypageLayout } from 'layout/MypageLayout';
+// import { MypageLayoutWrap } from 'layout/MypageLayoutWrap';
 // import { Paginater } from 'components/common/Paginator';
 // import React from 'react';
 
 // interface IProp { }
 
 // export const MyPlanning: React.FC<IProp> = () => {
-//     return <MypageLayout>
+//     return <MypageLayoutWrap>
 //         <div className="in myplanning_box">
 //             <h4>기획관리</h4>
 //             <div className="paper_div">
@@ -627,7 +627,7 @@ export default auth(ALLOW_LOGINED)(Plainning);
 //                 </div>
 //             </div>
 //         </div>
-//     </MypageLayout>
+//     </MypageLayoutWrap>
 // };
 
 // export default MyPlanning;
