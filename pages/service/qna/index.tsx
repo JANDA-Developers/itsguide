@@ -66,6 +66,7 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
 
     return (
         <div>
+            <PageEditor pageTools={pageTools} />
             <SubTopNav pageTools={pageTools}>
                 <li className="homedeps1">Member</li>
                 <li className="homedeps2">
@@ -74,7 +75,6 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
                     </Link>
                 </li>
             </SubTopNav>
-            <PageEditor pageTools={pageTools} />
             <div className="qna_box w1200">
                 <MemberTopNav />
                 <div className="board_qna board_box">

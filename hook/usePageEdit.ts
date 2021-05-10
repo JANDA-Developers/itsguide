@@ -125,11 +125,15 @@ export const usePageEdit = <Page>(
 
 export interface IEditPage<T> extends IUsePageEdit<T> {}
 
-export const usePageEditClientSide = (key: TPageKeys, originPage: any) => {
-    const { item } = usePageFindByKey(key);
+export const usePageEditClientSide = (
+    key: TPageKeys,
+    originPage,
+    defaultPage: any
+) => {
     const pageTools = usePageEdit(
-        { pageInfo: item, pageKey: key, locale: "ko" },
-        originPage
+        { pageInfo: originPage, pageKey: key, locale: "ko" },
+        defaultPage
     );
+
     return { ...pageTools };
 };

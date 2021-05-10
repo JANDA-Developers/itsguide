@@ -1,8 +1,23 @@
 import { gql } from "@apollo/client";
+import { F_ANSWER } from "./answer";
 import { F_FILE, F_PAGE, F_USER } from "./fragments";
 
-export const F_NEWS = gql`
-    fragment Fnews on News {
+// export const F_COMMENT = gql`
+//     fragment Fcomment on Comment {
+//         _id
+//         createdAt
+//         updatedAt
+//         isDeleted
+//         content
+//         writerName
+//         writerEmail
+//     }
+//     ${F_USER}
+//     ${F_FILE}
+// `;
+
+export const F_TICKET = gql`
+    fragment Fticket on Ticket {
         _id
         createdAt
         updatedAt
@@ -14,8 +29,12 @@ export const F_NEWS = gql`
         }
         isNotice
         isOpen
+        answers {
+            ...Fanswer
+        }
         summary
         subTitle
+        recipientId
         keyWards
         attachFiles {
             ...Ffile
@@ -24,15 +43,18 @@ export const F_NEWS = gql`
             ...Ffile
         }
         viewCount
-        type
+        recipientName
+        recipientEmail
+        url
     }
+    ${F_ANSWER}
     ${F_USER}
     ${F_FILE}
 `;
 
-export const NEWS_FIND_BY_ID = gql`
-    query newsFindById($id: String!) {
-        NewsFindById(id: $id) {
+export const TICKET_FIND_BY_ID = gql`
+    query ticketFindById($id: String!) {
+        TicketFindById(id: $id) {
             ok
             error {
                 location
@@ -41,19 +63,19 @@ export const NEWS_FIND_BY_ID = gql`
                 message
             }
             data {
-                ...Fnews
+                ...Fticket
             }
         }
     }
-    ${F_NEWS}
+    ${F_TICKET}
 `;
-export const NEWS_LIST = gql`
-    query newsList(
-        $sort: [_NewsSort!]
-        $filter: _NewsFilter
+export const TICKET_LIST = gql`
+    query ticketList(
+        $sort: [_TicketSort!]
+        $filter: _TicketFilter
         $pageInput: pageInput!
     ) {
-        NewsList(sort: $sort, pageInput: $pageInput, filter: $filter) {
+        TicketList(sort: $sort, pageInput: $pageInput, filter: $filter) {
             ok
             error {
                 location
@@ -65,17 +87,17 @@ export const NEWS_LIST = gql`
                 ...Fpage
             }
             data {
-                ...Fnews
+                ...Fticket
             }
         }
     }
     ${F_PAGE}
-    ${F_NEWS}
+    ${F_TICKET}
 `;
 
-export const NEWS_CREATE = gql`
-    mutation newsCreate($params: NewsCreateInput!) {
-        NewsCreate(params: $params) {
+export const TICKET_CREATE = gql`
+    mutation ticketCreate($params: TicketCreateInput!, $recipientId: String!) {
+        TicketCreate(params: $params, recipientId: $recipientId) {
             ok
             error {
                 location
@@ -89,9 +111,9 @@ export const NEWS_CREATE = gql`
         }
     }
 `;
-export const NEWS_DELETE = gql`
-    mutation newsDelete($id: String!) {
-        NewsDelete(id: $id) {
+export const TICKET_DELETE = gql`
+    mutation ticketDelete($id: String!) {
+        TicketDelete(id: $id) {
             ok
             error {
                 location
@@ -102,9 +124,9 @@ export const NEWS_DELETE = gql`
         }
     }
 `;
-export const NEWS_UPDAET = gql`
-    mutation newsUpdate($params: NewsUpdateInput!, $id: String!) {
-        NewsUpdate(params: $params, id: $id) {
+export const TICKET_UPDAET = gql`
+    mutation ticketUpdate($params: TicketUpdateInput!, $id: String!) {
+        TicketUpdate(params: $params, id: $id) {
             ok
             error {
                 location

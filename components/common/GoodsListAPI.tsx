@@ -22,12 +22,14 @@ import { useResizeDetector } from "react-resize-detector";
 import { thumbNail } from "../ThunbNail/ThunbNail";
 
 interface IProp {
+    isBestList?: boolean;
     initialOption?: Partial<ListInitOptions<_ProductFilter, _ProductSort>>;
     options?: genrateOption<productList, productListVariables>;
     slide?: boolean;
 }
 
 export const GoodsListAPI: React.FC<IProp> = ({
+    isBestList,
     slide,
     initialOption = {
         initialViewCount: 12,
@@ -70,6 +72,7 @@ export const GoodsListAPI: React.FC<IProp> = ({
                 >
                     {sortedItems.map((item) => (
                         <Goods
+                            isBest={isBestList}
                             onClick={toProductBoard(item._id)}
                             key={item._id}
                             item={item}
@@ -80,6 +83,7 @@ export const GoodsListAPI: React.FC<IProp> = ({
             {!slide &&
                 sortedItems.map((item, i) => (
                     <Goods
+                        isBest={isBestList}
                         onClick={toProductBoard(item._id)}
                         key={item._id}
                         item={item}
@@ -90,10 +94,11 @@ export const GoodsListAPI: React.FC<IProp> = ({
 };
 
 interface IGoodsProp extends ILi {
+    isBest?: boolean;
     item: productList_ProductList_data;
 }
 
-export const Goods: React.FC<IGoodsProp> = ({ item, ...props }) => {
+export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
     const router = useRouter();
     const handleToDetail = () => {
         router.push("/tour/view/" + item._id);
@@ -113,7 +118,7 @@ export const Goods: React.FC<IGoodsProp> = ({ item, ...props }) => {
                 >
                     상품이미지
                 </div>
-                <i className="simbol__best">BEST</i>
+                {isBest && <i className="simbol__best">BEST</i>}
             </div>
             <div className="box">
                 <div className="category">

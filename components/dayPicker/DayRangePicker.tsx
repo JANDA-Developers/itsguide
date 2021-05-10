@@ -1,32 +1,47 @@
-import React from 'react';
-import Head from 'next/head';
-import RCDayPicker, { DateUtils, DayPickerProps } from 'react-day-picker';
-import 'react-day-picker/lib/style.css';
-import { ISet, TElements } from 'types/interface';
-import dayjs from 'dayjs';
+import React from "react";
+import Head from "next/head";
+import RCDayPicker, { DateUtils, DayPickerProps } from "react-day-picker";
+import "react-day-picker/lib/style.css";
+import { ISet, TElements } from "types/interface";
+import dayjs from "dayjs";
 
 type Range = {
-    from?: Date,
-    to?: Date
-}
+    from?: Date;
+    to?: Date;
+};
 type ThandleSate = (range: Range) => void;
 interface IProps extends DayPickerProps {
-    from?: Date,
-    to?: Date,
-    isRange?: boolean
-    onRangeChange: ThandleSate
-    Header?: TElements
+    from?: Date;
+    to?: Date;
+    isRange?: boolean;
+    onRangeChange: ThandleSate;
+    Header?: TElements;
+    intercept?: boolean;
 }
 
-export const DayRangePicker: React.FC<IProps> = ({ Header, from, to, onRangeChange, isRange = true, children, ...props }) => {
+export const DayRangePicker: React.FC<IProps> = ({
+    Header,
+    from,
+    to,
+    onRangeChange,
+    isRange = true,
+    intercept,
+    children,
+    ...props
+}) => {
     const defaultProps = {
         numberOfMonths: 2,
     };
 
     function handleDayClick(day: any) {
+        if (intercept) {
+            onRangeChange({ from: day });
+            return;
+        }
+
         if (!isRange) {
             onRangeChange({ from: day, to: day });
-            return
+            return;
         }
 
         // 선택한 날자 뒤를 누른경우에
@@ -47,7 +62,6 @@ export const DayRangePicker: React.FC<IProps> = ({ Header, from, to, onRangeChan
         } else {
             onRangeChange({ from: from, to: day });
         }
-
     }
 
     function handleResetClick() {
@@ -90,6 +104,6 @@ export const DayRangePicker: React.FC<IProps> = ({ Header, from, to, onRangeChan
             {children}
         </div>
     );
-}
+};
 
 export default DayRangePicker;

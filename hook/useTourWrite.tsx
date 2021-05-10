@@ -113,6 +113,12 @@ interface ITourDataSet {
 }
 
 export interface IUseTour {
+    rangeType: TRangeType;
+    setRangeType: ISet<TRangeType>;
+    tempSavedIts: ItineraryCreateInput[];
+    setTempSavedIts: ISet<ItineraryCreateInput[]>;
+    range: number;
+    setRange: ISet<number>;
     imgUploading: boolean;
     loadKeyAdd: () => void;
     tourData: IUseTourData;
@@ -152,9 +158,13 @@ export interface IUseTour {
         handleLoad: () => void;
     };
 }
+export type TRangeType = "Range" | "Single";
 
 interface IUseTourProps extends Partial<IUseTourDefaultData> {}
 export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
+    const [range, setRange] = useState(1);
+    const [rangeType, setRangeType] = useState<TRangeType>("Single");
+    const [tempSavedIts, setTempSavedIts] = useState<ItineraryCreateInput[]>();
     const [type, setType] = useState<ProductType>(
         defaults.type || ProductType.TOUR
     );
@@ -492,8 +502,13 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     };
 
     const handleDateState = ({ from, to }: TRange) => {
-        const newItinerary = generateitinery({ from, to }, its);
+        if (from) {
+            const addRagne = rangeType === "Range" ? range : 0;
+            to = dayjs(from).add(addRagne, "day").toDate();
+        }
+        const newItinerary = generateitinery({ from, to }, tempSavedIts || its);
         if (newItinerary) setits([...newItinerary]);
+        setTempSavedIts(undefined);
     };
 
     function set<T extends keyof TSimpleTypePart>(key: T, value: any) {
@@ -523,6 +538,12 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     const lastDate = lastItDate ? dayjs(lastItDate).toDate() : undefined;
 
     return {
+        range,
+        rangeType,
+        setRange,
+        setRangeType,
+        setTempSavedIts,
+        tempSavedIts,
         imgUploading,
         tourData,
         loadKey,

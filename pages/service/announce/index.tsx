@@ -22,6 +22,7 @@ import {
 import { useRouter } from "next/router";
 import { AppContext } from "../../_app";
 import { AnnotationBadge } from "../../../components/Status/StatusBadge";
+import { PageEditor } from "../../../components/common/PageEditer";
 
 export const getStaticProps = getStaticPageInfo("announce");
 export const Announce: React.FC<Ipage> = (page) => {
@@ -59,6 +60,7 @@ export const Announce: React.FC<Ipage> = (page) => {
     const { ln } = useContext(AppContext);
     return (
         <div>
+            <PageEditor pageTools={pageTools} />
             <SubTopNav pageTools={pageTools}>
                 <li className="homedeps1">Member</li>
                 <li className="homedeps2">

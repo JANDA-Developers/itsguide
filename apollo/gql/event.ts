@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 import { F_FILE, F_PAGE, F_USER } from "./fragments";
 
-export const F_NEWS = gql`
-    fragment Fnews on News {
+export const F_EVENT = gql`
+    fragment Fevent on Event {
         _id
         createdAt
         updatedAt
@@ -30,9 +30,9 @@ export const F_NEWS = gql`
     ${F_FILE}
 `;
 
-export const NEWS_FIND_BY_ID = gql`
-    query newsFindById($id: String!) {
-        NewsFindById(id: $id) {
+export const EVENT_FIND_BY_ID = gql`
+    query eventFindById($id: String!) {
+        EventFindById(id: $id) {
             ok
             error {
                 location
@@ -41,19 +41,19 @@ export const NEWS_FIND_BY_ID = gql`
                 message
             }
             data {
-                ...Fnews
+                ...Fevent
             }
         }
     }
-    ${F_NEWS}
+    ${F_EVENT}
 `;
-export const NEWS_LIST = gql`
-    query newsList(
-        $sort: [_NewsSort!]
-        $filter: _NewsFilter
+export const EVENT_LIST = gql`
+    query eventList(
+        $sort: [_EventSort!]
+        $filter: _EventFilter
         $pageInput: pageInput!
     ) {
-        NewsList(sort: $sort, pageInput: $pageInput, filter: $filter) {
+        EventList(sort: $sort, pageInput: $pageInput, filter: $filter) {
             ok
             error {
                 location
@@ -65,17 +65,17 @@ export const NEWS_LIST = gql`
                 ...Fpage
             }
             data {
-                ...Fnews
+                ...Fevent
             }
         }
     }
     ${F_PAGE}
-    ${F_NEWS}
+    ${F_EVENT}
 `;
 
-export const NEWS_CREATE = gql`
-    mutation newsCreate($params: NewsCreateInput!) {
-        NewsCreate(params: $params) {
+export const EVENT_CREATE = gql`
+    mutation eventCreate($params: EventCreateInput!) {
+        EventCreate(params: $params) {
             ok
             error {
                 location
@@ -89,9 +89,9 @@ export const NEWS_CREATE = gql`
         }
     }
 `;
-export const NEWS_DELETE = gql`
-    mutation newsDelete($id: String!) {
-        NewsDelete(id: $id) {
+export const EVENT_DELETE = gql`
+    mutation eventDelete($id: String!) {
+        EventDelete(id: $id) {
             ok
             error {
                 location
@@ -102,9 +102,9 @@ export const NEWS_DELETE = gql`
         }
     }
 `;
-export const NEWS_UPDAET = gql`
-    mutation newsUpdate($params: NewsUpdateInput!, $id: String!) {
-        NewsUpdate(params: $params, id: $id) {
+export const EVENT_UPDAET = gql`
+    mutation eventUpdate($params: EventUpdateInput!, $id: String!) {
+        EventUpdate(params: $params, id: $id) {
             ok
             error {
                 location

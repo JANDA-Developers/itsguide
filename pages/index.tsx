@@ -219,6 +219,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             </div>
                         </div>
                         <GoodsListAPI
+                            isBestList={true}
                             key={lang + "productLine1"}
                             initialOption={{
                                 fixingFilter: {

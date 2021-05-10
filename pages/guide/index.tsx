@@ -17,7 +17,9 @@ import { guideSearchLink } from "../guide-search";
 
 export const getStaticProps = getStaticPageInfo("guideMain");
 export const GuideMain: React.FC<Ipage> = (pageInfo) => {
-    const { groupsMap, ln, lang } = useContext(AppContext);
+    const { groupsMap, ln, lang, categoriesMap, locale } = useContext(
+        AppContext
+    );
     const pageTools = usePageEdit(pageInfo, defaultPageInfo);
     const {
         imgEdit,
@@ -30,6 +32,7 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
         editMode,
         page,
     } = pageTools;
+
     // const { items } = useProductList({ initialPageIndex: 1, initialViewCount: 8 });
     // const { imgEdit, edit, bg } = useContext<IEditPage<typeof pageInfoDefault>>(EditContext as any);
     // const router = useRouter()
@@ -57,12 +60,15 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                 <h3 {...edit("guideMain_top_title")} />
                                 <span {...edit("guideMain_top_subtitle")} />
                                 <ul className="btn_list">
-                                    {get("guideMain_topBtns").map(
-                                        (val: string, i: number) => (
+                                    {categoriesMap.GUIDE_KEYWARD.map(
+                                        (val, i) => (
                                             <li key={`guideMain_topBtns${i}`}>
                                                 <Link
                                                     href={guideSearchLink({
-                                                        keyward: val,
+                                                        keyward:
+                                                            val.localeLabel[
+                                                                locale
+                                                            ],
                                                     })}
                                                 >
                                                     <a className="guid_topBtn__btn">
