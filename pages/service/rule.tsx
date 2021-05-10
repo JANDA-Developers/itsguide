@@ -39,12 +39,12 @@ export const Rule: React.FC<IProp> = () => {
                     <li className="on">
                         <Link href="/service/rule">
                             <a>이용약관</a>
-                        </Link>{" "}
+                        </Link>
                     </li>
                     <li>
                         <Link href="/service/privacy-policy">
                             <a>개인정보처리방침</a>
-                        </Link>{" "}
+                        </Link>
                     </li>
                 </ul>
 
@@ -203,7 +203,7 @@ export const Rule: React.FC<IProp> = () => {
                         5. 전항의 경우 “당사”는 이로 인하여 이용자가 입은 손해를
                         배상합니다. 다만, “당사”가 고의 또는 과실이 없음을
                         입증하는 경우에는 그러하지 아니합니다.
-                    </li>{" "}
+                    </li>
                     <li>
                         6. "당사”는 필요하다고 판단하는 경우 서비스의 일부를
                         제휴업체 등 제3자에 위탁할 수 있습니다.
@@ -379,30 +379,24 @@ export const Rule: React.FC<IProp> = () => {
                         내용물이 다음 각 사항에 해당된다고 판단되는 경우 사전
                         통지없이 삭제할 수 있습니다.
                         <div className="ml10">
-                            {" "}
                             (1) 다른 이용자 또는 제3자를 비방하거나 중상모략으로
                             명예를 손상시키는 내용인 경우
                         </div>
                         <div className="ml10">
-                            {" "}
                             (2) 공공질서 및 미풍양속에 위반되는 내용인 경우
                         </div>
                         <div className="ml10">
-                            {" "}
                             (3) 사전에 동의하지 아니한 영리를 목적으로 하는
                             광고일 경우
                         </div>
                         <div className="ml10">
-                            {" "}
                             (4) 범죄적 행위에 결부된다고 인정되는 내용일 경우
                         </div>
                         <div className="ml10">
-                            {" "}
                             (5) 제3자의 저작권 등 기타권리를 침해하는 내용인
                             경우
                         </div>
                         <div className="ml10">
-                            {" "}
                             (6) 기타 관계법령이나 "당사"에서 정한 규정에
                             위배되는 경우
                         </div>
@@ -867,7 +861,7 @@ export const Rule: React.FC<IProp> = () => {
                         재화 등에 의하여 이용자와 행하는 거래에 대해서
                         보증책임을 진다는 뜻을 피연결 "회사"의 초기화면 또는
                         연결되는 시점의 팝업화면으로 명시한 경우에만 그 거래에
-                        대한 보증책임을 집니다.{" "}
+                        대한 보증책임을 집니다.
                     </li>
                 </ul>
 

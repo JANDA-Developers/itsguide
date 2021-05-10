@@ -50,35 +50,32 @@ export const MasterLayout: React.FC<IProp> = ({ children }) => {
                 <ul className="subtop_nav">
                     <li className={isTapOn("notification")}>
                         <Link href="/master/notification">
-                            <a>알림</a>{" "}
+                            <a>알림</a>
                         </Link>
                     </li>
                     <li className={isTapOn("member")}>
                         <Link href="/master/member/busipartner">
-                            <a>회원관리</a>{" "}
+                            <a>회원관리</a>
                         </Link>
                     </li>
                     <li className={isTapOn("goods")}>
                         <Link href="/master/goods">
-                            {" "}
-                            <a>상품관리</a>{" "}
+                            <a>상품관리</a>
                         </Link>
                     </li>
                     <li className={isTapOn("reservation")}>
                         <Link href="/master/reservation">
-                            <a>예약관리</a>{" "}
+                            <a>예약관리</a>
                         </Link>
                     </li>
                     <li className={isTapOn("design")}>
                         <Link href="/master/design">
-                            {" "}
-                            <a>디자인 설정</a>{" "}
+                            <a>디자인 설정</a>
                         </Link>
                     </li>
                     <li className={isTapOn("homepage")}>
                         <Link href="/master/homepage">
-                            {" "}
-                            <a>홈페이지 설정</a>{" "}
+                            <a>홈페이지 설정</a>
                         </Link>
                     </li>
                 </ul>

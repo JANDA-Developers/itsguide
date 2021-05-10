@@ -432,7 +432,7 @@ export const BookingModal: React.FC<IProp> = ({
                             {booking.isCancelRequest && <span>[취소요청]</span>}
                             {booking.payment && (
                                 <span className="pay-day">
-                                    결제일:{" "}
+                                    결제일:
                                     {yyyymmdd(booking.payment?.createdAt)}
                                 </span>
                             )}
@@ -456,7 +456,7 @@ export const BookingModal: React.FC<IProp> = ({
                                         </strong>
                                         <div className="txt">
                                             <span className="goods-state1">
-                                                확정여부:{" "}
+                                                확정여부:
                                                 {determinedKr(
                                                     product.determined
                                                 )}
@@ -466,7 +466,7 @@ export const BookingModal: React.FC<IProp> = ({
                                                 )}
                                             </span>
                                             <span className="goods-state2">
-                                                상품상태:{" "}
+                                                상품상태:
                                                 {productStatus(product.status)}
                                             </span>
                                             <span className="goods-state2">
@@ -478,7 +478,7 @@ export const BookingModal: React.FC<IProp> = ({
                                 <div className="top02 BookingModal__top02">
                                     <div className="align BookingModal__top02Align">
                                         <span className="s-day">
-                                            출발일:{" "}
+                                            출발일:
                                             {yyyymmdd(product.startDate)}
                                         </span>
                                         <span className="where">
@@ -501,7 +501,7 @@ export const BookingModal: React.FC<IProp> = ({
                                             않았습니다. <br />
                                             24시간 이내에 입금을 하지 않으시면
                                             예약은 취소 됩니다.
-                                            {/*  <br /> 남은시간{" "}
+                                            {/*  <br /> 남은시간
                                             {dayjs(booking.leftTime).format(
                                                 "HH:mm"
                                             )} */}
@@ -673,7 +673,7 @@ export const BookingModal: React.FC<IProp> = ({
                                     </div>
                                     <div className="tr first peoplelist__wrap">
                                         <div className="re01 peoplelist__li">
-                                            예약자{" "}
+                                            예약자
                                             {booking.bookerInclue && "(본인)"}
                                         </div>
                                         <div className="re02 peoplelist__li">
@@ -820,7 +820,7 @@ export const BookingModal: React.FC<IProp> = ({
                                                     className="comment_btn"
                                                 >
                                                     저장
-                                                </button>{" "}
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

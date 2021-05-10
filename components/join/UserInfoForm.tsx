@@ -152,7 +152,7 @@ const UserInfoForm: React.FC = () => {
                                     nickNameChecked && "ok"
                                 }`}
                             >
-                                {nickNameChecked ? "사용가능" : "중복확인"}{" "}
+                                {nickNameChecked ? "사용가능" : "중복확인"}
                             </button>
                         </div>
                     </div>

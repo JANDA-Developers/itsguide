@@ -296,7 +296,7 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                         <li className="ct">
                                             <span>{bookings.length}</span>
                                             <p>
-                                                총 구매 수{" "}
+                                                총 구매 수
                                                 {/* <i className="jandaicon-info2" /> */}
                                             </p>
                                         </li>

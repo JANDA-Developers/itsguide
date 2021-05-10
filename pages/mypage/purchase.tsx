@@ -145,8 +145,8 @@ export const MyPagePurchase: React.FC<IProp> = () => {
                             <div className="con_box">
                                 <div className="alignment">
                                     <div className="left_div">
-                                        총{" "}
-                                        <strong>{pageInfo.totalCount}</strong>개
+                                        총<strong>{pageInfo.totalCount}</strong>
+                                        개
                                     </div>
                                     <div className="right_div">
                                         <SortSelect

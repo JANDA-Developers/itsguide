@@ -152,7 +152,7 @@ const CardRecipt: React.FC<IReciptProp> = ({ approveTable, cancelTable }) => {
                                                                 "text-top",
                                                             width: "14px",
                                                         }}
-                                                    />{" "}
+                                                    />
                                                     신용카드 청구서에는
                                                     "잇츠가이드"로 표기됩니다.
                                                 </div>

@@ -99,7 +99,7 @@ export const SettlementModal: React.FC<IProp> = ({ settlementId }) => {
                                 상품상태: <i>{productStatus(product.status)}</i>
                             </span>
                             <span className="r-number">
-                                정산상태:{" "}
+                                정산상태:
                                 <i>{settlementStatus(settlement.status)}</i>
                             </span>
                             {/* <span className="r-day">예약일: {yyyymmdd(booking.createdAt)}</span>
@@ -111,7 +111,7 @@ export const SettlementModal: React.FC<IProp> = ({ settlementId }) => {
                             <div className="left_div">
                                 <span className="infotxt">
                                     <i>
-                                        {yyyymmdd(createdAt)} ~{" "}
+                                        {yyyymmdd(createdAt)} ~
                                         {yyyymmdd(startDate)} 예약
                                     </i>
                                     이 총 <strong>{bookings?.length}</strong>건
@@ -172,7 +172,7 @@ export const SettlementModal: React.FC<IProp> = ({ settlementId }) => {
                         <div className="alignment ">
                             <div className="left_div">
                                 <span className="infotxt">
-                                    <i>취소건이</i>이 총{" "}
+                                    <i>취소건이</i>이 총
                                     <strong>{canceldBooking.length}</strong>건
                                 </span>
                             </div>
@@ -200,7 +200,7 @@ export const SettlementModal: React.FC<IProp> = ({ settlementId }) => {
                                                     )}
                                                 </div>
                                                 <div className="th03 settlementModal__li-th3">
-                                                    {bookingStatus(cb.status)}{" "}
+                                                    {bookingStatus(cb.status)}
                                                 </div>
                                                 <div className="th04">
                                                     {cb.name}
@@ -210,11 +210,11 @@ export const SettlementModal: React.FC<IProp> = ({ settlementId }) => {
                                                 </div>
                                                 <div className="th06">
                                                     {autoComma(cb.bookingPrice)}
-                                                    원 |{" "}
+                                                    원 |
                                                     {autoComma(
                                                         cb.payment
                                                             ?.totalCancelPrice
-                                                    )}{" "}
+                                                    )}
                                                     [
                                                     {
                                                         cb.payment
@@ -252,7 +252,7 @@ export const SettlementModal: React.FC<IProp> = ({ settlementId }) => {
                             <ul className="first_ul">
                                 <li>
                                     <div className="title">
-                                        <strong>실 판매금액</strong> :{" "}
+                                        <strong>실 판매금액</strong> :
                                     </div>
                                     <div className="body">
                                         <div>{settlement.totalPrice}원</div>
@@ -260,7 +260,7 @@ export const SettlementModal: React.FC<IProp> = ({ settlementId }) => {
                                 </li>
                                 <li>
                                     <div className="title">
-                                        <strong>카드수수료</strong> :{" "}
+                                        <strong>카드수수료</strong> :
                                     </div>
                                     <div className="body">
                                         <div>
@@ -272,7 +272,7 @@ export const SettlementModal: React.FC<IProp> = ({ settlementId }) => {
                                 {policy?.addtionalFees.map((addFee, i) => (
                                     <li key={"FeePolicy" + i}>
                                         <div className="title">
-                                            <strong>{addFee.feeName}</strong> :{" "}
+                                            <strong>{addFee.feeName}</strong> :
                                         </div>
                                         <div className="body">
                                             <div>
@@ -285,7 +285,7 @@ export const SettlementModal: React.FC<IProp> = ({ settlementId }) => {
                             <ul className="last_ul">
                                 <li>
                                     <div>
-                                        <i>=</i>총 정산 예상금 :{" "}
+                                        <i>=</i>총 정산 예상금 :
                                         <strong>
                                             {autoComma(
                                                 settlement.settlementPrice

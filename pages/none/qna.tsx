@@ -92,7 +92,7 @@ export const QnaTable: React.FC<IProp> = () => {
                             <span>
                                 <i className="Q"></i>여행
                             </span>
-                            문의는 어디서 하죠?{" "}
+                            문의는 어디서 하죠?
                             <i className="jandaicon-arr4-bottom"></i>
                         </div>
                         <div className="dd panel-collapse collapse in">
@@ -150,7 +150,7 @@ export const QnaTable: React.FC<IProp> = () => {
                             <span>
                                 <i className="Q"></i>여행
                             </span>
-                            문의는 어디서 하죠?{" "}
+                            문의는 어디서 하죠?
                             <i className="jandaicon-arr4-bottom"></i>
                         </div>
                         <div className="dd panel-collapse collapse in">

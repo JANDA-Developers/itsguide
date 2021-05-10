@@ -95,7 +95,7 @@ export const Traveler: React.FC<IProp> = ({
                         }}
                         type="text"
                         placeholder="YYYYMMDD"
-                    />{" "}
+                    />
                 </span>
                 {/*input박스 클릭시 달력이 나와야 함, 우측 나이 계산은 자동으로 출력*/}
             </div>

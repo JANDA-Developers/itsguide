@@ -36,7 +36,7 @@ export const UserModalResvCancelList: React.FC<IProp> = ({ id }) => {
                     <div className="re03">
                         <Link href="/">
                             <a>
-                                [{bk.product.code}] {bk.product.title}{" "}
+                                [{bk.product.code}] {bk.product.title}
                             </a>
                         </Link>
                     </div>

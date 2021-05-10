@@ -87,7 +87,7 @@ export const ProductSearcher: React.FC<IProp> = ({
                                             {item.title}
                                         </div>
                                         <div className="date">
-                                            {yyyymmdd(item.startDate)} ~{" "}
+                                            {yyyymmdd(item.startDate)} ~
                                             {yyyymmdd(item.endDate)}
                                         </div>
                                     </div>

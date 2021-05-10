@@ -87,7 +87,7 @@ export const ByhandTable: React.FC<IReservationTableProp> = ({
                         <div className="info goods__info_title">
                             <span className="ct">
                                 {item.product.category?.label}
-                            </span>{" "}
+                            </span>
                             <span className="g-number">
                                 상품번호: {item.product.code}
                             </span>

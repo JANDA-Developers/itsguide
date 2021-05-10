@@ -225,7 +225,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
                                             type="checkbox"
                                             id="keepid_opt2"
                                             defaultValue="Y"
-                                        />{" "}
+                                        />
                                         {ln("rememberid")}
                                     </label>
                                 </div>
@@ -235,7 +235,7 @@ export const Login: React.FC<Ipage> = (pageInfo) => {
                                     onClick={handleLogin}
                                 >
                                     <span>{ln("login")}</span>
-                                </button>{" "}
+                                </button>
                                 {/*
                             {userType === UserRole.partnerB &&
                                 <div className="login__snslink">

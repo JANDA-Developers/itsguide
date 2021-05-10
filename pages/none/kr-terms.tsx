@@ -524,7 +524,7 @@ export const KrTerms: React.FC<IProp> = () => {
                     <p className="mt30">1) 여행취소로 인한 피해</p>
 
                     <h5 className="mt20">
-                        ▶ 여행사의 귀책사유로 여행사가 취소하는 경우{" "}
+                        ▶ 여행사의 귀책사유로 여행사가 취소하는 경우
                     </h5>
                     <p className="mt10">
                         <strong>&lang;당일여행인 경우&gt;</strong>

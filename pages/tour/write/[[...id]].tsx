@@ -802,7 +802,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                             Header={
                                 tempSavedIts && (
                                     <h2 style={{ marginBottom: "1rem" }}>
-                                        새로운 출발일을 선택 해주세요{" "}
+                                        새로운 출발일을 선택 해주세요
                                     </h2>
                                 )
                             }
@@ -818,7 +818,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         >
                             <div className="tourWrite__dayPikcerRangeViewer  mb10">
                                 <div>
-                                    투어 {yyyymmdd(firstDate)} ~{" "}
+                                    투어 {yyyymmdd(firstDate)} ~
                                     {yyyymmdd(lastDate)}
                                 </div>
                             </div>

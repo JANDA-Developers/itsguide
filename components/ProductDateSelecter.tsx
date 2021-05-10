@@ -43,7 +43,7 @@ export const ProductDateSelecter: React.FC<IProp> = ({
                     >
                         {items.map((p) => (
                             <option key={p._id} value={p._id}>
-                                {dayjs(p.startDate).format("YYYY.MM.DD")}{" "}
+                                {dayjs(p.startDate).format("YYYY.MM.DD")}
                                 {p.isOpen ? "" : ` [${ln("unOpend")}]`}
                             </option>
                         ))}

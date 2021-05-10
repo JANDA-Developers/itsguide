@@ -228,8 +228,8 @@ export const MyReservation: React.FC<IProp> = () => {
                             <div className=" alignment">
                                 <div className="left_div">
                                     <span className="infotxt">
-                                        총{" "}
-                                        <strong>{pageInfo.totalCount}</strong>건
+                                        총<strong>{pageInfo.totalCount}</strong>
+                                        건
                                     </span>
                                 </div>
                                 <div className="right_div">
@@ -342,7 +342,7 @@ export const MyReservation: React.FC<IProp> = () => {
                                                         }
                                                     </span>
                                                     <span className="g-number">
-                                                        상품번호:{" "}
+                                                        상품번호:
                                                         {item.product.code}
                                                     </span>
                                                     <strong className="title">
@@ -350,31 +350,31 @@ export const MyReservation: React.FC<IProp> = () => {
                                                     </strong>
                                                     <div className="txt">
                                                         <span className="s-day">
-                                                            출발일:{" "}
+                                                            출발일:
                                                             {yyyymmdd(
                                                                 item.product
                                                                     .startDate
                                                             )}
                                                         </span>
                                                         <span className="where">
-                                                            출발장소:{" "}
+                                                            출발장소:
                                                             {
                                                                 item.product
                                                                     .startPoint
                                                             }
                                                         </span>
                                                         <span className="s-day">
-                                                            예약일:{" "}
+                                                            예약일:
                                                             {yyyymmdd(
                                                                 item.createdAt
                                                             )}
                                                         </span>
                                                         <span className="s-day">
-                                                            확정여부:{" "}
+                                                            확정여부:
                                                             {determinedKr(
                                                                 item.product
                                                                     .determined
-                                                            )}{" "}
+                                                            )}
                                                             (
                                                             {
                                                                 item.product
@@ -388,7 +388,7 @@ export const MyReservation: React.FC<IProp> = () => {
                                                             )
                                                         </span>
                                                         <span className="s-day">
-                                                            상품상태:{" "}
+                                                            상품상태:
                                                             {productStatus(
                                                                 item.product
                                                                     .status
@@ -409,7 +409,7 @@ export const MyReservation: React.FC<IProp> = () => {
                                                         {item.phoneNumber}
                                                     </span>
                                                     <span className="men">
-                                                        예약인원: 총{" "}
+                                                        예약인원: 총
                                                         {item.totalCount}명
                                                         <br />
                                                         {personCountBracket(
@@ -431,7 +431,7 @@ export const MyReservation: React.FC<IProp> = () => {
                                                     </strong>
                                                     {item.payment && (
                                                         <span className="pay">
-                                                            결제종류:{" "}
+                                                            결제종류:
                                                             {payMethodToKR(
                                                                 item.payment
                                                                     ?.payMethod
@@ -440,7 +440,7 @@ export const MyReservation: React.FC<IProp> = () => {
                                                     )}
                                                     {item.payment && (
                                                         <span className="pay-day">
-                                                            결제일:{" "}
+                                                            결제일:
                                                             {yyyymmdd(
                                                                 item.payment
                                                                     ?.createdAt

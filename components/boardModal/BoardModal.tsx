@@ -69,7 +69,6 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
         <div id="BoardModal" className="popup_bg_full">
             <div className="in_txt master_popup">
                 <Link href="/">
-                    {" "}
                     <a
                         className="close_icon"
                         onClick={closeModal("#BoardModal")}
@@ -79,7 +78,7 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
                 </Link>
                 <div className="page">
                     <h3>
-                        <strong>{name}</strong>님이 작성한 글{" "}
+                        <strong>{name}</strong>님이 작성한 글
                     </h3>
                     {/* 작성한글 */}
                     <div className="info_page">

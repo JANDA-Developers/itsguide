@@ -167,7 +167,6 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                 <div className="alignment">
                                     <div className="left_div">
                                         <h2>
-                                            {" "}
                                             <span
                                                 {...edit("goods_list2_title")}
                                             />

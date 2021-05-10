@@ -81,7 +81,7 @@ export const MyPageBoard: React.FC<IProp> = () => {
                             <div className="con_bottom">
                                 <div className="alignment">
                                     <div className="left_div">
-                                        총{" "}
+                                        총
                                         <strong>
                                             {autoComma(items.length)}
                                         </strong>

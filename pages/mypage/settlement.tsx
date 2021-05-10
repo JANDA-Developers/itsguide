@@ -238,8 +238,8 @@ export const MySettlement: React.FC<IProp> = () => {
                             <div className="con_box">
                                 <div className="alignment">
                                     <div className="left_div">
-                                        총{" "}
-                                        <strong>{pageInfo.totalCount}</strong>개
+                                        총<strong>{pageInfo.totalCount}</strong>
+                                        개
                                     </div>
                                     <div className="right_div">
                                         <SortSelect
@@ -281,7 +281,7 @@ export const MySettlement: React.FC<IProp> = () => {
                                                     </div>
                                                     <div className="th04">
                                                         <span className="m_title">
-                                                            상품상태:{" "}
+                                                            상품상태:
                                                         </span>
                                                         {productStatus(
                                                             item.product?.status
@@ -289,7 +289,7 @@ export const MySettlement: React.FC<IProp> = () => {
                                                     </div>
                                                     <div className="th05">
                                                         <span className="m_title">
-                                                            정산날짜:{" "}
+                                                            정산날짜:
                                                         </span>
                                                         {item.completeDate
                                                             ? dayjs(
@@ -301,11 +301,11 @@ export const MySettlement: React.FC<IProp> = () => {
                                                     </div>
                                                     <div className="th06">
                                                         <span className="m_title">
-                                                            금액:{" "}
+                                                            금액:
                                                         </span>
                                                         {autoComma(
                                                             item.totalPrice
-                                                        )}{" "}
+                                                        )}
                                                         원
                                                     </div>
                                                     <div className="th07">

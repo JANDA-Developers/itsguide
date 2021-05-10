@@ -34,7 +34,6 @@ export const StyleGuide: React.FC<IProp> = () => {
                     </div>
                     <div className="layoutbox__ovject">
                         <p className="layoutbox__ovject__txt">
-                            {" "}
                             .btn .small 같이 쓸때
                         </p>
                         <div className="layoutbox__item">
@@ -45,7 +44,6 @@ export const StyleGuide: React.FC<IProp> = () => {
                     </div>
                     <div className="layoutbox__ovject">
                         <p className="layoutbox__ovject__txt">
-                            {" "}
                             .btn .medium 같이 쓸때
                         </p>
                         <div className="layoutbox__item">
@@ -56,8 +54,7 @@ export const StyleGuide: React.FC<IProp> = () => {
                     </div>
                     <div className="layoutbox__ovject">
                         <p className="layoutbox__ovject__txt">
-                            {" "}
-                            비활성화를 원하면 .off 추가{" "}
+                            비활성화를 원하면 .off 추가
                         </p>
                         <div className="layoutbox__item">
                             <button type="submit" className="btn off">
@@ -71,10 +68,10 @@ export const StyleGuide: React.FC<IProp> = () => {
             <div className="layoutbox">
                 <h4>테이블상단 디자인</h4>
                 <p className="layoutbox__infotext">
-                    상단에는 <strong>.alignment</strong>를 하단에{" "}
+                    상단에는 <strong>.alignment</strong>를 하단에
                     <strong>.fin</strong>class를 사용한다. 좌측 우측을 디자인을
-                    나눌때는 <strong>.left_div</strong>왼쪽디자인을{" "}
-                    <strong>.right_div</strong>오른쪽디자인을 넣자{" "}
+                    나눌때는 <strong>.left_div</strong>왼쪽디자인을
+                    <strong>.right_div</strong>오른쪽디자인을 넣자
                 </p>
                 <div className="layoutbox__ex">
                     <div className="layoutbox__ovject w100">
@@ -172,8 +169,8 @@ export const StyleGuide: React.FC<IProp> = () => {
                 <h4>정산 상태 아이콘</h4>
                 <p className="layoutbox__infotext">
                     마스터에서 사용되어지며 지급관련 항목
-                    지급보류/정산완료/정산대기때 사용됨.<strong>.sel</strong>{" "}
-                    클래스 사용{" "}
+                    지급보류/정산완료/정산대기때 사용됨.<strong>.sel</strong>
+                    클래스 사용
                 </p>
                 <div className="layoutbox__ex">
                     <div className="layoutbox__ovject">
@@ -207,7 +204,7 @@ export const StyleGuide: React.FC<IProp> = () => {
                 <h4>예약상태 아이콘</h4>
                 <p className="layoutbox__infotext">
                     예약관련 항목 예약대기/예약완료/예약취소 사용됨.
-                    <strong>.r-btn </strong> 클래스 사용{" "}
+                    <strong>.r-btn </strong> 클래스 사용
                 </p>
                 <div className="layoutbox__ex">
                     <div className="layoutbox__ovject">

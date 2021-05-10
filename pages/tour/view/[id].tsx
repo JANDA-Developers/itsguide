@@ -388,7 +388,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                             }
                                                         </span>
                                                         <span className="code">
-                                                            {ln("goodscode")}{" "}
+                                                            {ln("goodscode")}
                                                             {code}
                                                         </span>
                                                     </td>
@@ -444,7 +444,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         <td className="smtxt bt_line">
                                                             {productStatus(
                                                                 product.status
-                                                            )}{" "}
+                                                            )}
                                                             {product.isOpen
                                                                 ? ln("public")
                                                                 : ln(
@@ -485,13 +485,13 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 <tr>
                                                     <th className="smtitle bt_line">
                                                         {ln("minimum")}/
-                                                        {ln("maximum")}{" "}
+                                                        {ln("maximum")}
                                                         {ln("personnel")}
                                                     </th>
                                                     <td className="smtxt bt_line">
                                                         {ln("minimum")}
                                                         {minMember}
-                                                        {ln("person_unit")}{" "}
+                                                        {ln("person_unit")}
                                                         {ln("maximum")}
                                                         {maxMember}
                                                         {ln("person_unit")}
