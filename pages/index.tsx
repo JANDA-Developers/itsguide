@@ -234,10 +234,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <div className="right_div">
                                 <span className="goto_page">
                                     <Link href="/tour">
-                                        <a>
-                                            {ln("gotoList")}
-                                            <i className="flaticon-menu-1"></i>
-                                        </a>
+                                        <a>{ln("gotoList")}</a>
                                     </Link>
                                 </span>
                             </div>
@@ -267,10 +264,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <div className="right_div">
                                 <span className="goto_page">
                                     <Link href="/tour">
-                                        <a>
-                                            {ln("gotoList")}
-                                            <i className="flaticon-menu-1"></i>
-                                        </a>
+                                        <a>{ln("gotoList")}</a>
                                     </Link>
                                 </span>
                             </div>
@@ -437,10 +431,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <div className="right_div">
                                 <span className="goto_page">
                                     <Link href="/tour">
-                                        <a>
-                                            {ln("gotoList")}
-                                            <i className="flaticon-menu-1"></i>
-                                        </a>
+                                        <a>{ln("gotoList")}</a>
                                     </Link>
                                 </span>
                             </div>
@@ -467,10 +458,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             <div className="right_div">
                                 <span className="goto_page">
                                     <Link href="/tour">
-                                        <a>
-                                            {ln("gotoList")}
-                                            <i className="flaticon-menu-1"></i>
-                                        </a>
+                                        <a>{ln("gotoList")}</a>
                                     </Link>
                                 </span>
                             </div>

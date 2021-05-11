@@ -2970,7 +2970,7 @@ div.sum_div {
         padding: 10px 5px;
     }
     ul.list_ul.line4 li .img{
-        height: 170px;
+        height: 270px;
     }
     .photo_ul.line4 li {
         height: 185px;
@@ -3049,7 +3049,12 @@ div.sum_div {
             margin-bottom: 3px;
         }
 }
+@media (max-width:500px) {
 
+    ul.list_ul.line4 li .img{
+        height: 210px;
+    }
+    }
 @media (max-width:360px) {
     div.board_view .thumbnail{
         width: 220px;

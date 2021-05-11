@@ -143,10 +143,7 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     <div className="right_div">
                                         <span className="goto_page">
                                             <Link href="/">
-                                                <a>
-                                                    {ln("gotoList")}
-                                                    <i className="flaticon-menu-1"></i>
-                                                </a>
+                                                <a>{ln("gotoList")}</a>
                                             </Link>
                                         </span>
                                     </div>
@@ -175,10 +172,7 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     <div className="right_div">
                                         <span className="goto_page">
                                             <Link href="../sub/tour_list.html">
-                                                <a>
-                                                    {ln("gotoList")}
-                                                    <i className="flaticon-menu-1"></i>
-                                                </a>
+                                                <a>{ln("gotoList")}</a>
                                             </Link>
                                         </span>
                                     </div>
@@ -215,10 +209,7 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     <div className="right_div">
                                         <span className="goto_page">
                                             <Link href="/">
-                                                <a>
-                                                    {ln("gotoList")}
-                                                    <i className="flaticon-menu-1"></i>
-                                                </a>
+                                                <a>{ln("gotoList")}</a>
                                             </Link>
                                         </span>
                                     </div>

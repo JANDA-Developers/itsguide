@@ -3760,7 +3760,7 @@ div.reservation_popup .tr select {
     width: 100%;
 }
 
-#main .main_con_box1,
+/* #main .main_con_box1,
 #main .main_con_box2,
 #main .main_con_box3,
 #main .main_con_box4,
@@ -3768,7 +3768,7 @@ div.reservation_popup .tr select {
     position: relative;
     display: block;
     width: 100%;
-}
+} */
 .main_con_box1 .ovj {
     width: 430px;
     position: absolute;
@@ -4069,7 +4069,7 @@ div.reservation_popup .tr select {
                     clear: both;
                 }
 
-    .main_con_box5 {
+    /* .main_con_box5 {
         background-color: #f5f5f5;
         padding: 105px 0;
         box-sizing: border-box;
@@ -4140,7 +4140,7 @@ div.reservation_popup .tr select {
                 box-sizing: border-box;
                 vertical-align: top;
                 /* background-image: url(/its/man01.jpg); */
-                background-size: 120%;
+                /* background-size: 120%;
                 background-position: center;
                 border-radius: 150px;
                 overflow: hidden;
@@ -4189,7 +4189,7 @@ div.reservation_popup .tr select {
     
                 .main_con_box5 .man_box li.on .name i {
                     background-color: #039ce0;
-                }
+                } */
     
 div.goods_list {
     position: relative;
@@ -4281,7 +4281,7 @@ div.goods_list {
             font-size: 30px;
         }
 
-        div.theme_deal {
+        /* div.theme_deal {
             width: 100%;
             height: 650px;
             margin-top: 10px;
@@ -4437,7 +4437,7 @@ div.goods_list {
         
                 div.theme_deal .top_06:before {
                     background-image: url(/its/tem_bg_05.jpg);
-                }
+                } */
                 
 .main_con_box7 {
     position: relative;
@@ -7749,7 +7749,7 @@ ul.rank_ul {
         border-radius: 20px 20px 0 0;
     }
 
-        .guide_box .guide_content .con01 {
+        /* .guide_box .guide_content .con01 {
             position: relative;
             padding: 20px 0px 20px 60px;
             box-sizing: border-box;
@@ -7837,7 +7837,7 @@ ul.rank_ul {
                     font-size: 14px;
                     line-height: 20px;
                     margin-top: 10px;
-                }
+                } */
 
 /* tour */
 .goods_box {
@@ -7863,7 +7863,7 @@ ul.rank_ul {
             position: relative;
             clear: both;
         }
-
+/* 
 div.bn_box {
     position: relative;
     display: block;
@@ -7894,7 +7894,7 @@ div.bn_box {
 
         div.bn_box.line2 a:first-child {
             margin-right: 1%;
-        }
+        } */
 
 /* experience_box */
 .experience_box {
@@ -8852,7 +8852,7 @@ div.bn_box {
     min-height: 720px;
     box-sizing: border-box;
 }
-
+/* 
     .login_box .white_box {
         position: absolute;
         left: 0;
@@ -8874,7 +8874,7 @@ div.bn_box {
         -o-transition: opacity linear 0.1s;
         -ms-transition: opacity linear 0.1s;
         transition: opacity linear 0.1s;
-    }
+    } */
 
     .login_box .login_page {
         position: relative;
@@ -12791,7 +12791,7 @@ i.calendar {
         padding: 270px 0 90px;
     }
 
-    div.bn_box {
+    /* div.bn_box {
         display: flex;
         margin-top: 60px;
     }
@@ -12799,7 +12799,7 @@ i.calendar {
         div.bn_box.line2 a {
             width: 49.5%;
             margin-bottom: 0;
-        }
+        } */
 
     .login_wrap .form-group label {
         font-size: 13px;
@@ -13003,7 +13003,7 @@ i.calendar {
                 font-size: 17px;
                 border-radius: 5px 5px 0 0;
             }
-
+/* 
         .login_box .white_box {
             left: 50%;
             top: 50px;
@@ -13011,7 +13011,7 @@ i.calendar {
             width: 800px;
             border-radius: 5px;
             padding: 100px 180px 110px 180px;
-        }
+        } */
 
     .main_con_box1 .w1200 {
         padding: 0;
@@ -13849,9 +13849,9 @@ div.alignment .right_div {
             top: 9px;
             right: 11px;
         }
-    div.bn_box {
+    /* div.bn_box {
         width: 100%;
-    }
+    } */
     .portfolio_in .top_bg {
         height: 620px;
         width: 100%;

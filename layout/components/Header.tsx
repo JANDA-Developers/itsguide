@@ -314,11 +314,20 @@ export const Header: React.FC<IProp> = () => {
                             </div>
                             {isLogin && (
                                 <div className="inform_top">
-                                    <Link href="/mypage/notification">
-                                        <a>
-                                            <NotiIcon />
-                                        </a>
-                                    </Link>
+                                    {!isManager && (
+                                        <Link href="/mypage/notification">
+                                            <a>
+                                                <NotiIcon />
+                                            </a>
+                                        </Link>
+                                    )}
+                                    {isManager && (
+                                        <Link href="/master/notification">
+                                            <a>
+                                                <NotiIcon />
+                                            </a>
+                                        </Link>
+                                    )}
                                 </div>
                             )}
                             <div
@@ -659,7 +668,7 @@ export const Header: React.FC<IProp> = () => {
                                         </ul>
                                     </li>
                                 )}
-                                {isLogin && (
+                                {!isLogin && (
                                     <li className="a_menu_tit deps">
                                         <Link href="/member/login">
                                             <a>
