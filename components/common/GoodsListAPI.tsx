@@ -20,6 +20,7 @@ import { genrateOption } from "../../utils/query";
 import Slider from "react-slick";
 import { useResizeDetector } from "react-resize-detector";
 import { thumbNail } from "../ThunbNail/ThunbNail";
+import Link from "next/link";
 
 interface IProp {
     isBestList?: boolean;
@@ -123,7 +124,13 @@ export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
             <div className="box">
                 <div className="category">
                     <span>{item.category?.label}</span>
-                    <div className="guide__name">가이드이름</div>
+                    <Link href={`/itsguid/${item.author._id}`}>
+                        <a>
+                            <div className="guide__name">
+                                {item.author?.nickName}
+                            </div>
+                        </a>
+                    </Link>
                 </div>
                 <div className="title">{item.title}</div>
                 <div className="bottom_txt">

@@ -498,3 +498,14 @@ background-color: #fff;
         flex-direction: column;
     }
 }
+
+
+.notiLine a {
+    color: #38A5EE;
+}
+
+.tourView__thumbBg {
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}

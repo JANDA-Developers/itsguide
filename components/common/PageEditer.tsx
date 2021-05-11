@@ -23,10 +23,6 @@ export const PageEditor: React.FC<IProp> = ({
     const inTourWrite = rotuer.pathname.includes("tour/write");
     const inProfilePage = rotuer.pathname.includes("itsguid/");
 
-    console.log("rotuer.pathname");
-    console.log(rotuer.pathname);
-    console.log(inTourWrite);
-
     const submit = () => {
         if (isIE()) {
             alert(

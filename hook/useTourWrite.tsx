@@ -162,8 +162,13 @@ export type TRangeType = "Range" | "Single";
 
 interface IUseTourProps extends Partial<IUseTourDefaultData> {}
 export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
-    const [range, setRange] = useState(1);
-    const [rangeType, setRangeType] = useState<TRangeType>("Single");
+    const defaultItsLength = defaults.its?.length || 1;
+    console.log({ defaultItsLength });
+    const [range, setRange] = useState(defaultItsLength);
+    const [rangeType, setRangeType] = useState<TRangeType>(
+        defaultItsLength === 1 ? "Single" : "Range"
+    );
+    console.log({ rangeType });
     const [tempSavedIts, setTempSavedIts] = useState<ItineraryCreateInput[]>();
     const [type, setType] = useState<ProductType>(
         defaults.type || ProductType.TOUR
@@ -462,6 +467,8 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         if (data.keyWards) setkeyWards(data.keyWards);
         if (data.regionId) setRegionId(data.regionId);
         if (data.lang) setLang(data.lang);
+        if (data.its) setRangeType(data.its.length === 1 ? "Single" : "Range");
+        if (data.its) setRange(data.its.length || 1);
     };
 
     const handleRegionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

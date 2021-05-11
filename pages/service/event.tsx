@@ -13,6 +13,9 @@ import { NewBadge } from "../../components/newBadge/NewBadge";
 import { yyyymmddHHmm } from "../../utils/yyyymmdd";
 import { Paginater } from "../../components/common/Paginator";
 import SearchMini from "../../components/common/SearchMini";
+import { useEventList } from "../../hook/useEvent";
+import { useSingleSort } from "../../hook/useSort";
+import { _EventSort } from "../../types/api";
 
 export const getStaticProps = getStaticPageInfo("event");
 export const Event: React.FC<Ipage> = (page) => {

@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { AddressData } from "react-daum-postcode";
 import { Ffile, getContext_GetProfile_data, Lang } from "../types/api";
 import { E_INPUT } from "../types/interface";
+import { deepCopy } from "../utils/formatter";
 import { closeModal } from "../utils/popUp";
 import { useUpload } from "./useUpload";
 
@@ -99,7 +100,7 @@ export const useMyProfile = (defaultData: getContext_GetProfile_data) => {
         is_froreginer: defaultData.is_froreginer,
         phoneNumber: defaultData.phoneNumber || "",
         lang: defaultData.lang || Lang.KO,
-        guideLicenses: defaultData.guideLicenses || [],
+        guideLicenses: deepCopy(defaultData.guideLicenses || []),
     });
 
     const toggleCheck = (key: "acceptEamil" | "acceptSms") => () => {

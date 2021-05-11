@@ -30,7 +30,7 @@ export const TicketWrite: React.FC<IProp> = () => {
         onCompleted: ({ TicketUpdate }) => {
             if (TicketUpdate.ok) {
                 const id = TicketUpdate.data!._id;
-                router.push(`/service/ticket/view/${id}`);
+                router.push(`/ticket/view/${id}`);
             }
         },
         awaitRefetchQueries: true,
@@ -40,7 +40,7 @@ export const TicketWrite: React.FC<IProp> = () => {
         onCompleted: ({ TicketCreate }) => {
             if (TicketCreate.ok) {
                 const id = TicketCreate.data!._id;
-                router.push(`/service/ticket/view/${id}`);
+                router.push(`/ticket/view/${id}`);
             }
         },
         awaitRefetchQueries: true,
@@ -91,7 +91,9 @@ export const TicketWrite: React.FC<IProp> = () => {
 
         ticketUpdateMu({
             variables: {
-                params: omits(params, ["categoryId", "files"]),
+                params: {
+                    ...omits(params, ["categoryId", "files"]),
+                },
                 id,
             },
         });
@@ -111,7 +113,6 @@ export const TicketWrite: React.FC<IProp> = () => {
 
         const next = {
             ...boardData,
-            userId,
         };
 
         ticketCreateMu({
@@ -119,7 +120,7 @@ export const TicketWrite: React.FC<IProp> = () => {
                 recipientId: userId,
                 params: {
                     ...omits(next, ["categoryId", "files"]),
-                    url: location.origin + "/ticket/view/",
+                    url: location.origin + "/ticket/view",
                 },
             },
         });
@@ -139,7 +140,7 @@ export const TicketWrite: React.FC<IProp> = () => {
                 author={ticket?.author}
                 WriteInjection={
                     <div className="write_type">
-                        <div className="title">상품명</div>
+                        <div className="title">상대</div>
                         <div className="input_form">
                             <input
                                 onFocus={openModal("#UserSelectModal")}
@@ -160,18 +161,15 @@ export const TicketWrite: React.FC<IProp> = () => {
                 onCreate={handleCreate}
                 onDelete={handleDelete}
                 onEdit={handleUpdate}
-                onSave={handleTempSave}
-                onLoad={handleLoad}
                 opens={{
                     title: true,
-                    open: true,
                 }}
             />
             <UserSelectModal
                 id="UserSelectModal"
-                onSelect={(pd) => {
-                    setUserId(pd._id);
-                    setUserName(pd.title);
+                onSelect={(user) => {
+                    setUserId(user._id);
+                    setUserName(user.name);
                     closeModal("#UserSelectModal")();
                 }}
             />

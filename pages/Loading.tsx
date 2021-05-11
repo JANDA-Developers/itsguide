@@ -10,7 +10,7 @@ export const PageLoading: React.FC<IProp> = (props) => {
             className="pageLoader"
             style={{ minHeight: "90vh", width: "100%" }}
             {...props}
-        ></div>
+        />
     );
 };
 
