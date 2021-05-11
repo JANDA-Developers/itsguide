@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useUserList } from "../../hook/useUser";
 import { handSearchClose } from "../../layout/components/Header";
 import { Fuser } from "../../types/api";
-import { BG } from "../../types/const";
+import { BG, DEFAULT_PROFILE_IMG } from "../../types/const";
 import { setVal, whenEnter } from "../../utils/eventValueExtracter";
 import { integratedUserSearch } from "../../utils/genFilter";
 import { yyyymmdd } from "../../utils/yyyymmdd";
@@ -74,7 +74,10 @@ export const UserSearcher: React.FC<IProp> = ({
                                 >
                                     <div className="goodsall__list__img">
                                         <img
-                                            src={item.profileImg?.uri || ""}
+                                            src={
+                                                item.profileImg?.uri ||
+                                                DEFAULT_PROFILE_IMG
+                                            }
                                             alt="상품이미지"
                                         />
                                     </div>

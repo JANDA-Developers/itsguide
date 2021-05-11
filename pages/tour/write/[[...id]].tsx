@@ -36,7 +36,7 @@ import { usePageEdit } from "../../../hook/usePageEdit";
 import { cloneObject } from "../../../utils/clone";
 import { productStatus } from "../../../utils/enumToKr";
 import { Prompt } from "../../../components/promptModal/Prompt";
-import { openModal } from "../../../utils/popUp";
+import { closeModal, openModal } from "../../../utils/popUp";
 import {
     LocalStorageBoard,
     SampleBoard,
@@ -138,6 +138,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
         const val = JSON.parse(target);
         if (val) {
             alert("불러오기 완료");
+            closeModal("#SampleSelecter")();
             setSampleIndex(index);
             setTourData(val);
         }

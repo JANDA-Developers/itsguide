@@ -116,7 +116,7 @@ export const ReviewWrite: React.FC<IProp> = () => {
     };
 
     const handleDelete = () => {
-        if (confirm("정말로 게시글을 삭제 하시겠습니까?"))
+        if (window.confirm(`정말로 게시글을 삭제 하시겠습니까?`))
             productreviewDeleteMu({
                 variables: {
                     id,

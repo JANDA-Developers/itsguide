@@ -58,7 +58,6 @@ export const useProductReviewUpdate = generateMutationHook<
         PRODUCT_REVIEW_FIND_BY_ID
     ),
 });
-e;
 export const useProductReviewDelete = generateMutationHook<
     productreviewDelete,
     productreviewDeleteVariables

@@ -11,6 +11,8 @@ export const F_SYSTEMNOTI = gql`
         type
         content
         isRead
+        severity
+        link
     }
 `;
 

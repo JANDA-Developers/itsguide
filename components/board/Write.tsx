@@ -158,19 +158,7 @@ export const BoardWrite: React.FC<IProps> = ({
                             </div>
                         </div>
                     )}
-                    <div className="write_type">
-                        <div className="title">작성자</div>
-                        <div className="input_form">
-                            <input
-                                readOnly
-                                value={name}
-                                type="text"
-                                name="title"
-                                className="inputText w50 fix"
-                            />
-                            {/* 자동출력 고정 */}
-                        </div>
-                    </div>
+
                     <div className="write_type">
                         <div className="title">제목</div>
                         <div className="input_form">

@@ -96,9 +96,9 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
     const isMyProduct = product?.author?._id === myProfile?._id;
     const status = product?.status;
     const reviews = product?.productReview || [];
-
-    const reviewPagination = generateClientPaging(reviews, 4);
-
+    const confirmedReviwes = reviews.filter(review => review.isConfiremd);
+    const renderReviews = (isMyProduct || isManager) ? reviews : confirmedReviwes
+    const reviewPagination = generateClientPaging(renderReviews, 4);
     const isMyReview = (authorId: string) => authorId === "";
 
     const {
@@ -280,9 +280,8 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                             {images?.map((img, i) => (
                                                 <Slide key={i + "sliderImg"}>
                                                     {isImg(img.extension) ? (
-                                                        <img
-                                                            src={img?.uri}
-                                                            alt={img.name}
+                                                        <div
+                                                            style={BG(img?.uri)}
                                                         />
                                                     ) : (
                                                         <Video
@@ -301,16 +300,16 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                 onClick={handleSliderMove(i)}
                                                 key={i + "sliderImgSub"}
                                             >
-                                                <span>
+                                                <div style={{ height: "100%" }}>
                                                     {isImg(img.extension) ? (
-                                                        <img
-                                                            src={img?.uri}
-                                                            alt={img.name}
+                                                        <div
+                                                            className="tourView__thumbBg"
+                                                            style={BG(img?.uri)}
                                                         />
                                                     ) : (
                                                         <Video src={img?.uri} />
                                                     )}
-                                                </span>
+                                                </div>
                                             </li>
                                         ))}
                                     </ul>
@@ -829,6 +828,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                                             review.rating
                                                                         }
                                                                     />
+                                                                    <div>{review.isConfiremd ?  "Open" : "Close"}</div>
                                                                 </div>
                                                                 <div className="review__list_info">
                                                                     <strong>

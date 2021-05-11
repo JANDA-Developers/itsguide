@@ -40,23 +40,15 @@ export const TicketDetail: React.FC<IProp> = () => {
     });
 
     const { item: ticket, error } = useTicketFindById(ticketId);
-    const myTicket = ticket?.author?._id === myProfile?._id;
+    const myTicket = ticket?.recipientId === myProfile?._id;
 
     if (error) return <Page404 />;
     if (!ticket) return <PageLoading />;
-    const {
-        title,
-        thumb,
-        createdAt,
-        contents,
-        subTitle,
-        _id,
-        author,
-        isOpen,
-    } = ticket;
+    const { title, thumb, createdAt, contents, subTitle, _id, author, isOpen } =
+        ticket;
 
     const toDetail = () => {
-        router.push(`/service/ticket/write/${_id}`);
+        router.push(`/ticket/write/${_id}`);
     };
 
     const toList = () => {
@@ -116,7 +108,6 @@ export const TicketDetail: React.FC<IProp> = () => {
             <BoardView
                 isOpen={!!isOpen}
                 authorId={author?._id || ""}
-                onList={toList}
                 thumb={thumb}
                 content={contents}
                 writer={author?.nickName || ""}
@@ -127,7 +118,7 @@ export const TicketDetail: React.FC<IProp> = () => {
                 createAt={createdAt}
                 Foot={
                     <div className="comment__div">
-                        {isManager && (
+                        {(isManager || myTicket) && (
                             <div>
                                 <h3>Comment</h3>
                                 {!isEmpty(ticket.answers) && (
