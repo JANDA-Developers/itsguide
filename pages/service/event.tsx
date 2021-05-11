@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getStaticPageInfo, Ipage } from "../../utils/page";
 import { AppContext } from "../_app";
 import { usePageEdit } from "../../hook/usePageEdit";
-import { DEFAULT_PAGEINFO } from "../../types/const";
+import DEFAULT_PAGEINFO from "../../info/event.json";
 import { PageEditor } from "../../components/common/PageEditer";
 import SubTopNav from "../../layout/components/SubTop";
 import { MemberTopNav } from "../../components/topNav/MasterTopNav";
@@ -15,7 +15,8 @@ import { Paginater } from "../../components/common/Paginator";
 import SearchMini from "../../components/common/SearchMini";
 import { useEventList } from "../../hook/useEvent";
 import { useSingleSort } from "../../hook/useSort";
-import { _EventSort } from "../../types/api";
+import { eventList_EventList_data, _EventSort } from "../../types/api";
+import { useRouter } from "next/router";
 
 export const getStaticProps = getStaticPageInfo("event");
 export const Event: React.FC<Ipage> = (page) => {
@@ -34,7 +35,6 @@ export const Event: React.FC<Ipage> = (page) => {
     } = useEventList();
     const singleSortHook = useSingleSort(sort, setSort, [
         _EventSort.isNotice_desc,
-        _EventSort.type_desc,
     ]);
     const router = useRouter();
 
@@ -87,7 +87,6 @@ export const Event: React.FC<Ipage> = (page) => {
                             <ul>
                                 {items.map((item, i) => (
                                     <li onClick={toView(item)} key={item._id}>
-                                        <div className="td01">{item.no}</div>
                                         <div className="td02">
                                             {item.title}
                                             <NewBadge
