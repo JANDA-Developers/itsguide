@@ -10075,11 +10075,6 @@ i.calendar {
     .tour_details_in .Read_box .details_photo .main_photo{
         height: 435px;
     }
-    .tour_details_in .Read_box .details_photo .main_photo div {
-        height: 100%;
-        background-size: cover;
-        background-position: center center;
-    }
     
     .option_tb .tag .tt,
     .option_tb .smtitle {
