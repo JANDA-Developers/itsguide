@@ -10072,9 +10072,6 @@ i.calendar {
     .tour_details_in .Read_box {
         margin-bottom: 10px;
     }
-    .tour_details_in .Read_box .details_photo .photo_list li {
-        height: 90px;
-    }
     .tour_details_in .Read_box .details_photo .main_photo{
         height: 435px;
     }

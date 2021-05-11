@@ -499,7 +499,6 @@ background-color: #fff;
     }
 }
 
-
 .notiLine a {
     color: #38A5EE;
 }
@@ -508,4 +507,12 @@ background-color: #fff;
     height: 100%;
     background-size: cover;
     background-position: center center;
+}
+
+.profilePage .tour_details_in .Read_box .details_photo .main_photo {
+    height: 434px;
+}
+
+.tour_details_in .Read_box .details_photo .photo_list li {
+    height: 90px;
 }
