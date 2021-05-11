@@ -464,10 +464,10 @@ ul.list_ul li .img {
 ul.list_ul li .imgWrap {
     overflow: hidden;
 }
-ul.list_ul li:hover .img {
+ul.list_ul li:hover .imgWrap .img {
     transform: scale(1.2);
-
 }
+
 
 ul.list_ul.line3 li .img {
     height: 222px;

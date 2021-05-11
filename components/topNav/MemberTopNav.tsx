@@ -17,11 +17,11 @@ export const MemberTopNav = () => {
                     <a>{ln("frequentQuestion")}</a>
                 </Link>
             </li>
-            <li className={checkOn("event")}>
+            {/* <li className={checkOn("event")}>
                 <Link href="/service/event">
                     <a>{ln("event")}</a>
                 </Link>
-            </li>
+            </li> */}
             <li className={checkOn("question")}>
                 <Link href="/service/question">
                     <a>{ln("question")}</a>

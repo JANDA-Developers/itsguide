@@ -18,15 +18,13 @@ export const ProductListBlock: React.FC<IProp> = ({ product }) => {
 
     return (
         <li className="list_in">
-            <div className="imgWrap">
-                <div
-                    onClick={() => {
-                        router.push(`/tour/view/${product._id}`);
-                    }}
-                    style={BG(thumbNail(product?.images)?.uri || "")}
-                    className="img"
-                />
-            </div>
+            <div
+                onClick={() => {
+                    router.push(`/tour/view/${product._id}`);
+                }}
+                style={BG(thumbNail(product?.images)?.uri || "")}
+                className="img"
+            />
             <div className="txt1">
                 <div className="title">
                     <Link href={"/tour/view/" + product._id}>

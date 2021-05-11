@@ -2328,6 +2328,565 @@ export interface countManager {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: eventFindById
+// ====================================================
+
+export interface eventFindById_EventFindById_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface eventFindById_EventFindById_data_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventFindById_EventFindById_data_author_profileImg {
+  __typename: "File";
+  uri: string;
+}
+
+export interface eventFindById_EventFindById_data_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventFindById_EventFindById_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventFindById_EventFindById_data_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventFindById_EventFindById_data_author {
+  __typename: "User";
+  _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: eventFindById_EventFindById_data_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
+  phoneNumber: string;
+  /**
+   * 프로필 사진
+   */
+  profileImg: eventFindById_EventFindById_data_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: eventFindById_EventFindById_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: eventFindById_EventFindById_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
+   * 통장사본
+   */
+  bankImg: eventFindById_EventFindById_data_author_bankImg | null;
+}
+
+export interface eventFindById_EventFindById_data_attachFiles {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventFindById_EventFindById_data_thumb {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventFindById_EventFindById_data {
+  __typename: "Event";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  title: string;
+  contents: string;
+  author: eventFindById_EventFindById_data_author | null;
+  isNotice: boolean | null;
+  isOpen: boolean | null;
+  summary: string | null;
+  subTitle: string | null;
+  keyWards: string[] | null;
+  attachFiles: eventFindById_EventFindById_data_attachFiles[] | null;
+  thumb: eventFindById_EventFindById_data_thumb | null;
+  viewCount: number;
+}
+
+export interface eventFindById_EventFindById {
+  __typename: "EventFindByIdResponse";
+  ok: boolean;
+  error: eventFindById_EventFindById_error | null;
+  data: eventFindById_EventFindById_data | null;
+}
+
+export interface eventFindById {
+  EventFindById: eventFindById_EventFindById;
+}
+
+export interface eventFindByIdVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: eventList
+// ====================================================
+
+export interface eventList_EventList_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface eventList_EventList_page {
+  __typename: "Page";
+  /**
+   * 현재 페이지 번호
+   */
+  page: number;
+  /**
+   * 페이지당 문서 갯수
+   */
+  cntPerPage: number;
+  /**
+   * 페이지 총 갯수
+   */
+  totalPageSize: number;
+  /**
+   * 시작 페이지 번호
+   */
+  start_page_num: number;
+  /**
+   * 마지막 페이지 번호
+   */
+  end_page_num: number;
+  /**
+   * 이전(<<) 표시 여부
+   */
+  isPrev: boolean;
+  /**
+   * 다음(>>) 표시 여부
+   */
+  isNext: boolean;
+  /**
+   * 이전(<<) 클릭시 표시할 페이지 번호
+   */
+  prev_page_num: number;
+  /**
+   * 다음(>>) 클릭시 표시할 페이지 번호
+   */
+  next_page_num: number;
+  /**
+   * 총 갯수
+   */
+  totalCount: number;
+  /**
+   * 마지막 패이지의 갯수 (index계산 하는데 사용함)
+   */
+  remainder: number;
+}
+
+export interface eventList_EventList_data_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventList_EventList_data_author_profileImg {
+  __typename: "File";
+  uri: string;
+}
+
+export interface eventList_EventList_data_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventList_EventList_data_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventList_EventList_data_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventList_EventList_data_author {
+  __typename: "User";
+  _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: eventList_EventList_data_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
+  phoneNumber: string;
+  /**
+   * 프로필 사진
+   */
+  profileImg: eventList_EventList_data_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: eventList_EventList_data_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: eventList_EventList_data_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
+   * 통장사본
+   */
+  bankImg: eventList_EventList_data_author_bankImg | null;
+}
+
+export interface eventList_EventList_data_attachFiles {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventList_EventList_data_thumb {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface eventList_EventList_data {
+  __typename: "Event";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  title: string;
+  contents: string;
+  author: eventList_EventList_data_author | null;
+  isNotice: boolean | null;
+  isOpen: boolean | null;
+  summary: string | null;
+  subTitle: string | null;
+  keyWards: string[] | null;
+  attachFiles: eventList_EventList_data_attachFiles[] | null;
+  thumb: eventList_EventList_data_thumb | null;
+  viewCount: number;
+}
+
+export interface eventList_EventList {
+  __typename: "EventListResponse";
+  ok: boolean;
+  error: eventList_EventList_error | null;
+  page: eventList_EventList_page;
+  data: eventList_EventList_data[];
+}
+
+export interface eventList {
+  EventList: eventList_EventList;
+}
+
+export interface eventListVariables {
+  sort?: _EventSort[] | null;
+  filter?: _EventFilter | null;
+  pageInput: pageInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: eventCreate
+// ====================================================
+
+export interface eventCreate_EventCreate_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface eventCreate_EventCreate_data {
+  __typename: "Event";
+  _id: string;
+}
+
+export interface eventCreate_EventCreate {
+  __typename: "EventCreateResponse";
+  ok: boolean;
+  error: eventCreate_EventCreate_error | null;
+  data: eventCreate_EventCreate_data | null;
+}
+
+export interface eventCreate {
+  EventCreate: eventCreate_EventCreate;
+}
+
+export interface eventCreateVariables {
+  params: EventCreateInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: eventDelete
+// ====================================================
+
+export interface eventDelete_EventDelete_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface eventDelete_EventDelete {
+  __typename: "EventDeleteResponseResponse";
+  ok: boolean;
+  error: eventDelete_EventDelete_error | null;
+}
+
+export interface eventDelete {
+  EventDelete: eventDelete_EventDelete;
+}
+
+export interface eventDeleteVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: eventUpdate
+// ====================================================
+
+export interface eventUpdate_EventUpdate_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface eventUpdate_EventUpdate_data {
+  __typename: "Event";
+  _id: string;
+}
+
+export interface eventUpdate_EventUpdate {
+  __typename: "EventUpdateResponse";
+  ok: boolean;
+  error: eventUpdate_EventUpdate_error | null;
+  data: eventUpdate_EventUpdate_data | null;
+}
+
+export interface eventUpdate {
+  EventUpdate: eventUpdate_EventUpdate;
+}
+
+export interface eventUpdateVariables {
+  params: EventUpdateInput;
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: feePolicyFindOne
 // ====================================================
 
@@ -7838,6 +8397,7 @@ export interface getContext_GetProfile_data_unReadNoties {
   content: string;
   isRead: boolean;
   severity: SystemNotiSeverity;
+  link: string | null;
 }
 
 export interface getContext_GetProfile_data_products {
@@ -10520,6 +11080,7 @@ export interface unReadSystemNotiFind_UnReadSystemNotiFind_data {
   content: string;
   isRead: boolean;
   severity: SystemNotiSeverity;
+  link: string | null;
 }
 
 export interface unReadSystemNotiFind_UnReadSystemNotiFind {
@@ -10611,6 +11172,7 @@ export interface systemNotiList_SystemNotiList_data {
   content: string;
   isRead: boolean;
   severity: SystemNotiSeverity;
+  link: string | null;
 }
 
 export interface systemNotiList_SystemNotiList {
@@ -10896,7 +11458,7 @@ export interface ticketFindById_TicketFindById_data {
   author: ticketFindById_TicketFindById_data_author | null;
   isNotice: boolean | null;
   isOpen: boolean | null;
-  answers: (ticketFindById_TicketFindById_data_answers | null)[];
+  answers: (ticketFindById_TicketFindById_data_answers | null)[] | null;
   summary: string | null;
   subTitle: string | null;
   recipientId: string;
@@ -11175,7 +11737,7 @@ export interface ticketList_TicketList_data {
   author: ticketList_TicketList_data_author | null;
   isNotice: boolean | null;
   isOpen: boolean | null;
-  answers: (ticketList_TicketList_data_answers | null)[];
+  answers: (ticketList_TicketList_data_answers | null)[] | null;
   summary: string | null;
   subTitle: string | null;
   recipientId: string;
@@ -13147,6 +13709,184 @@ export interface Ftraveler {
   phoneNumber: string;
   gender: GENDER | null;
   age: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL fragment: Fevent
+// ====================================================
+
+export interface Fevent_author_busiRegistration {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fevent_author_profileImg {
+  __typename: "File";
+  uri: string;
+}
+
+export interface Fevent_author_guideLicense {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fevent_author_guideLicenses {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fevent_author_bankImg {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fevent_author {
+  __typename: "User";
+  _id: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  email: string;
+  /**
+   * 담당자명
+   */
+  manageName: string;
+  connectionCount: number;
+  role: UserRole;
+  brith_date: string;
+  address: string;
+  address_detail: string;
+  acceptSms: boolean;
+  status: UserStatus;
+  acceptEamil: boolean;
+  /**
+   * 매니저에 의한 회원가입 거절
+   */
+  isDenied: boolean | null;
+  is_froreginer: boolean;
+  /**
+   * 기업 전화번호
+   */
+  busi_contact: string;
+  /**
+   * 담당자 연락처
+   */
+  manageContact: string;
+  resignDate: any | null;
+  gender: GENDER;
+  busi_num: string;
+  /**
+   * 회원가입 거절 사유
+   */
+  denyReason: string | null;
+  /**
+   * 부서명
+   */
+  busi_department: string;
+  isVerifiedManager: boolean;
+  isVerifiedPhoneNumber: boolean;
+  /**
+   * 사업자 등록증
+   */
+  busiRegistration: Fevent_author_busiRegistration | null;
+  /**
+   * 개인 법인인지 아닌지 체크함 True = 법인
+   */
+  is_priv_corper: boolean;
+  /**
+   * 사업자명
+   */
+  busi_name: string;
+  busi_address: string;
+  account_number: string;
+  name: string;
+  bank_name: string;
+  resignReason: string | null;
+  resignReasonType: string | null;
+  isResigned: boolean | null;
+  phoneNumber: string;
+  /**
+   * 프로필 사진
+   */
+  profileImg: Fevent_author_profileImg | null;
+  /**
+   * 가이드 자격증
+   */
+  guideLicense: Fevent_author_guideLicense | null;
+  /**
+   * 가이드 자격증들
+   */
+  guideLicenses: Fevent_author_guideLicenses[] | null;
+  /**
+   * 주력언어
+   */
+  lang: Lang;
+  /**
+   * 통장사본
+   */
+  bankImg: Fevent_author_bankImg | null;
+}
+
+export interface Fevent_attachFiles {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fevent_thumb {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface Fevent {
+  __typename: "Event";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  title: string;
+  contents: string;
+  author: Fevent_author | null;
+  isNotice: boolean | null;
+  isOpen: boolean | null;
+  summary: string | null;
+  subTitle: string | null;
+  keyWards: string[] | null;
+  attachFiles: Fevent_attachFiles[] | null;
+  thumb: Fevent_thumb | null;
+  viewCount: number;
 }
 
 /* tslint:disable */
@@ -15174,6 +15914,7 @@ export interface FsystemNoti {
   content: string;
   isRead: boolean;
   severity: SystemNotiSeverity;
+  link: string | null;
 }
 
 /* tslint:disable */
@@ -15371,7 +16112,7 @@ export interface Fticket {
   author: Fticket_author | null;
   isNotice: boolean | null;
   isOpen: boolean | null;
-  answers: (Fticket_answers | null)[];
+  answers: (Fticket_answers | null)[] | null;
   summary: string | null;
   subTitle: string | null;
   recipientId: string;
@@ -15809,6 +16550,26 @@ export enum _BookingSort {
 /**
  * Auto generated sort type
  */
+export enum _EventSort {
+  createdAt_asc = "createdAt_asc",
+  createdAt_desc = "createdAt_desc",
+  isNotice_asc = "isNotice_asc",
+  isNotice_desc = "isNotice_desc",
+  likeCount_asc = "likeCount_asc",
+  likeCount_desc = "likeCount_desc",
+  subTitle_asc = "subTitle_asc",
+  subTitle_desc = "subTitle_desc",
+  title_asc = "title_asc",
+  title_desc = "title_desc",
+  updatedAt_asc = "updatedAt_asc",
+  updatedAt_desc = "updatedAt_desc",
+  viewCount_asc = "viewCount_asc",
+  viewCount_desc = "viewCount_desc",
+}
+
+/**
+ * Auto generated sort type
+ */
 export enum _INotificationHistoryItemSort {
   createdAt_asc = "createdAt_asc",
   createdAt_desc = "createdAt_desc",
@@ -16211,6 +16972,30 @@ export interface CategoryCreateInput {
 export interface CategoryUpdateInput {
   label?: string | null;
   localeLabel?: LocaleInput | null;
+}
+
+export interface EventCreateInput {
+  title: string;
+  content: string;
+  isNotice?: boolean | null;
+  isOpen?: boolean | null;
+  summary?: string | null;
+  subTitle?: string | null;
+  keyWards?: string[] | null;
+  attachFiles?: FileCreateInput[] | null;
+  thumb?: FileCreateInput | null;
+}
+
+export interface EventUpdateInput {
+  title?: string | null;
+  contents: string;
+  isNotice?: boolean | null;
+  isOpen?: boolean | null;
+  summary?: string | null;
+  subTitle?: string | null;
+  keyWards?: string[] | null;
+  attachFiles?: FileUpdateInput[] | null;
+  thumb?: FileUpdateInput | null;
 }
 
 export interface FeePolicyUpdateInput {
@@ -16634,7 +17419,7 @@ export interface SmsTemplateUpdateInput {
 
 export interface TicketCreateInput {
   title: string;
-  content: string;
+  contents: string;
   url: string;
   isNotice?: boolean | null;
   isOpen?: boolean | null;
@@ -16857,6 +17642,45 @@ export interface _BookingFilter {
   exField__sellerNickName_not_contains?: string | null;
   exField__sellerNickName_in?: string[] | null;
   exField__sellerNickName_not_in?: string[] | null;
+}
+
+export interface _EventFilter {
+  AND?: _EventFilter[] | null;
+  OR?: _EventFilter[] | null;
+  title_eq?: string | null;
+  title_not_eq?: string | null;
+  title_contains?: string | null;
+  title_not_contains?: string | null;
+  title_in?: string[] | null;
+  title_not_in?: string[] | null;
+  authorEmail_eq?: string | null;
+  authorEmail_not_eq?: string | null;
+  authorEmail_in?: string[] | null;
+  authorNick_eq?: string | null;
+  authorNick_not_eq?: string | null;
+  isNotice_eq?: boolean | null;
+  isNotice_not_eq?: boolean | null;
+  isOpen_eq?: boolean | null;
+  isOpen_not_eq?: boolean | null;
+  subTitle_eq?: string | null;
+  subTitle_not_eq?: string | null;
+  subTitle_contains?: string | null;
+  subTitle_not_contains?: string | null;
+  subTitle_in?: string[] | null;
+  subTitle_not_in?: string[] | null;
+  keyWards_eq?: string | null;
+  keyWards_not_eq?: string | null;
+  keyWards_in?: string[] | null;
+  keyWards_contains?: string | null;
+  _id_eq?: string | null;
+  _id_not_eq?: string | null;
+  _id_in?: string[] | null;
+  createdAt_eq?: any | null;
+  createdAt_not_eq?: any | null;
+  createdAt_lte?: any | null;
+  createdAt_lt?: any | null;
+  createdAt_gte?: any | null;
+  createdAt_gt?: any | null;
 }
 
 export interface _INotificationHistoryItemFilter {

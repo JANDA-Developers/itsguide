@@ -24,7 +24,6 @@ export const F_EVENT = gql`
             ...Ffile
         }
         viewCount
-        type
     }
     ${F_USER}
     ${F_FILE}

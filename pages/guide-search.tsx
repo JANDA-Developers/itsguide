@@ -28,6 +28,7 @@ import { usePublicSellerList } from "../hook/useUser";
 import { GuideLine } from "../components/guidLi/GuideLi";
 import { Change } from "../components/loadingList/LoadingList";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type TSearchParam = {
     keyward?: string; //라벨
@@ -75,6 +76,7 @@ export const GuideSearch: React.FC<Ipage> = (_pageInfo) => {
             keywards_in: keyward ? [keyward] : undefined,
         },
     };
+    const { locale } = useRouter();
     const guideListHook = usePublicSellerList(initialFilter);
     const {
         items: users,
@@ -152,7 +154,7 @@ export const GuideSearch: React.FC<Ipage> = (_pageInfo) => {
                                     onClick={onClickKeyward(undefined)}
                                     className={`check ${keywardOn()}`}
                                 >
-                                    전국
+                                    ALL
                                 </span>
                                 {categoriesMap.GUIDE_KEYWARD.map((keyward) => (
                                     <span
@@ -162,7 +164,7 @@ export const GuideSearch: React.FC<Ipage> = (_pageInfo) => {
                                             keyward.label
                                         )}`}
                                     >
-                                        {keyward.label}
+                                        {keyward.localeLabel[locale]}
                                     </span>
                                 ))}
                             </div>
