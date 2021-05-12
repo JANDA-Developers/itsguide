@@ -42,9 +42,14 @@ export const usePageEdit = <Page>(
         ln = "ch";
     } else if (locale === "en") {
         ln = "en";
+    } else if (locale === "ot") {
+        ln = "en";
     }
 
     if (changeKeyFlag) {
+        if (ln === "ot") {
+            ln = "en";
+        }
         if (ln === "jp") {
             ln = "JP";
         }

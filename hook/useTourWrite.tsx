@@ -46,6 +46,7 @@ type SimpleTypePart =
     | "subTitle"
     | "caution"
     | "info"
+    | "unIncluded"
     | "contents"
     | "inOrNor"
     | "isNotice"
@@ -69,6 +70,7 @@ export const DEFAULT_SIMPLE_TOUR_DATA: TSimpleTypePart = {
     caution: "",
     lang: Lang.KO,
     contents: "",
+    unIncluded: "",
     inOrNor: "",
     isNotice: false,
     isOpen: false,
@@ -268,7 +270,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     const validater = new Validater([
         {
             value: thumbs?.[0]?.uri,
-            failMsg: "썸네일은 필수 입니다.",
+            failMsg: "이미지은 필수 입니다.",
             id: "thumb",
         },
         {
@@ -345,7 +347,8 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         },
         {
             value: !filterOverIts?.find((it) => Boolean(it.title) === false),
-            failMsg: "일정 타이틀 값은 필수 입니다.",
+            failMsg:
+                "일정 타이틀 값은 필수 입니다.\n 일정타이틀은 일정입력칸 위의 부분을 말합니다.",
             failFn: () => {
                 document.getElementById("tap01")?.click();
                 $(".taptitle .input_01")
@@ -369,6 +372,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         lang,
     };
     const {
+        unIncluded,
         address,
         adult_price,
         baby_price,
@@ -411,6 +415,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
             minMember: toNumber(minMember),
             caution,
             contents,
+            unIncluded,
             images: thumbs,
             inOrNor,
             info,
@@ -606,6 +611,7 @@ export const getDefault = (
         minMember,
         startPoint,
         status,
+        unIncluded,
         subTitle,
         region,
         title,
@@ -621,6 +627,7 @@ export const getDefault = (
         contents,
         inOrNor,
         info,
+        unIncluded,
         isNotice,
         kids_price,
         maxMember,
@@ -635,6 +642,7 @@ export const getDefault = (
         categoryId: category?._id,
         contents,
         its,
+        lang,
         regionId: region?._id || "",
         keyWards: keyWards || [],
         simpleData,

@@ -191,8 +191,8 @@ const UserInfoForm: React.FC = () => {
                             <option value={""}>선택없음</option>
                             <option value={Lang.KO}>KOREAN</option>
                             <option value={Lang.EN}>ENGLISH</option>
-                            <option value={Lang.JP}>JAPANES</option>
                             <option value={Lang.CH}>CHINESE</option>
+                            <option value={Lang.JP}>JAPANES</option>
                         </select>
                     </div>
                     <hr />

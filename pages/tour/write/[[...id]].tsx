@@ -224,6 +224,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
         maxMember,
         minMember,
         startPoint,
+        unIncluded,
         subTitle,
         title,
         contents,
@@ -495,6 +496,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         <div className="input_form">
                             <span className="category r3">
                                 <select
+                                    key={lang + "selecter"}
                                     onChange={(e) => {
                                         const lang = e.currentTarget
                                             .value as Lang;
@@ -507,6 +509,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                     <option value={Lang.EN}>ENGLISH</option>
                                     <option value={Lang.CH}>CHINESE</option>
                                     <option value={Lang.JP}>JAPANESE</option>
+                                    <option value={Lang.OT}>OTHERS</option>
                                 </select>
                             </span>
                         </div>
@@ -672,6 +675,21 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     </div>
 
                     <div className="write_type">
+                        <div className="title">불포함사항</div>
+                        <div className="input_form">
+                            <div>
+                                <input
+                                    id="startPoint"
+                                    onChange={handleInputChange("unIncluded")}
+                                    value={unIncluded}
+                                    type="text"
+                                    className="text w100"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="write_type">
                         <div className="title">키워드</div>
                         <div className="input_form">
                             <TagInput
@@ -719,7 +737,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
 
                 <div className="write_type bottom_write">
                     <div className="write_type">
-                        <div className="title">썸네일</div>
+                        <div className="title">이미지</div>
                         <div className="img_box_add">
                             <ul className="img_add">
                                 {thumbs.map((thumb, i) => (
@@ -747,7 +765,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 />
                             </ul>
                             <p className="input_form info_txt">
-                                - 썸네일 이미지사이즈 720px * 434px
+                                - 이미지 이미지사이즈 720px * 434px
                             </p>
                         </div>
                     </div>
@@ -770,7 +788,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                             className={tabOnCheck(2)}
                         >
                             <span>
-                                <i>02.</i>안내 및 참고
+                                <i>02.</i>이런분께 추천드립니다.
                             </span>
                         </li>
                         <li
@@ -788,7 +806,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                             className={tabOnCheck(4)}
                         >
                             <span>
-                                <i>04.</i>유의사항 및 안내문
+                                <i>04.</i>유의사항.
                             </span>
                         </li>
                     </ul>
@@ -957,7 +975,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                             >
                                 {status === ProductStatus.REFUSED
                                     ? "재신청"
-                                    : "수정"}
+                                    : "수정완료"}
                             </button>
                         )}
                         {isCreateMode && (
@@ -966,7 +984,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 type="submit"
                                 className="btn medium pointcolor"
                             >
-                                등록
+                                등록완료
                             </button>
                         )}
                         {isManager && (

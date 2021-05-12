@@ -40,7 +40,9 @@ export const useTicketList = generateListQueryHook<
     ticketList,
     ticketListVariables,
     ticketList_TicketList_data
->(TICKET_LIST, { initialSort: [_TicketSort.createdAt_asc] });
+>(TICKET_LIST, {
+    initialSort: [_TicketSort.createdAt_desc],
+});
 export const useTicketCreate = generateMutationHook<
     ticketCreate,
     ticketCreateVariables

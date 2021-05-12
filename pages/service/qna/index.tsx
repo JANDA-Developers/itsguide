@@ -13,17 +13,12 @@ import { Change } from "../../../components/loadingList/LoadingList";
 import { generateClientPaging } from "../../../utils/generateClientPaging";
 import { Paginater } from "../../../components/common/Paginator";
 import { PageEditor } from "../../../components/common/PageEditer";
+import { cn } from "../../../utils/findCatLocaleName";
 
 export const getStaticProps = getStaticPageInfo("qna");
 export const Qna: React.FC<Ipage> = (pageInfo) => {
-    const {
-        isManager,
-        categoriesMap,
-        myProfile,
-        lang,
-        locale,
-        ln,
-    } = useContext(AppContext);
+    const { isManager, categoriesMap, myProfile, lang, locale, ln } =
+        useContext(AppContext);
     const { items, getLoading } = useQnaList({
         initialViewCount: 999,
         fixingFilter: {
@@ -91,7 +86,7 @@ export const Qna: React.FC<Ipage> = (pageInfo) => {
                                         key={cat._id}
                                     >
                                         <a>
-                                            {cat.localeLabel?.[locale]}
+                                            {cn(cat.localeLabel, locale)}
                                             <strong>
                                                 {checkCatCount(cat._id)}
                                             </strong>

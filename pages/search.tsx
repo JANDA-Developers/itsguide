@@ -24,6 +24,7 @@ import { PageEditor } from "../components/common/PageEditer";
 import { Change } from "../components/loadingList/LoadingList";
 import { removeSpecialChar } from "../utils/formatter";
 import Link from "next/link";
+import { cn } from "../utils/findCatLocaleName";
 
 type TSearchParam = {
     authorNick?: string;
@@ -182,7 +183,7 @@ export const Search: React.FC<Ipage> = (_pageInfo) => {
                                             region.label
                                         )}`}
                                     >
-                                        {region.localeLabel?.[locale]}
+                                        {cn(region.localeLabel, locale)}
                                     </span>
                                 ))}
                             </div>

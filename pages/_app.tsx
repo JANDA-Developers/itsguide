@@ -115,7 +115,8 @@ function App({ Component, pageProps }: any) {
     const ComponentAuth = Component.Auth ? Component.Auth : ALLOW_FULLESS;
 
     const locale = router.locale as Locales;
-    const ln = staticInfo(locale || Locales.ko);
+    const localeFixed = locale === "ot" ? "en" : locale;
+    const ln = staticInfo(localeFixed || Locales.ko);
 
     const { data, loading } = useQuery<getContext>(GET_CONTEXT, {
         client: PinkClient,

@@ -1444,10 +1444,23 @@ export interface bookingFindByCode_BookingFindByCode_data_product_region {
   _id: string;
 }
 
+export interface bookingFindByCode_BookingFindByCode_data_product_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface bookingFindByCode_BookingFindByCode_data_product_category {
   __typename: "Category";
   _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: bookingFindByCode_BookingFindByCode_data_product_category_localeLabel | null;
   label: string;
+  type: CategoryType;
 }
 
 export interface bookingFindByCode_BookingFindByCode_data_product_bookerSummary {
@@ -1641,6 +1654,7 @@ export interface bookingFindByCode_BookingFindByCode_data_product {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -5856,10 +5870,23 @@ export interface productDelete_ProductDelete_data_region {
   _id: string;
 }
 
+export interface productDelete_ProductDelete_data_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface productDelete_ProductDelete_data_category {
   __typename: "Category";
   _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: productDelete_ProductDelete_data_category_localeLabel | null;
   label: string;
+  type: CategoryType;
 }
 
 export interface productDelete_ProductDelete_data_bookerSummary {
@@ -5921,6 +5948,7 @@ export interface productDelete_ProductDelete_data {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -6063,11 +6091,11 @@ export interface productList_ProductList_data_category_localeLabel {
 export interface productList_ProductList_data_category {
   __typename: "Category";
   _id: string;
-  label: string;
   createdAt: any;
   updatedAt: any;
   isDelete: boolean;
   localeLabel: productList_ProductList_data_category_localeLabel | null;
+  label: string;
   type: CategoryType;
 }
 
@@ -6268,6 +6296,7 @@ export interface productList_ProductList_data {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -6367,11 +6396,11 @@ export interface productFindById_ProductFindById_data_category_localeLabel {
 export interface productFindById_ProductFindById_data_category {
   __typename: "Category";
   _id: string;
-  label: string;
   createdAt: any;
   updatedAt: any;
   isDelete: boolean;
   localeLabel: productFindById_ProductFindById_data_category_localeLabel | null;
+  label: string;
   type: CategoryType;
 }
 
@@ -6937,6 +6966,7 @@ export interface productFindById_ProductFindById_data {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -7024,10 +7054,23 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_region {
   _id: string;
 }
 
+export interface productFindByIdForSeller_ProductFindByIdForSeller_data_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface productFindByIdForSeller_ProductFindByIdForSeller_data_category {
   __typename: "Category";
   _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: productFindByIdForSeller_ProductFindByIdForSeller_data_category_localeLabel | null;
   label: string;
+  type: CategoryType;
 }
 
 export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookerSummary {
@@ -7451,6 +7494,7 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -10124,10 +10168,23 @@ export interface settlementFindById_SettlementFindById_data_product_region {
   _id: string;
 }
 
+export interface settlementFindById_SettlementFindById_data_product_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface settlementFindById_SettlementFindById_data_product_category {
   __typename: "Category";
   _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: settlementFindById_SettlementFindById_data_product_category_localeLabel | null;
   label: string;
+  type: CategoryType;
 }
 
 export interface settlementFindById_SettlementFindById_data_product_bookerSummary {
@@ -10381,6 +10438,7 @@ export interface settlementFindById_SettlementFindById_data_product {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -10687,10 +10745,23 @@ export interface settlementList_SettlementList_data_product_region {
   _id: string;
 }
 
+export interface settlementList_SettlementList_data_product_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface settlementList_SettlementList_data_product_category {
   __typename: "Category";
   _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: settlementList_SettlementList_data_product_category_localeLabel | null;
   label: string;
+  type: CategoryType;
 }
 
 export interface settlementList_SettlementList_data_product_itinerary_images {
@@ -10878,6 +10949,7 @@ export interface settlementList_SettlementList_data_product {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -12753,10 +12825,23 @@ export interface sellerFindByKey_SellerFindByKeyPublic_data_products_region {
   _id: string;
 }
 
+export interface sellerFindByKey_SellerFindByKeyPublic_data_products_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface sellerFindByKey_SellerFindByKeyPublic_data_products_category {
   __typename: "Category";
   _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: sellerFindByKey_SellerFindByKeyPublic_data_products_category_localeLabel | null;
   label: string;
+  type: CategoryType;
 }
 
 export interface sellerFindByKey_SellerFindByKeyPublic_data_products_bookerSummary {
@@ -12818,6 +12903,7 @@ export interface sellerFindByKey_SellerFindByKeyPublic_data_products {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -12964,10 +13050,23 @@ export interface userFindById_UserFindById_data_products_region {
   _id: string;
 }
 
+export interface userFindById_UserFindById_data_products_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface userFindById_UserFindById_data_products_category {
   __typename: "Category";
   _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: userFindById_UserFindById_data_products_category_localeLabel | null;
   label: string;
+  type: CategoryType;
 }
 
 export interface userFindById_UserFindById_data_products_bookerSummary {
@@ -13161,6 +13260,7 @@ export interface userFindById_UserFindById_data_products {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -14101,10 +14201,23 @@ export interface Fproduct_region {
   _id: string;
 }
 
+export interface Fproduct_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface Fproduct_category {
   __typename: "Category";
   _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: Fproduct_category_localeLabel | null;
   label: string;
+  type: CategoryType;
 }
 
 export interface Fproduct_bookerSummary {
@@ -14166,6 +14279,7 @@ export interface Fproduct {
    * 취소를 제외한 상품 하나에 대한 모든 인원
    */
   peopleCount: number;
+  unIncluded: string;
   contents: string;
   determined: boolean;
   endDate: any;
@@ -16268,6 +16382,7 @@ export enum Lang {
   EN = "EN",
   JP = "JP",
   KO = "KO",
+  OT = "OT",
 }
 
 /**
@@ -17232,6 +17347,7 @@ export interface ProductCreateInput {
   info: string;
   caution?: string | null;
   images?: FileCreateInput[] | null;
+  unIncluded?: string | null;
   address: string;
   regionId?: string | null;
   startPoint: string;
@@ -17279,6 +17395,7 @@ export interface ProductUpdateInput {
   isOpen?: boolean | null;
   summary?: string | null;
   subTitle?: string | null;
+  unIncluded?: string | null;
   keyWards?: string[] | null;
   attachFiles?: FileUpdateInput[] | null;
   thumb?: FileUpdateInput | null;

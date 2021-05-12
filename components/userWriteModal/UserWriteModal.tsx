@@ -181,7 +181,7 @@ export const UswerWriteModal: React.FC<IHandWriteModalProp> = ({
             });
     };
 
-    const removeSpace = () => {} 
+    const removeSpace = () => {};
 
     function set<T extends keyof typeof userData>(key: T) {
         return (e: any) => {
@@ -381,8 +381,8 @@ export const UswerWriteModal: React.FC<IHandWriteModalProp> = ({
                                 >
                                     <option value={Lang.KO}>KOREAN</option>
                                     <option value={Lang.EN}>ENGLISH</option>
-                                    <option value={Lang.JP}>JAPANES</option>
                                     <option value={Lang.CH}>CHINESE</option>
+                                    <option value={Lang.JP}>JAPANES</option>
                                 </select>
                             </div>
                             <div className="th02">사업자번호</div>

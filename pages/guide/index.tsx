@@ -14,6 +14,8 @@ import { CloseIcon } from "../../components/common/icon/CloseIcon";
 import { AppContext } from "../_app";
 import { Bg } from "../../components/Img/Img";
 import { guideSearchLink } from "../guide-search";
+import { localeToLangOrigin } from "../../utils/enumToKr";
+import { cn } from "../../utils/findCatLocaleName";
 
 export const getStaticProps = getStaticPageInfo("guideMain");
 export const GuideMain: React.FC<Ipage> = (pageInfo) => {
@@ -69,11 +71,10 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                                 >
                                                     <a className="guid_topBtn__btn">
                                                         <span className="guid_topBtn__title">
-                                                            {
-                                                                val.localeLabel[
-                                                                    locale
-                                                                ]
-                                                            }
+                                                            {cn(
+                                                                val.localeLabel,
+                                                                locale
+                                                            )}
                                                         </span>
                                                         {editMode && (
                                                             <CloseIcon
@@ -146,10 +147,11 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                 </div>
                                 <GoodsListAPI
+                                    key={lang + "goodsList1"}
                                     initialOption={{
                                         initialViewCount: 4,
                                         fixingFilter: {
-                                            lang_eq: lang,
+                                            lang_eq: localeToLangOrigin[locale],
                                         },
                                         initialFilter: {
                                             _id_in: groupsMap.guideMain1,
@@ -175,10 +177,11 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                 </div>
                                 <GoodsListAPI
+                                    key={lang + "productLineHottest"}
                                     initialOption={{
                                         initialViewCount: 4,
                                         fixingFilter: {
-                                            lang_eq: lang,
+                                            lang_eq: localeToLangOrigin[locale],
                                         },
                                         initialFilter: {
                                             _id_in: groupsMap.guideMain2,

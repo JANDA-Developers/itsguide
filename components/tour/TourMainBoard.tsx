@@ -6,6 +6,7 @@ import { AppContext } from "../../pages/_app";
 import { Fcategory, groupList_GroupList_data } from "../../types/api";
 import { BG } from "../../types/const";
 import { productStatus } from "../../utils/enumToKr";
+import { cn } from "../../utils/findCatLocaleName";
 import {
     updateURLParameter,
     updateURLParameters,
@@ -46,7 +47,7 @@ export const TourMainBoard: React.FC<IProp> = ({ cat, group }) => {
         <div key={cat?._id} className="deal_list">
             <div className="alignment">
                 <div className="left_div">
-                    <h4>{cat?.localeLabel?.[locale]}</h4>
+                    <h4>{cn(cat?.localeLabel, locale)}</h4>
                 </div>
                 <div className="right_div">
                     <span

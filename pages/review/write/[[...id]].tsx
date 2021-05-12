@@ -203,7 +203,7 @@ export const ReviewWrite: React.FC<IProp> = () => {
                         </div>
                     </div>
                     <div className="write_type">
-                        <div className="title">썸네일</div>
+                        <div className="title">사진후기</div>
                         <div className="img_box_add">
                             <ul className="img_add">
                                 {files.map((thumb, i) => (
@@ -229,7 +229,7 @@ export const ReviewWrite: React.FC<IProp> = () => {
                                 />
                             </ul>
                             <p className="input_form info_txt">
-                                - 썸네일 이미지사이즈 720px * 434px
+                                - 이미지 이미지사이즈 720px * 434px
                             </p>
                         </div>
                     </div>

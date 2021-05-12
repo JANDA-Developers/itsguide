@@ -14,6 +14,7 @@ import { categoryList_CategoryList_data } from "../../types/api";
 import { AppContext } from "../_app";
 import Link from "next/link";
 import { getFromUrl } from "../../utils/url";
+import { cn } from "../../utils/findCatLocaleName";
 
 export const getStaticProps = getStaticPageInfo("tourList");
 export const TourList: React.FC<Ipage> = (_pageInfo) => {
@@ -102,7 +103,7 @@ export const TourList: React.FC<Ipage> = (_pageInfo) => {
                                             checkCatOn(cat)
                                         }
                                     >
-                                        <a>{cat.localeLabel?.[locale]}</a>
+                                        <a>{cn(cat.localeLabel, locale)}</a>
                                     </li>
                                 ))}
                             </ul>

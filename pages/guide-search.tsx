@@ -29,6 +29,7 @@ import { GuideLine } from "../components/guidLi/GuideLi";
 import { Change } from "../components/loadingList/LoadingList";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { cn } from "../utils/findCatLocaleName";
 
 type TSearchParam = {
     keyward?: string; //라벨
@@ -164,7 +165,7 @@ export const GuideSearch: React.FC<Ipage> = (_pageInfo) => {
                                             keyward.label
                                         )}`}
                                     >
-                                        {keyward.localeLabel[locale]}
+                                        {cn(keyward.localeLabel, locale)}
                                     </span>
                                 ))}
                             </div>

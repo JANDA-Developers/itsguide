@@ -11,6 +11,8 @@ import {
     _ProductSort,
 } from "../../types/api";
 import { TListQueryVariables } from "../../types/interface";
+import { localeToLangOrigin } from "../../utils/enumToKr";
+import { cn } from "../../utils/findCatLocaleName";
 import { autoComma } from "../../utils/formatter";
 import isEmpty from "../../utils/isEmpty";
 import { genrateOption } from "../../utils/query";
@@ -36,9 +38,11 @@ export const GoodsListTable: React.FC<IProp> = () => {
         pageInfo,
     } = useProductList({
         fixingFilter: {
-            lang_eq: lang,
+            lang_eq: localeToLangOrigin[locale],
         },
     });
+
+    console.log({ pageInfo });
 
     return (
         <div className="deal_list">
@@ -76,7 +80,7 @@ export const GoodsListTable: React.FC<IProp> = () => {
                                 cat._id === filter.categoryId_eq ? `on` : ""
                             }
                         >
-                            <a>#{cat.localeLabel[locale]}</a>
+                            <a>#{cn(cat.localeLabel, locale)}</a>
                         </li>
                     ))}
                 </ul>

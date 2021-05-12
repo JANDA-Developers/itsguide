@@ -159,9 +159,11 @@ export const LANGS: Record<Lang, string[]> = {
     CH: ["zh", "zho", "chi"],
     KO: ["ko", "kor"],
     EN: ["en", "eng"],
+    OT: ["ko"],
 };
 
 export enum Locales {
+    "ot" = "ot",
     "en" = "en",
     "ja" = "ja",
     "ko" = "ko",

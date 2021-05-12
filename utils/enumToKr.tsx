@@ -282,6 +282,7 @@ export const LocaleToString = (locale: string) => {
     if (locale === Locales.en) return "ENGLISH";
     if (locale === Locales.ko) return "KOREAN";
     if (locale === Locales.ja) return "JAPANES";
+    if (locale === Locales.ot) return "OTHERS";
     return "KOREAN";
 };
 
@@ -290,4 +291,20 @@ export const localeToLang: Record<Locales, Lang> = {
     en: Lang.EN,
     ja: Lang.JP,
     ko: Lang.KO,
+    ot: Lang.EN,
+};
+export const langToKr: Record<Lang, string> = {
+    CH: "중국어",
+    EN: "영어",
+    JP: "일본어",
+    KO: "한국어",
+    OT: "기타",
+};
+
+export const localeToLangOrigin: Record<Locales, Lang> = {
+    chi: Lang.CH,
+    en: Lang.EN,
+    ja: Lang.JP,
+    ko: Lang.KO,
+    ot: Lang.OT,
 };

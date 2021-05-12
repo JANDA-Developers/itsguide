@@ -65,7 +65,7 @@ export const Indicate: React.FC<IProp> = () => {
     return (
         <MasterLayout>
             <div className="in ">
-                <h4>상품관리</h4>
+                <h4>일정관리</h4>
                 <div className="in_content">
                     <MemberTopNav />
                     <div className="con">

@@ -30,6 +30,7 @@ import { KeywardSelecter } from "../../components/keywardSelecter/KeywardSelecte
 import { LoadEditor } from "../../components/edit/EdiotrLoading";
 import { staticInfo } from "../../info/static.json";
 import { thumbNail } from "../../components/ThunbNail/ThunbNail";
+import { cn } from "../../utils/findCatLocaleName";
 const Editor = LoadEditor();
 
 //URL 링크
@@ -250,7 +251,11 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                                     })}
                                                 >
                                                     <a key={t._id}>
-                                                        #{t.label}
+                                                        #
+                                                        {cn(
+                                                            t.localeLabel,
+                                                            locale
+                                                        )}
                                                     </a>
                                                 </Link>
                                             )
@@ -275,7 +280,7 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                             <div className="profile_txt">
                                 <div className="con01">
                                     <h3 className="title">
-                                        {get("contentTitle")}
+                                        <span {...edit("title_guid")} />
                                     </h3>
                                     <div className="txt">
                                         {editMode ? (
@@ -298,7 +303,7 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                 </div>
                                 <div className="con01">
                                     <h3 className="title">
-                                        {get("contentTitle2")}
+                                        <span {...edit("contentTitle2")} />
                                     </h3>
                                     <div className="txt">
                                         {editMode ? (
@@ -321,7 +326,7 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                 </div>
                                 <div className="con02 mt50">
                                     <h3 className="title">
-                                        {get("title_guid")}
+                                        <span {...edit("title_guid")} />
                                     </h3>
                                     <div className="txt">
                                         <ul className="ul_info">
@@ -380,9 +385,9 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                     <div className="alignment">
                                         <div className="left_div">
                                             <h3 id="products">
-                                                <span>
-                                                    {get("portfolio_label")}
-                                                </span>
+                                                <span
+                                                    {...edit("portfolio_label")}
+                                                />
                                             </h3>
                                         </div>
                                         <div className="right_div">

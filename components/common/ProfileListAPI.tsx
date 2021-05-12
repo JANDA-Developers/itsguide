@@ -15,6 +15,7 @@ import Slider from "react-slick";
 import { useResizeDetector } from "react-resize-detector";
 import { IRef } from "../../types/interface";
 import { AppContext } from "../../pages/_app";
+import { localeToLangOrigin } from "../../utils/enumToKr";
 
 interface IProp {
     mode?: "wide" | "short";
@@ -208,10 +209,11 @@ export const ProfileListAPIwithGoods = () => {
             />
             <div className="goods_list">
                 <GoodsListAPI
+                    key={lang + "goodsListWithGuide"}
                     options={{
                         variables: {
                             filter: {
-                                lang_eq: lang,
+                                lang_eq: localeToLangOrigin[locale],
                                 ...openListFilter,
                                 authorEmail_eq: selectedSeller?.email,
                             },

@@ -22,19 +22,19 @@ import { useRouter } from "next/router";
 import { openListFilter } from "../../hook/useProduct";
 import { getFromUrl } from "../../utils/url";
 import OnImagesLoaded from "../../components/onImageLoad/OnImageLoad";
+import { localeToLangOrigin } from "../../utils/enumToKr";
 
 interface IProp extends InferGetStaticPropsType<typeof getStaticProps> {}
 
 export const getStaticProps = getStaticPageInfo("tourMain");
 export const TourMain: React.FC<Ipage> = (pageInfo) => {
-    const isExp = checkIsExp();
     const { data } = useHomepage();
     const pageTools = usePageEdit(pageInfo, pageInfoDefault);
     const { categoriesMap, isSeller, groupsMap, ln, lang } =
         useContext(AppContext);
-    const cats = categoriesMap?.TOUR || [];
     const { editMode, page, linkEdit, imgKit, edit, get } = pageTools;
     const router = useRouter();
+    const locale = router.locale;
 
     const handleLink = (key: keyof typeof page) => () => {
         const link = get(key);
@@ -240,10 +240,11 @@ export const TourMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                 </div>
                                 <GoodsListAPI
+                                    key={lang + "productLine2"}
                                     initialOption={{
                                         initialViewCount: 4,
                                         fixingFilter: {
-                                            lang_eq: lang,
+                                            lang_eq: localeToLangOrigin[locale],
                                         },
                                         initialFilter: {
                                             _id_in: groupsMap.tourMain1,
@@ -270,10 +271,11 @@ export const TourMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                 </div>
                                 <GoodsListAPI
+                                    key={lang + "productLineHottest"}
                                     initialOption={{
                                         initialViewCount: 4,
                                         fixingFilter: {
-                                            lang_eq: lang,
+                                            lang_eq: localeToLangOrigin[locale],
                                         },
                                         initialFilter: {
                                             _id_in: groupsMap.tourMain2,

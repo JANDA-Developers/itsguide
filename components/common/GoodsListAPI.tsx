@@ -21,6 +21,7 @@ import Slider from "react-slick";
 import { useResizeDetector } from "react-resize-detector";
 import { thumbNail } from "../ThunbNail/ThunbNail";
 import Link from "next/link";
+import { cn } from "../../utils/findCatLocaleName";
 
 interface IProp {
     isBestList?: boolean;
@@ -53,11 +54,20 @@ export const GoodsListAPI: React.FC<IProp> = ({
     };
 
     const sizeSlideCount = (() => {
-        if (width < 400) return 1;
-        if (width < 800) return 2;
-        if (width < 1000) return 4;
-        return 4;
+        let wishLen = 4;
+        if (width < 400) wishLen = 1;
+        if (width < 800) wishLen = 2;
+        if (width < 1000) wishLen = 4;
+
+        if (sortedItems.length < wishLen) {
+            return sortedItems.length;
+        }
+
+        return wishLen;
     })();
+
+    console.log(sizeSlideCount);
+    console.log({ sortedItems });
 
     return (
         <ul ref={ref} className="list_ul line4">
@@ -124,7 +134,7 @@ export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
             </div>
             <div className="box">
                 <div className="category">
-                    <span>{item.category?.localeLabel[locale]}</span>
+                    <span>{cn(item.category.localeLabel, locale)}</span>
                     <Link href={`/itsguid/${item.author._id}`}>
                         <a>
                             <div className="guide__name">

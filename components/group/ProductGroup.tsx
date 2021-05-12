@@ -1,6 +1,10 @@
 import React from "react";
 import { useProductList } from "../../hook/useProduct";
-import { Fgroup, Fproduct } from "../../types/api";
+import {
+    Fgroup,
+    Fproduct,
+    productList_ProductList_data,
+} from "../../types/api";
 import { BG } from "../../types/const";
 import { yyyymmdd } from "../../utils/yyyymmdd";
 import {
@@ -31,7 +35,12 @@ export const ProductGroup: React.FC<IProp> = ({
     onSave: handleSave,
 }) => {
     const [group, setGroup] = useCopy(defaultGroup);
-    const { items: products, filter, setFilter, getLoading } = useProductList(
+    const {
+        items: products,
+        filter,
+        setFilter,
+        getLoading,
+    } = useProductList(
         {
             initialViewCount: 40,
             initialFilter: {
@@ -54,9 +63,11 @@ export const ProductGroup: React.FC<IProp> = ({
         setGroup({ ...group });
     };
 
-    const handleExtract = (index: number) => () => {
-        group.members.splice(index, 1);
-        console.log(group.members);
+    const handleExtract = (provided: productList_ProductList_data) => () => {
+        console.log(provided);
+        const newGroups = group.members.filter((m) => m !== provided._id);
+        group.members = newGroups;
+        // group.members.splice(index, 1);
         setGroup({ ...group });
     };
 
@@ -124,7 +135,7 @@ export const ProductGroup: React.FC<IProp> = ({
                                                     >
                                                         <span
                                                             onClick={handleExtract(
-                                                                index
+                                                                pd
                                                             )}
                                                             className="productGroup__del del"
                                                         >

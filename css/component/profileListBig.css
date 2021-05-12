@@ -43,6 +43,8 @@
     max-width: 70px;
     text-overflow: ellipsis;
     color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .guide__infobox .profileListBig__toName {
     position: relative;

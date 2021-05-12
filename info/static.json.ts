@@ -17,7 +17,7 @@ const header = {
         ja: `ガイドに登録する`,
         chi: `加入导览`,
     },
-    
+
     nim: {
         ko: "님",
         en: ``,
@@ -245,7 +245,7 @@ const header = {
         ko: "구글 로그인",
         en: `Google Login`,
         ja: `Google Login`,
-        chi: `Google Login`, 
+        chi: `Google Login`,
     },
     naverlogin: {
         ko: "네이버 로그인",
@@ -280,13 +280,13 @@ const header = {
     keeplogin: {
         ko: "로그인 유지",
         en: `Keep Login`,
-        ja:`Keep Login`,
+        ja: `Keep Login`,
         chi: `Keep Login`,
     },
     rememberid: {
         ko: "아이디 기억",
         en: `Remember ID`,
-        ja:`Remember ID`,
+        ja: `Remember ID`,
         chi: `Remember ID`,
     },
     findmembers: {
@@ -368,10 +368,10 @@ const header = {
         chi: `推荐给以下各位。`,
     },
     guidance_and_notes: {
-        ko: "안내 및 참고",
-        en: `Guidance and Notes`,
-        ja: `案内及び参考`,
-        chi: `介绍及参考`,
+        ko: "이런분께 추천드려요",
+        en: `Recommended for those who like`,
+        ja: `こんな方におすすめ致します`,
+        chi: `推荐给喜欢的人`,
     },
     participant_preparation: {
         ko: "참가자 준비물",
@@ -390,6 +390,18 @@ const header = {
         en: `Current number of people`,
         ja: `現在の人員`,
         chi: `现有人员`,
+    },
+    include: {
+        ko: "포함사항",
+        en: `Include`,
+        ja: `現在の人員`,
+        chi: `现有人员`,
+    },
+    unInclued: {
+        ko: "불포함사항",
+        en: `Not included`,
+        ja: `含まれません`,
+        chi: `不包含`,
     },
 };
 
@@ -438,15 +450,15 @@ const footer = {
     },
     itsguide_CEO: {
         ko: "최성희",
-        en:  "Sung-hee Choi",
-        ja:  "Sung-hee Choi",
-        chi:  "Sung-hee Choi",
+        en: "Sung-hee Choi",
+        ja: "Sung-hee Choi",
+        chi: "Sung-hee Choi",
     },
     case: {
         ko: "건",
         en: "cases",
         ja: "件",
-        chi: "件"
+        chi: "件",
     },
 
     noProductData: {
@@ -525,13 +537,13 @@ const footer = {
         ko: "가이드",
         en: "Guide",
         ja: "导游",
-        chi: "ガイド"
+        chi: "ガイド",
     },
     master: {
         ko: "마스터",
         en: "Master",
         ja: "大师",
-        chi: "マスター"
+        chi: "マスター",
     },
 };
 
@@ -692,7 +704,7 @@ const utils_message = {
         ja: `合計`,
         chi: `总和`,
     },
-   
+
     maximum: {
         ko: "최대",
         en: `Maximum`,
@@ -842,10 +854,10 @@ export const info = {
 //외국어 오브젝트를 저장할 공간이 필요할듯
 //사이트 메뉴를 추가하고 삭제할때 어떻게해야할지 생각해야할듯
 
-export const staticInfo = (lang: "ko" | "en" | "ja" | "chi") => (
-    key: keyof typeof info
-) => {
-    return info[key][lang];
-};
+export const staticInfo =
+    (lang: "ko" | "en" | "ja" | "chi" | "ot") => (key: keyof typeof info) => {
+        if (lang === "ot") lang = "en";
+        return info[key][lang];
+    };
 
 export default info;

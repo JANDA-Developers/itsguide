@@ -21,7 +21,8 @@ import { Bg } from "../components/Img/Img";
 import { LinkRoundIcon } from "../components/common/icon/LinkIcon";
 import { A } from "../components/A/A";
 import { tourSearchLink } from "./search";
-import { Lang } from "../types/api";
+import { cn } from "../utils/findCatLocaleName";
+import { localeToLangOrigin } from "../utils/enumToKr";
 
 // ^(?![ \t]*//).*your_search_term
 // ^(?![ \t]*//).*your_search_term
@@ -33,9 +34,8 @@ import { Lang } from "../types/api";
 
 export const getStaticProps = getStaticPageInfo("main");
 export const Main: React.FC<Ipage> = (pageInfo) => {
-    const { homepage, groupsMap, categoriesMap, lang, locale, ln } = useContext(
-        AppContext
-    );
+    const { homepage, groupsMap, categoriesMap, lang, locale, ln } =
+        useContext(AppContext);
     const { items } = usePublicSellerList();
 
     const pageTools = usePageEdit(pageInfo, defaultPageInfo);
@@ -97,7 +97,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                                             })}
                                         >
                                             <a className="tourLink">
-                                                {region.localeLabel?.[locale]}
+                                                {cn(region.localeLabel, locale)}
                                             </a>
                                         </Link>
                                     ))}
@@ -244,7 +244,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             key={lang + "productLine1"}
                             initialOption={{
                                 fixingFilter: {
-                                    lang_eq: lang,
+                                    lang_eq: localeToLangOrigin[locale],
                                 },
                                 initialViewCount: 4,
                                 initialFilter: {
@@ -274,7 +274,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             key={lang + "productLine2"}
                             initialOption={{
                                 fixingFilter: {
-                                    lang_eq: lang,
+                                    lang_eq: localeToLangOrigin[locale],
                                 },
                                 initialViewCount: 8,
                                 initialSort: [],
@@ -297,7 +297,9 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
             </div>
             <div className="main_con_box6">
                 <div className="w1200">
-                    <h2>추천 테마 여행</h2>
+                    <h2>
+                        <span {...edit("m_06_title")} />
+                    </h2>
                     <div className="theme_deal">
                         <ul>
                             <Bg
@@ -440,7 +442,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             key={lang + "productLineNewest"}
                             initialOption={{
                                 fixingFilter: {
-                                    lang_eq: lang,
+                                    lang_eq: localeToLangOrigin[locale],
                                 },
                                 initialViewCount: 12,
                             }}
@@ -468,7 +470,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                             initialOption={{
                                 initialViewCount: 4,
                                 fixingFilter: {
-                                    lang_eq: lang,
+                                    lang_eq: localeToLangOrigin[locale],
                                 },
                                 initialFilter: {
                                     _id_in: groupsMap.Main1,
@@ -491,7 +493,9 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                         </h2>
                         <div className="link">
                             <Link href="/member/join">
-                                <a {...edit("m_07_box01_link")}></a>
+                                <a>
+                                    <span {...edit("m_07_box01_link")} />
+                                </a>
                             </Link>
                         </div>
                     </div>

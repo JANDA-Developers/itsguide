@@ -1,5 +1,29 @@
 import { gql } from "@apollo/client";
 
+export const F_LOCALE_LABEL = gql`
+    fragment Flocale on Locale {
+        ko
+        en
+        ja
+        chi
+    }
+`;
+
+export const F_CATEGORY = gql`
+    fragment Fcategory on Category {
+        _id
+        createdAt
+        updatedAt
+        isDelete
+        localeLabel {
+            ...Flocale
+        }
+        label
+        type
+    }
+    ${F_LOCALE_LABEL}
+`;
+
 export const F_PUBLIC_USER = gql`
     fragment FpublicSellerData on publicSellerData {
         _id
@@ -100,6 +124,7 @@ export const F_PRODUCT = gql`
         code
         lang
         peopleCount
+        unIncluded
         contents
         determined
         endDate
@@ -111,8 +136,7 @@ export const F_PRODUCT = gql`
             _id
         }
         category {
-            _id
-            label
+            ...Fcategory
         }
         bookerSummary {
             adultCount
@@ -155,6 +179,7 @@ export const F_PRODUCT = gql`
         Dday
     }
     ${F_FILE}
+    ${F_CATEGORY}
     ${F_ITINERARY}
 `;
 
@@ -179,30 +204,6 @@ export const F_PAYMENT = gql`
             updatedAt
         }
     }
-`;
-
-export const F_LOCALE_LABEL = gql`
-    fragment Flocale on Locale {
-        ko
-        en
-        ja
-        chi
-    }
-`;
-
-export const F_CATEGORY = gql`
-    fragment Fcategory on Category {
-        _id
-        createdAt
-        updatedAt
-        isDelete
-        localeLabel {
-            ...Flocale
-        }
-        label
-        type
-    }
-    ${F_LOCALE_LABEL}
 `;
 
 export const F_USER = gql`

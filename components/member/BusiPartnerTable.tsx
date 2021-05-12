@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
     foreginKR,
     genderToKR,
+    langToKr,
     userStatusKR,
     withNick,
 } from "../../utils/enumToKr";
@@ -17,13 +18,8 @@ export const BusiPartnerTable: React.FC<IMemberTableProp> = ({
     idSelectHook,
     handleUser,
 }) => {
-    const {
-        isAllSelected,
-        isChecked,
-        selectAll,
-        toggle,
-        toggleAll,
-    } = idSelectHook;
+    const { isAllSelected, isChecked, selectAll, toggle, toggleAll } =
+        idSelectHook;
     const {
         handleResignUser,
         handleStopUser,
@@ -48,7 +44,7 @@ export const BusiPartnerTable: React.FC<IMemberTableProp> = ({
                 <div className="td02">이름</div>
                 <div className="td03">아이디</div>
                 <div className="td04">휴대폰</div>
-                <div className="td05">성별</div>
+                <div className="td05">성별/전공언어</div>
                 <div className="td06">상태</div>
                 <div className="td07">가입일</div>
                 <div className="td08">주소</div>
@@ -81,6 +77,9 @@ export const BusiPartnerTable: React.FC<IMemberTableProp> = ({
                     <div className="td05">
                         <i className="m_title">성별:</i>
                         {genderToKR(user.gender)}
+                        <br />
+                        전공언어:
+                        {langToKr[user.lang]}
                     </div>
                     <div className="td06">
                         {userStatusKR(user)}

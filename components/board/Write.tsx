@@ -176,7 +176,7 @@ export const BoardWrite: React.FC<IProps> = ({
                     </div>
                     {opens.thumb && (
                         <div className="write_type">
-                            <div className="title">썸네일</div>
+                            <div className="title">이미지</div>
                             <div className="img_box_add">
                                 <ul className="img_add">
                                     {thumb ? (
@@ -201,7 +201,7 @@ export const BoardWrite: React.FC<IProps> = ({
                                     />
                                 </ul>
                                 <p className="input_form info_txt">
-                                    - 썸네일 이미지사이즈 400px * 400px
+                                    - 이미지 이미지사이즈 400px * 400px
                                 </p>
                             </div>
                         </div>

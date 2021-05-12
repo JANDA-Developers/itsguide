@@ -58,6 +58,7 @@ import { strip } from "../../../utils/stripHtml";
 import { staticInfo } from "../../../info/static.json";
 import { Video } from "../../../components/video/Video";
 import { stopAllVideo } from "../../../utils/video";
+import { cn } from "../../../utils/findCatLocaleName";
 
 export const getStaticProps = getStaticPageInfo("tourView");
 export async function getStaticPaths() {
@@ -96,8 +97,8 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
     const isMyProduct = product?.author?._id === myProfile?._id;
     const status = product?.status;
     const reviews = product?.productReview || [];
-    const confirmedReviwes = reviews.filter(review => review.isConfiremd);
-    const renderReviews = (isMyProduct || isManager) ? reviews : confirmedReviwes
+    const confirmedReviwes = reviews.filter((review) => review.isConfiremd);
+    const renderReviews = isMyProduct || isManager ? reviews : confirmedReviwes;
     const reviewPagination = generateClientPaging(renderReviews, 4);
     const isMyReview = (authorId: string) => authorId === "";
 
@@ -205,9 +206,10 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
             alert("해당 상품은 판매중이 아닙니다.");
     }, []);
 
-    const randomSliced = useMemo(() => randomSorted.slice(0, 3), [
-        randomSorted.length,
-    ]);
+    const randomSliced = useMemo(
+        () => randomSorted.slice(0, 3),
+        [randomSorted.length]
+    );
 
     if (loading) return <PageLoading />;
     if (!product) return <div></div>;
@@ -225,6 +227,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
         minMember,
         maxMember,
         startPoint,
+        unIncluded,
         author,
         itinerary,
         contents,
@@ -379,12 +382,10 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         className="category bt_no"
                                                     >
                                                         <span className="pnt">
-                                                            {
-                                                                category
-                                                                    .localeLabel[
-                                                                    locale
-                                                                ]
-                                                            }
+                                                            {cn(
+                                                                category.localeLabel,
+                                                                locale
+                                                            )}
                                                         </span>
                                                         <span className="code">
                                                             {ln("goodscode")}
@@ -510,11 +511,32 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th className="smtitle bt_no">
+                                                    <th className="smtitle bt_line">
+                                                        {ln(
+                                                            "currentnumberofpeople"
+                                                        )}
+                                                    </th>
+                                                    <td className="smtxt bt_line">
+                                                        {peopleCount +
+                                                            "/" +
+                                                            maxMember}
+                                                        {ln("person_unit")}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th className="smtitle bt_line">
                                                         {ln("startPoint")}
                                                     </th>
-                                                    <td className="smtxt bt_no">
+                                                    <td className="smtxt bt_line">
                                                         {startPoint}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th className="smtitle bt_no">
+                                                        {ln("unInclued")}
+                                                    </th>
+                                                    <td className="smtxt bt_no">
+                                                        {unIncluded}
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -760,9 +782,9 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                         </div>
                                     ))}
                                 </div>
-                                <span className="sub__txt">
+                                {/* <span className="sub__txt">
                                     {ln("like_this")}
-                                </span>
+                                </span> */}
                                 <div className="in_box" id="tap__02">
                                     <h4>{ln("guidance_and_notes")}</h4>
                                     <div
@@ -828,7 +850,11 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                                             review.rating
                                                                         }
                                                                     />
-                                                                    <div>{review.isConfiremd ?  "Open" : "Close"}</div>
+                                                                    <div>
+                                                                        {review.isConfiremd
+                                                                            ? "Open"
+                                                                            : "Close"}
+                                                                    </div>
                                                                 </div>
                                                                 <div className="review__list_info">
                                                                     <strong>
@@ -996,6 +1022,20 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                     </div>
                 </Change>
             </OnImagesLoaded>
+            {(isManager || isMyProduct) && (
+                <div>
+                    <div id="FloatingBtnBox">
+                        <Link href={`/tour/write/${product._id}`}>
+                            <a>
+                                <div id="profile_link">
+                                    <i className="flaticon-add"></i>
+                                    상품수정하기
+                                </div>
+                            </a>
+                        </Link>{" "}
+                    </div>
+                </div>
+            )}
             <ReviewModal {...reviewModalHook} />
         </div>
     );
