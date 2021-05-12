@@ -1,9 +1,9 @@
 const findmember = {
     subTop_title: {
-        kr: "회원가입",
-        en: "회원가입",
-        jp: "회원가입",
-        ch: "회원가입",
+        kr: "Member",
+        en: "Member",
+        jp: "Member",
+        ch: "Member",
     },
     subTop_desc: {
         kr: "잇츠가이드의 멤버가 되어주세요.",

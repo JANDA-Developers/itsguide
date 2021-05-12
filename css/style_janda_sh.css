@@ -293,8 +293,8 @@ ul.list_ul li .bottom_txt div[class*=tag] span,
     }
 
     .App .peple {
-        width: 140px;
-        height: 140px;
+        width: 130px;
+        height: 130px;
         display: inline-block;
         margin: 0 0 0 -12px;
         text-align: center;
@@ -775,7 +775,7 @@ div.goods_list {
 
         div.theme_deal {
             width: 100%;
-            height: 650px;
+            height: auto;
             margin-top: 10px;
             position: relative;
             display: flex;
@@ -1566,6 +1566,7 @@ div.popup_bg_mini .page{
     div.popup_bg_mini .in_txt {
         position: relative;
         min-height:280px;
+        min-width: 400px;
         box-sizing: border-box;
         padding: 0;
         text-align: left;
@@ -1914,7 +1915,7 @@ div.search {
     div.search li {
         display: inline-block;
         width: auto;
-        margin: 0 11px;
+        margin: 0 11px 10px;
         position: relative;
     }
 
@@ -1948,6 +1949,9 @@ div.search {
         bottom: -7px;
         left: -5%;
         opacity: 0.8;
+    }
+    .itstour_box div.search{
+        padding: 20px 3%;
     }
 
 ul.profile_ul li {
@@ -4273,6 +4277,7 @@ ul.rank_ul {
             .guide_box .guide_top_bn .txt h3 {
                 font-size:3em;
                 color: #fff;
+                white-space: break-spaces;
             }
 
             .guide_box .guide_top_bn .txt span {
@@ -4281,6 +4286,7 @@ ul.rank_ul {
                 margin-top: 7px;
                 display: block;
                 line-height: 27px;
+                white-space: break-spaces;
             }
         .guide_box .guide_top_bn .btn_list {
             position: relative;
@@ -4318,7 +4324,7 @@ ul.rank_ul {
         background-color: #fff;
         border-radius: 20px 20px 0 0;
         box-sizing: border-box;
-        padding: 0 3%;
+        padding: 40px 5%;
     }
 
         .guide_box .guide_content .con01 {
@@ -4437,7 +4443,7 @@ ul.rank_ul {
 div.bn_box {
     position: relative;
     display: block;
-    width: 94%;
+    width: 100%;
     margin: 0 auto;
     margin-top: 30px;
 }
@@ -5421,7 +5427,7 @@ div.bn_box {
     position: relative;
     padding-top: 50px;
     padding-bottom: 150px;
-    min-height: 720px;
+    min-height: 920px;
     box-sizing: border-box;
 }
 
@@ -9064,6 +9070,9 @@ i.calendar {
         text-align: center;
     }
 @media (min-width: 768px) {   
+    .login_box{
+        min-height: 1000px;
+    }
     .siteInfo_in .con03 h4{
         font-size: 1.9em;
     }
@@ -9596,12 +9605,13 @@ i.calendar {
 
         .login_box .white_box {
             left: 50%;
-            top: 50px;
-            margin-left: -400px;
-            width: 800px;
-            border-radius: 3px;
-            padding: 100px 180px 110px 180px;
+    top: 50px;
+    margin-left: -50%;
+    width: 100%;
+    border-radius: 3px;
+    padding: 100px 180px 110px 180px;
         }
+        
 
     .main_con_box1 .w1200 {
         padding: 0;
@@ -9970,8 +9980,8 @@ i.calendar {
             width: 79px;
         }
         .App .peple {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
         }
         .main_con_box2 .plus {
             font-size: 55px;
@@ -10069,6 +10079,7 @@ i.calendar {
     div.search .on:after {
         bottom: -2px;
     }
+  
     .tour_details_in .Read_box {
         margin-bottom: 10px;
     }
@@ -10281,14 +10292,19 @@ i.calendar {
     .member_details_in .profile_txt .con02 .ul_info li span {
         font-size: 6em;
     }
-  
+    .guide_box .guide_content .con01 {
+        padding: 0 0 60px;
+    }
+    .main_con_box5{
+        padding: 105px 5%;
+    }
 }
 
 @media (min-width: 1100px) {
 
     .App .peple{
-        width: 80px;
-        height: 80px;
+        width: 130px;
+        height: 130px;
     }
     div.goods_list li .title {
         margin-top: 15px;
@@ -10361,6 +10377,14 @@ i.calendar {
 }
 
 @media (min-width: 1200px) {
+    .login_box .white_box {
+        left: 50%;
+        top: 50px;
+        margin-left: -400px;
+        width: 800px;
+        border-radius: 3px;
+        padding: 100px 180px 110px 180px;
+    }
     .option_tb .smtxt {
         font-weight: 100;
     }
@@ -10469,9 +10493,7 @@ i.calendar {
     .main_con_box4 .deal_list {
         padding: 30px 0 20px;
     }
-    .main_con_box5{
-        padding: 105px 0;
-    }
+  
     .main_con_box6 {
         padding: 130px 0;
     }
@@ -10514,14 +10536,20 @@ i.calendar {
         right: 11%;
         width: 577px;
     }
+
+    div.theme_deal{
+        min-height: 620px;
+    }
+
     div.theme_deal .top_01{
         width: 790px;
-    height: 410px;
-    margin-right: 10px;
-    padding-top: 315px;
-    background-position: center;
-    background-size: 120%;
+        height: 410px;
+        margin-right: 10px;
+        padding-top: 315px;
+        background-position: center;
+        background-size: 120%;
     }
+
     div.theme_deal .top_02 {
         width: 400px;
         height: 200px;
@@ -10533,6 +10561,7 @@ i.calendar {
         background-position: center;
         background-size: 120%;
     }
+
     div.theme_deal .top_03 {
         width: 400px;
         height: 200px;
@@ -10543,6 +10572,7 @@ i.calendar {
         background-position: center;
         background-size: 120%;
     }
+
     div.theme_deal .top_04 {
         width: 389px;
         height: 200px;
@@ -10555,6 +10585,7 @@ i.calendar {
         background-position: center;
         background-size: 120%;
     }
+
     div.theme_deal .top_05 {
         width: 391px;
         height: 200px;
@@ -10567,6 +10598,7 @@ i.calendar {
         background-position: center;
         background-size: 120%;
     }
+
     div.theme_deal .top_06 {
         width: 400px;
         height: 200px;
@@ -10678,7 +10710,7 @@ i.calendar {
         height: 120px;
     }
     .guide_box .guide_content .con01 ul {
-        padding: 59px 0 0;
+        padding: 20px 0 0;
     }
 }
 
@@ -10691,6 +10723,9 @@ i.calendar {
     } 
     .main_con_box7 .box01 {
         padding: 50px 0;
+    }
+    .main_con_box5{
+        padding: 105px 0;
     }
 }
 @media (min-width: 1300px) {
@@ -11574,14 +11609,17 @@ i.calendar {
         transform: rotate(-45deg);
     }
     .App .peple{
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
     }
 }
 
 
 @media (max-width:360px) {
-
+    .App .peple{
+        width: 80px;
+        height: 80px;
+    }
     .main_con_box5 .alignment .right_div{
         display: none;
     }
