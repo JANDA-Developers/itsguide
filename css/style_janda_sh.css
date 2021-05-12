@@ -1566,6 +1566,8 @@ div.popup_bg_mini .page{
     div.popup_bg_mini .in_txt {
         position: relative;
         min-height:280px;
+        max-width: 60%;
+        max-height: 80%;
         min-width: 400px;
         box-sizing: border-box;
         padding: 0;
@@ -1725,11 +1727,12 @@ div.alignment {
 
     div.alignment .left_div {
         display: inline-block;
-        width: 100%;
+        width: auto;
         text-align: left;
         font-size: 14px;
         line-height: 22px;
         color: #999;
+        vertical-align: middle;
     }
 
         div.alignment .left_div strong {
@@ -1745,9 +1748,10 @@ div.alignment {
 
     div.alignment .right_div {
         display: inline-block;
-        width: 100%;
+        width:auto;
         text-align: left;
         font-size: 14px;
+        vertical-align: middle;
     }
 
         div.alignment .right_div .goto_page {
@@ -4661,6 +4665,7 @@ div.bn_box {
                 color: #5bace9;
                 text-decoration: underline;
                 background: #ffffff;
+                font-weight: 600;
             }
 
             .pagenate .page a:hover,
@@ -9021,11 +9026,12 @@ i.calendar {
         box-sizing: border-box;
         padding: 50px 0 100px;
     }
-    .question_box .board_list.st01 .tbody .td03{
+    /* .question_box .board_list.st01 .tbody .td03{
         width: auto;
-    }
+    } */
     .question_box .board_list.st01 .tbody .td04{
         width: auto;
+        margin-right: 10px;
     }
     .announce_box{
         box-sizing: border-box;
@@ -9070,6 +9076,9 @@ i.calendar {
         text-align: center;
     }
 @media (min-width: 768px) {   
+    div.theme_deal{
+        min-height: 820px; 
+    }
     .login_box{
         min-height: 1000px;
     }
@@ -9474,7 +9483,10 @@ i.calendar {
     }
 }
 @media (min-width: 1000px) {
-   
+    .question_box .board_list.st01 .tbody .td04{
+        width: auto;
+        margin-right: 0;
+    }
     .history__yearlist > li{
         padding-left: 15px;
         color: #333;
@@ -10971,7 +10983,9 @@ i.calendar {
     }
 }
 @media (max-width: 767px) {
-   
+    div.bn_box .banner{
+        margin-bottom: 10px;
+    }
     .siteInfo_in .con01{
         padding: 7% 0;
     }

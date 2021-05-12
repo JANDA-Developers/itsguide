@@ -68,7 +68,7 @@ export const TagInput: React.FC<IProp> = ({
                 }}
             />
             <button
-                className="btn JDtagInput__tagsBtn"
+                className="btn medium write JDtagInput__tagsBtn"
                 onClick={() => {
                     const val = ref.current.value;
                     handleAddition(val);

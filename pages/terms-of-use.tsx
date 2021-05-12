@@ -6,7 +6,7 @@ export const getStaticProps = getStaticPageInfo("main");
 const TermsOfUse = () => {
     return (
         <div>
-            <div className="top_visual">
+            <div className="top_visual sub_nav_ok">
                 <div
                     className="sub_header sub_bg"
                     style={{ backgroundImage: `url(/its/su_visual_bg.jpg)` }}

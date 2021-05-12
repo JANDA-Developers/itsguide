@@ -102,7 +102,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                 회원정보
                                 <button
                                     onClick={userWriteModalHook.openModal}
-                                    className="btn mr10"
+                                    className="btn mini3 mr10"
                                 >
                                     정보수정하기
                                 </button>
@@ -113,7 +113,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                             "_blank"
                                         );
                                     }}
-                                    className="btn"
+                                    className="btn mini3"
                                 >
                                     프로필보기
                                 </button>

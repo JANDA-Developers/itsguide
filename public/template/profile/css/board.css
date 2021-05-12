@@ -8,7 +8,18 @@
     margin-right: 3px;
     font-style: normal;
 }
-
+i.icon__lock{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    background-image: url(/its/icon_lock.svg);
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    margin-top: -2px;
+}
 
 /* notice */
 .notice_in {
@@ -961,6 +972,8 @@ ul.photo_ul li .category {
         display: block;
         margin-top: 100px;
         margin-bottom: 100px;
+        padding-left: 3%;
+        padding-right: 3%;
     }
 
         .board_box .xe_content .xe_top {
@@ -2549,6 +2562,12 @@ div.sum_div {
         }
 }
 
+@media (min-width:1230px) {
+.board_box .xe_content{
+    padding-left: 0;
+    padding-right: 0;
+}
+}
 @media (max-width:767px) {
     .photo_ul.line4 li {
         height: 185px;

@@ -132,6 +132,7 @@ export const Question: React.FC<Ipage> = (pageInfo) => {
                                             </div>
                                             {/* <div className="td02"><Link href={`/question/view/${inq._id}`}><a>{inq.title} {inq. && <LockIcon />} </a></Link></div> */}
                                             <div className="td03">
+                                                <i className="icon__lock" />
                                                 {inq.title}
                                                 {dayjs(inq.createdAt).isAfter(
                                                     dayjs().add(-8, "hour")

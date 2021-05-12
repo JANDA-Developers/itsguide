@@ -444,7 +444,8 @@ i.tooltip{
     margin-left:0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background-color: rgb(48 141 215 / 68%);
+    background-color: rgb(0 67 120 / 68%);
+    z-index: 10;
 }
     .subtop_nav li {
         position: relative;
@@ -3505,18 +3506,21 @@ i.icon_plus {
     }
     .subtop_nav {
         padding: 0 15px;
-        line-height: 53px;
+        line-height: 43px;
         top: -116px;
     }
  
     .top_visual {
-        height: 283px;
+        height: auto;
     }
         .top_visual .sub_header {
-            padding: 81px 3% 0;   
+            padding:57px 3% 60px;   
              background-size: 326%;
              background-position: center center;
 
+        }
+        .top_visual.sub_nav_ok .sub_header{
+            padding: 57px 3% 98px;
         }
         .top_visual .sub_header .title {
             font-size: 2.6em;
@@ -3531,6 +3535,9 @@ i.icon_plus {
 }
 
 @media (min-width:1000px) {
+    .subtop_nav {
+        background-color: rgb(48 141 215 / 83%);
+    }
     .search_box {
         padding: 50px 49px;
     }
@@ -3832,22 +3839,6 @@ margin-bottom:0;
            
             right: 30px;
         }
-        /* #all_menu .hiddennav  {
-           width: 100% !important;
-           display: block;
-        } 
-        #all_menu ul .hiddennav .depth1{
-            padding: 0 !important;
-            margin: 0 0 10px !important;
-        }
-        #all_menu ul .hiddennav .depth1 li{
-            width: auto !important;
-            margin-right: 10px !important;
-            line-height: 31px;
-        }
-        #all_menu ul .hiddennav .depth1 li a{
-            padding-bottom: 3px !important;
-        }*/
         .top_visual .sub_bg {
             background-size: 180%;
             padding: 70px 3% 0;
@@ -4296,6 +4287,22 @@ margin-bottom:0;
         font-weight: 600;
     }
 }
+@media (max-width:1000px) {
+    .top_visual .sub_bg::after{
+        background-color: #003e6d80;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    .top_visual .sub_bg .w1200{
+        z-index: 10;
+    }
+}
 @media (max-width:767px) {
     .footer_in .bottom_bn img {
         width: 100%;
@@ -4414,7 +4421,7 @@ margin-bottom:0;
             font-size: 12px;
         }
     .top_visual {
-        height: 115px;
+        height: auto;
     }
         .top_visual .sub_header .title {
             font-size: 1.9em;
@@ -4433,7 +4440,7 @@ margin-bottom:0;
     }
 
     .top_visual .sub_bg {
-        padding: 40px 3% 0;
+        padding: 40px 3% 80px;
         background-position: center 90%;
         background-size: 370%;
     }

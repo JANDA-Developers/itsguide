@@ -8076,14 +8076,14 @@ div.bn_box {
             position: relative;
         }
 
-            .pagenate .page a.on {
+            /* .pagenate .page a.on {
                 height: 27px;
                 padding: 0 2px 0 2px;
                 border: 1px solid #ffffff;
                 color: #5bace9;
                 text-decoration: underline;
                 background: #ffffff;
-            }
+            } */
 
             .pagenate .page a:hover,
             .pagenate .page a:active,
@@ -12908,14 +12908,14 @@ i.calendar {
                     background-color: #fff;
                     width: auto;
                 }
-
+/* 
                 .pagenate .page a.on {
                     height: 27px;
                     padding: 0 10px 0 10px;
                     border: 1px solid #5bace9;
                     color: #fff;
                     background: #5bace9;
-                }
+                } */
 
                 .pagenate .page a:hover,
                 .pagenate .page a:active,

@@ -508,17 +508,18 @@
             }
                 .master_box .in_content .con_box_body .list_line div[class*=td] {
                     display: inline-block;
-    color: #333;
-    font-weight: 600;
-    padding: 0;
-    width: auto;
-    flex: 1 1;
-    line-height: 210%;
-    flex-grow: 1;
-    font-size: 0.9em;
-    text-align: center;
-    border-bottom: 0;
-    box-sizing: border-box;
+                    line-height: 159%;
+                    color: #333;
+                    font-weight: 600;
+                    padding: 0;
+                    width: auto;
+                    flex: 1 1;
+                    line-height: 210%;
+                    flex-grow: 1;
+                    font-size: 0.9em;
+                    text-align: center;
+                    border-bottom: 0;
+                    box-sizing: border-box;
                 }
 
         .master_box .in_content .alignment {
@@ -3468,7 +3469,14 @@ div.master_popup div.alignment{
 }
 
     
-@media (min-width: 1000px) {    
+@media (min-width: 1000px) {   
+    .master_box .goods .td10{
+        margin-top: 0;
+        width: auto !important;
+    } 
+    .master_box .goods .td10 .btn{
+        width: auto !important;
+    }
     .master_box .reservation .reservation_list .t06 {
         margin-left: 0;
     }
@@ -3666,7 +3674,7 @@ div.master_popup div.alignment{
     }
     .master_box .con.goods .td02 {
         width: auto;
-        max-width: 7% !important;
+        max-width: 13% !important;
         margin-right: 0;
     }
     .master_box .con.goods .td03 {
@@ -3704,10 +3712,12 @@ div.master_popup div.alignment{
     .master_box .con.goods .td08 {
         width: auto;
         max-width: 7% !important;
+        margin-right: 0;
     }
+    
     .master_box .con.goods .td09 {
         width: auto;
-        max-width: 10% !important;
+        max-width: 13% !important;
         margin-top: 0;
     }
     .master_box .con.goods .td09 .btn {
