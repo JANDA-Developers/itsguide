@@ -101,6 +101,7 @@ interface IGoodsProp extends ILi {
 
 export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
     const router = useRouter();
+    const { locale } = useRouter();
     const handleToDetail = () => {
         router.push("/tour/view/" + item._id);
     };
@@ -123,7 +124,7 @@ export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
             </div>
             <div className="box">
                 <div className="category">
-                    <span>{item.category?.label}</span>
+                    <span>{item.category?.localeLabel[locale]}</span>
                     <Link href={`/itsguid/${item.author._id}`}>
                         <a>
                             <div className="guide__name">

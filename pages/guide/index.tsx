@@ -17,9 +17,8 @@ import { guideSearchLink } from "../guide-search";
 
 export const getStaticProps = getStaticPageInfo("guideMain");
 export const GuideMain: React.FC<Ipage> = (pageInfo) => {
-    const { groupsMap, ln, lang, categoriesMap, locale } = useContext(
-        AppContext
-    );
+    const { groupsMap, ln, lang, categoriesMap, locale } =
+        useContext(AppContext);
     const pageTools = usePageEdit(pageInfo, defaultPageInfo);
     const {
         imgEdit,
@@ -65,20 +64,17 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                             <li key={`guideMain_topBtns${i}`}>
                                                 <Link
                                                     href={guideSearchLink({
-                                                        keyward:
-                                                            val.localeLabel[
-                                                                locale
-                                                            ],
+                                                        keyward: val.label,
                                                     })}
                                                 >
                                                     <a className="guid_topBtn__btn">
-                                                        <span
-                                                            className="guid_topBtn__title"
-                                                            {...edit(
-                                                                "guideMain_topBtns",
-                                                                i
-                                                            )}
-                                                        />
+                                                        <span className="guid_topBtn__title">
+                                                            {
+                                                                val.localeLabel[
+                                                                    locale
+                                                                ]
+                                                            }
+                                                        </span>
                                                         {editMode && (
                                                             <CloseIcon
                                                                 className="guid_topBtn__close"
@@ -103,9 +99,10 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     {editMode && (
                                         <li
                                             onClick={() => {
-                                                const val = prompt(
-                                                    "값을 입력해 주세요."
-                                                );
+                                                const val =
+                                                    prompt(
+                                                        "값을 입력해 주세요."
+                                                    );
                                                 if (val) {
                                                     addArray(
                                                         "guideMain_topBtns",

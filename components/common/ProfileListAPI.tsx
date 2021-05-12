@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { openListFilter } from "../../hook/useProduct";
 import { useRandomPublicSellerList } from "../../hook/useUser";
 import {
@@ -14,6 +14,7 @@ import { GoodsListAPI } from "./GoodsListAPI";
 import Slider from "react-slick";
 import { useResizeDetector } from "react-resize-detector";
 import { IRef } from "../../types/interface";
+import { AppContext } from "../../pages/_app";
 
 interface IProp {
     mode?: "wide" | "short";
@@ -31,9 +32,8 @@ export const ProfileListAPI: React.FC<IProp> = ({
     mode = "wide",
 }) => {
     const router = useRouter();
-    const { ref, width } = useResizeDetector<
-        HTMLDivElement | HTMLUListElement
-    >();
+    const { ref, width } =
+        useResizeDetector<HTMLDivElement | HTMLUListElement>();
     const { data: items = [] } = useRandomPublicSellerList({
         nextFetchPolicy: "cache-first",
         variables: {
@@ -45,11 +45,10 @@ export const ProfileListAPI: React.FC<IProp> = ({
         },
     });
 
-    const handleSelectUser = (
-        user: sellerListPublic_SellerListPublic_data
-    ) => () => {
-        setSelectedSeller?.(user);
-    };
+    const handleSelectUser =
+        (user: sellerListPublic_SellerListPublic_data) => () => {
+            setSelectedSeller?.(user);
+        };
 
     const isShort = mode === "short";
 
@@ -196,10 +195,10 @@ export const ProfileListAPI: React.FC<IProp> = ({
 };
 
 export const ProfileListAPIwithGoods = () => {
-    const [
-        selectedSeller,
-        setSelectedSeller,
-    ] = useState<sellerListPublic_SellerListPublic_data>();
+    const { locale } = useRouter();
+    const { lang } = useContext(AppContext);
+    const [selectedSeller, setSelectedSeller] =
+        useState<sellerListPublic_SellerListPublic_data>();
 
     return (
         <div>
@@ -212,6 +211,7 @@ export const ProfileListAPIwithGoods = () => {
                     options={{
                         variables: {
                             filter: {
+                                lang_eq: lang,
                                 ...openListFilter,
                                 authorEmail_eq: selectedSeller?.email,
                             },

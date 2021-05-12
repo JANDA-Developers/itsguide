@@ -184,12 +184,12 @@ export const PRODUCT_LIST = gql`
                     ...Fuser
                 }
                 category {
-                    _id
-                    label
+                    ...Fcategory
                 }
             }
         }
     }
+    ${F_CATEGORY}
     ${F_USER}
     ${F_PRODUCT}
     ${F_PAGE}

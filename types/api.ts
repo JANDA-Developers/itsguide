@@ -6052,10 +6052,23 @@ export interface productList_ProductList_data_region {
   _id: string;
 }
 
+export interface productList_ProductList_data_category_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
 export interface productList_ProductList_data_category {
   __typename: "Category";
   _id: string;
   label: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: productList_ProductList_data_category_localeLabel | null;
+  type: CategoryType;
 }
 
 export interface productList_ProductList_data_bookerSummary {
