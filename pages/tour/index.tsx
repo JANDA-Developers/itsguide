@@ -30,9 +30,8 @@ export const TourMain: React.FC<Ipage> = (pageInfo) => {
     const isExp = checkIsExp();
     const { data } = useHomepage();
     const pageTools = usePageEdit(pageInfo, pageInfoDefault);
-    const { categoriesMap, isSeller, groupsMap, ln, lang } = useContext(
-        AppContext
-    );
+    const { categoriesMap, isSeller, groupsMap, ln, lang } =
+        useContext(AppContext);
     const cats = categoriesMap?.TOUR || [];
     const { editMode, page, linkEdit, imgKit, edit, get } = pageTools;
     const router = useRouter();
@@ -64,6 +63,7 @@ export const TourMain: React.FC<Ipage> = (pageInfo) => {
             tabBtn?.click();
         } //hack 이부분 이 있으면 로컬 축제검색으로 가정함. //
     };
+
     if (!data) return null;
     return (
         <div>

@@ -45,6 +45,9 @@ export const usePageEdit = <Page>(
     }
 
     if (changeKeyFlag) {
+        if (ln === "jp") {
+            ln = "JP";
+        }
         if (ln === "ja") {
             ln = "JP";
         } else if (ln === "ch") {

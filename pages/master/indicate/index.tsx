@@ -7,11 +7,8 @@ import { useDateFilter } from "../../../hook/useSearch";
 import { MasterSearchBar } from "../../../components/master/MasterSearchBar";
 import { MasterAlignMent } from "../../../components/master/MasterAlignMent";
 import { useIdSelecter } from "../../../hook/useIdSelecter";
-import {
-    GoodsTopNav,
-    MemberTopNav,
-} from "../../../components/topNav/MasterTopNav";
-import { BookingStatus, _TicketFilter } from "../../../types/api";
+import { MemberTopNav } from "../../../components/topNav/MasterTopNav";
+import { _TicketFilter } from "../../../types/api";
 import { SingleSortSelect } from "../../../components/common/SortSelect";
 import { useSingleSort } from "../../../hook/useSort";
 import { ALLOW_ADMINS } from "../../../types/const";
@@ -26,9 +23,8 @@ type TTicketFilterKey = keyof _TicketFilter;
 interface IProp {}
 
 export const Indicate: React.FC<IProp> = () => {
-    const [fitlerType, setFilterType] = useState<TTicketFilterKey>(
-        "title_contains"
-    );
+    const [fitlerType, setFilterType] =
+        useState<TTicketFilterKey>("title_contains");
     const {
         items,
         filter,
