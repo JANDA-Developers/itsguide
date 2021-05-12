@@ -195,6 +195,22 @@ select:focus {
         border: 1px solid rgb(170, 170, 170);
         color: #333;
     }
+    .btn.mini {
+        display: inline-block;
+        color: #999;
+        border: 1px solid #cfcfcf;
+        border-radius: 3px;
+        box-sizing: border-box;
+        vertical-align: initial;
+        padding: 0 8px;
+        font-size: 12px;
+        line-height: 21px;
+        margin: 0 0 0 10px;
+    }
+    .btn.mini:hover {
+        border: 1px solid rgb(170, 170, 170);
+        color: #333;
+    }
     .btn.mini2 {
         display: inline-block;
         color: #999;

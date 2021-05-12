@@ -57,11 +57,14 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
     return (
         <div id="UserModal" className="popup_bg_full">
             <div className="in_txt master_popup">
-                <a className="close_icon" onClick={closeModal("#UserModal")}>
-                    <i className="flaticon-multiply"></i>
-                </a>
                 <div className="page">
                     <h3>회원 상세정보</h3>
+                    <a
+                        className="close_icon"
+                        onClick={closeModal("#UserModal")}
+                    >
+                        <i className="flaticon-multiply"></i>
+                    </a>
                     <div className="info_txt">
                         <span className="start-day">
                             가입일: {yyyymmdd(item.createdAt)}

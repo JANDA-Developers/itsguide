@@ -989,6 +989,8 @@ ul.photo_ul li .category {
         display: block;
         margin-top: 100px;
         margin-bottom: 100px;
+        padding-left: 3%;
+        padding-right: 3%;
     }
 
         .board_box .xe_content .xe_top {
@@ -1119,7 +1121,7 @@ ul.photo_ul li .category {
             display: block;
             overflow: hidden;
             padding: 50px 15px;
-            border-top: 2px solid #333;
+            border-top: 3px solid #333;
         }
 
             .board_box .xe_content .in_box img {
@@ -1183,7 +1185,12 @@ div.download_box {
             color: #5bace9;
             border: 1px solid #5bace9;
         }
-
+div.comment__div h3{
+    position: relative;
+    display: block;
+    font-size: 2.2em;
+    border-bottom: #585858 solid 2px;
+}
 
 div.comment_box {
     position: relative;
@@ -1192,7 +1199,10 @@ div.comment_box {
     margin-top: 10px;
     box-sizing: border-box;
 }
-
+div.comment_box .list_comment p{
+    white-space: break-spaces;
+    word-break: break-word;
+}
     div.comment_box h3 {
         font-size: 22px;
         font-weight: 600;
@@ -2897,6 +2907,10 @@ div.sum_div {
 }
 
 @media (min-width:1200px) {
+    
+    .comment__div {
+        padding-bottom:200px;
+    }
     .board_write .RangeExample .info_txt{
         display: block;
     }
@@ -2955,6 +2969,10 @@ div.sum_div {
     .writing_in .w1200{
         box-sizing: border-box;
         padding: 50px 0 100px;
+    }
+    .board_box .xe_content {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 @media (max-width:1000px) {

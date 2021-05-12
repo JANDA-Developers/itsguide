@@ -56,6 +56,18 @@ ul.list_ul li .bottom_txt div[class*=tag] span,
 .jandaicon-info2.tooltip{
     line-height: 10px;
 }
+i.icon__lock{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    background-image: url(/img/svg/icon_lock.svg);
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    margin-top: -2px;
+}
 /* styleguide */
 .styleguidebox{
     position: relative;
@@ -1418,13 +1430,13 @@ div.popup_bg_full .fin{
     div.popup_bg_full .in_txt .page {
         height: 100%;
         width: 100%;
-        overflow-y: scroll;
+        /* overflow-y: scroll; */
         margin: 0 auto;
         text-align: left;
         font-size: 12px;
         padding: 0px 10px 10px 0px;
         box-sizing: border-box;
-
+        position: relative;
     }
 
     div.popup_bg_full .in_txt2 {
@@ -9549,7 +9561,7 @@ i.calendar {
         height: 95%;
         width: 95%;
         border-radius: 10px;
-        padding: 50px 20px 20px;
+        padding: 20px 20px 20px;
     }
 
     div.popup_bg_full h4 span.full_div__right {
@@ -9578,7 +9590,7 @@ i.calendar {
      
     div.popup_bg_full .close_icon {
             position: absolute;
-            top:15px;
+            top:6px;
             right: 2px;
             display: block;
             width: 30px;
@@ -10636,7 +10648,7 @@ i.calendar {
         height: 222px;
     }
         div.popup_bg_full .in_txt {
-            padding:50px 20px 20px;
+            padding:20px 20px 20px;
         }
     .findmembers_box {
         padding: 100px 0;

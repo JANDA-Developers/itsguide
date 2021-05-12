@@ -8,18 +8,7 @@
     margin-right: 3px;
     font-style: normal;
 }
-i.icon__lock{
-    display: inline-block;
-    width: 13px;
-    height: 13px;
-    vertical-align: middle;
-    background-image: url(/its/icon_lock.svg);
-    background-position: center;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    margin-right: 5px;
-    margin-top: -2px;
-}
+
 
 /* notice */
 .notice_in {
@@ -2528,6 +2517,9 @@ div.sum_div {
 }
 
 @media (min-width:1200px) {
+    .comment__div {
+        padding-bottom:200px;
+    }
     ul.list_ul {
         width: 100%;
     }
