@@ -37,11 +37,11 @@ export const Modal: React.FC<IProp> = ({
             {...props}
         >
             <div className={`in_txt ${inClassName}`}>
-                <a onClick={closeModal(`#${id}`)} className="close_icon">
-                    <i className="flaticon-multiply" />
-                </a>
                 <div className="page">
                     <h3 className="popup__tittle">{title}</h3>
+                    <a onClick={closeModal(`#${id}`)} className="close_icon">
+                        <i className="flaticon-multiply" />
+                    </a>
                     <div className="con">{children}</div>
                 </div>
             </div>
@@ -84,11 +84,11 @@ export const Modal2: React.FC<IModalReNewProp> = ({
             {...props}
         >
             <div className={`in_txt ${inClassName}`}>
-                <a onClick={closeModal} className="close_icon">
-                    <i className="flaticon-multiply" />
-                </a>
                 <div className="page">
                     <h3 className="popup__tittle">{title}</h3>
+                    <a onClick={closeModal} className="close_icon">
+                        <i className="flaticon-multiply" />
+                    </a>
                     <div className="con">{children}</div>
                 </div>
             </div>

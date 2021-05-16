@@ -56,6 +56,18 @@ ul.list_ul li .bottom_txt div[class*=tag] span,
 .jandaicon-info2.tooltip{
     line-height: 10px;
 }
+i.icon__lock{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    background-image: url(/img/svg/icon_lock.svg);
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    margin-top: -2px;
+}
 /* styleguide */
 .styleguidebox{
     position: relative;
@@ -1418,13 +1430,13 @@ div.popup_bg_full .fin{
     div.popup_bg_full .in_txt .page {
         height: 100%;
         width: 100%;
-        overflow-y: scroll;
+        /* overflow-y: scroll; */
         margin: 0 auto;
         text-align: left;
         font-size: 12px;
         padding: 0px 10px 10px 0px;
         box-sizing: border-box;
-
+        position: relative;
     }
 
     div.popup_bg_full .in_txt2 {
@@ -1566,6 +1578,8 @@ div.popup_bg_mini .page{
     div.popup_bg_mini .in_txt {
         position: relative;
         min-height:280px;
+        max-width: 60%;
+        max-height: 80%;
         min-width: 400px;
         box-sizing: border-box;
         padding: 0;
@@ -1725,11 +1739,12 @@ div.alignment {
 
     div.alignment .left_div {
         display: inline-block;
-        width: 100%;
+        width: auto;
         text-align: left;
         font-size: 14px;
         line-height: 22px;
         color: #999;
+        vertical-align: middle;
     }
 
         div.alignment .left_div strong {
@@ -1745,9 +1760,10 @@ div.alignment {
 
     div.alignment .right_div {
         display: inline-block;
-        width: 100%;
+        width:auto;
         text-align: left;
         font-size: 14px;
+        vertical-align: middle;
     }
 
         div.alignment .right_div .goto_page {
@@ -4661,6 +4677,7 @@ div.bn_box {
                 color: #5bace9;
                 text-decoration: underline;
                 background: #ffffff;
+                font-weight: 600;
             }
 
             .pagenate .page a:hover,
@@ -9022,11 +9039,12 @@ i.calendar {
         box-sizing: border-box;
         padding: 50px 0 100px;
     }
-    .question_box .board_list.st01 .tbody .td03{
+    /* .question_box .board_list.st01 .tbody .td03{
         width: auto;
-    }
+    } */
     .question_box .board_list.st01 .tbody .td04{
         width: auto;
+        margin-right: 10px;
     }
     .announce_box{
         box-sizing: border-box;
@@ -9071,6 +9089,9 @@ i.calendar {
         text-align: center;
     }
 @media (min-width: 768px) {   
+    div.theme_deal{
+        min-height: 820px; 
+    }
     .login_box{
         min-height: 1000px;
     }
@@ -9475,7 +9496,10 @@ i.calendar {
     }
 }
 @media (min-width: 1000px) {
-   
+    .question_box .board_list.st01 .tbody .td04{
+        width: auto;
+        margin-right: 0;
+    }
     .history__yearlist > li{
         padding-left: 15px;
         color: #333;
@@ -9538,7 +9562,7 @@ i.calendar {
         height: 95%;
         width: 95%;
         border-radius: 10px;
-        padding: 50px 20px 20px;
+        padding: 20px 20px 20px;
     }
 
     div.popup_bg_full h4 span.full_div__right {
@@ -9567,7 +9591,7 @@ i.calendar {
      
     div.popup_bg_full .close_icon {
             position: absolute;
-            top:15px;
+            top:6px;
             right: 2px;
             display: block;
             width: 30px;
@@ -10625,7 +10649,7 @@ i.calendar {
         height: 222px;
     }
         div.popup_bg_full .in_txt {
-            padding:50px 20px 20px;
+            padding:20px 20px 20px;
         }
     .findmembers_box {
         padding: 100px 0;
@@ -10972,7 +10996,9 @@ i.calendar {
     }
 }
 @media (max-width: 767px) {
-   
+    div.bn_box .banner{
+        margin-bottom: 10px;
+    }
     .siteInfo_in .con01{
         padding: 7% 0;
     }

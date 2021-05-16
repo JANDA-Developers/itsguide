@@ -57,11 +57,14 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
     return (
         <div id="UserModal" className="popup_bg_full">
             <div className="in_txt master_popup">
-                <a className="close_icon" onClick={closeModal("#UserModal")}>
-                    <i className="flaticon-multiply"></i>
-                </a>
                 <div className="page">
                     <h3>회원 상세정보</h3>
+                    <a
+                        className="close_icon"
+                        onClick={closeModal("#UserModal")}
+                    >
+                        <i className="flaticon-multiply"></i>
+                    </a>
                     <div className="info_txt">
                         <span className="start-day">
                             가입일: {yyyymmdd(item.createdAt)}
@@ -102,7 +105,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                 회원정보
                                 <button
                                     onClick={userWriteModalHook.openModal}
-                                    className="btn mr10"
+                                    className="btn mini3 mr10"
                                 >
                                     정보수정하기
                                 </button>
@@ -113,7 +116,7 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                             "_blank"
                                         );
                                     }}
-                                    className="btn"
+                                    className="btn mini3"
                                 >
                                     프로필보기
                                 </button>

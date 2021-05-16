@@ -415,7 +415,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                     </span>
                                     <button
                                         onClick={sampleSelectOpen}
-                                        className="btn"
+                                        className="btn medium write"
                                     >
                                         샘플 불러오기
                                     </button>
@@ -452,7 +452,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 value="Single"
                                 checked={rangeType === "Single"}
                             />
-                            <label htmlFor="single">당일여행</label>
+                            <label htmlFor="single">당일</label>
                             <input
                                 onChange={(e) => {
                                     const val = e.currentTarget.value;
@@ -464,7 +464,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 value="Range"
                                 checked={rangeType === ("Range" as TRangeType)}
                             />
-                            <label htmlFor="range">연일여행</label>
+                            <label htmlFor="range">연일</label>
                             {rangeType === "Range" && (
                                 <div>
                                     <input
@@ -489,6 +489,10 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                     일
                                 </div>
                             )}
+                            <p className="info_txt">
+                                <i className="jandaicon-info2 mini"></i> 연일과
+                                당일은 체험과 여행 둘다 가능합니다.
+                            </p>
                         </div>
                     </div>
                     <div className="write_type">
@@ -512,6 +516,13 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                     <option value={Lang.OT}>OTHERS</option>
                                 </select>
                             </span>
+                            <p className="info_txt">
+                                <i className="jandaicon-info2 mini"></i> 해당
+                                언어를 선택한 상품은 해당언어 선택시에만 노출이
+                                됩니다. <br />
+                                만약 두가지 언어에서 동일한 상품판매를 원하시면
+                                상품을 두개를 등록하셔야 합니다.
+                            </p>
                         </div>
                     </div>
                     <div className="write_type">
@@ -595,8 +606,9 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 />
                             </div>
                             <p className="info_txt">
-                                - 원을 빼고 ','를 넣어서 구분해서 입력해주세요.
-                                ex) 50,000
+                                <i className="jandaicon-info2 mini"></i> 원을
+                                빼고 ','를 넣어서 구분해서 입력해주세요. ex)
+                                50,000
                             </p>
                         </div>
                     </div>
@@ -620,6 +632,10 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                     className="text w20"
                                 />
                             </div>
+                            <p className="info_txt">
+                                <i className="jandaicon-info2 mini"></i>{" "}
+                                최소인원만 충족된다면 출발이 가능합니다.
+                            </p>
                         </div>
                     </div>
 
@@ -698,7 +714,9 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 setTags={setkeyWards}
                             />
                             <p className="input_form info_txt">
-                                - 'enter'로 구분시 자동으로 키워드가 생성됩니다.
+                                <i className="jandaicon-info2 mini" /> 'Enter'로
+                                구분시 자동으로 키워드가 생성됩니다. 단어
+                                하나하나 'Enter'를 쳐주세요.
                             </p>
                         </div>
                     </div>
@@ -731,6 +749,10 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                     <label htmlFor="status-sold">비공개</label>
                                 </li>
                             </ul>
+                            <p className="info_txt">
+                                <i className="jandaicon-info2 mini" /> 비공개를
+                                하셔도 관리자와 판매자는 열람이 가능합니다.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -764,8 +786,19 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                     type="file"
                                 />
                             </ul>
+<<<<<<< HEAD
                             <p className="input_form info_txt">
                                 - 이미지 이미지사이즈 720px * 434px
+=======
+                            <p className="input_form info_txt blue_font">
+                                <i className="jandaicon-info2 mini" /> 썸네일
+                                이미지 사이즈는 720px * 434px 입니다. 이미지
+                                사이즈는 자동으로 줄여지지 않습니다. 꼭 이미지를
+                                권장 사이즈에 맞춰주세요. 그래야 좀더 퀄리티
+                                높은 상품으로 등록이 됩니다. <br />
+                                (이미지 사이즈를 지키지 않는 건으로 인한 이상
+                                현상은 문의를 받지 않습니다.)
+>>>>>>> its/design
                             </p>
                         </div>
                     </div>
@@ -779,7 +812,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                             className={tabOnCheck(1)}
                         >
                             <span>
-                                <i>01.</i>여행상세설명
+                                <i>01.</i>상세일정(타임라인)
                             </span>
                         </li>
                         <li
@@ -815,7 +848,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         id="texta_01"
                         className="texta tourWrite__daypikcer"
                     >
-                        <h5 id="itinerary">여행일정</h5>
+                        <h5 id="itinerary">상세일정</h5>
                         <DayRangePicker
                             intercept
                             Header={
@@ -837,7 +870,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         >
                             <div className="tourWrite__dayPikcerRangeViewer  mb10">
                                 <div>
-                                    투어 {yyyymmdd(firstDate)} ~
+                                    선택된 날짜 {yyyymmdd(firstDate)} ~
                                     {yyyymmdd(lastDate)}
                                 </div>
                             </div>
@@ -892,9 +925,31 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 />
                             </div>
                         ))}
+                        <p className="input_form info_txt mb20">
+                            <i className="jandaicon-info2 mini" />{" "}
+                            타임라인(스케줄)은 시간 단위로 입력하셔야 합니다.
+                            시간 단위로 입력을 하시고 "일정추가"를 클릭하셔서
+                            다음 시간대의 일정을 입력해주세요.
+                            <br />
+                            스케줄 이외에 부연설명은 "2.안내및참고"에
+                            입력해주세요. <br /> 사진은 너무 큰 것은 넣지
+                            마세요. 작게 줄이거나 포토샵을 하셔서 합쳐서
+                            올려주세요.
+                        </p>
                     </div>
                     <div {...tapDisplay(2)} id="texta_02" className="texta">
                         <h5>상품 안내문</h5>
+                        <p className="input_form info_txt mb20">
+                            <i className="jandaicon-info2 mini" /> 여행에 대한
+                            부연설명을 입력해주세요. 사진과 이미지가 적절히
+                            섞여야 합니다.
+                            <br />
+                            단 이미지는 원본을 넣지 마시고, 포토샵으로 다듬어서
+                            넣어주세요. 여러사진을 넣을 경우에는 이미지를 합쳐서
+                            편집하여 올려주세요. <br />
+                            표는 모바일에서 보기 힘들 수 있으니 가급적 사용하지
+                            맙시다.
+                        </p>
                         <Editor
                             edit={tab === 2}
                             data={contents}
@@ -903,6 +958,12 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     </div>
                     <div {...tapDisplay(3)} id="texta_03" className="texta">
                         <h5>참가자 준비물</h5>
+                        <p className="input_form info_txt mb20">
+                            <i className="jandaicon-info2 mini" /> 여행이나
+                            체험시에 요구할 준비물이나 필수품등을 직관적으로
+                            적어주세요. 너무 추상적일 경우에는 의사전달이 안될
+                            수 있습니다.
+                        </p>
                         <Editor
                             edit={tab === 3}
                             data={inOrNor}
@@ -911,6 +972,13 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     </div>
                     <div {...tapDisplay(4)} id="texta_04" className="texta">
                         <h5>간략한 안내문</h5>
+                        <p className="input_form info_txt mb20">
+                            <i className="jandaicon-info2 mini" /> 안내문은
+                            상세페이지 제일 맨위 썸네일 밑에 출력이 됩니다. 해당
+                            상품에 대한 필수 안내, 혹은 참여가 힘들 수 있는
+                            연령층을 공지 한다던지, 필수 주의사항 등을 적는게
+                            바람직합니다.
+                        </p>
                         <Editor
                             edit={tab === 4}
                             data={info}

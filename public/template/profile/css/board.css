@@ -961,6 +961,8 @@ ul.photo_ul li .category {
         display: block;
         margin-top: 100px;
         margin-bottom: 100px;
+        padding-left: 3%;
+        padding-right: 3%;
     }
 
         .board_box .xe_content .xe_top {
@@ -2515,6 +2517,9 @@ div.sum_div {
 }
 
 @media (min-width:1200px) {
+    .comment__div {
+        padding-bottom:200px;
+    }
     ul.list_ul {
         width: 100%;
     }
@@ -2549,6 +2554,12 @@ div.sum_div {
         }
 }
 
+@media (min-width:1230px) {
+.board_box .xe_content{
+    padding-left: 0;
+    padding-right: 0;
+}
+}
 @media (max-width:767px) {
     .photo_ul.line4 li {
         height: 185px;

@@ -36,13 +36,8 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
     const [userUpdate] = useUserUpdate();
     const { signleUpload } = useUpload();
     const { items } = useUnReadSystemNotiFind();
-    const {
-        isSeller,
-        isParterB,
-        isParterNonB,
-        myProfile,
-        isLogin,
-    } = useContext(AppContext);
+    const { isSeller, isParterB, isParterNonB, myProfile, isLogin } =
+        useContext(AppContext);
     const { data: count } = useCount();
     const hiddenFileInput = useRef<HTMLInputElement>(null);
 
@@ -89,7 +84,7 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
 
     return (
         <div>
-            <div className="top_visual">
+            <div className="top_visual sub_nav_ok">
                 <PageEditor pageTools={pageTools} />
                 <SubTopNav pageTools={pageTools}>
                     <li className="homedeps1">
@@ -114,15 +109,15 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
                                 <a>회원정보</a>
                             </Link>
                         </li>
-                        {isSeller || (
+                        {isParterNonB || (
                             <li className={isTapOn("notification")}>
                                 <Link href="/mypage/notification">
                                     <a>알림</a>
                                 </Link>
                             </li>
                         )}
-                        {/* 개인/가이드/가이드 -*/}
-                        {isSeller || (
+                        {/* 개인 -*/}
+                        {!isParterNonB || (
                             <li className={isTapOn("purchase")}>
                                 <Link href="/mypage/purchase">
                                     <a>구매내역</a>
@@ -130,21 +125,22 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
                             </li>
                         )}
                         {/* 개인 -*/}
-                        {isSeller || (
+                        {!isParterNonB || (
                             <li className={isTapOn("basket")}>
                                 <Link href="/mypage/basket">
                                     <a>장바구니</a>
                                 </Link>
                             </li>
                         )}
-                        {/* 개인 -*/}
+                        {/* 개인/가이드 -*/}
+
                         <li className={isTapOn("my-board")}>
                             <Link href="/mypage/my-board">
                                 <a>나의 게시글</a>
                             </Link>
                         </li>
                         {/* 개인/가이드 -*/}
-                        {isSeller || (
+                        {isParterNonB || (
                             <li className={isTapOn("reservation")}>
                                 <Link href="/mypage/reservation">
                                     <a>예약관리</a>
@@ -152,23 +148,16 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
                             </li>
                         )}
                         {/* 가이드 -*/}
-                        {isSeller || (
+                        {isParterNonB || (
                             <li className={isTapOn("plainning")}>
                                 <Link href="/mypage/plainning">
                                     <a>상품관리</a>
                                 </Link>
                             </li>
                         )}
+
                         {/* 가이드 -*/}
-                        {isSeller || (
-                            <li className={isTapOn("plainning")}>
-                                <Link href="/mypage/plainning">
-                                    <a>기획관리</a>
-                                </Link>
-                            </li>
-                        )}
-                        {/* 가이드 -*/}
-                        {isSeller || (
+                        {isParterNonB || (
                             <li className={isTapOn("settlement")}>
                                 <Link href="/mypage/settlement">
                                     <a>매출/정산관리</a>
@@ -260,79 +249,74 @@ export const MypageLayout: React.FC<IProp> = ({ children, item }) => {
                                         )}
                                         {/*개인*/}
                                         {/* //최근접속시간은 최근에 본 상품으로 변경함 */}
-                                        {isSeller || (
-                                            <ul>
+
+                                        <ul>
+                                            <li>
+                                                <Link href="/">
+                                                    <a>
+                                                        알림
+                                                        <i>{items.length}</i>
+                                                    </a>
+                                                </Link>
+                                            </li>
+                                            {/* 개인/가이드/가이드 -*/}
+                                            {isSeller || (
                                                 <li>
-                                                    <Link href="/">
+                                                    <Link href="/mypage/purchase/">
                                                         <a>
-                                                            알림
+                                                            구매
                                                             <i>
-                                                                {items.length}
+                                                                {buyTotalCount}
                                                             </i>
                                                         </a>
                                                     </Link>
                                                 </li>
-                                                {/* 개인/가이드/가이드 -*/}
-                                                {isSeller || (
-                                                    <li>
-                                                        <Link href="/mypage/purchase/">
-                                                            <a>
-                                                                구매
-                                                                <i>
-                                                                    {
-                                                                        buyTotalCount
-                                                                    }
-                                                                </i>
-                                                            </a>
-                                                        </Link>
-                                                    </li>
-                                                )}
-                                                {/* 개인 -*/}
-                                                {isSeller || (
-                                                    <li>
-                                                        <Link href="/mypage/basket">
-                                                            <a>
-                                                                장바구니
-                                                                <i>
-                                                                    {getItemCount()}
-                                                                </i>
-                                                            </a>
-                                                        </Link>
-                                                    </li>
-                                                )}
-                                                {/* 개인 -*/}
-                                                {isSeller && (
-                                                    <li>
-                                                        <Link href="/mypage/reservation">
-                                                            <a>
-                                                                예약
-                                                                <i>
-                                                                    {
-                                                                        totalSalesCount
-                                                                    }
-                                                                </i>
-                                                            </a>
-                                                        </Link>
-                                                    </li>
-                                                )}
-                                                {/* 가이드/가이드 -*/}
-                                                {isSeller && (
-                                                    <li>
-                                                        <Link href="/mypage/settlement">
-                                                            <a>
-                                                                정산
-                                                                <i>
-                                                                    {
-                                                                        settleUnsolvedRequestCount
-                                                                    }
-                                                                </i>
-                                                            </a>
-                                                        </Link>
-                                                    </li>
-                                                )}
-                                                {/* 가이드/가이드 -*/}
-                                            </ul>
-                                        )}
+                                            )}
+                                            {/* 개인 -*/}
+                                            {isSeller || (
+                                                <li>
+                                                    <Link href="/mypage/basket">
+                                                        <a>
+                                                            장바구니
+                                                            <i>
+                                                                {getItemCount()}
+                                                            </i>
+                                                        </a>
+                                                    </Link>
+                                                </li>
+                                            )}
+                                            {/* 개인 -*/}
+                                            {isSeller && (
+                                                <li>
+                                                    <Link href="/mypage/reservation">
+                                                        <a>
+                                                            예약
+                                                            <i>
+                                                                {
+                                                                    totalSalesCount
+                                                                }
+                                                            </i>
+                                                        </a>
+                                                    </Link>
+                                                </li>
+                                            )}
+                                            {/* 가이드/가이드 -*/}
+                                            {isSeller && (
+                                                <li>
+                                                    <Link href="/mypage/settlement">
+                                                        <a>
+                                                            정산
+                                                            <i>
+                                                                {
+                                                                    settleUnsolvedRequestCount
+                                                                }
+                                                            </i>
+                                                        </a>
+                                                    </Link>
+                                                </li>
+                                            )}
+                                            {/* 가이드/가이드 -*/}
+                                        </ul>
                                     </span>
                                 </div>
                             </div>
