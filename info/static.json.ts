@@ -837,6 +837,12 @@ const utils_message = {
         ja: `お知らせ事項`,
         chi: `公告事项`,
     },
+    viewCOunt: {
+        ko: "조회수",
+        en: `view count`,
+        ja: `ヒット`,
+        chi: `意见`,
+    },
 };
 
 export const info = {

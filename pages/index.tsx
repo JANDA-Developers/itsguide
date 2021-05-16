@@ -375,7 +375,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                                 <div className="theme_deal__textBox">
                                     <span
                                         className="title"
-                                        {...edit("m_06_link03_text")}
+                                        {...edit("m_06_link04_text")}
                                     />
                                 </div>
                             </Bg>
@@ -393,7 +393,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                                 <div className="theme_deal__textBox">
                                     <span
                                         className="title"
-                                        {...edit("m_06_link03_text")}
+                                        {...edit("m_06_link05_text")}
                                     />
                                 </div>
                             </Bg>
@@ -411,7 +411,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                                 <div className="theme_deal__textBox">
                                     <span
                                         className="title"
-                                        {...edit("m_06_link03_text")}
+                                        {...edit("m_06_link06_text")}
                                     />
                                 </div>
                             </Bg>
@@ -504,16 +504,12 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                 <div className="box02">
                     <div className="left">
                         <h3 {...edit("m_07_box02_title")} />
-                        <p>
-                            <span {...edit("m_07_box02_text")} />
-                        </p>
+                        <p {...edit("m_07_box02_text")} />
                     </div>
                     <Bg className="right" {...imgKit("m_07_box02_rigthbg")}>
                         <div className="txt">
                             <strong {...edit("m_07_box02_rigthnumber")} />
-                            <p>
-                                <span {...edit("m_07_box02_rigthtitle")} />
-                            </p>
+                            <p {...edit("m_07_box02_rigthtitle")} />
                         </div>
                     </Bg>
                 </div>

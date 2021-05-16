@@ -86,11 +86,7 @@ export const GoodsListTable: React.FC<IProp> = () => {
                 </ul>
             </div>
             <div id="GoodsListTable" className="alignment">
-                <div className="left_div">
-                    <span>
-                        총 <strong>{autoComma(pageInfo.totalCount)}</strong>개
-                    </span>
-                </div>
+                <div className="left_div"></div>
                 <div className="right_div">
                     <SortSelect onChange={setSort} sort={sort} />
                     <ViewCount value={viewCount} onChange={setViewCount} />
