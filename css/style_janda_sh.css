@@ -184,7 +184,7 @@ i.icon__lock{
    
 .main_con_box1 .w1200 {
     box-sizing: border-box;
-    padding: 0 16%;
+    padding: 0 10%;
     text-align: left;
 }
 
@@ -283,24 +283,30 @@ i.icon__lock{
         display: block;
     }
     .pr_list:after {
-        right: 0;
-        background: linear-gradient(to left,#ffffff 0%,transparent 30%);
+        right: -1px;
+        background-image: url(/its/bg_gradient.png);
+        background-repeat: repeat-y;
+        transform: rotate(-180deg);
+        /* background: linear-gradient(to left,#ffffff 0%,transparent 30%); */
         position: absolute;
-    top: 0;
-    width: 10%;
-    height: 100%;
-    content: "";
-    z-index: 1;
+        top: 0;
+        width: 10%;
+        height: 100%;
+        content: "";
+        z-index: 1;
     }
     .pr_list::before {
         left: 0;
-    background: linear-gradient(to right,#ffffff 0%,transparent 30%);
-    position: absolute;
-    top: 0;
-    width: 10%;
-    height: 100%;
-    content: "";
-    z-index: 1;
+        background-image: url(/its/bg_gradient.png);
+        background-repeat: repeat-y;
+
+    /* background: linear-gradient(to right,#ffffff 0%,transparent 30%); */
+        position: absolute;
+        top: 0;
+        width: 10%;
+        height: 100%;
+        content: "";
+        z-index: 1;
 
     }
 
@@ -440,7 +446,7 @@ i.icon__lock{
                 position: absolute;
                 right: 46px;
                 width: 370px;
-                top: 185px;
+                bottom: 10px;
                 display: inline-block;
                 box-sizing: border-box;
                 padding: 0;
@@ -458,7 +464,7 @@ i.icon__lock{
                 font-size: 1.5em;
             }
             .main_con_box3 li:nth-last-child(3n) {
-                font-size: 2.5em;
+                font-size: 2.1em;
                 font-weight: 600;
             }
             .main_con_box3 li:nth-last-child(5n) {
@@ -9100,6 +9106,17 @@ i.calendar {
     .siteInfo_in .con03 p{
         font-size: 0.9em;
     }
+    .main_con_box1 .w1200{
+        padding: 0 3%;
+    }
+    .main_con_box1 .main_top_images .btn_list{
+        width: 60%;
+    }
+    .main_con_box1 .main_top_images .btn_list a {
+        font-size: 1em;
+        margin: 5px 10px 5px 0px;
+        padding: 2px 9px;
+    }
     .siteInfo_in .con03 .info_address li{
         position: relative;
         width: 130px;
@@ -9134,10 +9151,6 @@ i.calendar {
     }
     .tour_details_in .boardReadBody .con_top_tap span a{
         line-height: 40px;
-    }
- 
-    .main_con_box1 .main_top_images .btn_list{
-        width: 70%;
     }
     .board_write .con_tap li{
         font-size: 15px;
@@ -9456,7 +9469,7 @@ i.calendar {
                 .main_con_box3 ul {
                     right: 46px;
                     width: 423px;
-                    top: 136px;
+                    bottom: 10px;
                 }
                 .main_con_box3 .w1200:before {
                     right: -37px;
@@ -9467,7 +9480,7 @@ i.calendar {
     .main_con_box3 ul {
         right: 20px;
         width: 463px;
-        top: 205px;
+        bottom: 32px;
     }
     .main_con_box3 .w1200:before {
         right: -98px;
@@ -9487,14 +9500,19 @@ i.calendar {
     .main_con_box3 ul {
         right: 26px;
         width: 423px;
-        top: 163px;
+        bottom: 40px;
     }
-    .main_con_box3 .w1200:before {
+    /* .main_con_box3 .w1200:before {
         right: -37px;
         bottom: -276px;
-    }
+    } */
 }
 @media (min-width: 1000px) {
+    .main_con_box1 .main_top_images .btn_list a {
+        font-size: 1em;
+        margin: 5px 10px 5px 0px;
+        padding: 5px 15px;
+    }
     .question_box .board_list.st01 .tbody .td04{
         width: auto;
         margin-right: 0;
@@ -9532,7 +9550,7 @@ i.calendar {
         text-align: center;
     }
     .main_con_box3 li:nth-last-child(3n) {
-        font-size: 2.5em;
+        font-size: 2em;
     }
     .main_con_box3 .w1200:before {
         width: 600px;
@@ -10504,7 +10522,7 @@ i.calendar {
     .main_con_box3 ul {
         right: 0;
         width: 593px;
-        top: 111px;
+        bottom: 50px;
         padding: 0 82px;
         box-sizing: border-box;
     }
@@ -10831,7 +10849,7 @@ i.calendar {
         padding: 0;
     }
     .main_con_box7 .box01 {
-        padding: 50px 0;
+        padding: 80px 0;
     }
      .main_con_box7 .box02 .left {
         padding: 4%;
@@ -11065,6 +11083,8 @@ i.calendar {
         text-align: center;
         font-size: 1em;
         line-height: 380%;
+        display: block;
+        width: 100%;
     }
    
     .tour_details_in .boardReadBody .top_day{
@@ -11171,9 +11191,9 @@ i.calendar {
     }
     .main_con_box3 ul {
         position: relative;
-        width: 80%;
-        top: 0px;
-        left: 10%;
+        width: 70%;
+        bottom: 10px;
+        left: 15%;
         padding: 0;
         text-align: center;
         margin-bottom: 30px;
@@ -11199,15 +11219,21 @@ i.calendar {
         position: absolute;
         content: '';
         display: inline-block;
-        top: -37px;
+        top: -22px;
         right: 50%;
         width: 2px;
         height:30px;
         background-color: #333333;
         transform: rotate(-45deg);
     }
+    .main_con_box4 .deal_list .alignment {
+        display: flex;
+        padding: 40px 0 10px;
+    }
     .main_con_box4 .alignment .left_div{
         text-align: center;
+        display: block;
+        width: 100%;
         font-size: 1em;
         line-height: 380%;
     }
@@ -11401,7 +11427,9 @@ i.calendar {
         font-size: 0.8em;
         margin-top: 50px;
         display: table-cell;
-        
+    }
+    .main_con_box7 .box02 .left p span {
+        white-space: break-spaces;
     }
     .main_con_box7 .box02 .right {
         width: 100%;
@@ -11545,9 +11573,9 @@ i.calendar {
         .main_con_box1 .main_top_images .btn_list a {
             width:auto;
             height: auto;
-            padding:  0 20px;
+            padding:  0 9px;
             border-radius: 3px;
-            line-height: 30px;
+            line-height: 22px;
             font-size: 1em;
         }
     .main_con_box1 .main_top_images:before {
@@ -11618,16 +11646,11 @@ i.calendar {
     .tour_details_in .Read_box .details_photo .photo_list li{
         height: auto;
     }
-    .main_con_box8 .alignment .left_div {
-        text-align: center;
-        font-size: 1em;
-        line-height: 380%;
-    }
     .main_con_box8 h2::before {
         position: absolute;
         content: '';
         display: inline-block;
-        top: -37px;
+        top: -25px;
         right: 50%;
         width: 2px;
         height: 30px;

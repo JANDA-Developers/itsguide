@@ -4323,7 +4323,10 @@ margin-bottom:0;
         margin-top: 0px;
     }
     .footer_in .bottom_nav .cs a{
-        padding: 3px 12px;
+        padding: 4px 12px;
+        width: 100%;
+        border-radius: 100px;
+
     }
     .header .all_menu_btn{
         padding-left: 0;
@@ -4356,9 +4359,6 @@ margin-bottom:0;
     .footer_in .bottom_nav .cs {
         width: 70%;
         margin-top: 15px;
-    }
-    .footer_in .bottom_nav .cs a {
-        width: 100%;
     }
     #content .x {
         width: 100%;

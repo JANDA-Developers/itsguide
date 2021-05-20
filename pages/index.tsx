@@ -33,9 +33,8 @@ import { Lang } from "../types/api";
 
 export const getStaticProps = getStaticPageInfo("main");
 export const Main: React.FC<Ipage> = (pageInfo) => {
-    const { homepage, groupsMap, categoriesMap, lang, locale, ln } = useContext(
-        AppContext
-    );
+    const { homepage, groupsMap, categoriesMap, lang, locale, ln } =
+        useContext(AppContext);
     const { items } = usePublicSellerList();
 
     const pageTools = usePageEdit(pageInfo, defaultPageInfo);
@@ -500,16 +499,12 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                 <div className="box02">
                     <div className="left">
                         <h3 {...edit("m_07_box02_title")} />
-                        <p>
-                            <span {...edit("m_07_box02_text")} />
-                        </p>
+                        <p {...edit("m_07_box02_text")} />
                     </div>
                     <Bg className="right" {...imgKit("m_07_box02_rigthbg")}>
                         <div className="txt">
                             <strong {...edit("m_07_box02_rigthnumber")} />
-                            <p>
-                                <span {...edit("m_07_box02_rigthtitle")} />
-                            </p>
+                            <p {...edit("m_07_box02_rigthtitle")} />
                         </div>
                     </Bg>
                 </div>
@@ -518,9 +513,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                         <Upload onUpload={imgEdit("m_07_box03_rigthbg")} />
                         <div className="txt">
                             <strong {...edit("m_07_box03_rigthnumber")} />
-                            <p>
-                                <span {...edit("m_07_box03_rigthtitle")} />
-                            </p>
+                            <p {...edit("m_07_box03_rigthtitle")} />
                         </div>
                     </Bg>
                     <div className="right">
