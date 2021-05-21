@@ -2473,7 +2473,7 @@ i.icon_plus {
 .top_visual {
     position: relative;
     display: block;
-    height:390px;
+    /* height:390px; */
 }
     /* .top_visual:before {
         top: 0;
@@ -2500,7 +2500,7 @@ i.icon_plus {
 
     .top_visual .sub_header {
         display: block;
-        padding: 40px 3% 0;
+        padding: 40px 3% 40px;
         box-sizing:border-box;
     }
 
@@ -3844,9 +3844,9 @@ margin-bottom:0;
             padding: 70px 3% 0;
             background-position: left center;
         }
-        .top_visual {
+        /* .top_visual {
             height:232px;
-        }
+        } */
    
     .search_top .search_div{
         margin-top: 0;
@@ -4158,7 +4158,7 @@ margin-bottom:0;
     }
  
     .top_visual .sub_header {
-        padding: 52px 0 0;
+        padding: 52px 0 50px;
     }
     #content .x,
     #content #xet_board {
