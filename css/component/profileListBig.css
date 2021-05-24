@@ -164,12 +164,12 @@
 }
 
 .profileListBig__arrows.slick-prev  {
-    border-right: 1px solid;
+    /* border-right: 1px solid; */
     left: 0;
 }
 
 .profileListBig__arrows.slick-next  {
-    border-left: 1px solid;
+    /* border-left: 1px solid; */
     right: 0;
 }
 .profileListBig .slick-list {

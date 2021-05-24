@@ -776,6 +776,16 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 높은 상품으로 등록이 됩니다. <br />
                                 (이미지 사이즈를 지키지 않는 건으로 인한 이상
                                 현상은 문의를 받지 않습니다.)
+                                <br />
+                                <Link href="https://itsguide.co.kr/service/qna?id=607fead212e977643d36c200">
+                                    <a target="_blank" title="새창으로 뜹니다.">
+                                        <strong className="sky_font">
+                                            [바로가기] Tip. 이미지 조절은 어떻게
+                                            하나요?
+                                        </strong>
+                                    </a>
+                                </Link>
+                                <a></a>
                             </p>
                         </div>
                     </div>

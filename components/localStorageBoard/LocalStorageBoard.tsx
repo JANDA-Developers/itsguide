@@ -36,7 +36,7 @@ export const LocalStorageBoard: React.FC<IProp> = ({ onLoad }) => {
             <div className="LocalStorageBoard__blocks">
                 {items?.map((item) => (
                     <div className="LocalStorageBoard__block" key={item._id}>
-                        <h3 className="LocalStorageBoard__title">
+                        <h4 className="LocalStorageBoard__title">
                             <div>
                                 {item.simpleData.title ||
                                     "타이틀 값이 없습니다."}
@@ -46,7 +46,7 @@ export const LocalStorageBoard: React.FC<IProp> = ({ onLoad }) => {
                                     "YYYY.MM.DD일 hh시 mm분"
                                 )}
                             </span>
-                        </h3>
+                        </h4>
                         <div className="LocalStorageBoard__btns">
                             <button
                                 className="LocalStorageBoard__btn LocalStorageBoard__btn--left btn small"
@@ -105,7 +105,7 @@ export const SampleBoard: React.FC<ISampleBoardProp> = ({
                 )}
                 {sampleProducts?.map((item, index) => (
                     <div className="LocalStorageBoard__block" key={item._id}>
-                        <h3 className="LocalStorageBoard__title">
+                        <h4 className="LocalStorageBoard__title">
                             <div>
                                 {item.simpleData.title ||
                                     "타이틀 값이 없습니다."}
@@ -113,7 +113,7 @@ export const SampleBoard: React.FC<ISampleBoardProp> = ({
                             <span className="LocalStorageBoard__date">
                                 {item.simpleData.subTitle}
                             </span>
-                        </h3>
+                        </h4>
                         <div className="LocalStorageBoard__btns">
                             <button
                                 className="LocalStorageBoard__btn LocalStorageBoard__btn--left btn small"
