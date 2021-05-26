@@ -1858,13 +1858,15 @@ div.alignment {
 
     div.alignment select {
         border-radius: 3px;
-        height: 32px;
+        height: 27px !important;
         width: auto;
         font-size: 12px;
         padding: 0 10px;
         font-weight: 600;
         box-sizing: border-box;
         border: 1px solid #d2d2d2;
+        vertical-align: -webkit-baseline-middle;
+        vertical-align: middle;
     }
 
         div.alignment select.sel02 {
@@ -7199,6 +7201,7 @@ i.important_icon {
                     line-height: 22px;
                     font-size: 14px;
                     color: #555;
+                    font-weight: 600;
                 }
 
                 .selectViewList ul.list_ul .list_in .txt2 .btn {
@@ -8897,9 +8900,10 @@ i.calendar {
         flex-grow: 1;
     }
     .guide__infobox .profile{
-        text-align: center;
-        max-width: 23%;
         display: grid;
+        text-align: center;
+        max-width: 16%;
+        margin-right: 12px;
     }
     .guide__infobox .profile .photo{
         width: 80px;
@@ -9512,7 +9516,9 @@ i.calendar {
     .main_con_box7 .box03 .right{
         padding: 5% 3%;
     }
-    
+    .selectViewList ul.list_ul .list_in .txt2 span{
+        font-weight: 100;
+    }
     .main_con_box1 .main_top_images .btn_list a {
         font-size: 1em;
         margin: 5px 10px 5px 0px;
@@ -9571,9 +9577,9 @@ i.calendar {
     .main_con_box1 .main_top_images .btn_list{
         width: 100%;
     }
-.selectViewList {
+/* .selectViewList {
     padding-top: 13px;
-}
+} */
     .sign_in .inner{
         padding: 0;
     }
@@ -10089,7 +10095,7 @@ i.calendar {
 
     div.alignment select {
         border-radius: 3px;
-        height: 32px;
+        height: 32px !important;
         width:auto;
         margin-top:0;
         font-size: 12px;
@@ -10945,7 +10951,12 @@ i.calendar {
     .guide_box .guide_top_bn .txt h3{
         font-size: 2em;
     }
- 
+    div.alignment select.sel01{
+        margin-left: 15px;
+    }
+    div.alignment .view_icon {
+        margin-top: 4px;
+    }
     .guide_box .guide_top_bn{
         padding: 100px 3% 180px;
         background-size: 230%;
