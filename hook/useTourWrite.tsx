@@ -491,6 +491,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     };
 
     const handleTempSave = async () => {
+        tourData.status = undefined;
         ProductTempBoard.addItem({
             ...tourData,
         });
