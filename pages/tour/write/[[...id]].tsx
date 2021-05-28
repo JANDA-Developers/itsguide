@@ -79,8 +79,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
     const { query } = router;
     const pageTools = usePageEdit(pageInfo, pageInfoDefault);
     const id = query.id?.[0] as string | undefined;
-    const isCreateMode = id ? false : true;
-    console.log({ query });
+    const isCreateMode = id.length > 10 ? false : true;
     const { item: product, getData, loading } = useProductFindById(id);
     const [selectEditorIndex, setSelectEditorIndex] = useState({
         itsIndex: 0,
