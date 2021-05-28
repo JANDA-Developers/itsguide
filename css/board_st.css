@@ -1967,7 +1967,7 @@ div.comment_box .list_comment p{
 .boardNavigation button {
    margin: 0 2px;
 }
-
+/* 
     .boardNavigation .btn {
         color: #818181 !important;
         background-color: #fff !important;
@@ -1982,7 +1982,7 @@ div.comment_box .list_comment p{
         .boardNavigation .btn:hover {
             color: #333 !important;
             border-color: #555 !important;
-        }
+        } */
 
    .pointcolor {
         color: #5bace9 !important;

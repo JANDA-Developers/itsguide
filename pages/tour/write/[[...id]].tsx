@@ -786,10 +786,6 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                     type="file"
                                 />
                             </ul>
-<<<<<<< HEAD
-                            <p className="input_form info_txt">
-                                - 이미지 이미지사이즈 720px * 434px
-=======
                             <p className="input_form info_txt blue_font">
                                 <i className="jandaicon-info2 mini" /> 썸네일
                                 이미지 사이즈는 720px * 434px 입니다. 이미지
@@ -798,7 +794,6 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 높은 상품으로 등록이 됩니다. <br />
                                 (이미지 사이즈를 지키지 않는 건으로 인한 이상
                                 현상은 문의를 받지 않습니다.)
->>>>>>> its/design
                             </p>
                         </div>
                     </div>

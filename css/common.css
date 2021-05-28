@@ -291,6 +291,22 @@ select:focus {
         border: 1px solid rgb(170, 170, 170);
         color: #333;
     }
+    .btn.medium.pointcolor {
+        color: #5bace9;
+        border: 1px solid #5bace9;
+        background-color: #ffffff;
+        border-radius: 3px;
+        box-sizing: border-box;
+        padding: 0 15px;
+        font-size: 12px;
+        display: inline-block;
+        line-height: 28px;
+        margin: 3px;
+    }
+    .btn.medium.pointcolor:hover {
+        background-color: #5bace9;
+        color: #ffffff;
+    }
     .btn.topside {
         color: #999;
         border: 1px solid #cfcfcf;

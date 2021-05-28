@@ -518,9 +518,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                         <Upload onUpload={imgEdit("m_07_box03_rigthbg")} />
                         <div className="txt">
                             <strong {...edit("m_07_box03_rigthnumber")} />
-                            <p>
-                                <span {...edit("m_07_box03_rigthtitle")} />
-                            </p>
+                            <p {...edit("m_07_box03_rigthtitle")} />
                         </div>
                     </Bg>
                     <div className="right">

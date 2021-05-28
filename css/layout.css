@@ -2473,7 +2473,7 @@ i.icon_plus {
 .top_visual {
     position: relative;
     display: block;
-    height:390px;
+    /* height:390px; */
 }
     /* .top_visual:before {
         top: 0;
@@ -2500,7 +2500,7 @@ i.icon_plus {
 
     .top_visual .sub_header {
         display: block;
-        padding: 40px 3% 0;
+        padding: 40px 3% 40px;
         box-sizing:border-box;
     }
 
@@ -3547,7 +3547,9 @@ i.icon_plus {
         display: flex;
         border-top: 1px dotted #dbdbdb;
     }
-
+    .search_in .con_box h5{
+        margin-top: 6px;
+    }
 .search_box .jul4 {
         padding: 10px 0 10px;
         width: 100%;
@@ -3615,7 +3617,7 @@ margin-bottom:0;
 .search_box .jul1 .search_div {
             position:relative;
             display:inline-block;
-            width: 80%;
+            width: 100%;
             box-sizing: border-box;
         }
 
@@ -3841,12 +3843,12 @@ margin-bottom:0;
         }
         .top_visual .sub_bg {
             background-size: 180%;
-            padding: 70px 3% 0;
+            padding: 70px 3% 70px;
             background-position: left center;
         }
-        .top_visual {
+        /* .top_visual {
             height:232px;
-        }
+        } */
    
     .search_top .search_div{
         margin-top: 0;
@@ -4154,11 +4156,11 @@ margin-bottom:0;
     }
     .top_visual .sub_bg {
         background-size:150%;
-        padding: 30px 0 0;
+        padding: 30px 0 30px;
     }
  
     .top_visual .sub_header {
-        padding: 52px 0 0;
+        padding: 52px 0 50px;
     }
     #content .x,
     #content #xet_board {
@@ -4302,6 +4304,20 @@ margin-bottom:0;
     .top_visual .sub_bg .w1200{
         z-index: 10;
     }
+    .search_in .search_box .jul1 input{
+        border-radius: 3px;
+        height: 37px;
+        padding: 15px 12px;
+    }
+    .search_box .jul1 {
+        padding: 12px 0 0;
+    }
+    .search_in .search_box .check{
+        border-radius: 3px;
+        line-height: 30px;
+        padding: 0px 16px;
+
+    }
 }
 @media (max-width:767px) {
     .footer_in .bottom_bn img {
@@ -4323,7 +4339,10 @@ margin-bottom:0;
         margin-top: 0px;
     }
     .footer_in .bottom_nav .cs a{
-        padding: 3px 12px;
+        padding: 4px 12px;
+        width: 100%;
+        border-radius: 100px;
+
     }
     .header .all_menu_btn{
         padding-left: 0;
@@ -4356,9 +4375,6 @@ margin-bottom:0;
     .footer_in .bottom_nav .cs {
         width: 70%;
         margin-top: 15px;
-    }
-    .footer_in .bottom_nav .cs a {
-        width: 100%;
     }
     #content .x {
         width: 100%;
@@ -4440,7 +4456,7 @@ margin-bottom:0;
     }
 
     .top_visual .sub_bg {
-        padding: 40px 3% 80px;
+        padding: 40px 3% 40px;
         background-position: center 90%;
         background-size: 370%;
     }
@@ -4468,7 +4484,9 @@ margin-bottom:0;
     #all_menu .m_member {
         display: none;
     }
-    .search_box .check{margin-bottom: 3px;}
+    .search_box .check{
+        margin-bottom: 3px;
+    }
   
 }
 
