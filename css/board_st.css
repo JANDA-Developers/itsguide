@@ -2934,6 +2934,7 @@ div.sum_div {
         }
     ul.list_ul.line4 li {
         width: 24.2%;
+        margin-bottom: 10px;
     }
     ul.list_ul.line4 li:nth-child(4n+4) {
         margin-right: 0 !important;
