@@ -290,7 +290,10 @@ export const Header: React.FC<IProp> = () => {
                                                 type="text"
                                                 placeholder="검색어를 입력해주세요"
                                             />
-                                            <div className="search_btn">
+                                            <div
+                                                onClick={goToSearchPage}
+                                                className="search_btn"
+                                            >
                                                 <img
                                                     src={
                                                         "/img/svg/search_icon.svg"
