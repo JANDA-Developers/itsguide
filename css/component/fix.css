@@ -460,8 +460,6 @@ background-color: #fff;
 
 .master_box  .productGroup .droppable li {
     min-width: 130px;
-<<<<<<< Updated upstream
-=======
 }
 .historyTable__cell{
     margin-right: 10px;
@@ -540,5 +538,4 @@ figcaption.ck-editor__editable {
 .tour_write__thumNailLi i.icon_x {
     top: 0;
     transform: translateY(50%);
->>>>>>> Stashed changes
 }

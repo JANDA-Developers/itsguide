@@ -43,11 +43,8 @@ import { PageEditor } from "../../../components/common/PageEditer";
 import { yyyymmdd } from "../../../utils/yyyymmdd";
 import { useHomepage, useHomepageUpdate } from "../../../hook/useHomepage";
 import { filterOver } from "../../../components/tourWrite/helper";
-<<<<<<< Updated upstream
-=======
 import { toNumber } from "../../../utils/toNumber";
 import { ImageCropModal } from "../../../components/imageCropper/ImageCropModal";
->>>>>>> Stashed changes
 // const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 const Editor = LoadEditor();
@@ -180,12 +177,9 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
         setGroupCode,
         hiddenFileInput,
         lastDate,
-<<<<<<< Updated upstream
-=======
         cropModalHook,
         tempSavedIts,
         setTempSavedIts,
->>>>>>> Stashed changes
     } = useTourWrite(getDefault(cloneObject(product)));
 
     useEffect(() => {

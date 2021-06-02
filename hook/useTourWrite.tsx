@@ -116,8 +116,6 @@ interface ITourDataSet {
 }
 
 export interface IUseTour {
-<<<<<<< Updated upstream
-=======
     rangeType: TRangeType;
     setRangeType: ISet<TRangeType>;
     tempSavedIts: ItineraryCreateInput[];
@@ -125,7 +123,6 @@ export interface IUseTour {
     setTempSavedIts: ISet<ItineraryCreateInput[]>;
     range: number;
     setRange: ISet<number>;
->>>>>>> Stashed changes
     imgUploading: boolean;
     loadKeyAdd: () => void;
     tourData: IUseTourData;
@@ -168,8 +165,6 @@ export interface IUseTour {
 
 interface IUseTourProps extends Partial<IUseTourDefaultData> {}
 export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
-<<<<<<< Updated upstream
-=======
     const defaultItsLength = defaults.its?.length || 1;
     const [range, setRange] = useState(defaultItsLength);
     const [rangeType, setRangeType] = useState<TRangeType>(
@@ -177,7 +172,6 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     );
     const cropModalHook = useModal<IImageCropModalInfo>();
     const [tempSavedIts, setTempSavedIts] = useState<ItineraryCreateInput[]>();
->>>>>>> Stashed changes
     const [type, setType] = useState<ProductType>(
         defaults.type || ProductType.TOUR
     );

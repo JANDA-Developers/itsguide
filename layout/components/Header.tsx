@@ -31,9 +31,8 @@ export const Header: React.FC<IProp> = () => {
     const rotuer = useRouter();
     const { locale, pathname, query } = rotuer;
 
-    const { isLogin, myProfile, isManager, isSeller, isAdmin, ln } = useContext(
-        AppContext
-    );
+    const { isLogin, myProfile, isManager, isSeller, isAdmin, ln } =
+        useContext(AppContext);
 
     const myId = myProfile?._id;
     const handleNav = () => {
@@ -226,14 +225,11 @@ export const Header: React.FC<IProp> = () => {
                                 </Link>
                             </li>
                             <li>
-<<<<<<< Updated upstream
-=======
                                 <Link href={{ query, pathname }} locale="chi">
                                     <a>中国人</a>
                                 </Link>
                             </li>
                             <li>
->>>>>>> Stashed changes
                                 <Link href={{ query, pathname }} locale="ja">
                                     <a>日本語</a>
                                 </Link>
@@ -410,9 +406,6 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
-<<<<<<< Updated upstream
-                                                    href={{ query, pathname }}
-=======
                                                     href={{
                                                         query,
                                                         pathname,
@@ -428,7 +421,6 @@ export const Header: React.FC<IProp> = () => {
                                                         query,
                                                         pathname,
                                                     }}
->>>>>>> Stashed changes
                                                     locale="ja"
                                                 >
                                                     <a>日本語</a>
