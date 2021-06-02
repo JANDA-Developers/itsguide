@@ -20,17 +20,9 @@ import { genrateOption } from "../../utils/query";
 import Slider from "react-slick";
 import { useResizeDetector } from "react-resize-detector";
 import { thumbNail } from "../ThunbNail/ThunbNail";
-<<<<<<< HEAD
 import Link from "next/link";
-import { cn } from "../../utils/findCatLocaleName";
-=======
-<<<<<<< Updated upstream
-=======
-import Link from "next/link";
-import { cn } from "../../utils/findCatLocaleName";
 import { AppContext } from "../../pages/_app";
->>>>>>> Stashed changes
->>>>>>> newDevItsguide
+import { cn } from "../../utils/findCatLocaleName";
 
 interface IProp {
     isBestList?: boolean;
@@ -118,21 +110,15 @@ interface IGoodsProp extends ILi {
     item: productList_ProductList_data;
 }
 
-<<<<<<< HEAD
-export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
-=======
-<<<<<<< Updated upstream
-export const Goods: React.FC<IGoodsProp> = ({ item, ...props }) => {
-=======
 export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
     const { ln } = useContext(AppContext);
->>>>>>> Stashed changes
->>>>>>> newDevItsguide
     const router = useRouter();
     const { locale } = useRouter();
     const handleToDetail = () => {
         router.push("/tour/view/" + item._id);
     };
+
+    console.log(locale);
 
     return (
         <li
