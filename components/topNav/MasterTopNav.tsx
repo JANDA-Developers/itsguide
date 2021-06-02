@@ -32,19 +32,11 @@ export const HomepageTopNav = () => {
     return (
         <div className="tab-nav">
             <ul>
-<<<<<<< HEAD
-                <li className={checkOn("/master/homepage", true)}>
-                    <Link href="/master/homepage">
-                        <a>기본설정</a>
-                    </Link>
-                </li>
-=======
                 {/* <li className={checkOn("/master/homepage", true)}>
                     <Link href="/master/homepage">
                         <a>기본설정</a>
                     </Link>
                 </li> */}
->>>>>>> newDevItsguide
                 <li className={checkOn("sms")}>
                     <Link href="/master/homepage/sms">
                         <a>SMS설정</a>
@@ -99,14 +91,11 @@ export const MemberTopNav = () => {
                         <a>회원목록</a>
                     </Link>
                 </li>
-<<<<<<< HEAD
                 <li className={checkOn("indicate")}>
                     <Link href="/master/indicate">
                         <a>지시목록</a>
                     </Link>
                 </li>
-=======
->>>>>>> newDevItsguide
             </ul>
         </div>
     );

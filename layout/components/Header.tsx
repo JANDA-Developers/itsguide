@@ -31,11 +31,7 @@ export const Header: React.FC<IProp> = () => {
     const rotuer = useRouter();
     const { locale, pathname, query } = rotuer;
 
-<<<<<<< HEAD
-    const { isLogin, myProfile, isManager, isSeller, ln } =
-=======
     const { isLogin, myProfile, isManager, isSeller, isAdmin, ln } =
->>>>>>> newDevItsguide
         useContext(AppContext);
 
     const myId = myProfile?._id;
@@ -219,11 +215,7 @@ export const Header: React.FC<IProp> = () => {
                             </li>
                             <li>
                                 <Link href={{ query, pathname }} locale="chi">
-<<<<<<< HEAD
-                                    <a>CHINESE</a>
-=======
                                     <a>中国人</a>
->>>>>>> newDevItsguide
                                 </Link>
                             </li>
                             <li>
@@ -429,11 +421,7 @@ export const Header: React.FC<IProp> = () => {
                                                     }}
                                                     locale="chi"
                                                 >
-<<<<<<< HEAD
-                                                    <a>CHINESE</a>
-=======
                                                     <a>中国人</a>
->>>>>>> newDevItsguide
                                                 </Link>
                                             </li>
                                             <li>

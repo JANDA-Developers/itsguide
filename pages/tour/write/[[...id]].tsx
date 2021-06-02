@@ -48,10 +48,7 @@ import { yyyymmdd } from "../../../utils/yyyymmdd";
 import { useHomepage, useHomepageUpdate } from "../../../hook/useHomepage";
 import { filterOver } from "../../../components/tourWrite/helper";
 import { toNumber } from "../../../utils/toNumber";
-<<<<<<< HEAD
-=======
 import { ImageCropModal } from "../../../components/imageCropper/ImageCropModal";
->>>>>>> newDevItsguide
 // const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 const Editor = LoadEditor();
@@ -188,10 +185,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
         setGroupCode,
         hiddenFileInput,
         lastDate,
-<<<<<<< HEAD
-=======
         cropModalHook,
->>>>>>> newDevItsguide
         tempSavedIts,
         setTempSavedIts,
     } = useTourWrite(getDefault(cloneObject(product)));

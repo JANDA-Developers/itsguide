@@ -25,10 +25,7 @@ import { Change } from "../components/loadingList/LoadingList";
 import { removeSpecialChar } from "../utils/formatter";
 import Link from "next/link";
 import { cn } from "../utils/findCatLocaleName";
-<<<<<<< HEAD
-=======
 import { useRouter } from "next/router";
->>>>>>> newDevItsguide
 
 type TSearchParam = {
     authorNick?: string;

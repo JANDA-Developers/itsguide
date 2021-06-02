@@ -521,8 +521,6 @@ background-color: #fff;
     height: 100%;
     background-size: cover;
     background-position: center center;
-<<<<<<< HEAD
-=======
 }
 
 .ck.ck-editor__editable .image {
@@ -540,5 +538,4 @@ figcaption.ck-editor__editable {
 .tour_write__thumNailLi i.icon_x {
     top: 0;
     transform: translateY(50%);
->>>>>>> newDevItsguide
 }

@@ -121,10 +121,7 @@ export interface IUseTour {
     rangeType: TRangeType;
     setRangeType: ISet<TRangeType>;
     tempSavedIts: ItineraryCreateInput[];
-<<<<<<< HEAD
-=======
     cropModalHook: IUseModal<IImageCropModalInfo>;
->>>>>>> newDevItsguide
     setTempSavedIts: ISet<ItineraryCreateInput[]>;
     range: number;
     setRange: ISet<number>;
@@ -172,19 +169,11 @@ export type TRangeType = "Range" | "Single";
 interface IUseTourProps extends Partial<IUseTourDefaultData> {}
 export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
     const defaultItsLength = defaults.its?.length || 1;
-<<<<<<< HEAD
-    console.log({ defaultItsLength });
-=======
->>>>>>> newDevItsguide
     const [range, setRange] = useState(defaultItsLength);
     const [rangeType, setRangeType] = useState<TRangeType>(
         defaultItsLength === 1 ? "Single" : "Range"
     );
-<<<<<<< HEAD
-    console.log({ rangeType });
-=======
     const cropModalHook = useModal<IImageCropModalInfo>();
->>>>>>> newDevItsguide
     const [tempSavedIts, setTempSavedIts] = useState<ItineraryCreateInput[]>();
     const [type, setType] = useState<ProductType>(
         defaults.type || ProductType.TOUR

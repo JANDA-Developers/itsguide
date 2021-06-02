@@ -293,17 +293,11 @@ i.icon__lock{
         height: 100%;
         content: "";
         z-index: 1;
-<<<<<<< HEAD
-    }
-    .pr_list::before {
-        left: 0;
-=======
         pointer-events: none;
     }
     .pr_list::before {
         left: 0;
         pointer-events: none;
->>>>>>> newDevItsguide
         background-image: url(/its/bg_gradient.png);
         background-repeat: repeat-y;
 
