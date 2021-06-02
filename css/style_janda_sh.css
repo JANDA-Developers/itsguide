@@ -9035,7 +9035,7 @@ i.calendar {
         opacity: 1;
     }
     #all_menu .language__choice{
-        bottom: -95px;
+        top: 24px;
     }
     #all_menu .language__box .language__present_label{
         border: 1px solid #f5f5f5;
@@ -10563,7 +10563,7 @@ i.calendar {
     }
 
     div.theme_deal .top_01{
-        width: 716px;
+        width: 790px;
         height: 410px;
         margin-right: 10px;
         padding-top: 315px;
@@ -10609,9 +10609,9 @@ i.calendar {
 
     div.theme_deal .top_05 {
         position: absolute;
-        left: 391px;
+        left: 401px;
         top: 410px;
-        width: 380px;
+        width: 390px;
         height: 200px;
         padding-top: 135px;
         margin-right: 10px;
@@ -10622,9 +10622,9 @@ i.calendar {
 
     div.theme_deal .top_06 {
         position: absolute;
-        left: 780px;
+        left: 802px;
         top: 410px;
-        width: 347px;
+        width: 400px;
         height: 200px;
         padding-top: 135px;
         margin-top: 10px;

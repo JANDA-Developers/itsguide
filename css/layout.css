@@ -474,7 +474,6 @@ i.tooltip{
     position: relative;
     display: -webkit-flex;
     display: block;
-    height: 67px;
     box-sizing: border-box;
     background-color: #fff;
     z-index: 50;
@@ -3705,7 +3704,6 @@ margin-bottom:0;
         display:inline-block;
     }
     .header {
-        height: 103px;
         margin-bottom: 0;
     }
         .header > .w1200 {
@@ -3877,7 +3875,7 @@ margin-bottom:0;
     }
     .header .main_menu > .w1200 {
         box-sizing: border-box;
-        padding: 18px 20px;
+        padding: 1.25rem 20px;
     }
     
     #all_menu strong.all_menu_title .language__box{
@@ -3904,7 +3902,6 @@ margin-bottom:0;
         display: none;
     }
     .header {
-        height: 101px;
         margin-bottom: 0;
     }
     .header .hidden {
@@ -4209,7 +4206,7 @@ margin-bottom:0;
         width: 1200px;
     }
     .header .main_menu > .w1200{
-        padding: 13px 0;
+        padding: 17px 0;
         width: 1200px;
     }
     .header .top-menu .w1200{
