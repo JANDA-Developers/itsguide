@@ -13,10 +13,34 @@
     cursor: pointer;
 }
 
-.pr_list__li:hover {
+.pr_list__liWrap:hover .pr_list__li {
     filter: brightness(0.5);
+    position: relative;
 }
 
+.pr_list__liWrap:hover  .pr_list__nickName {
+    opacity: 1;
+}
+
+.pr_list__liWrap {
+    position: relative;
+    cursor: pointer;
+}
+.pr_list__nickName {
+    color: white;
+    position: absolute;
+    top:0;
+    z-index: 999;
+    opacity: 0;
+    text-indent: 0!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left:0;
+    bottom:0;
+    right:0;
+
+}
 figure.image img {
     width: 100%;
 }

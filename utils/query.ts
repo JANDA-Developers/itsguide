@@ -110,27 +110,20 @@ export const generateListQueryHook = <F, S, Q, V, R>(
             queryInitDefault,
             initialOption
         );
-        const {
-            skipInit,
-            skip,
-            variables,
-            overrideVariables,
-            ...ops
-        } = options;
+        const { skipInit, skip, variables, overrideVariables, ...ops } =
+            options;
         const { integratedVariable, ...params } = useListQuery(initialData);
-        const [
-            getData,
-            { data, loading: getLoading, ...queryElse },
-        ] = useLazyQuery<Q, V>(QUERY, {
-            fetchPolicy: "cache-and-network",
-            // @ts-ignore
-            variables: {
-                ...integratedVariable,
-                ...variables,
-                ...overrideVariables,
-            },
-            ...ops,
-        });
+        const [getData, { data, loading: getLoading, ...queryElse }] =
+            useLazyQuery<Q, V>(QUERY, {
+                fetchPolicy: "cache-and-network",
+                // @ts-ignore
+                variables: {
+                    ...integratedVariable,
+                    ...variables,
+                    ...overrideVariables,
+                },
+                ...ops,
+            });
 
         const operationName = defaultOptions?.queryName || getQueryName(QUERY);
 
@@ -139,6 +132,11 @@ export const generateListQueryHook = <F, S, Q, V, R>(
         const items: R[] = data?.[operationName]?.data || [];
         const pageInfo: Fpage =
             (data as any)?.[operationName]?.page || DEFAULT_PAGE;
+
+        const page = (data as any)?.[operationName];
+
+        console.log({ page });
+        console.log({ pageInfo });
 
         // @ts-ignore
         userErrorHandle(data?.[operationName]);
@@ -262,20 +260,18 @@ export const generateFindQuery = <Q, V, ResultFragment>(
     QUERY: DocumentNode
 ) => {
     const findQueryHook = (key?: any, options: QueryHookOptions<Q, V> = {}) => {
-        const [
-            getData,
-            { data, loading, error: apolloError, ...context },
-        ] = useLazyQuery<Q, V>(QUERY, {
-            skip: !key,
-            nextFetchPolicy: "network-only",
-            // @ts-ignore
-            variables: findBy
-                ? {
-                      [findBy]: key,
-                  }
-                : undefined,
-            ...options,
-        });
+        const [getData, { data, loading, error: apolloError, ...context }] =
+            useLazyQuery<Q, V>(QUERY, {
+                skip: !key,
+                nextFetchPolicy: "network-only",
+                // @ts-ignore
+                variables: findBy
+                    ? {
+                          [findBy]: key,
+                      }
+                    : undefined,
+                ...options,
+            });
 
         const operationName = getQueryName(QUERY);
 

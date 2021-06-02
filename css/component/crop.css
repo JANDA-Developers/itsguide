@@ -1,0 +1,23 @@
+
+.imageCropModal .con {
+ 
+}
+
+.imageCropper .imageCropper__container {
+    height: 450px;
+}
+.imageCropper__rangeSlider {
+    position: absolute;
+    bottom: 0;
+}
+
+
+.imageCropper__inWrap {
+    position: relative;
+    width: 800px!important;
+    height: 544px!important;
+}
+.imageCropper__outWrap {
+    max-width: 100%;
+    overflow: auto;
+}

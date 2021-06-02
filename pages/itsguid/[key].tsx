@@ -432,11 +432,12 @@ const ItsGuide: React.FC<IGudeProfilePage> = (pageInfo) => {
                                                     <div className="box">
                                                         <div className="category">
                                                             <span>
-                                                                {
+                                                                {cn(
                                                                     product
                                                                         .category
-                                                                        .label
-                                                                }
+                                                                        .localeLabel,
+                                                                    locale
+                                                                )}
                                                             </span>
                                                         </div>
                                                         <div className="title">

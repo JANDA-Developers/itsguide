@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { RatingStars } from "components/common/RatingStars[deprecated]";
 import { useProductList } from "../../hook/useProduct";
 import { ListInitOptions } from "../../hook/useListQuery";
@@ -20,8 +20,17 @@ import { genrateOption } from "../../utils/query";
 import Slider from "react-slick";
 import { useResizeDetector } from "react-resize-detector";
 import { thumbNail } from "../ThunbNail/ThunbNail";
+<<<<<<< HEAD
 import Link from "next/link";
 import { cn } from "../../utils/findCatLocaleName";
+=======
+<<<<<<< Updated upstream
+=======
+import Link from "next/link";
+import { cn } from "../../utils/findCatLocaleName";
+import { AppContext } from "../../pages/_app";
+>>>>>>> Stashed changes
+>>>>>>> newDevItsguide
 
 interface IProp {
     isBestList?: boolean;
@@ -109,7 +118,16 @@ interface IGoodsProp extends ILi {
     item: productList_ProductList_data;
 }
 
+<<<<<<< HEAD
 export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
+=======
+<<<<<<< Updated upstream
+export const Goods: React.FC<IGoodsProp> = ({ item, ...props }) => {
+=======
+export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
+    const { ln } = useContext(AppContext);
+>>>>>>> Stashed changes
+>>>>>>> newDevItsguide
     const router = useRouter();
     const { locale } = useRouter();
     const handleToDetail = () => {
@@ -152,7 +170,8 @@ export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
                     </div>
                     <RatingStars />
                     <div className="cash">
-                        <strong>{autoComma(item.adult_price)}</strong>원
+                        <strong>{autoComma(item.adult_price)}</strong>
+                        {ln("money_unit")}
                     </div>
                 </div>
             </div>

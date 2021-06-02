@@ -24,14 +24,6 @@ import { tourSearchLink } from "./search";
 import { cn } from "../utils/findCatLocaleName";
 import { localeToLangOrigin } from "../utils/enumToKr";
 
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*[가-핳]
-
 export const getStaticProps = getStaticPageInfo("main");
 export const Main: React.FC<Ipage> = (pageInfo) => {
     const { homepage, groupsMap, categoriesMap, lang, locale, ln } =

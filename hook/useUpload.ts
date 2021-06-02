@@ -15,7 +15,7 @@ export const useUpload = (
     });
 
     const signleUpload = (
-        file: FileList,
+        file: FileList | File[],
         onSucess?: (url: string, data: Ffile) => void
     ) => {
         if (!file) return;

@@ -50,6 +50,11 @@ module.exports = {
             destination: '/master/design/display', // Matched parameters can be used in the destination
             permanent: true,
           },
+          {
+            source: '/master/homepage',
+            destination: '/master/homepage/sms', // Matched parameters can be used in the destination
+            permanent: true,
+          },
         ]
       },
 }

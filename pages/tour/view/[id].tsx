@@ -288,6 +288,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         />
                                                     ) : (
                                                         <Video
+                                                            autoPlay
                                                             controls
                                                             src={img?.uri}
                                                         />

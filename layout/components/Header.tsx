@@ -31,7 +31,11 @@ export const Header: React.FC<IProp> = () => {
     const rotuer = useRouter();
     const { locale, pathname, query } = rotuer;
 
+<<<<<<< HEAD
     const { isLogin, myProfile, isManager, isSeller, ln } =
+=======
+    const { isLogin, myProfile, isManager, isSeller, isAdmin, ln } =
+>>>>>>> newDevItsguide
         useContext(AppContext);
 
     const myId = myProfile?._id;
@@ -85,9 +89,21 @@ export const Header: React.FC<IProp> = () => {
 
     const goToSearchPage = () => {
         rotuer.push(tourSearchLink({ title: search }));
+        handSearchClose();
+    };
+
+    const handSearchClose = () => {
         $(".search_bg").css({
             display: "none",
         });
+
+        $(".search_wrap").animate({
+            top: "-100px",
+        });
+        $(".hidden").css({
+            display: "none",
+        });
+        setSearch("");
     };
 
     const closeLangs = () => {
@@ -193,7 +209,7 @@ export const Header: React.FC<IProp> = () => {
                         <ul id="language__choice" className="language__choice">
                             <li>
                                 <Link href={{ query, pathname }} locale="ko">
-                                    <a>KOREAN</a>
+                                    <a>한국어</a>
                                 </Link>
                             </li>
                             <li>
@@ -203,12 +219,16 @@ export const Header: React.FC<IProp> = () => {
                             </li>
                             <li>
                                 <Link href={{ query, pathname }} locale="chi">
+<<<<<<< HEAD
                                     <a>CHINESE</a>
+=======
+                                    <a>中国人</a>
+>>>>>>> newDevItsguide
                                 </Link>
                             </li>
                             <li>
                                 <Link href={{ query, pathname }} locale="ja">
-                                    <a>JAPANESE</a>
+                                    <a>日本語</a>
                                 </Link>
                             </li>
                             <li>
@@ -387,7 +407,7 @@ export const Header: React.FC<IProp> = () => {
                                                     }}
                                                     locale="ko"
                                                 >
-                                                    <a>KOREAN</a>
+                                                    <a>한국어</a>
                                                 </Link>
                                             </li>
                                             <li>
@@ -409,7 +429,11 @@ export const Header: React.FC<IProp> = () => {
                                                     }}
                                                     locale="chi"
                                                 >
+<<<<<<< HEAD
                                                     <a>CHINESE</a>
+=======
+                                                    <a>中国人</a>
+>>>>>>> newDevItsguide
                                                 </Link>
                                             </li>
                                             <li>
@@ -420,7 +444,7 @@ export const Header: React.FC<IProp> = () => {
                                                     }}
                                                     locale="ja"
                                                 >
-                                                    <a>JAPANESE</a>
+                                                    <a>日本語</a>
                                                 </Link>
                                             </li>
                                             <li>

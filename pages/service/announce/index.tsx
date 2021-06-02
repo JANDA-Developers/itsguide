@@ -39,6 +39,8 @@ export const Announce: React.FC<Ipage> = (page) => {
         viewCount,
         setViewCount,
     } = useAnnounceList();
+
+    console.log({ pageInfo });
     const singleSortHook = useSingleSort(sort, setSort, [
         _AnnounceSort.isNotice_desc,
         _AnnounceSort.type_desc,
@@ -75,9 +77,10 @@ export const Announce: React.FC<Ipage> = (page) => {
                     <div className="alignment">
                         <div className="left_div">
                             <span className="infotxt">
-                                {ln("all")}
+                                {/* strong이 display none임 */}
+                                {/* {ln("all")}
                                 <strong>{pageInfo.totalCount}</strong>
-                                {ln("case")}
+                                {ln("case")} */}
                             </span>
                         </div>
                         <div className="right_div">

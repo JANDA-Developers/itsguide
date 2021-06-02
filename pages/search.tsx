@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Paginater } from "../components/common/Paginator";
 import { DayPickerModal } from "../components/dayPickerModal/DayPickerModal";
 import { ProductPhotoBlock } from "../components/list/ProductPhoto";
@@ -25,6 +25,10 @@ import { Change } from "../components/loadingList/LoadingList";
 import { removeSpecialChar } from "../utils/formatter";
 import Link from "next/link";
 import { cn } from "../utils/findCatLocaleName";
+<<<<<<< HEAD
+=======
+import { useRouter } from "next/router";
+>>>>>>> newDevItsguide
 
 type TSearchParam = {
     authorNick?: string;
@@ -62,6 +66,7 @@ interface IProp {}
 
 export const getStaticProps = getStaticPageInfo("search");
 export const Search: React.FC<Ipage> = (_pageInfo) => {
+    const { query } = useRouter();
     const { locale } = useContext(AppContext);
     const pageTools = usePageEdit(_pageInfo, pageInfoDefault);
     const all = getAllFromUrl<TSearchParam>();
@@ -132,6 +137,13 @@ export const Search: React.FC<Ipage> = (_pageInfo) => {
     const filterEnd = filter.startDate_lte
         ? dayjs(filter.startDate_lte).format("YYYY.MM.DD")
         : "";
+
+    useEffect(() => {
+        if (typeof query.title === "string") {
+            setSearch(query.title);
+            setFilter(integratedProductSearch(query.title, filter));
+        }
+    }, [query.title]);
 
     const noProduct = isEmpty(products);
     return (
@@ -278,10 +290,10 @@ export const Search: React.FC<Ipage> = (_pageInfo) => {
                                         value={viewCount}
                                         onChange={setViewCount}
                                     />
-                                    <ViewSelect
+                                    {/* <ViewSelect
                                         select={view}
                                         onChange={setView}
-                                    />
+                                    /> */}
                                 </div>
                             </div>
 

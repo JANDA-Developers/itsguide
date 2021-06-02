@@ -48,6 +48,10 @@ import { yyyymmdd } from "../../../utils/yyyymmdd";
 import { useHomepage, useHomepageUpdate } from "../../../hook/useHomepage";
 import { filterOver } from "../../../components/tourWrite/helper";
 import { toNumber } from "../../../utils/toNumber";
+<<<<<<< HEAD
+=======
+import { ImageCropModal } from "../../../components/imageCropper/ImageCropModal";
+>>>>>>> newDevItsguide
 // const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 const Editor = LoadEditor();
@@ -184,6 +188,10 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
         setGroupCode,
         hiddenFileInput,
         lastDate,
+<<<<<<< HEAD
+=======
+        cropModalHook,
+>>>>>>> newDevItsguide
         tempSavedIts,
         setTempSavedIts,
     } = useTourWrite(getDefault(cloneObject(product)));
@@ -579,6 +587,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                             <div>
                                 <span className="mr5">성인</span>
                                 <input
+                                    id="inputAdultPrice"
                                     onChange={handleInputCommaChange(
                                         "adult_price"
                                     )}
@@ -588,6 +597,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 />
                                 <span className="mr5">소인</span>
                                 <input
+                                    id="inputKidsPrice"
                                     onChange={handleInputCommaChange(
                                         "kids_price"
                                     )}
@@ -597,6 +607,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                                 />
                                 <span className="mr5">유아</span>
                                 <input
+                                    id="inputBabyPrice"
                                     onChange={handleInputCommaChange(
                                         "baby_price"
                                     )}
@@ -763,7 +774,10 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                         <div className="img_box_add">
                             <ul className="img_add">
                                 {thumbs.map((thumb, i) => (
-                                    <li key={i + "thumb"} className="on_file">
+                                    <li
+                                        key={i + "thumb"}
+                                        className="on_file tour_write__thumNailLi"
+                                    >
                                         {thumb.name}
                                         <i
                                             onClick={handleClearThumb(i)}
@@ -1090,6 +1104,7 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                     onLoad={handleSampleLoad}
                 />
             </div>
+            <ImageCropModal {...cropModalHook} />
             <Prompt
                 id="UpdateMemo"
                 onSubmit={handleSubmitUpdateReq}
