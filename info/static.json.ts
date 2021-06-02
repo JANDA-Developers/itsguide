@@ -401,10 +401,10 @@ const footer = {
         chi: `Company introduction`,
     },
     footer_rule: {
-        ko: "회사소개",
-        en: `Company introduction`,
-        ja: `会社紹介`,
-        chi: `Company introduction`,
+        ko: "이용약관",
+        en: `Terms of service`,
+        ja: `利用規約`,
+        chi: `服务条款`,
     },
     footer_privacy_policy: {
         ko: "개인정보처리방침",

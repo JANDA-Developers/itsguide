@@ -107,12 +107,18 @@ export const ProfileListAPI: React.FC<IProp> = ({
                     infinite={true}
                 >
                     {items.map((item) => (
-                        <div key={item._id}>
+                        <div
+                            onClick={() => {
+                                toGuidePage(item._id);
+                            }}
+                            className="pr_list__liWrap"
+                            key={item._id}
+                        >
+                            <span className="pr_list__nickName">
+                                {item.nickName}
+                            </span>
                             <div
                                 className="pr_list__li peple"
-                                onClick={() => {
-                                    toGuidePage(item._id);
-                                }}
                                 style={BGprofile(item.profileImg)}
                             >
                                 <i className="plus flaticon-add"></i>

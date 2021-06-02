@@ -1,5 +1,7 @@
 @import "./editor/editor.css";
 @import "./vidoe.css";
+@import "./crop.css";
+
 .BookingModal__top02 {
     display: flex!important;
     align-items: center!important;
@@ -458,4 +460,85 @@ background-color: #fff;
 
 .master_box  .productGroup .droppable li {
     min-width: 130px;
+<<<<<<< Updated upstream
+=======
+}
+.historyTable__cell{
+    margin-right: 10px;
+}
+    .BookingModal__headerWrap{
+        position: relative;
+    }
+  
+@media (min-width: 1000px) {
+    .goods__info_title{
+        border: 0;
+    }
+}
+  
+@media (min-width: 1230px) {
+    .masterMain .table .body{ 
+        display: flex!important;
+        align-items: center!important;
+    }
+    
+    .goods__productinfo {
+        width: auto;
+    }
+}
+@media (max-width: 1000px) {
+
+    .mypageSettlement__list .th02 {
+        text-align: left !important;
+    }
+    .mypageSettlement__list{
+        text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    .tourView__recommendList {
+        display: flex!important;
+        flex-direction: column;
+    }
+}
+
+.notiLine a {
+    color: #38A5EE;
+}
+
+.tourView__thumbBg {
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.profilePage .tour_details_in .Read_box .details_photo .main_photo {
+    height: 434px;
+}
+.tour_details_in .Read_box .details_photo .photo_list li {
+    height: 60px;
+}
+.tour_details_in .Read_box .details_photo .main_photo div {
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.ck.ck-editor__editable .image {
+    width: 100%;
+}
+figcaption.ck-editor__editable {
+    min-height: auto;
+}
+.tour_write__thumNailLi {
+    position: relative;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 30px;
+}
+.tour_write__thumNailLi i.icon_x {
+    top: 0;
+    transform: translateY(50%);
+>>>>>>> Stashed changes
 }

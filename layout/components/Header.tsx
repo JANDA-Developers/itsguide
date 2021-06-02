@@ -86,9 +86,21 @@ export const Header: React.FC<IProp> = () => {
 
     const goToSearchPage = () => {
         rotuer.push(tourSearchLink({ title: search }));
+        handSearchClose();
+    };
+
+    const handSearchClose = () => {
         $(".search_bg").css({
             display: "none",
         });
+
+        $(".search_wrap").animate({
+            top: "-100px",
+        });
+        $(".hidden").css({
+            display: "none",
+        });
+        setSearch("");
     };
 
     const closeLangs = () => {
@@ -205,7 +217,7 @@ export const Header: React.FC<IProp> = () => {
                         <ul id="language__choice" className="language__choice">
                             <li>
                                 <Link href={{ query, pathname }} locale="ko">
-                                    <a>KOREAN</a>
+                                    <a>한국어</a>
                                 </Link>
                             </li>
                             <li>
@@ -214,8 +226,16 @@ export const Header: React.FC<IProp> = () => {
                                 </Link>
                             </li>
                             <li>
+<<<<<<< Updated upstream
+=======
+                                <Link href={{ query, pathname }} locale="chi">
+                                    <a>中国人</a>
+                                </Link>
+                            </li>
+                            <li>
+>>>>>>> Stashed changes
                                 <Link href={{ query, pathname }} locale="ja">
-                                    <a>JAPANESE</a>
+                                    <a>日本語</a>
                                 </Link>
                             </li>
                             <li>
@@ -377,7 +397,7 @@ export const Header: React.FC<IProp> = () => {
                                                     href={{ query, pathname }}
                                                     locale="ko"
                                                 >
-                                                    <a>KOREAN</a>
+                                                    <a>한국어</a>
                                                 </Link>
                                             </li>
                                             <li>
@@ -390,10 +410,28 @@ export const Header: React.FC<IProp> = () => {
                                             </li>
                                             <li>
                                                 <Link
+<<<<<<< Updated upstream
                                                     href={{ query, pathname }}
+=======
+                                                    href={{
+                                                        query,
+                                                        pathname,
+                                                    }}
+                                                    locale="chi"
+                                                >
+                                                    <a>中国人</a>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link
+                                                    href={{
+                                                        query,
+                                                        pathname,
+                                                    }}
+>>>>>>> Stashed changes
                                                     locale="ja"
                                                 >
-                                                    <a>JAPANESE</a>
+                                                    <a>日本語</a>
                                                 </Link>
                                             </li>
                                             <li>

@@ -32,6 +32,9 @@ import {
 import { useRouter } from "next/router";
 import { ProductTempBoard } from "../utils/Storage2";
 import { openModal } from "../utils/popUp";
+import { IUseModal, useModal } from "./useModal";
+import { IImageCropModalInfo } from "../components/imageCropper/ImageCropModal";
+import { isNumber } from "../utils/validation";
 
 type SimpleTypePart =
     | "isOpen"
@@ -113,6 +116,16 @@ interface ITourDataSet {
 }
 
 export interface IUseTour {
+<<<<<<< Updated upstream
+=======
+    rangeType: TRangeType;
+    setRangeType: ISet<TRangeType>;
+    tempSavedIts: ItineraryCreateInput[];
+    cropModalHook: IUseModal<IImageCropModalInfo>;
+    setTempSavedIts: ISet<ItineraryCreateInput[]>;
+    range: number;
+    setRange: ISet<number>;
+>>>>>>> Stashed changes
     imgUploading: boolean;
     loadKeyAdd: () => void;
     tourData: IUseTourData;
@@ -155,6 +168,16 @@ export interface IUseTour {
 
 interface IUseTourProps extends Partial<IUseTourDefaultData> {}
 export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
+<<<<<<< Updated upstream
+=======
+    const defaultItsLength = defaults.its?.length || 1;
+    const [range, setRange] = useState(defaultItsLength);
+    const [rangeType, setRangeType] = useState<TRangeType>(
+        defaultItsLength === 1 ? "Single" : "Range"
+    );
+    const cropModalHook = useModal<IImageCropModalInfo>();
+    const [tempSavedIts, setTempSavedIts] = useState<ItineraryCreateInput[]>();
+>>>>>>> Stashed changes
     const [type, setType] = useState<ProductType>(
         defaults.type || ProductType.TOUR
     );
@@ -319,6 +342,21 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
             id: "keywards",
         },
         {
+            value: simpleData.baby_price || simpleData.baby_price === 0,
+            failMsg: "유아 가격을 입력 해주세요.",
+            id: "inputBabyPrice",
+        },
+        {
+            value: simpleData.adult_price || simpleData.adult_price === 0,
+            failMsg: "성인 가격을 입력 해주세요.",
+            id: "inputAdultPrice",
+        },
+        {
+            value: simpleData.kids_price || simpleData.kids_price === 0,
+            failMsg: "소인 가격을 입력 해주세요.",
+            id: "inputKidsPrice",
+        },
+        {
             value: !isEmpty(type),
             failMsg: "상품타입 값은 필수 입니다.",
             id: "type",
@@ -431,8 +469,22 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         if (!event.target.files) return;
         const fileUploaded = event.target.files;
         const onUpload = (_: string, data: Ffile) => {
-            thumbs.push(data);
-            setThumbs([...thumbs]);
+            const onCropSubmit = (file: Ffile) => {
+                console.log({ file });
+                thumbs.push(file);
+                setThumbs([...thumbs]);
+                cropModalHook.closeModal();
+            };
+
+            if (window.outerWidth > 900) {
+                cropModalHook.openModal({
+                    image: data.uri,
+                    onSubmit: onCropSubmit,
+                });
+            } else {
+                thumbs.push(data);
+                setThumbs([...thumbs]);
+            }
         };
         signleUpload(fileUploaded, onUpload);
     };
@@ -537,6 +589,7 @@ export const useTourWrite = ({ ...defaults }: IUseTourProps): IUseTour => {
         getUpdateInput,
         lastDate,
         mutations,
+        cropModalHook,
         handles: {
             handleLoad,
             handleTextData,

@@ -259,6 +259,7 @@ ul.list_ul li .bottom_txt div[class*=tag] span,
         right: 0;
         background: linear-gradient(to left,#ffffff 0%,transparent 30%);
         position: absolute;
+<<<<<<< Updated upstream
     top: 0;
     width: 10%;
     height: 100%;
@@ -274,6 +275,28 @@ ul.list_ul li .bottom_txt div[class*=tag] span,
     height: 100%;
     content: "";
     z-index: 1;
+=======
+        top: 0;
+        width: 10%;
+        height: 100%;
+        content: "";
+        z-index: 1;
+        pointer-events: none;
+    }
+    .pr_list::before {
+        left: 0;
+        pointer-events: none;
+        background-image: url(/its/bg_gradient.png);
+        background-repeat: repeat-y;
+
+    /* background: linear-gradient(to right,#ffffff 0%,transparent 30%); */
+        position: absolute;
+        top: 0;
+        width: 10%;
+        height: 100%;
+        content: "";
+        z-index: 1;
+>>>>>>> Stashed changes
 
     }
 

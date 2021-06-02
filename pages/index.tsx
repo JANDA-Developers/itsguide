@@ -23,14 +23,6 @@ import { A } from "../components/A/A";
 import { tourSearchLink } from "./search";
 import { Lang } from "../types/api";
 
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*your_search_term
-// ^(?![ \t]*//).*[가-핳]
-
 export const getStaticProps = getStaticPageInfo("main");
 export const Main: React.FC<Ipage> = (pageInfo) => {
     const { homepage, groupsMap, categoriesMap, lang, locale, ln } = useContext(

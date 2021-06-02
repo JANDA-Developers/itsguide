@@ -22,6 +22,7 @@ export const ResvTopNav: React.FC<IProp> = () => {
 };
 
 export const HomepageTopNav = () => {
+<<<<<<< Updated upstream
     return <div className="tab-nav">
         <ul>
             <li className={checkOn("/master/homepage", true)}><Link href="/master/homepage"><a>기본설정</a></Link></li>
@@ -33,6 +34,41 @@ export const HomepageTopNav = () => {
         </ul>
     </div>
 }
+=======
+    return (
+        <div className="tab-nav">
+            <ul>
+                {/* <li className={checkOn("/master/homepage", true)}>
+                    <Link href="/master/homepage">
+                        <a>기본설정</a>
+                    </Link>
+                </li> */}
+                <li className={checkOn("sms")}>
+                    <Link href="/master/homepage/sms">
+                        <a>SMS설정</a>
+                    </Link>
+                </li>
+                {/* <li><Link href="/master/homepage/homepage1-3"><a>카카오비즈톡</a></Link></li> */}
+                <li className={checkOn("terms")}>
+                    <Link href="/master/homepage/terms">
+                        <a>약관설정</a>
+                    </Link>
+                </li>
+                <li className={checkOn("category")}>
+                    <Link href="/master/homepage/category">
+                        <a>카테고리설정</a>
+                    </Link>
+                </li>
+                <li className={checkOn("settlement")}>
+                    <Link href="/master/homepage/settlement">
+                        <a>정산설정</a>
+                    </Link>
+                </li>
+            </ul>
+        </div>
+    );
+};
+>>>>>>> Stashed changes
 
 export const GoodsTopNav = () => {
     return <div className="tab-nav">

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { RatingStars } from "components/common/RatingStars[deprecated]";
 import { useProductList } from "../../hook/useProduct";
 import { ListInitOptions } from "../../hook/useListQuery";
@@ -20,6 +20,12 @@ import { genrateOption } from "../../utils/query";
 import Slider from "react-slick";
 import { useResizeDetector } from "react-resize-detector";
 import { thumbNail } from "../ThunbNail/ThunbNail";
+<<<<<<< Updated upstream
+=======
+import Link from "next/link";
+import { cn } from "../../utils/findCatLocaleName";
+import { AppContext } from "../../pages/_app";
+>>>>>>> Stashed changes
 
 interface IProp {
     initialOption?: Partial<ListInitOptions<_ProductFilter, _ProductSort>>;
@@ -93,7 +99,12 @@ interface IGoodsProp extends ILi {
     item: productList_ProductList_data;
 }
 
+<<<<<<< Updated upstream
 export const Goods: React.FC<IGoodsProp> = ({ item, ...props }) => {
+=======
+export const Goods: React.FC<IGoodsProp> = ({ isBest, item, ...props }) => {
+    const { ln } = useContext(AppContext);
+>>>>>>> Stashed changes
     const router = useRouter();
     const handleToDetail = () => {
         router.push("/tour/view/" + item._id);
@@ -127,7 +138,8 @@ export const Goods: React.FC<IGoodsProp> = ({ item, ...props }) => {
                     </div>
                     <RatingStars />
                     <div className="cash">
-                        <strong>{autoComma(item.adult_price)}</strong>원
+                        <strong>{autoComma(item.adult_price)}</strong>
+                        {ln("money_unit")}
                     </div>
                 </div>
             </div>
