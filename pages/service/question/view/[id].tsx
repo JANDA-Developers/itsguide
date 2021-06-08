@@ -19,6 +19,8 @@ import {
 import PageDeny from "../../../Deny";
 import isEmpty from "../../../../utils/isEmpty";
 import { getFromUrl } from "../../../../utils/url";
+import { updateURLParameter } from "../../../../utils/getUpdateUrlParam";
+import { useFragmentMove } from "../../../../hook/useFragmentMove";
 
 interface IProp {}
 
@@ -56,6 +58,8 @@ export const QuestionDetail: React.FC<IProp> = () => {
         return <PageDeny />;
     }
 
+    useFragmentMove();
+
     if (error) return <Page404 />;
     if (!question) return <PageLoading />;
     const {
@@ -76,9 +80,12 @@ export const QuestionDetail: React.FC<IProp> = () => {
     };
 
     const toList = () => {
+        const page = getFromUrl("page");
+        const to = updateURLParameter("/member/question", "page", page);
+
         if (pid) {
-            location.href = `/tour/view/` + pid;
-        } else router.push(`/member/question/`);
+            location.href = `/tour/view/` + pid + "#questions";
+        } else router.push(to);
     };
 
     const handleDelete = () => {
@@ -177,7 +184,7 @@ export const QuestionDetail: React.FC<IProp> = () => {
                                 )}
                                 <CommentWrite
                                     defaultContent={""}
-                                    title={`${title} : ` + myProfile?.nickName}
+                                    title={myProfile?.nickName}
                                     onSubmit={handleAnswer}
                                 />
                             </div>

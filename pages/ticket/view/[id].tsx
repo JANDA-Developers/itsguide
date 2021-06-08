@@ -152,7 +152,7 @@ export const TicketDetail: React.FC<IProp> = () => {
                                 )}
                                 <CommentWrite
                                     defaultContent={""}
-                                    title={`${title} : ` + myProfile?.nickName}
+                                    title={myProfile?.nickName}
                                     onSubmit={handleAnswer}
                                 />
                             </div>

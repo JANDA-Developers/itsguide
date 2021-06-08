@@ -265,13 +265,13 @@ export const Header: React.FC<IProp> = () => {
                                             </Link>
                                         </li>
                                         <li className="deps">
-                                            <Link href="/service/announce">
-                                                <a>{ln("service")}</a>
+                                            <Link href="/tour?searchData=%EB%A1%9C%EC%BB%AC%EC%B6%95%EC%A0%9C">
+                                                <a>{ln("localFestival")}</a>
                                             </Link>
                                         </li>
                                         <li className="deps">
-                                            <Link href="/tour?searchData=%EB%A1%9C%EC%BB%AC%EC%B6%95%EC%A0%9C">
-                                                <a>{ln("localFestival")}</a>
+                                            <Link href="/service/announce">
+                                                <a>{ln("service")}</a>
                                             </Link>
                                         </li>
                                         <li className="deps">

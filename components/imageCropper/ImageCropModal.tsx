@@ -18,11 +18,7 @@ export const ImageCropModal: React.FC<IProp> = ({ ...modalHook }) => {
     const images = modalHook.info.image;
 
     const handleSubmit = (file: File) => {
-        console.log("handleSubmit");
-        console.log({ file });
         const onUpload = (_: string, data: Ffile) => {
-            console.log("onUpload");
-            console.log({ data });
             modalHook.info.onSubmit(data);
         };
         signleUpload([file], onUpload);

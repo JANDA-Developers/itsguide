@@ -53,7 +53,10 @@ export interface IMemberTableProp {
 
 type TuniqSearch = keyof Pick<
     _UserFilter,
-    "name_eq" | "email_eq" | "phoneNumber_eq" | "nickName_eq"
+    | "name_contains"
+    | "email_contains"
+    | "phoneNumber_contains"
+    | "nickName_contains"
 >;
 
 interface IProp {
@@ -74,17 +77,14 @@ export const MemberMaster: React.FC<IProp> = ({
     const role_eq = type;
     const isResigned_eq = signOut;
     const fixedFilter: _UserFilter = { role_eq, isResigned_eq };
-    const {
-        totalIndiMemberCount,
-        koreanMemberCount,
-        foreginMemberCount,
-    } = useCustomCount([
-        "totalPartnerMemberCount",
-        "koreanMemberCount",
-        "foreginMemberCount",
-        "totalIndiMemberCount",
-    ]);
-    const [searchType, setSearchType] = useState<TuniqSearch>("name_eq");
+    const { totalIndiMemberCount, koreanMemberCount, foreginMemberCount } =
+        useCustomCount([
+            "totalPartnerMemberCount",
+            "koreanMemberCount",
+            "foreginMemberCount",
+            "totalIndiMemberCount",
+        ]);
+    const [searchType, setSearchType] = useState<TuniqSearch>("name_contains");
     const [popupUser, setPopupUser] = useState<Fuser>();
     const useHook = useUserList({ initialFilter: fixedFilter });
     const {
@@ -219,12 +219,12 @@ export const MemberMaster: React.FC<IProp> = ({
         if (searchType) {
             setUniqFilter(
                 searchType,
-                ["name_eq", "email_eq", "phoneNumber_eq"],
+                ["name_contains", "email_contains", "phoneNumber_contains"],
                 search
             );
         } else {
             setOR(
-                ["name_eq", "email_contains", "phoneNumber_contains"],
+                ["name_contains", "email_contains", "phoneNumber_contains"],
                 search
             );
         }
@@ -274,23 +274,29 @@ export const MemberMaster: React.FC<IProp> = ({
                                         {BoardOptions}
                                         <option value={undefined}>전체</option>
                                         <option
-                                            value={"name_eq" as TuniqSearch}
+                                            value={
+                                                "name_contains" as TuniqSearch
+                                            }
                                         >
                                             이름
                                         </option>
                                         <option
-                                            value={"nickName_eq" as TuniqSearch}
+                                            value={
+                                                "nickName_contains" as TuniqSearch
+                                            }
                                         >
                                             닉네임
                                         </option>
                                         <option
-                                            value={"email_eq" as TuniqSearch}
+                                            value={
+                                                "email_contains" as TuniqSearch
+                                            }
                                         >
                                             아이디
                                         </option>
                                         <option
                                             value={
-                                                "phoneNumber_eq" as TuniqSearch
+                                                "phoneNumber_contains" as TuniqSearch
                                             }
                                         >
                                             휴대폰

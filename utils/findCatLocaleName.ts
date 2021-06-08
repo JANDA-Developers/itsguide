@@ -8,5 +8,6 @@ export const cn = (
     if (locale === Locales.ot) {
         locale = Locales.en;
     }
+    console.log(locale)
     return localLables?.[locale];
 };

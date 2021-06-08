@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client"
+import { gql } from "@apollo/client";
 
 export const F_ANSWER = gql`
     fragment Fanswer on Answer {
@@ -10,83 +10,72 @@ export const F_ANSWER = gql`
         author {
             _id
             name
+            nickName
             profileImg {
                 uri
             }
         }
     }
-`
+`;
 
 export const ANSWER_CREATE = gql`
-  mutation answerCreate(
-    $params: AnswerCreateInput!
-    $targetId: String!
-    $target: String!
-  ) {
-    AnswerCreate(
-      params:$params
-      targetId: $targetId
-      target: $target
+    mutation answerCreate(
+        $params: AnswerCreateInput!
+        $targetId: String!
+        $target: String!
     ) {
-    ok
-    error {
-      location
-      severity
-      code
-      message
+        AnswerCreate(params: $params, targetId: $targetId, target: $target) {
+            ok
+            error {
+                location
+                severity
+                code
+                message
+            }
+            data {
+                ...Fanswer
+            }
+        }
     }
-    data {
-      ...Fanswer
-    }
-  }
-}
-${F_ANSWER}
-`
+    ${F_ANSWER}
+`;
 
 export const ANSWER_DELETE = gql`
-  mutation answerDelete(
-    $id: String!
-    $targetId: String!
-    $target: String!
-  ) {
-    AnswerDelete(
-      id:$id
-      targetId: $targetId 
-      target: $target,
-    ) {
-    ok
-    error {
-        location
-        severity
-        code
-        message
+    mutation answerDelete($id: String!, $targetId: String!, $target: String!) {
+        AnswerDelete(id: $id, targetId: $targetId, target: $target) {
+            ok
+            error {
+                location
+                severity
+                code
+                message
+            }
+        }
     }
-  }
-}
-`
+`;
 export const ANSWER_UPDAET = gql`
-  mutation answerUpdate(
-    $params: AnswerUpdateInput!
-    $targetId: String!
-    $target: String!
-    $_id: String!
-  ) {
-  AnswerUpdate(
-      params:$params
-      targetId: $targetId
-      target: $target
-      _id: $_id
+    mutation answerUpdate(
+        $params: AnswerUpdateInput!
+        $targetId: String!
+        $target: String!
+        $_id: String!
     ) {
-    ok
-    error {
-      location
-      severity
-      code
-      message
+        AnswerUpdate(
+            params: $params
+            targetId: $targetId
+            target: $target
+            _id: $_id
+        ) {
+            ok
+            error {
+                location
+                severity
+                code
+                message
+            }
+            data {
+                _id
+            }
+        }
     }
-    data {
-      _id
-    }
-  }
-}
-`
+`;

@@ -108,7 +108,7 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
 
                         <div className="board_list_mini ln05">
                             <div className="thead">
-                                <div className="tt01 checkbox">
+                                {/* <div className="tt01 checkbox">
                                     <input
                                         onClick={selectAll}
                                         type="checkbox"
@@ -117,12 +117,12 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
                                         title="모두선택"
                                     />
                                     <label htmlFor="agree-popup-0" />
-                                </div>
+                                </div> */}
                                 <div className="tt02">게시판</div>
-                                <div className="tt03">번호</div>
+                                <div className="tt03">조회</div>
                                 <div className="tt04">제목</div>
-                                <div className="tt05">날짜</div>
-                                <div className="tt06">공개</div>
+                                <div className="tt05">작성일</div>
+                                {/* <div className="tt06">공개</div> */}
                             </div>
                             <div className="tbody">
                                 <Change change={!getLoading}>
@@ -137,7 +137,7 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
                                                 }}
                                                 key={board._id}
                                             >
-                                                <div className="tt01 checkbox">
+                                                {/* <div className="tt01 checkbox">
                                                     <i
                                                         onClick={() => {
                                                             toggle(board._id);
@@ -155,7 +155,7 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
                                                         />
                                                         <label htmlFor="agree0" />
                                                     </i>
-                                                </div>
+                                                </div> */}
                                                 <div className="tt02">
                                                     <i className="m_title">
                                                         게시판:
@@ -185,9 +185,9 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
                                                         "YYYY.MM.DD hh:mm"
                                                     )}
                                                 </div>
-                                                <div className="tt06">
+                                                {/* <div className="tt06">
                                                     {isOpenKr(!!board.isOpen)}
-                                                </div>
+                                                </div> */}
                                             </li>
                                         ))}
                                         {isEmpty(boards) && (
@@ -203,7 +203,7 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
                             <Paginater setPage={setPage} pageInfo={pageInfo} />
                         </div>
 
-                        <div className="fin ifMobile">
+                        {/* <div className="fin ifMobile">
                             <div className="float_left">
                                 <button
                                     onClick={selectAll}
@@ -242,7 +242,7 @@ export const BoardModal: React.FC<IProp> = ({ user }) => {
                                     공개전환
                                 </button>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

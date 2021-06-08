@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "../../pages/_app";
 import { Fpage } from "../../types/api";
 import { Page } from "../../utils/generateClientPaging";
+import isEmpty from "../../utils/isEmpty";
 
 interface IProp {
     pageInfo: Fpage | Page;
@@ -32,10 +33,11 @@ export const Paginater: React.FC<IProp> = ({
         setPage(pageNumber + 1);
     };
 
-    console.log({ totalPageCount });
-    const pageLength = totalPageCount;
-    const pageStart = totalPageCount - 5;
-    let pages = Array(totalPageCount)
+    const pageLength = totalPageCount || 1;
+    const preCutPoint = totalPageCount - 5;
+    const pageStart = preCutPoint < 0 ? 0 : preCutPoint;
+
+    let pages = Array(totalPageCount || 1)
         .slice(pageStart, pageLength)
         .fill(null)
         .map((_, i) => (pageNumber - 3 > 0 ? pageNumber - 3 : 0) + (i + 1));
@@ -105,6 +107,11 @@ export const Paginater: React.FC<IProp> = ({
                         {page}
                     </a>
                 ))}
+                {isEmpty(pages) && (
+                    <a key={"page"} className={"off"}>
+                        1
+                    </a>
+                )}
                 <a
                     {...disabled(firstPage || lastPage)}
                     onClick={goNext}
