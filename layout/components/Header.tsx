@@ -215,7 +215,7 @@ export const Header: React.FC<IProp> = () => {
                             </li>
                             <li>
                                 <Link href={{ query, pathname }} locale="chi">
-                                    <a>中国人</a>
+                                    <a>中文</a>
                                 </Link>
                             </li>
                             <li>
@@ -421,7 +421,7 @@ export const Header: React.FC<IProp> = () => {
                                                     }}
                                                     locale="chi"
                                                 >
-                                                    <a>中国人</a>
+                                                    <a>中文</a>
                                                 </Link>
                                             </li>
                                             <li>

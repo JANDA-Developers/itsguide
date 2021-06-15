@@ -29,7 +29,7 @@ export const MasterLayout: React.FC<IProp> = ({ children }) => {
                 <div className="header_nav">
                     <ul>
                         <li className="home">
-                            <Link href="../main/main">
+                            <Link href="/">
                                 <a />
                             </Link>
                         </li>

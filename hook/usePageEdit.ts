@@ -1,6 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { Router } from "next/router";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import PinkClient from "../apollo/client";
 import { PAGE_INFO_CREATE, PAGE_INFO_UPDATE } from "../apollo/gql/mutations";
 import {
@@ -16,7 +15,6 @@ import { mergeDeepOnlyExsistProperty } from "../utils/merge";
 import { omits } from "../utils/omit";
 import { Ipage } from "../utils/page";
 import { getEditUtils, IGetEditUtilsResult } from "../utils/pageEdit";
-import { usePageFindByKey } from "./usePageInfo";
 import useWarnIfUnsavedChanges from "./useUnSaveChange";
 
 export interface IUsePageEdit<Page = any> extends IGetEditUtilsResult<Page> {

@@ -213,6 +213,15 @@
 .ck-content .todo-list {
     list-style: none;
 }
+
+.ck ol, .ck ul,.ck dl {
+    list-style: revert;
+    padding: revert;
+}
+.edtiorView ol, .edtiorView ul, .edtiorView dl{
+    list-style: revert;
+    padding: revert;
+}
 /* ckeditor5-list/theme/todolist.css */
 .ck-content .todo-list li {
     margin-bottom: 5px;
@@ -373,4 +382,8 @@
 /* ckeditor5-table/theme/table.css */
 .ck-content[dir="ltr"] table th {
     text-align: left;
+}
+
+.ck i, .edtiorView i{
+    font-style: italic;
 }

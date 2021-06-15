@@ -278,10 +278,10 @@ export const bankrefundTransInfo = (
 };
 
 export const LocaleToString = (locale: string) => {
-    if (locale === Locales.chi) return "CHINESE";
+    if (locale === Locales.chi) return "中文";
     if (locale === Locales.en) return "ENGLISH";
-    if (locale === Locales.ko) return "KOREAN";
-    if (locale === Locales.ja) return "JAPANES";
+    if (locale === Locales.ko) return "한국어";
+    if (locale === Locales.ja) return "日本語";
     if (locale === Locales.ot) return "OTHERS";
     return "KOREAN";
 };

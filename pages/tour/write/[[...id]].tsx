@@ -872,10 +872,15 @@ export const TourWrite: React.FC<Ipage> = (pageInfo) => {
                             to={lastDate}
                         >
                             <div className="tourWrite__dayPikcerRangeViewer  mb10">
-                                <div>
-                                    선택된 날짜 {yyyymmdd(firstDate)} ~
-                                    {yyyymmdd(lastDate)}
-                                </div>
+                                {!firstDate && (
+                                    <div>달력에서 날짜를 선택 해주세요.</div>
+                                )}
+                                {firstDate && (
+                                    <div>
+                                        선택된 날짜 {yyyymmdd(firstDate)} ~
+                                        {yyyymmdd(lastDate)}
+                                    </div>
+                                )}
                             </div>
                             <div className="info_txt">
                                 <h4>

@@ -19,7 +19,7 @@ const PrivacyPolicy = () => {
                 <div className="header_nav">
                     <ul>
                         <li className="home">
-                            <Link href="../main/main.html">
+                            <Link href="/privcay-policy">
                                 <a></a>
                             </Link>
                         </li>

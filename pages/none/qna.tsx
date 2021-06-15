@@ -49,6 +49,11 @@ export const QnaTable: React.FC<IProp> = () => {
                             <a>고객문의</a>
                         </Link>
                     </li>
+                    <li>
+                        <Link href="/service/">
+                            <a>가이드공지</a>
+                        </Link>
+                    </li>
                 </ul>
                 <div className="board_qna">
                     <div className="alignment">

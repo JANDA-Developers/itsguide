@@ -382,7 +382,7 @@ export const UswerWriteModal: React.FC<IHandWriteModalProp> = ({
                                     <option value={Lang.KO}>KOREAN</option>
                                     <option value={Lang.EN}>ENGLISH</option>
                                     <option value={Lang.CH}>CHINESE</option>
-                                    <option value={Lang.JP}>JAPANES</option>
+                                    <option value={Lang.JP}>JAPANESE</option>
                                 </select>
                             </div>
                             <div className="th02">사업자번호</div>

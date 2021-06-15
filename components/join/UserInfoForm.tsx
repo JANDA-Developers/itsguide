@@ -192,7 +192,7 @@ const UserInfoForm: React.FC = () => {
                             <option value={Lang.KO}>KOREAN</option>
                             <option value={Lang.EN}>ENGLISH</option>
                             <option value={Lang.CH}>CHINESE</option>
-                            <option value={Lang.JP}>JAPANES</option>
+                            <option value={Lang.JP}>JAPANESE</option>
                         </select>
                     </div>
                     <hr />
@@ -258,6 +258,32 @@ const UserInfoForm: React.FC = () => {
                                     onChange={handleData("busi_contact")}
                                 />
                             </div>
+                        </div>
+                    </div>
+                    <div className="gender_wrap">
+                        <label>성별</label>
+                        <span className="er red_font">
+                            *두개의 성별중 하나를 선택하여 주세요.
+                        </span>
+                        <div className="w100 inner__input">
+                            <ul className="gender_check">
+                                <li
+                                    className={`female ${
+                                        data.gender == GENDER.FEMALE ? "on" : ""
+                                    }`}
+                                    onClick={handleGender(GENDER.FEMALE)}
+                                >
+                                    여
+                                </li>
+                                <li
+                                    className={`men ${
+                                        data.gender == GENDER.MAIL ? "on" : ""
+                                    }`}
+                                    onClick={handleGender(GENDER.MAIL)}
+                                >
+                                    남
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     {/* <div className="ph_wrap">

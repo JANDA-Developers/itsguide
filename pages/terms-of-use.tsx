@@ -19,13 +19,13 @@ const TermsOfUse = () => {
                 <div className="header_nav">
                     <ul>
                         <li className="home">
-                            <Link href="../main/main.html">
+                            <Link href="/">
                                 <a></a>
                             </Link>
                         </li>
                         <li className="homedeps1">Member</li>
                         <li className="homedeps2">
-                            <Link href="../sub/rule.html">
+                            <Link href="/terms-of-use">
                                 <a>이용약관</a>
                             </Link>
                         </li>

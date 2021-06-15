@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
-import { getStaticPageInfo, Ipage } from "../../../utils/page";
+import { getQueryIndex, getStaticPageInfo, Ipage } from "../../../utils/page";
 import { usePageEdit } from "../../../hook/usePageEdit";
 import defaultPageInfo from "../../../info/announce.json";
 import SubTopNav from "../../../layout/components/SubTop";
@@ -17,15 +17,19 @@ import SearchMini from "../../../components/common/SearchMini";
 import { useSingleSort } from "../../../hook/useSort";
 import {
     announceList_AnnounceList_data,
+    AnnounceTarget,
     _AnnounceSort,
 } from "../../../types/api";
 import { useRouter } from "next/router";
 import { AppContext } from "../../_app";
 import { AnnotationBadge } from "../../../components/Status/StatusBadge";
 import { PageEditor } from "../../../components/common/PageEditer";
+import { getFromUrl } from "../../../utils/url";
 
 export const getStaticProps = getStaticPageInfo("announce");
 export const Announce: React.FC<Ipage> = (page) => {
+    const target =
+        (getFromUrl("target") as AnnounceTarget) || AnnounceTarget.NORMAL;
     const { isManager } = useContext(AppContext);
     const pageTools = usePageEdit(page, defaultPageInfo);
     const {
@@ -38,9 +42,12 @@ export const Announce: React.FC<Ipage> = (page) => {
         setSort,
         viewCount,
         setViewCount,
-    } = useAnnounceList();
+    } = useAnnounceList({
+        fixingFilter: {
+            target_eq: target,
+        },
+    });
 
-    console.log({ pageInfo });
     const singleSortHook = useSingleSort(sort, setSort, [
         _AnnounceSort.isNotice_desc,
         _AnnounceSort.type_desc,
@@ -97,7 +104,13 @@ export const Announce: React.FC<Ipage> = (page) => {
                             <ul>
                                 {items.map((item, i) => (
                                     <li onClick={toView(item)} key={item._id}>
-                                        <div className="td01">{item.no}</div>
+                                        <div className="td01">
+                                            {getQueryIndex(
+                                                i,
+                                                pageInfo,
+                                                items.length
+                                            )}
+                                        </div>
                                         <div className="td02">
                                             <AnnotationBadge type={item.type} />
                                         </div>
@@ -135,4 +148,13 @@ export const Announce: React.FC<Ipage> = (page) => {
     );
 };
 
-export default Announce;
+export const AnnounceWrap = (props: any) => {
+    const [fresh, setFresh] = useState(0);
+    const Router = useRouter();
+
+    useEffect(() => {
+        setFresh(fresh + 1);
+    }, [Router.query.target]);
+    return <Announce key={fresh} {...props} />;
+};
+export default AnnounceWrap;

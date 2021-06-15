@@ -41,6 +41,7 @@ export const BusiPartnerTable: React.FC<IMemberTableProp> = ({
                     <label onClick={toggleAll} htmlFor="agree0" />
                 </i>
             </div> */}
+                <div className="td01">성별</div>
                 <div className="td02">이름</div>
                 <div className="td03">아이디</div>
                 <div className="td04">휴대폰</div>
@@ -60,6 +61,7 @@ export const BusiPartnerTable: React.FC<IMemberTableProp> = ({
                         <label htmlFor="agree0" />
                     </i>
                 </div> */}
+                    <div className="td01">{genderToKR(user.gender)}</div>
                     <div className="td02">{withNick(user)}</div>
                     <div className="td03">{user.email}</div>
                     <div className="td04">

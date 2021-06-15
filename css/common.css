@@ -32,8 +32,11 @@ button {
     background: none;
     -webkit-appearance: none;
 }
-ol, ul, dl {
+  ol, ul, dl {
     list-style: none;
+}
+.ck  hr {
+    display: revert;
 }
 strong {
     font-weight:600;

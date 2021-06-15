@@ -16,8 +16,17 @@
     position: relative;
     width: 800px!important;
     height: 544px!important;
+    margin-left: -10%;
+    margin-right: -10%;
+    margin-top: -24px;
+    margin-bottom: -24px;
 }
 .imageCropper__outWrap {
     max-width: 100%;
-    overflow: auto;
+    overflow: visible;
+    transform: scale(0.8);
+    transform-origin: center center;
+}
+.imageCropModal .con {
+    width: 734px!important;
 }

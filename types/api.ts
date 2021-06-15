@@ -173,6 +173,7 @@ export interface announceFindById_AnnounceFindById_data {
   isDelete: boolean;
   title: string;
   no: number;
+  target: AnnounceTarget;
   contents: string;
   author: announceFindById_AnnounceFindById_data_author | null;
   isNotice: boolean | null;
@@ -424,6 +425,7 @@ export interface announceList_AnnounceList_data {
   isDelete: boolean;
   title: string;
   no: number;
+  target: AnnounceTarget;
   contents: string;
   author: announceList_AnnounceList_data_author | null;
   isNotice: boolean | null;
@@ -587,6 +589,10 @@ export interface answerCreate_AnswerCreate_data_author {
   __typename: "User";
   _id: string;
   name: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
   /**
    * 프로필 사진
    */
@@ -1660,7 +1666,7 @@ export interface bookingFindByCode_BookingFindByCode_data_product {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: bookingFindByCode_BookingFindByCode_data_product_region | null;
   category: bookingFindByCode_BookingFindByCode_data_product_category | null;
   /**
@@ -5954,7 +5960,7 @@ export interface productDelete_ProductDelete_data {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: productDelete_ProductDelete_data_region | null;
   category: productDelete_ProductDelete_data_category | null;
   /**
@@ -6302,7 +6308,7 @@ export interface productList_ProductList_data {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: productList_ProductList_data_region | null;
   category: productList_ProductList_data_category | null;
   /**
@@ -6763,6 +6769,10 @@ export interface productFindById_ProductFindById_data_questions_answers_author {
   _id: string;
   name: string;
   /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  /**
    * 프로필 사진
    */
   profileImg: productFindById_ProductFindById_data_questions_answers_author_profileImg | null;
@@ -6972,7 +6982,7 @@ export interface productFindById_ProductFindById_data {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: productFindById_ProductFindById_data_region | null;
   category: productFindById_ProductFindById_data_category | null;
   /**
@@ -7500,7 +7510,7 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: productFindByIdForSeller_ProductFindByIdForSeller_data_region | null;
   category: productFindByIdForSeller_ProductFindByIdForSeller_data_category | null;
   /**
@@ -8461,7 +8471,7 @@ export interface getContext_GetProfile_data_products {
   __typename: "Product";
   _id: string;
   title: string;
-  groupCode: string;
+  groupCode: string | null;
 }
 
 export interface getContext_GetProfile_data_bookings_seller {
@@ -8929,6 +8939,10 @@ export interface questionList_QuestionList_data_answers_author {
   _id: string;
   name: string;
   /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  /**
    * 프로필 사진
    */
   profileImg: questionList_QuestionList_data_answers_author_profileImg | null;
@@ -9287,6 +9301,10 @@ export interface questionFindById_QuestionFindById_data_answers_author {
   _id: string;
   name: string;
   /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  /**
    * 프로필 사진
    */
   profileImg: questionFindById_QuestionFindById_data_answers_author_profileImg | null;
@@ -9535,6 +9553,10 @@ export interface productReviewFindById_ProductReviewFindById_data_answers_author
   __typename: "User";
   _id: string;
   name: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
   /**
    * 프로필 사진
    */
@@ -10444,7 +10466,7 @@ export interface settlementFindById_SettlementFindById_data_product {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: settlementFindById_SettlementFindById_data_product_region | null;
   category: settlementFindById_SettlementFindById_data_product_category | null;
   /**
@@ -10955,7 +10977,7 @@ export interface settlementList_SettlementList_data_product {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: settlementList_SettlementList_data_product_region | null;
   category: settlementList_SettlementList_data_product_category | null;
   status: ProductStatus;
@@ -11499,6 +11521,10 @@ export interface ticketFindById_TicketFindById_data_answers_author {
   _id: string;
   name: string;
   /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  /**
    * 프로필 사진
    */
   profileImg: ticketFindById_TicketFindById_data_answers_author_profileImg | null;
@@ -11777,6 +11803,10 @@ export interface ticketList_TicketList_data_answers_author {
   __typename: "User";
   _id: string;
   name: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
   /**
    * 프로필 사진
    */
@@ -12909,7 +12939,7 @@ export interface sellerFindByKey_SellerFindByKeyPublic_data_products {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: sellerFindByKey_SellerFindByKeyPublic_data_products_region | null;
   category: sellerFindByKey_SellerFindByKeyPublic_data_products_category | null;
   /**
@@ -13266,7 +13296,7 @@ export interface userFindById_UserFindById_data_products {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: userFindById_UserFindById_data_products_region | null;
   category: userFindById_UserFindById_data_products_category | null;
   /**
@@ -13760,6 +13790,7 @@ export interface Fannounce {
   isDelete: boolean;
   title: string;
   no: number;
+  target: AnnounceTarget;
   contents: string;
   author: Fannounce_author | null;
   isNotice: boolean | null;
@@ -13791,6 +13822,10 @@ export interface Fanswer_author {
   __typename: "User";
   _id: string;
   name: string;
+  /**
+   * 닉네임 유니크
+   */
+  nickName: string;
   /**
    * 프로필 사진
    */
@@ -14032,6 +14067,51 @@ export interface FfeePolicy {
   cardPercent: number;
   bankPercent: number;
   addtionalFees: FfeePolicy_addtionalFees[];
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL fragment: Flocale
+// ====================================================
+
+export interface Flocale {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL fragment: Fcategory
+// ====================================================
+
+export interface Fcategory_localeLabel {
+  __typename: "Locale";
+  ko: string;
+  en: string;
+  ja: string;
+  chi: string;
+}
+
+export interface Fcategory {
+  __typename: "Category";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  localeLabel: Fcategory_localeLabel | null;
+  label: string;
+  type: CategoryType;
 }
 
 /* tslint:disable */
@@ -14285,7 +14365,7 @@ export interface Fproduct {
   endDate: any;
   dateRange: number;
   adminMemo: string;
-  groupCode: string;
+  groupCode: string | null;
   region: Fproduct_region | null;
   category: Fproduct_category | null;
   /**
@@ -14357,51 +14437,6 @@ export interface Fpayment {
   isPartialCancel: number;
   groupCode: string | null;
   history: Fpayment_history[];
-}
-
-/* tslint:disable */
-/* eslint-disable */
-// @generated
-// This file was automatically generated and should not be edited.
-
-// ====================================================
-// GraphQL fragment: Flocale
-// ====================================================
-
-export interface Flocale {
-  __typename: "Locale";
-  ko: string;
-  en: string;
-  ja: string;
-  chi: string;
-}
-
-/* tslint:disable */
-/* eslint-disable */
-// @generated
-// This file was automatically generated and should not be edited.
-
-// ====================================================
-// GraphQL fragment: Fcategory
-// ====================================================
-
-export interface Fcategory_localeLabel {
-  __typename: "Locale";
-  ko: string;
-  en: string;
-  ja: string;
-  chi: string;
-}
-
-export interface Fcategory {
-  __typename: "Category";
-  _id: string;
-  createdAt: any;
-  updatedAt: any;
-  isDelete: boolean;
-  localeLabel: Fcategory_localeLabel | null;
-  label: string;
-  type: CategoryType;
 }
 
 /* tslint:disable */
@@ -15590,6 +15625,10 @@ export interface Fquestion_answers_author {
   _id: string;
   name: string;
   /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  /**
    * 프로필 사진
    */
   profileImg: Fquestion_answers_author_profileImg | null;
@@ -16195,6 +16234,10 @@ export interface Fticket_answers_author {
   _id: string;
   name: string;
   /**
+   * 닉네임 유니크
+   */
+  nickName: string;
+  /**
    * 프로필 사진
    */
   profileImg: Fticket_answers_author_profileImg | null;
@@ -16267,6 +16310,14 @@ export interface Fticket {
 export enum AddtionalFeesStatus {
   DEFAULT = "DEFAULT",
   PERCNET = "PERCNET",
+}
+
+/**
+ * 공지 타겟
+ */
+export enum AnnounceTarget {
+  GUIDE = "GUIDE",
+  NORMAL = "NORMAL",
 }
 
 /**
@@ -16633,6 +16684,8 @@ export enum _AnnounceSort {
   likeCount_desc = "likeCount_desc",
   subTitle_asc = "subTitle_asc",
   subTitle_desc = "subTitle_desc",
+  target_asc = "target_asc",
+  target_desc = "target_desc",
   title_asc = "title_asc",
   title_desc = "title_desc",
   type_asc = "type_asc",
@@ -17371,6 +17424,7 @@ export interface ProductReviewCreateInput {
   thumb?: FileCreateInput | null;
   product: string;
   rating: number;
+  attributes?: ReviewAttributeInput[] | null;
 }
 
 export interface ProductReviewUpdateInput {
@@ -17516,6 +17570,12 @@ export interface ReplacementSetInput {
   value: string;
 }
 
+export interface ReviewAttributeInput {
+  rating: number;
+  label: string;
+  key: string;
+}
+
 export interface SmsSendInput {
   title?: string | null;
   content: string;
@@ -17619,6 +17679,9 @@ export interface UserUpdateInput {
 export interface _AnnounceFilter {
   AND?: _AnnounceFilter[] | null;
   OR?: _AnnounceFilter[] | null;
+  target_eq?: AnnounceTarget | null;
+  target_not_eq?: AnnounceTarget | null;
+  target_in?: AnnounceTarget[] | null;
   no_eq?: string | null;
   no_not_eq?: string | null;
   title_eq?: string | null;

@@ -5,7 +5,11 @@ import { useModal } from "../../hook/useModal";
 import { useUserFindById } from "../../hook/useUser";
 import { GENDER, UserRole, UserStatus } from "../../types/api";
 import { ALLOW_SELLERS } from "../../types/const";
-import { userRoleToKR, managerVerifiedKR } from "../../utils/enumToKr";
+import {
+    userRoleToKR,
+    managerVerifiedKR,
+    genderToKR,
+} from "../../utils/enumToKr";
 import { autoHypenPhone } from "../../utils/formatter";
 import { closeModal } from "../../utils/popUp";
 import { yyyymmdd } from "../../utils/yyyymmdd";
@@ -230,12 +234,12 @@ export const UserModal: React.FC<IProp> = ({ userId, handlers }) => {
                                                             item.address}
                                                     </span>
                                                 </div>
-                                                <div className="th02">
-                                                    담당자
-                                                </div>
+                                                <div className="th02">성별</div>
                                                 <div className="td02">
                                                     <span>
-                                                        {item.manageName}
+                                                        {genderToKR(
+                                                            item.gender
+                                                        )}
                                                     </span>
                                                 </div>
                                                 <div className="th03">

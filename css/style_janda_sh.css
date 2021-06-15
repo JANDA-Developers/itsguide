@@ -3632,6 +3632,7 @@ ul.rank_ul {
       position: relative;
       color: #333;
       margin-top: 20px;
+      z-index: 10;
     }
   .history__list > li > strong::after{
       position: absolute;

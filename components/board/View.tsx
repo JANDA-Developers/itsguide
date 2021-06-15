@@ -122,13 +122,11 @@ export const BoardView: React.FC<IProps> = (data) => {
                                 <ul>
                                     {files?.map((file, i) => (
                                         <li key={`file${i}`}>
-                                            <Link href="/">
-                                                <a>
-                                                    <i className="flaticon-folder-15" />
-                                                    {file.name}
-                                                    <i className="end jandaicon-check" />
-                                                </a>
-                                            </Link>
+                                            <a href={file.uri} download>
+                                                <i className="flaticon-folder-15" />
+                                                {file.name}
+                                                <i className="end jandaicon-check" />
+                                            </a>
                                         </li>
                                     ))}
                                 </ul>

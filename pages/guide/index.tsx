@@ -170,7 +170,7 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                     </div>
                                     <div className="right_div">
                                         <span className="goto_page">
-                                            <Link href="../sub/tour_list.html">
+                                            <Link href="/guide">
                                                 <a>{ln("gotoList")}</a>
                                             </Link>
                                         </span>

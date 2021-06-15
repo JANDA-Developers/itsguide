@@ -13,7 +13,7 @@ import {
     useAnnounceUpdate,
 } from "../../../../hook/useAnnounce";
 import { getFromUrl } from "../../../../utils/url";
-import { AnnounceType } from "../../../../types/api";
+import { AnnounceTarget, AnnounceType } from "../../../../types/api";
 
 interface IProp {}
 
@@ -23,6 +23,7 @@ export const AnnounceWrite: React.FC<IProp> = () => {
     const { item: announce } = useAnnounceFindById(id);
     const mode = id ? "edit" : "create";
     const [type, setType] = useState<AnnounceType>();
+    const [target, setTarget] = useState<AnnounceTarget>();
 
     const [announceUpdateMu] = useAnnounceUpdate({
         onCompleted: ({ AnnounceUpdate }) => {
@@ -79,10 +80,16 @@ export const AnnounceWrite: React.FC<IProp> = () => {
             value: type,
             failMsg: "타입 값은 필수 입니다.",
         },
+        {
+            value: target,
+            failMsg: "알림대상 값은 필수 입니다.",
+            id: "announceTarget",
+        },
     ]);
 
     const next = {
         ...boardData,
+        target,
         type,
     };
 
@@ -95,7 +102,10 @@ export const AnnounceWrite: React.FC<IProp> = () => {
 
         announceUpdateMu({
             variables: {
-                params: omits(params, ["categoryId", "files"]),
+                params: {
+                    attachFiles: omits(params.files),
+                    ...omits(params, ["categoryId", "files"]),
+                },
                 id,
             },
         });
@@ -125,33 +135,63 @@ export const AnnounceWrite: React.FC<IProp> = () => {
             ...(announce as any),
         });
         setType(announce?.type);
+        setTarget(announce?.target);
     }, [announce?._id]);
 
     return (
         <BoardWrite
             author={announce?.author}
             WriteInjection={
-                <div className="write_type">
-                    <div className="title">타입</div>
-                    <div className="input_form">
-                        <span className="category r3">
-                            <select
-                                id="category"
-                                onChange={(e) => {
-                                    const announceType = e.currentTarget
-                                        .value as AnnounceType;
-                                    setType(announceType);
-                                }}
-                                value={type}
-                                name="category_srl"
-                            >
-                                <option value={""}>선택없음</option>
-                                <option value={AnnounceType.ACCOUNCE}>
-                                    공지
-                                </option>
-                                <option value={AnnounceType.NOICE}>알림</option>
-                            </select>
-                        </span>
+                <div>
+                    <div className="write_type">
+                        <div className="title">타입</div>
+                        <div className="input_form">
+                            <span className="category r3">
+                                <select
+                                    id="category"
+                                    onChange={(e) => {
+                                        const announceType = e.currentTarget
+                                            .value as AnnounceType;
+                                        setType(announceType);
+                                    }}
+                                    value={type}
+                                    name="category_srl"
+                                >
+                                    <option value={""}>선택없음</option>
+                                    <option value={AnnounceType.ACCOUNCE}>
+                                        공지
+                                    </option>
+                                    <option value={AnnounceType.NOICE}>
+                                        알림
+                                    </option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                    <div className="write_type">
+                        <div className="title">알림대상</div>
+                        <div className="input_form">
+                            <span className="category r3">
+                                <select
+                                    id="category"
+                                    onChange={(e) => {
+                                        const announceTarget = e.currentTarget
+                                            .value as AnnounceTarget;
+                                        setTarget(announceTarget);
+                                    }}
+                                    value={target}
+                                    name="announceTarget"
+                                >
+                                    <option value={""}>선택없음</option>
+                                    <option value={AnnounceTarget.GUIDE}>
+                                        가이드
+                                    </option>
+                                    <option value={AnnounceTarget.NORMAL}>
+                                        전체
+                                    </option>
+                                </select>
+                            </span>
+                        </div>
                     </div>
                 </div>
             }
@@ -165,6 +205,7 @@ export const AnnounceWrite: React.FC<IProp> = () => {
             onSave={handleTempSave}
             onLoad={handleLoad}
             opens={{
+                files: true,
                 title: true,
                 open: true,
             }}

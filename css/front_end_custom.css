@@ -596,3 +596,7 @@ figure:after {
         margin-bottom: 10px !important;
     }
 }
+
+[data-edit="editUl"] li {
+    width: 100%; 
+}

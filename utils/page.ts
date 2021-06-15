@@ -13,8 +13,8 @@ export const getQueryIndex = (
     pageInfo: Fpage | Page,
     currentPageCnt: number
 ) => {
-    const { cntPerPage, page } = pageInfo;
-    let pageStartNumber = (page - 1) * pageInfo.cntPerPage;
+    const { cntPerPage, page, totalPageSize } = pageInfo;
+    let pageStartNumber = (totalPageSize - page) * pageInfo.cntPerPage;
     if (pageStartNumber < 0) {
         pageStartNumber = 0;
     }
@@ -54,23 +54,23 @@ export const useHomepageServerSide = async () => {
     return { data };
 };
 
-export const getStaticPageInfo = (key: TPageKeys): GetStaticProps => async ({
-    locale,
-}) => {
-    const { data } = await usePageInfo(key);
+export const getStaticPageInfo =
+    (key: TPageKeys): GetStaticProps =>
+    async ({ locale }) => {
+        const { data } = await usePageInfo(key);
 
-    const { data: homepage } = await useHomepageServerSide();
+        const { data: homepage } = await useHomepageServerSide();
 
-    return {
-        revalidate: 1,
-        props: {
-            locale,
-            pageKey: key,
-            pageInfo: data?.value || {},
-            homepage,
-        }, // will be passed to the page component as props
+        return {
+            revalidate: 1,
+            props: {
+                locale,
+                pageKey: key,
+                pageInfo: data?.value || {},
+                homepage,
+            }, // will be passed to the page component as props
+        };
     };
-};
 
 export interface Ipage {
     locale: string;

@@ -405,7 +405,8 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                         <ul className="country_check">
                                             <li
                                                 onClick={() => {
-                                                    profile.is_froreginer = false;
+                                                    profile.is_froreginer =
+                                                        false;
                                                     setProfile({ ...profile });
                                                 }}
                                                 className={`c_in ${
@@ -416,7 +417,8 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                             </li>
                                             <li
                                                 onClick={() => {
-                                                    profile.is_froreginer = true;
+                                                    profile.is_froreginer =
+                                                        true;
                                                     setProfile({ ...profile });
                                                 }}
                                                 className={`c_out ${
@@ -493,9 +495,10 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                                             e.currentTarget
                                                                 .value ===
                                                             "busi";
-                                                        profile.is_priv_corper = is_priv_corper
-                                                            ? true
-                                                            : false;
+                                                        profile.is_priv_corper =
+                                                            is_priv_corper
+                                                                ? true
+                                                                : false;
                                                         setProfile({
                                                             ...profile,
                                                         });
@@ -679,7 +682,7 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                                     ENGLISH
                                                 </option>
                                                 <option value={Lang.JP}>
-                                                    JAPANES
+                                                    JAPANESE
                                                 </option>
                                                 <option value={Lang.CH}>
                                                     CHINESE
@@ -793,7 +796,8 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                                         const format =
                                                             e.currentTarget
                                                                 .value;
-                                                        profile.account_number = format;
+                                                        profile.account_number =
+                                                            format;
                                                         setProfile({
                                                             ...profile,
                                                         });

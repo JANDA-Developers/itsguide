@@ -92,9 +92,15 @@ const header = {
     },
     question: {
         ko: "고객문의",
-        en: `To make an inquiry`,
+        en: `Inquiry`,
         ja: `問合せ`,
         chi: `咨询`,
+    },
+    guideAnnounce: {
+        ko: "Guide 공지사항",
+        en: `Guide Notice`,
+        ja: `Guide お知らせ事項`,
+        chi: `Guide 公告事项`,
     },
     announce: {
         ko: "공지사항",
@@ -536,14 +542,14 @@ const footer = {
     guide: {
         ko: "가이드",
         en: "Guide",
-        ja: "导游",
-        chi: "ガイド",
+        ja: "ガイド",
+        chi: "导游",
     },
     master: {
         ko: "마스터",
         en: "Master",
-        ja: "大师",
-        chi: "マスター",
+        ja: "マスター",
+        chi: "大师",
     },
 };
 

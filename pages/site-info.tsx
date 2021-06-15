@@ -11,6 +11,8 @@ import { Img } from "../components/Img/Img";
 import { CloseIcon } from "../components/common/icon/CloseIcon";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { Ul } from "../components/edit/Ul";
+import { whenDelete } from "../utils/eventValueExtracter";
 
 type TGetProps = {
     pageInfo: typeof pageInfoDefault | "";
@@ -29,6 +31,8 @@ export const StieInfo: React.FC<Ipage> = (pageInfo) => {
         get,
         editArray,
         removeArray,
+        unShiftArray,
+        objectArrayUlEdit,
     } = pageTools;
     const { partners } = page;
     const [addInfo, setAddInfo] = useState({
@@ -53,6 +57,8 @@ export const StieInfo: React.FC<Ipage> = (pageInfo) => {
         popupElement!.style.display = "none";
         document!.getElementById("fade")!.style.display = "none";
     };
+
+    const history = get("history");
 
     return (
         <div className="siteInfo_in">
@@ -102,12 +108,93 @@ export const StieInfo: React.FC<Ipage> = (pageInfo) => {
                 <div className="w1200">
                     <h4 {...edit("con03_title")} />
                     <ul className="history__list">
+                        {history.map((val, index) => {
+                            const arrayUrlEditObj = objectArrayUlEdit(
+                                "history",
+                                index,
+                                "content"
+                            );
+                            return (
+                                <li>
+                                    <strong
+                                        {...edit("history", index, "title")}
+                                    />
+                                    <ul className="history__yearlist">
+                                        {val.content?.map((content, i) => (
+                                            <li
+                                                onKeyDown={whenDelete((e) => {
+                                                    if (
+                                                        e.currentTarget
+                                                            .innerHTML === ""
+                                                    )
+                                                        if (
+                                                            confirm(
+                                                                "라인을 삭제 하시겠습니까?"
+                                                            )
+                                                        )
+                                                            arrayUrlEditObj.removeArray(
+                                                                i
+                                                            );
+                                                })}
+                                                onBlur={(e) => {
+                                                    arrayUrlEditObj.editArray(
+                                                        i,
+                                                        e.currentTarget
+                                                            .innerHTML
+                                                    );
+                                                }}
+                                                // @ts-ignore
+                                                contentEditable={
+                                                    editMode
+                                                        ? "plaintext-only"
+                                                        : "ready"
+                                                }
+                                                key={index + i}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: content,
+                                                }}
+                                            />
+                                        ))}
+
+                                        {editMode && (
+                                            <button
+                                                className="btn"
+                                                onClick={() => {
+                                                    arrayUrlEditObj.addArray(
+                                                        ""
+                                                    );
+                                                }}
+                                            >
+                                                라인추가
+                                            </button>
+                                        )}
+                                    </ul>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    {editMode && (
+                        <button
+                            style={{
+                                zIndex: 10,
+                            }}
+                            className="btn"
+                            onClick={() => {
+                                unShiftArray("history", {
+                                    title: "2000",
+                                    content: [""],
+                                });
+                            }}
+                        >
+                            추가하기
+                        </button>
+                    )}
+                    {/* <ul className="history__list">
                         <li>
                             <strong {...edit("con03_yearTitle_03")} />
                             <ul className="history__yearlist">
                                 <li {...edit("con03_yearText_0301")} />
                                 <li {...edit("con03_yearText_0302")} />
-                                {/* <li {...edit("con03_yearText_0303")} /> */}
                             </ul>
                         </li>
                         <li>
@@ -119,15 +206,7 @@ export const StieInfo: React.FC<Ipage> = (pageInfo) => {
                                 <li {...edit("con03_yearText_0204")} />
                             </ul>
                         </li>
-                        {/* <li>
-                        <strong {...edit("con03_yearTitle_01")} />
-                        <ul className="history__yearlist">
-                            <li {...edit("con03_yearText_0101")} />
-                            <li {...edit("con03_yearText_0102")} />
-                            <li {...edit("con03_yearText_0103")} />
-                        </ul>
-                    </li> */}
-                    </ul>
+                    </ul> */}
                 </div>
             </div>
 
@@ -235,7 +314,7 @@ export const StieInfo: React.FC<Ipage> = (pageInfo) => {
                             />
                             <h2 {...edit("con07_title")} />
                             <div className="link">
-                                <Link href="../sub/join.html">
+                                <Link href="/member/join">
                                     <a {...edit("con07_linktxt")} />
                                 </Link>
                             </div>
