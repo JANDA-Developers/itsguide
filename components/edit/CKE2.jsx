@@ -83,7 +83,6 @@ const editorConfiguration = {
             'fontFamily',
             'highlight',
             'horizontalLine',
-            'specialCharacters',
             'imageInsert',
             'underline',
             'strikethrough'
