@@ -169,6 +169,17 @@ export const StieInfo: React.FC<Ipage> = (pageInfo) => {
                                             </button>
                                         )}
                                     </ul>
+                                    {editMode && (
+                                        <CloseIcon
+                                            style={{
+                                                width: 10,
+                                                height: 10,
+                                            }}
+                                            onClick={() => {
+                                                removeArray("history", index);
+                                            }}
+                                        />
+                                    )}
                                 </li>
                             );
                         })}
