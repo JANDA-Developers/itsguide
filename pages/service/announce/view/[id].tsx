@@ -32,6 +32,7 @@ export const AnnounceDetail: React.FC<IProp> = () => {
         _id,
         author,
         isOpen,
+        viewCount,
         attachFiles,
     } = announce;
 
@@ -57,6 +58,7 @@ export const AnnounceDetail: React.FC<IProp> = () => {
     return (
         <div>
             <BoardView
+                viewCount={viewCount}
                 files={attachFiles}
                 isOpen={!!isOpen}
                 authorId={author?._id || ""}

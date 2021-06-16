@@ -147,23 +147,25 @@ export const BoardView: React.FC<IProps> = (data) => {
                                 </button>
                             )}
                         </div>
-                        <div className="float_right">
-                            <button
-                                onClick={handleEdit}
-                                type="submit"
-                                className="btn medium pointcolor"
-                            >
-                                수정
-                            </button>
-                            <button
-                                onClick={handleDelete}
-                                type="submit"
-                                className="btn medium"
-                            >
-                                삭제
-                            </button>
-                            {Buttons}
-                        </div>
+                        {(isMyBoard || isManager) && (
+                            <div className="float_right">
+                                <button
+                                    onClick={handleEdit}
+                                    type="submit"
+                                    className="btn medium pointcolor"
+                                >
+                                    수정
+                                </button>
+                                <button
+                                    onClick={handleDelete}
+                                    type="submit"
+                                    className="btn medium"
+                                >
+                                    삭제
+                                </button>
+                                {Buttons}
+                            </div>
+                        )}
                     </div>
 
                     {(onPrev || onNext) && (

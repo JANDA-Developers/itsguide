@@ -44,6 +44,7 @@ export const Announce: React.FC<Ipage> = (page) => {
         setViewCount,
     } = useAnnounceList({
         fixingFilter: {
+            isOpen_eq: true,
             target_eq: target,
         },
     });
