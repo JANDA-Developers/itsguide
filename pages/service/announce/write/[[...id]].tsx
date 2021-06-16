@@ -125,7 +125,10 @@ export const AnnounceWrite: React.FC<IProp> = () => {
 
         announceCreateMu({
             variables: {
-                params: omits(next, ["categoryId", "files"]),
+                params: {
+                    attachFiles: omits(next.files),
+                    ...omits(next, ["categoryId", "files"]),
+                },
             },
         });
     };

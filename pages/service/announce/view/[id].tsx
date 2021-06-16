@@ -35,6 +35,8 @@ export const AnnounceDetail: React.FC<IProp> = () => {
         attachFiles,
     } = announce;
 
+    console.log({ attachFiles });
+
     const toDetail = () => {
         router.push(`/service/announce/write/${_id}`);
     };
