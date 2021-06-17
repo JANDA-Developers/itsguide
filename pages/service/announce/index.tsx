@@ -32,6 +32,13 @@ export const Announce: React.FC<Ipage> = (page) => {
         (getFromUrl("target") as AnnounceTarget) || AnnounceTarget.NORMAL;
     const { isManager } = useContext(AppContext);
     const pageTools = usePageEdit(page, defaultPageInfo);
+
+    const openFilter = isManager
+        ? {}
+        : {
+              isOpen_eq: true,
+          };
+
     const {
         items,
         pageInfo,
@@ -44,7 +51,7 @@ export const Announce: React.FC<Ipage> = (page) => {
         setViewCount,
     } = useAnnounceList({
         fixingFilter: {
-            isOpen_eq: true,
+            ...openFilter,
             target_eq: target,
         },
     });
