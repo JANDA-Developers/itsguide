@@ -93,7 +93,7 @@ export const GuideMain: React.FC<Ipage> = (pageInfo) => {
                                         )
                                     )}
                                     <li>
-                                        <Link href="/guide">
+                                        <Link href="/guide-search">
                                             <a {...edit("topBtn_seeAll")} />
                                         </Link>
                                     </li>

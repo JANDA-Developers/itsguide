@@ -8,6 +8,7 @@ import { useUpload } from "./useUpload";
 
 type TChangeAbleData =
     | "lang"
+    | "regions"
     | "phoneNumber"
     | "keywards"
     | "is_froreginer"
@@ -82,6 +83,7 @@ export const useMyProfile = (defaultData: getContext_GetProfile_data) => {
     };
 
     const [profile, setProfile] = useState<TProfile>({
+        regions: defaultData.regions || [],
         keywards: defaultData.keywards || [],
         busi_address: defaultData.busi_address || "",
         address: defaultData.address || "",

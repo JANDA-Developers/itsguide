@@ -37,6 +37,7 @@ export const F_PUBLIC_USER = gql`
         gender
         keywards
         nickName
+        regions
         productCount
         bookingCount
         profileImg {
@@ -229,6 +230,7 @@ export const F_USER = gql`
         manageContact
         resignDate
         gender
+        regions
         busi_num
         denyReason
         busi_department

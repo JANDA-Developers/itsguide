@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { useHomepage } from "../../hook/useHomepage";
+import { IUsePageEdit } from "../../hook/usePageEdit";
 import Payment from "../../pages/payment";
 import { AppContext } from "../../pages/_app";
 import {
@@ -14,6 +15,7 @@ import { setVal } from "../../utils/eventValueExtracter";
 import { autoHypenPhone } from "../../utils/formatter";
 import { getFromUrl } from "../../utils/url";
 import { Validater } from "../../utils/validate";
+import defaultPageInfo from "../../info/payment.json";
 
 export type TPaySubmitInfo = {
     buyerInfo: {
@@ -27,6 +29,7 @@ export type TPaySubmitInfo = {
 };
 
 interface IProp {
+    pageTools: IUsePageEdit<typeof defaultPageInfo>;
     Preview: TElements;
     onDoPay: (param: TPaySubmitInfo) => void;
     booking?: Fbooking;
@@ -39,8 +42,14 @@ interface IBankInput extends Omit<Fhomepage_bankInfo, "__typename"> {
 {
     /* TODO 독립처리 => 나중에 시간나면 */
 }
-export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
-    const { isLogin, myProfile } = useContext(AppContext);
+export const JDpaymentUI: React.FC<IProp> = ({
+    Preview,
+    onDoPay,
+    booking,
+    pageTools,
+}) => {
+    const { edit } = pageTools;
+    const { isLogin, myProfile, ln } = useContext(AppContext);
     const urlPhone = getFromUrl("phone") || "";
     const urlName = getFromUrl("name") || "";
     const { data: item } = useHomepage();
@@ -61,11 +70,11 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
     const { validate } = new Validater([
         {
             value: buyerInfo.name,
-            failMsg: "구매자 이름은 필수 입니다.",
+            failMsg: ln("buyerNameRequired"),
         },
         {
             value: buyerInfo.phone,
-            failMsg: "구매자 연락처는 필수 입니다.",
+            failMsg: ln("buyerContactRequired"),
         },
     ]);
 
@@ -81,7 +90,7 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
     const UnLoginedFrom = (
         <div>
             <div className="tr">
-                <div className="th">이름</div>
+                <div className="th">{ln("name")}</div>
                 <div className="td">
                     <input
                         value={buyerInfo.name}
@@ -97,7 +106,7 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                 </div>
             </div>
             <div className="tr">
-                <div className="th">연락처</div>
+                <div className="th">{ln("contact")}</div>
                 <div className="td">
                     <input
                         value={autoHypenPhone(buyerInfo.phone)}
@@ -113,7 +122,7 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                 </div>
             </div>
             <div className="tr">
-                <div className="th">이메일</div>
+                <div className="th">{ln("footer_email")}</div>
                 <div className="td">
                     <input
                         value={buyerInfo.email}
@@ -151,7 +160,7 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
             <div className="head">
                 {Preview}
                 <div className="write_type write_type_box mt20">
-                    <h4 className="title">결제수단</h4>
+                    <h4 className="title">{ln("payMethod")}</h4>
                     <div className="input_form">
                         <span id="category" className="category r3">
                             {/* <select onChange={(e) => {
@@ -184,7 +193,9 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                 type="radio"
                                             />
                                         </span>
-                                        <span className="title">카드결제</span>
+                                        <span className="title">
+                                            {ln("cardPay")}
+                                        </span>
                                         {/* <button /> */}
                                     </div>
                                     {payMethod === PayMethod.NICEPAY_CARD &&
@@ -212,7 +223,7 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                             />
                                         </span>
                                         <span className="title">
-                                            무통장입금
+                                            {ln("bankPay")}
                                         </span>
                                         {/* <button /> */}
                                     </div>
@@ -222,27 +233,19 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                 {isLogin || UnLoginedFrom}
                                                 <div className="tr">
                                                     <div className="th">
-                                                        입금은행
+                                                        {ln("targetBank")}
                                                     </div>
                                                     <div className="td">
-                                                        <span className="mr5">
-                                                            {bankInfo?.bankName}
-                                                        </span>
-                                                        <span className="mr15">
-                                                            {
-                                                                bankInfo?.accountNumber
-                                                            }
-                                                        </span>
-                                                        <span>
-                                                            {
-                                                                bankInfo?.accountHolder
-                                                            }
-                                                        </span>
+                                                        <span
+                                                            {...edit(
+                                                                "targetBank"
+                                                            )}
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="tr">
                                                     <div className="th">
-                                                        입금자 정보
+                                                        {ln("senderInfo")}
                                                     </div>
                                                     <div className="td">
                                                         <input
@@ -251,7 +254,8 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                                     e
                                                                         .currentTarget
                                                                         .value;
-                                                                bankRefundInfo.bankTransfter = val;
+                                                                bankRefundInfo.bankTransfter =
+                                                                    val;
                                                                 setBankRefundInfo(
                                                                     {
                                                                         ...bankRefundInfo,
@@ -263,13 +267,15 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                             }
                                                             type="text"
                                                             className="mr5"
-                                                            placeholder="입금자명"
+                                                            placeholder={ln(
+                                                                "senderName"
+                                                            )}
                                                         />
                                                     </div>
                                                 </div>
                                                 <div className="tr">
                                                     <div className="th">
-                                                        환불방법
+                                                        {ln("refundMethod")}
                                                     </div>
                                                     <div className="td">
                                                         <div className="radio_check">
@@ -277,7 +283,9 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                                 checked={true}
                                                                 type="radio"
                                                             />
-                                                            본인 계좌환불
+                                                            {ln(
+                                                                "RefundToYourAccount"
+                                                            )}
                                                         </div>
                                                         <div className="bank_info">
                                                             <input
@@ -288,7 +296,8 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                                         e
                                                                             .currentTarget
                                                                             .value;
-                                                                    bankRefundInfo.bankName = val;
+                                                                    bankRefundInfo.bankName =
+                                                                        val;
                                                                     setBankRefundInfo(
                                                                         {
                                                                             ...bankRefundInfo,
@@ -301,7 +310,9 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                                 }
                                                                 type="text"
                                                                 className="mr5"
-                                                                placeholder="은행명"
+                                                                placeholder={ln(
+                                                                    "bankName"
+                                                                )}
                                                             />
                                                             <input
                                                                 onChange={(
@@ -311,7 +322,8 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                                         e
                                                                             .currentTarget
                                                                             .value;
-                                                                    bankRefundInfo.accountHolder = val;
+                                                                    bankRefundInfo.accountHolder =
+                                                                        val;
                                                                     setBankRefundInfo(
                                                                         {
                                                                             ...bankRefundInfo,
@@ -324,7 +336,9 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                                 }
                                                                 type="text"
                                                                 className="mr5"
-                                                                placeholder="예금주"
+                                                                placeholder={ln(
+                                                                    "accountHolder"
+                                                                )}
                                                             />
                                                             <input
                                                                 onChange={(
@@ -334,7 +348,8 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                                         e
                                                                             .currentTarget
                                                                             .value;
-                                                                    bankRefundInfo.accountNumber = val;
+                                                                    bankRefundInfo.accountNumber =
+                                                                        val;
                                                                     setBankRefundInfo(
                                                                         {
                                                                             ...bankRefundInfo,
@@ -346,7 +361,9 @@ export const JDpaymentUI: React.FC<IProp> = ({ Preview, onDoPay, booking }) => {
                                                                     ""
                                                                 }
                                                                 type="text"
-                                                                placeholder="계좌번호"
+                                                                placeholder={ln(
+                                                                    "footer_accountNum"
+                                                                )}
                                                             />
                                                         </div>
                                                     </div>

@@ -329,6 +329,7 @@ i.icon__lock{
         overflow: hidden;
         text-indent: -999px;
         position: relative;
+        background-size: cover;
     }
  
 
@@ -6376,6 +6377,7 @@ i.important_icon {
                 text-align: left;
                 margin-bottom: 15px;
                 margin-left: -0.5%;
+                padding: 0px;
             }
 
                 .tour_details_in .Read_box .details_photo .photo_list li {

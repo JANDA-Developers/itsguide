@@ -114,6 +114,7 @@ export const MyPageProfile: React.FC<IProp> = () => {
         busi_address,
         phoneNumber,
         gender,
+        regions,
         is_froreginer,
         keywards,
         is_priv_corper,
@@ -243,6 +244,15 @@ export const MyPageProfile: React.FC<IProp> = () => {
         keywards?.includes(key.label)
     );
     const keywardsOps: IselectedOption[] = filteredKeywards.map((key) => ({
+        _id: key._id,
+        label: key.label,
+    }));
+
+    const filteredRegions = categoriesMap.REGION.filter((key) =>
+        regions?.includes(key._id)
+    );
+
+    const regionsOps: IselectedOption[] = filteredRegions.map((key) => ({
         _id: key._id,
         label: key.label,
     }));
@@ -829,6 +839,30 @@ export const MyPageProfile: React.FC<IProp> = () => {
                                         (keyward) => keyward.label
                                     );
                                     profile.keywards = keyLabels;
+                                    setProfile({ ...profile });
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <div className="box3">
+                        <div className="box_left">
+                            <div className="title">
+                                <h5>활동지역</h5>
+                            </div>
+                        </div>
+                        <div className="box_right">
+                            <KeywardSelecter
+                                options={categoriesMap.REGION.map((region) => ({
+                                    label: region.label,
+                                    _id: region._id,
+                                    value: region._id,
+                                }))}
+                                className="mypage__keywards"
+                                value={regionsOps}
+                                handleChange={(regions) => {
+                                    profile.regions = regions.map(
+                                        (region) => region._id
+                                    );
                                     setProfile({ ...profile });
                                 }}
                             />

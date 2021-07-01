@@ -18,6 +18,7 @@ export const useJoin = () => {
     const [errDisplay, setErrDisplay] = useState<
         Record<keyof ISignUpInput, boolean>
     >({
+        regions: false,
         email: false,
         acceptEamil: false,
         acceptSms: false,
@@ -56,9 +57,8 @@ export const useJoin = () => {
         setErrDisplay({ ...errDisplay });
     };
 
-    const { verifiData: { payload } = { payload: "" } } = useContext(
-        JoinContext
-    )!;
+    const { verifiData: { payload } = { payload: "" } } =
+        useContext(JoinContext)!;
     const [data, setData] = useState<ISignUpInput>({
         email: payload,
         guideLicenses: [],
@@ -157,27 +157,29 @@ export const useJoin = () => {
         setDaumAddress(false);
     };
 
-    const handleData = (key: keyof typeof data) => (
-        e:
-            | React.ChangeEvent<HTMLInputElement>
-            | React.ChangeEvent<HTMLSelectElement>
-    ) => {
-        if (key === "address") {
-            alert("??");
-        }
+    const handleData =
+        (key: keyof typeof data) =>
+        (
+            e:
+                | React.ChangeEvent<HTMLInputElement>
+                | React.ChangeEvent<HTMLSelectElement>
+        ) => {
+            if (key === "address") {
+                alert("??");
+            }
 
-        if (key === "is_priv_corper") {
-            setData({
-                ...data,
-                // @ts-ignore
-                [key]: e.currentTarget.value === "true",
-            });
-        } else
-            setData({
-                ...data,
-                [key]: e.currentTarget.value,
-            });
-    };
+            if (key === "is_priv_corper") {
+                setData({
+                    ...data,
+                    // @ts-ignore
+                    [key]: e.currentTarget.value === "true",
+                });
+            } else
+                setData({
+                    ...data,
+                    [key]: e.currentTarget.value,
+                });
+        };
 
     const handleBusinessLicense = async (
         e: React.ChangeEvent<HTMLInputElement>

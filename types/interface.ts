@@ -52,9 +52,11 @@ export enum QStatus {
 export declare type ISet<T> = Dispatch<React.SetStateAction<T>>;
 
 export type TPageKeys =
+    | "payment"
     | "event"
     | "ticket"
     | "guideMain"
+    | "anonymouseFindBook"
     | "mypageLayout"
     | "findmember"
     | "announce"

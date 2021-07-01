@@ -232,6 +232,11 @@ function App({ Component, pageProps }: any) {
     return (
         <div className="App">
             <Head>
+                <script
+                    async
+                    src="https://www.googletagmanager.com/gtag/js?id=G-Z3EFQKBL3Q"
+                ></script>
+                <script async src="/ga.js"></script>
                 <meta
                     name="naver-site-verification"
                     content="ee3b982604bb599adfc18c1fcf30f6987e754117"

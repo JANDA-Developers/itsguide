@@ -94,6 +94,10 @@ export interface announceFindById_AnnounceFindById_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -346,6 +350,10 @@ export interface announceList_AnnounceList_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -846,6 +854,164 @@ export interface boardControlMaster {
 export interface boardControlMasterVariables {
   action: BoardAction;
   targets: BoardTarget[];
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: bookingFindByInfo
+// ====================================================
+
+export interface bookingFindByInfo_BookingFindByInfo_error {
+  __typename: "CustomError";
+  location: string;
+  severity: ERR_SEVERITY;
+  code: ERR_CODE;
+  message: string;
+}
+
+export interface bookingFindByInfo_BookingFindByInfo_data_payment_history {
+  __typename: "TxHistory";
+  status: string;
+  price: number;
+  metadata: any | null;
+  createdAt: any;
+  updatedAt: any;
+}
+
+export interface bookingFindByInfo_BookingFindByInfo_data_payment {
+  __typename: "Payment";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  payMethod: PayMethod;
+  status: PaymentStatus;
+  price: number;
+  totalCancelPrice: number;
+  cancelDate: any | null;
+  isPartialCancel: number;
+  groupCode: string | null;
+  history: bookingFindByInfo_BookingFindByInfo_data_payment_history[];
+}
+
+export interface bookingFindByInfo_BookingFindByInfo_data_product_category {
+  __typename: "Category";
+  _id: string;
+  label: string;
+}
+
+export interface bookingFindByInfo_BookingFindByInfo_data_product_images {
+  __typename: "File";
+  name: string;
+  uri: string;
+  fileType: string | null;
+  extension: string | null;
+  owner: string;
+}
+
+export interface bookingFindByInfo_BookingFindByInfo_data_product_author {
+  __typename: "User";
+  name: string;
+}
+
+export interface bookingFindByInfo_BookingFindByInfo_data_product {
+  __typename: "Product";
+  _id: string;
+  createdAt: any;
+  updatedAt: any;
+  isDelete: boolean;
+  title: string;
+  code: string;
+  determined: boolean;
+  contents: string;
+  category: bookingFindByInfo_BookingFindByInfo_data_product_category | null;
+  status: ProductStatus;
+  inOrNor: string;
+  info: string;
+  caution: string | null;
+  images: bookingFindByInfo_BookingFindByInfo_data_product_images[] | null;
+  /**
+   * 상품 하나에 대한 결제완료된 예약 총 인원
+   */
+  compeltePeopleCnt: number;
+  /**
+   * 취소를 제외한 상품 하나에 대한 모든 인원
+   */
+  peopleCount: number;
+  keyWards: string[] | null;
+  address: string;
+  startPoint: string;
+  maxMember: number;
+  minMember: number;
+  subTitle: string | null;
+  adult_price: number;
+  bookingCount: number;
+  dateRange: number;
+  kids_price: number;
+  baby_price: number;
+  isNotice: boolean | null;
+  isOpen: boolean | null;
+  type: ProductType;
+  startDate: any;
+  Dday: number;
+  author: bookingFindByInfo_BookingFindByInfo_data_product_author | null;
+}
+
+export interface bookingFindByInfo_BookingFindByInfo_data {
+  __typename: "Booking";
+  _id: string;
+  createdAt: any;
+  cancelDate: any | null;
+  gender: GENDER | null;
+  age: string | null;
+  payMethod: PayMethod;
+  updatedAt: any;
+  isDelete: boolean;
+  leftTime: number;
+  adultCount: number;
+  kidCount: number;
+  cancelMemo: string | null;
+  babyCount: number;
+  totalCount: number;
+  message: string | null;
+  isCancelRequest: boolean | null;
+  bookerInclue: boolean;
+  bookingPrice: number;
+  status: BookingStatus | null;
+  isMember: boolean | null;
+  memo: string | null;
+  code: string;
+  groupCode: string;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  /**
+   * 결제가 되었는지
+   */
+  isPaid: boolean | null;
+  payment: bookingFindByInfo_BookingFindByInfo_data_payment | null;
+  product: bookingFindByInfo_BookingFindByInfo_data_product;
+}
+
+export interface bookingFindByInfo_BookingFindByInfo {
+  __typename: "BookingFindByInfoResponse";
+  ok: boolean;
+  error: bookingFindByInfo_BookingFindByInfo_error | null;
+  data: bookingFindByInfo_BookingFindByInfo_data[] | null;
+}
+
+export interface bookingFindByInfo {
+  BookingFindByInfo: bookingFindByInfo_BookingFindByInfo;
+}
+
+export interface bookingFindByInfoVariables {
+  name: string;
+  phoneNumber: string;
+  verificationId: string;
 }
 
 /* tslint:disable */
@@ -1593,6 +1759,10 @@ export interface bookingFindByCode_BookingFindByCode_data_product_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -2438,6 +2608,10 @@ export interface eventFindById_EventFindById_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -2687,6 +2861,10 @@ export interface eventList_EventList_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -3892,6 +4070,10 @@ export interface newsFindById_NewsFindById_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -4142,6 +4324,10 @@ export interface newsList_NewsList_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -5134,6 +5320,10 @@ export interface portfolioFindById_PortfolioFindById_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -5378,6 +5568,10 @@ export interface portfolioList_PortfolioList_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -6235,6 +6429,10 @@ export interface productList_ProductList_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -6534,6 +6732,10 @@ export interface productFindById_ProductFindById_data_productReview_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -6705,6 +6907,10 @@ export interface productFindById_ProductFindById_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -6885,6 +7091,10 @@ export interface productFindById_ProductFindById_data_questions_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -7207,6 +7417,10 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -7376,6 +7590,10 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -7875,6 +8093,10 @@ export interface qnaFindById_QnaFindById_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -8131,6 +8353,10 @@ export interface qnaList_QnaList_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -8560,6 +8786,10 @@ export interface getContext_GetProfile_data {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -9055,6 +9285,10 @@ export interface questionList_QuestionList_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -9417,6 +9651,10 @@ export interface questionFindById_QuestionFindById_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -9652,6 +9890,10 @@ export interface productReviewFindById_ProductReviewFindById_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -9906,6 +10148,10 @@ export interface productreviewList_ProductReviewList_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -10333,6 +10579,10 @@ export interface settlementFindById_SettlementFindById_data_product_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -10698,6 +10948,10 @@ export interface settlementList_SettlementList_data_seller {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -10900,6 +11154,10 @@ export interface settlementList_SettlementList_data_product_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -11458,6 +11716,10 @@ export interface ticketFindById_TicketFindById_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -11741,6 +12003,10 @@ export interface ticketList_TicketList_data_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -12120,6 +12386,10 @@ export interface sellerListPublic_SellerListPublic_data {
    * 닉네임 유니크
    */
   nickName: string;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   productCount: number;
   bookingCount: number;
   /**
@@ -12190,6 +12460,10 @@ export interface randomSellerListPublic_RandomSellerListPublic_data {
    * 닉네임 유니크
    */
   nickName: string;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   productCount: number;
   bookingCount: number;
   /**
@@ -12733,6 +13007,10 @@ export interface userList_UserList_data {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -12993,6 +13271,10 @@ export interface sellerFindByKey_SellerFindByKeyPublic_data {
    * 닉네임 유니크
    */
   nickName: string;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   productCount: number;
   bookingCount: number;
   /**
@@ -13223,6 +13505,10 @@ export interface userFindById_UserFindById_data_products_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -13409,6 +13695,10 @@ export interface userFindById_UserFindById_data {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -13711,6 +14001,10 @@ export interface Fannounce_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -13947,6 +14241,10 @@ export interface Fevent_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -14150,6 +14448,10 @@ export interface FpublicSellerData {
    * 닉네임 유니크
    */
   nickName: string;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   productCount: number;
   bookingCount: number;
   /**
@@ -14527,6 +14829,10 @@ export interface Fuser {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -14977,6 +15283,10 @@ export interface Fnews_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -15343,6 +15653,10 @@ export interface Fportfolio_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -15516,6 +15830,10 @@ export interface Fqna_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -15741,6 +16059,10 @@ export interface Fquestion_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -15906,6 +16228,10 @@ export interface FproductReview_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -16171,6 +16497,10 @@ export interface Fticket_author {
   manageContact: string;
   resignDate: any | null;
   gender: GENDER;
+  /**
+   * 가이드 활동지역 리스트
+   */
+  regions: any[];
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -16987,6 +17317,7 @@ export enum _UserSort {
 }
 
 export interface AddUserInput {
+  regions?: any[] | null;
   lang?: Lang | null;
   guideLicenses?: FileCreateInput[] | null;
   nickName: string;
@@ -17028,6 +17359,7 @@ export interface AddtionalFeesUpdateInput {
 }
 
 export interface AnnounceCreateInput {
+  target: AnnounceTarget;
   title: string;
   contents?: string | null;
   isNotice?: boolean | null;
@@ -17041,6 +17373,7 @@ export interface AnnounceCreateInput {
 }
 
 export interface AnnounceUpdateInput {
+  target: AnnounceTarget;
   title?: string | null;
   contents?: string | null;
   isNotice?: boolean | null;
@@ -17576,6 +17909,13 @@ export interface ReviewAttributeInput {
   key: string;
 }
 
+export interface SNSlinksInput {
+  facebook?: string | null;
+  insta?: string | null;
+  blog?: string | null;
+  twitter?: string | null;
+}
+
 export interface SmsSendInput {
   title?: string | null;
   content: string;
@@ -17640,6 +17980,7 @@ export interface TravelerInput {
 }
 
 export interface UserUpdateInput {
+  regions?: any[] | null;
   lang?: Lang | null;
   guideLicenses?: FileCreateInput[] | null;
   busi_department?: string | null;
@@ -17673,6 +18014,7 @@ export interface UserUpdateInput {
   isVerifiedManager?: boolean | null;
   status?: UserStatus | null;
   keywards?: string[] | null;
+  SNSlink?: SNSlinksInput | null;
   guideLicense?: FileCreateInput | null;
 }
 
@@ -18328,6 +18670,9 @@ export interface _SellerFilter {
   isVerifiedManager_not_eq?: boolean | null;
   role_eq?: string | null;
   role_not_eq?: string | null;
+  regions_eq?: string | null;
+  regions_not_eq?: string | null;
+  regions_in?: string[] | null;
   is_froreginer_eq?: boolean | null;
   is_froreginer_not_eq?: boolean | null;
   gender_eq?: string | null;
@@ -18502,6 +18847,9 @@ export interface _UserFilter {
   isVerifiedManager_not_eq?: boolean | null;
   role_eq?: string | null;
   role_not_eq?: string | null;
+  regions_eq?: string | null;
+  regions_not_eq?: string | null;
+  regions_in?: string[] | null;
   is_froreginer_eq?: boolean | null;
   is_froreginer_not_eq?: boolean | null;
   gender_eq?: string | null;

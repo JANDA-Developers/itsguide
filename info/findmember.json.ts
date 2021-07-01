@@ -12,10 +12,10 @@ const findmember = {
         ch: "잇츠가이드의 멤버가 되어주세요.",
     },
     subTop_img: {
-        kr: "/its/su_visual_bg.jpg",
-        en: "/its/su_visual_bg.jpg",
-        jp: "/its/su_visual_bg.jpg",
-        ch: "/its/su_visual_bg.jpg",
+        kr: "/its/pr_img_06.jpg",
+        en: "/its/pr_img_06.jpg",
+        jp: "/its/pr_img_06.jpg",
+        ch: "/its/pr_img_06.jpg",
     },
 };
 

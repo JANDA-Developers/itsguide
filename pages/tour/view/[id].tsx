@@ -167,6 +167,7 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
     };
 
     const handleAddBracket = () => {
+        alert("장바구니에 추가 되었습니다.");
         addBracket();
     };
 
@@ -288,6 +289,9 @@ const TourDetail: React.FC<Ipage> = (pageInfo) => {
                                                         />
                                                     ) : (
                                                         <Video
+                                                            onPause={() => {
+                                                                stopAllVideo();
+                                                            }}
                                                             autoPlay
                                                             controls
                                                             src={img?.uri}

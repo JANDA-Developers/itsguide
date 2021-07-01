@@ -26,6 +26,7 @@ import { removeSpecialChar } from "../utils/formatter";
 import Link from "next/link";
 import { cn } from "../utils/findCatLocaleName";
 import { useRouter } from "next/router";
+import { ProfileListAPI } from "../components/common/ProfileListAPI";
 
 type TSearchParam = {
     authorNick?: string;
@@ -64,7 +65,7 @@ interface IProp {}
 export const getStaticProps = getStaticPageInfo("search");
 export const Search: React.FC<Ipage> = (_pageInfo) => {
     const { query } = useRouter();
-    const { locale } = useContext(AppContext);
+    const { locale, lang } = useContext(AppContext);
     const pageTools = usePageEdit(_pageInfo, pageInfoDefault);
     const all = getAllFromUrl<TSearchParam>();
     const { keyward, title, regionLabel, authorNick } = all;
@@ -77,7 +78,12 @@ export const Search: React.FC<Ipage> = (_pageInfo) => {
         },
     };
 
-    const productListHook = useProductList(initialFilter);
+    const productListHook = useProductList({
+        ...initialFilter,
+        fixingFilter: {
+            lang_eq: lang,
+        },
+    });
     const {
         items: products,
         setPage,
@@ -261,6 +267,11 @@ export const Search: React.FC<Ipage> = (_pageInfo) => {
                     </div>
                 </div>
                 <Change change={!getLoading}>
+                    {/* <ProfileListAPI variables={{
+                        filter: {
+                            
+                        }
+                    }} mode="short" /> */}
                     <div className="con_bottom">
                         {isEmpty(products) && (
                             <div className="alignment2">

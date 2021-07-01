@@ -139,77 +139,29 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                         </h2>
                     </div>
                     <ul>
-                        <li>
-                            <a
-                                href={tourSearchLink({
-                                    keyward: get("m_03_link01"),
-                                })}
-                                {...edit("m_03_link01")}
-                            />
-                        </li>
-                        <li>
-                            <a
-                                href={tourSearchLink({
-                                    keyward: get("m_03_link02"),
-                                })}
-                                {...edit("m_03_link02")}
-                            />
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link03")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link04")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link05")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link06")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link07")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link08")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link09")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link10")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link11")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link12")} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/tour">
-                                <a {...edit("m_03_link13")} />
-                            </Link>
-                        </li>
+                        {Array(13)
+                            .fill(null)
+                            .map((_, index) => {
+                                const num = index + 1;
+
+                                let keyBase = "m_03_link";
+
+                                if (num < 10) {
+                                    keyBase += "0";
+                                }
+                                const key = (keyBase + num) as any;
+                                return (
+                                    <li key={index + "keyward"}>
+                                        <Link
+                                            href={tourSearchLink({
+                                                keyward: get(key),
+                                            })}
+                                        >
+                                            <a {...edit(key)} />
+                                        </Link>
+                                    </li>
+                                );
+                            })}
                     </ul>
                 </div>
             </div>

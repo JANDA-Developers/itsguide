@@ -24,13 +24,8 @@ export const ReservationTable: React.FC<IReservationTableProp> = ({
         openBookingModal,
         handleHandWriteModal,
     } = handlers;
-    const {
-        isAllSelected,
-        selectAll,
-        toggle,
-        toggleAll,
-        isChecked,
-    } = idSelectHook;
+    const { isAllSelected, selectAll, toggle, toggleAll, isChecked } =
+        idSelectHook;
     const { items, pageInfo, setPage } = bookingListHook;
 
     return (
@@ -40,7 +35,7 @@ export const ReservationTable: React.FC<IReservationTableProp> = ({
                     <span className="checkbox">
                         <input
                             checked={isAllSelected}
-                            onClick={selectAll}
+                            onClick={toggleAll}
                             type="checkbox"
                             name="agree"
                             id="agree0"
@@ -60,7 +55,9 @@ export const ReservationTable: React.FC<IReservationTableProp> = ({
                 <div key={item._id} className="tbody">
                     <div className="t01">
                         <span
-                            onClick={() => {
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
                                 toggle(item._id);
                             }}
                             className="checkbox"
@@ -176,20 +173,6 @@ export const ReservationTable: React.FC<IReservationTableProp> = ({
                 </div>
             ))}
             <Paginater pageInfo={pageInfo} setPage={setPage} />
-            <div className="fin ifMobile">
-                <div className="float_left">
-                    <button
-                        onClick={selectAll}
-                        type="submit"
-                        className="btn medium"
-                    >
-                        전체선택
-                    </button>
-                </div>
-                <div className="float_right">
-                    {/* <button onClick={handlePaymentConfirm} type="submit" className="btn medium">입금확인</button> */}
-                </div>
-            </div>
         </div>
     );
 };

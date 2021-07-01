@@ -539,3 +539,19 @@ figcaption.ck-editor__editable {
     top: 0;
     transform: translateY(50%);
 }
+
+.btn:disabled {
+    pointer-events: none;
+    background-color: #f0f0f0;
+}
+
+div.popup_bg_mini .input {
+    background-color: #ffffff;
+    border: #e3e3e3 1px solid;
+    height: 33px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-radius: 3px;
+    font-weight: 100;
+  }

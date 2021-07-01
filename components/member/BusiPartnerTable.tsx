@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import {
-    foreginKR,
     genderToKR,
     langToKr,
     userStatusKR,
     withNick,
 } from "../../utils/enumToKr";
-import { autoComma, autoHypenPhone } from "../../utils/formatter";
-import { closeModal, openModal } from "../../utils/popUp";
+import { autoHypenPhone } from "../../utils/formatter";
 import { yyyymmdd } from "../../utils/yyyymmdd";
 import { Paginater } from "../common/Paginator";
-import { Prompt } from "../promptModal/Prompt";
 import { IMemberTableProp } from "./MemberMaster";
 
 export const BusiPartnerTable: React.FC<IMemberTableProp> = ({

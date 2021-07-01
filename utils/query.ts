@@ -167,12 +167,12 @@ export const generateQueryHook = <Q, R, V = undefined>(
     QUERY: DocumentNode,
     { skipInit, ...initOptions }: genrateOption<Q, V> | undefined = {}
 ) => {
-    const queryHook = (defaultOptions?: QueryHookOptions<Q, V>) => {
+    const queryHook = (defaultOptions?: genrateOption<Q, V>) => {
         const [
             getData,
             { data: _data, error, loading: getLoading, ...context },
         ] = useLazyQuery<Q, V>(QUERY, {
-            nextFetchPolicy: "network-only",
+            nextFetchPolicy: "cache-and-network",
             ...initOptions,
             ...defaultOptions,
         });
@@ -190,7 +190,7 @@ export const generateQueryHook = <Q, R, V = undefined>(
         }, [_data]);
 
         useEffect(() => {
-            if (!skipInit) getData();
+            if (!defaultOptions?.skipInit && !skipInit) getData();
         }, []);
 
         pageLoadingEffect(getLoading, operationName);

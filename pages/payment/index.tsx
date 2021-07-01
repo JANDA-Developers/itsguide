@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Basket } from "../../components/basket/Basket";
 import { getAuth } from "../../components/nice/getAuth";
 import NiceElments from "../../components/nice/NiceElement";
@@ -11,26 +11,29 @@ import {
 } from "../../components/payment/JDpaymentUI";
 import { IUseBasket, useBasket } from "../../hook/useBasket";
 import { useBookingFindByCode, useBookingsCreate } from "../../hook/useBooking";
+import { usePageEdit } from "../../hook/usePageEdit";
 import PaymentLayout from "../../layout/PaymentLayout";
 import {
-    bookingFindByCode_BookingFindByCode_data,
     BookingsCreateInput,
     bookingsCreate_BookingsCreate_data,
-    Fbooking,
     Fproduct,
     PayMethod,
 } from "../../types/api";
+import { getStaticPageInfo, Ipage } from "../../utils/page";
 import { IBasketItem, removeItem } from "../../utils/Storage";
 import { getFromUrl } from "../../utils/url";
+import defaultPageInfo from "../../info/payment.json";
+import { PageEditor } from "../../components/common/PageEditer";
 
 interface IcustomParams {
     groupCode: string;
     redirectUrl: string;
     failRedirectUrl: string;
 }
-interface IProp {}
 
-export const Payment: React.FC<IProp> = ({}) => {
+export const getStaticProps = getStaticPageInfo("payment");
+export const Payment: React.FC<Ipage> = (pageInfo) => {
+    const pageTools = usePageEdit(pageInfo, defaultPageInfo);
     const urlBKcode = getFromUrl("code") || "";
     const [authData, setAuthData] = useState<IAuthInfo>();
     const [createdBookings, setCreatedBookings] = useState<
@@ -141,6 +144,7 @@ export const Payment: React.FC<IProp> = ({}) => {
 
     return (
         <PaymentLayout>
+            <PageEditor pageTools={pageTools} />
             <NiceElments
                 ReqReserved={encodeURIComponent(
                     JSON.stringify(customParams || {})
@@ -152,6 +156,7 @@ export const Payment: React.FC<IProp> = ({}) => {
                 })}
             />
             <JDpaymentUI
+                pageTools={pageTools}
                 onDoPay={handleBooking}
                 booking={findBooking}
                 Preview={

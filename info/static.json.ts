@@ -181,6 +181,18 @@ const header = {
         ja: `復習`,
         chi: `检讨`,
     },
+    auth: {
+        ko: "인증하기",
+        en: `Authenticate`,
+        ja: `認証`,
+        chi: `认证`,
+    },
+    search: {
+        ko: "검색하기",
+        en: `Search`,
+        ja: `検索`,
+        chi: `搜索`,
+    },
     fall_review: {
         ko: "리뷰 쓰러가기",
         en: `Fall Review`,
@@ -466,7 +478,12 @@ const footer = {
         ja: "件",
         chi: "件",
     },
-
+    productSatus: {
+        ko: "상품상태",
+        en: "Product Status",
+        ja: "상품상태",
+        chi: "상품상태",
+    },
     noProductData: {
         ko: "아직 등록한 상품이 없습니다.",
         en: "No Regiseted Product yet",
@@ -551,6 +568,12 @@ const footer = {
         ja: "マスター",
         chi: "大师",
     },
+    anonyFindBooking: {
+        ko: "예약조회",
+        en: "reservation",
+        ja: "予約照会",
+        chi: "预订查询",
+    },
 };
 
 const utils_message = {
@@ -565,6 +588,18 @@ const utils_message = {
         en: `The reservation period has passed.`,
         ja: `予約可能期間が過ぎました。`,
         chi: `可预约时间已过。`,
+    },
+    accountHolder: {
+        ko: "예금주",
+        en: `Account Holder`,
+        ja: `預金`,
+        chi: `账户持有人`,
+    },
+    bankName: {
+        ko: "은행명",
+        en: `Bank Name`,
+        ja: `銀行名`,
+        chi: `银行名称`,
     },
     unOpend: {
         ko: "비공개",
@@ -848,6 +883,96 @@ const utils_message = {
         en: `view count`,
         ja: `ヒット`,
         chi: `意见`,
+    },
+    payAmount: {
+        ko: "결제금액",
+        en: `Pay Amount`,
+        ja: `決済金額`,
+        chi: `支付金额`,
+    },
+    payMethod: {
+        ko: "결제수단",
+        en: `Pay Amount`,
+        ja: `決済手段`,
+        chi: `付款方式`,
+    },
+    cardPay: {
+        ko: "카드결제",
+        en: `Card Pay`,
+        ja: `カード決済`,
+        chi: `支付信用卡`,
+    },
+    bankPay: {
+        ko: "무통장입금",
+        en: `Bank Send`,
+        ja: `銀行振込`,
+        chi: `银行转帐`,
+    },
+    payDate: {
+        ko: "결제일",
+        en: `Pay Date`,
+        ja: `決済`,
+        chi: `付款日期`,
+    },
+    senderName: {
+        ko: "입금자명",
+        en: `Sender Name`,
+        ja: `入金人`,
+        chi: `存款人姓名`,
+    },
+    refundMethod: {
+        ko: "환불방법",
+        en: `Refund Method`,
+        ja: `払い戻し方法`,
+        chi: `退款方式`,
+    },
+    RefundToYourAccount: {
+        ko: "환불방법",
+        en: `Refund to your account`,
+        ja: `払い戻し方法`,
+        chi: `退款方式`,
+    },
+    targetBank: {
+        ko: "입금은행",
+        en: `Deposit Bank`,
+        ja: `入金銀行`,
+        chi: `存款银行`,
+    },
+    senderInfo: {
+        ko: "입금자 정보",
+        en: `Depositor information`,
+        ja: `入金情報`,
+        chi: `存款人信息`,
+    },
+    viewProd: {
+        ko: "상품보기",
+        en: `View Product`,
+        ja: `商品を見る`,
+        chi: `查看产品`,
+    },
+    name: {
+        ko: "이름",
+        en: `Name`,
+        ja: `名前`,
+        chi: `名称`,
+    },
+    contact: {
+        ko: "연락처",
+        en: `conatact`,
+        ja: `連絡先`,
+        chi: `接触`,
+    },
+    buyerNameRequired: {
+        ko: "구매자 이름은 필수 입니다",
+        en: `Buyer name is required`,
+        ja: `バイヤーの名前は必須です`,
+        chi: `买家姓名为必填项`,
+    },
+    buyerContactRequired: {
+        ko: "구매자 연락처는 필수 입니다.",
+        en: `Buyer contact information is required.`,
+        ja: `バイヤー連絡先は必須です。`,
+        chi: `需要买家联系信息。`,
     },
 };
 

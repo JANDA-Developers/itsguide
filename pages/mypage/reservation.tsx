@@ -296,7 +296,7 @@ export const MyReservation: React.FC<IProp> = () => {
                                             <div className="t01">
                                                 <span
                                                     onClick={() => {
-                                                        check(item._id);
+                                                        toggle(item._id);
                                                     }}
                                                     className="checkbox"
                                                 >
