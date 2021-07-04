@@ -478,6 +478,12 @@ const footer = {
         ja: "件",
         chi: "件",
     },
+    payStatus: {
+        ko: "결제상태",
+        en: "Payment Status",
+        ja: "決済の状態",
+        chi: "支付状态",
+    },
     productSatus: {
         ko: "상품상태",
         en: "Product Status",
@@ -908,6 +914,12 @@ const utils_message = {
         ja: `銀行振込`,
         chi: `银行转帐`,
     },
+    bankPayAmt: {
+        ko: "입금예정금액",
+        en: `Deposit Amount`,
+        ja: `入金予定金額`,
+        chi: `存款金额`,
+    },
     payDate: {
         ko: "결제일",
         en: `Pay Date`,
@@ -973,6 +985,48 @@ const utils_message = {
         en: `Buyer contact information is required.`,
         ja: `バイヤー連絡先は必須です。`,
         chi: `需要买家联系信息。`,
+    },
+    paymentCompleteTop: {
+        ko: "예약이 완료 되었습니다.",
+        en: `Reservation is complete.`,
+        ja: `予約が完了しました。`,
+        chi: `预订完成。`,
+    },
+    ReservationNumber: {
+        ko: "예약번호",
+        en: `Reservation Number`,
+        ja: `予約が完了しました。`,
+        chi: `预订完成。`,
+    },
+    reservationProductName: {
+        ko: "예약 상품명",
+        en: `Product Name`,
+        ja: `商品名`,
+        chi: `产品名称`,
+    },
+    goToHome: {
+        ko: "홈으로",
+        en: `To Home`,
+        ja: `To Home`,
+        chi: `To Home`,
+    },
+    bankExpireMessage: {
+        ko: "무통장 입금은 24시간 이내에 입금하지 않으시면 예약이 자동취소 됩니다.",
+        en: `If the deposit is not made within 24 hours, the reservation will be automatically canceled.`,
+        ja: `振込みは、24時間以内にご入金していアンウシミョン予約が自動的にキャンセルされます。`,
+        chi: `如果未在 24 小时内支付押金，预订将自动取消。`,
+    },
+    checkMyResv: {
+        ko: "예약내역 확인하기",
+        en: `Check your reservation details`,
+        ja: `予約内容を確認する`,
+        chi: `检查您的预订详情`,
+    },
+    resvWillCompleteIf: {
+        ko: "입금을 해주시면 예약이 완료됩니다.",
+        en: `Reservation is complete upon payment.`,
+        ja: `入金をしていただければ予約が完了します。`,
+        chi: `付款后预订完成。`,
     },
 };
 

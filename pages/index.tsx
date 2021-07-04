@@ -104,7 +104,7 @@ export const Main: React.FC<Ipage> = (pageInfo) => {
                         >
                             <div className="w1200">
                                 <strong {...edit("m_01_title2")} />
-                                <span {...edit("m_01_subtitle2")}></span>
+                                <span {...edit("m_01_subtitle2")}/>
                                 <div className="btn_list">
                                     <Link href="/member/join">
                                         <a

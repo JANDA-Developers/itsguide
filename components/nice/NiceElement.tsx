@@ -1,19 +1,12 @@
-import { from } from "@apollo/client";
 import Head from "next/head";
-import Link from "next/link";
 import React, { useEffect, useLayoutEffect } from "react";
 
 export interface INiceElementProp {
-    // CARD
     PayMethod: "CARD" | "BANK" | "VBANK" | "CELLPHONE";
-    // 아무거나써도 들어감
     GoodsName: string;
-    // 가격
     Amt: string;
-    // stayjanda1m
     MID: string;
     Moid: string;
-    //인증정보
     hex: string;
     BuyerName: string;
     BuyerEmail: string;
@@ -23,22 +16,15 @@ export interface INiceElementProp {
     // yyyymmdd
     VbankExpDate?: string;
     // 이것도 백엔드님한테서 받아야할듯 아니면 뭐 내가해도되고
-    // 모바일 클라이언트 URL
     IspCancelUrl?: string;
-    // 모바일  클라이언트 URL
     WapUrl: string;
-    // 필요없음
     sid?: string;
     // jdReturnUrl: string;
     logo?: string;
-    // true
     isAuth: boolean;
-    // 인증 정보중 일환
     // yyyymmddhhmmss
     EdiDate: string;
-    // 서버 ?
     endPoint: string;
-    // 커스텀 전달 사항
     ReqReserved?: string;
 }
 
@@ -64,6 +50,10 @@ const NiceElments: React.FC<INiceElementProp> = ({
     endPoint,
     ReqReserved,
 }) => {
+    useEffect(() => {
+        import("./niceGlobal");
+    }, []);
+
     return (
         <div
             style={{
@@ -137,54 +127,54 @@ const NiceElments: React.FC<INiceElementProp> = ({
                     name="CharSet"
                     onChange={() => {}}
                     value="utf-8"
-                />
+                />{" "}
                 <input
                     type="hidden"
                     name="BuyerEmail"
                     onChange={() => {}}
                     defaultValue={BuyerEmail}
-                />
+                />{" "}
                 <input
                     type="hidden"
                     name="GoodsCl"
                     onChange={() => {}}
                     defaultValue={1}
-                />
+                />{" "}
                 <input
                     type="hidden"
                     name="TransType"
                     onChange={() => {}}
                     defaultValue={0}
-                />
+                />{" "}
                 <input
                     type="hidden"
                     name="EdiDate"
                     onChange={() => {}}
                     value={EdiDate}
-                />
+                />{" "}
                 <input
                     type="hidden"
                     name="SignData"
                     onChange={() => {}}
                     value={hex}
-                />
+                />{" "}
                 <input
                     type="hidden"
                     name="GoodsCl"
                     onChange={() => {}}
                     value={hex}
-                />
+                />{" "}
                 <input
                     type="hidden"
                     name="IspCancelUrl"
                     onChange={() => {}}
                     value={IspCancelUrl}
-                />
+                />{" "}
                 <input
                     id="ReqReserved"
                     name="ReqReserved"
                     value={ReqReserved}
-                />
+                />{" "}
                 <input name="ReturnURL" onChange={() => {}} value={ReturnURL} />
                 <input
                     type="hidden"
@@ -204,11 +194,9 @@ const NiceElments: React.FC<INiceElementProp> = ({
                     onChange={() => {}}
                     value="KO"
                 />
-                <Link href="#">
-                    <a className="btn_blue" onClick={() => {}}>
-                        REQUEST
-                    </a>
-                </Link>
+                <a href="#" className="btn_blue" onClick={() => {}}>
+                    REQUEST
+                </a>
             </form>
         </div>
     );

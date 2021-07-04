@@ -241,6 +241,7 @@ export const BookingModal: React.FC<IProp> = ({
     const isCancelReq = booking?.isCancelRequest;
     const isCardBooking = booking?.payMethod === PayMethod.NICEPAY_CARD;
 
+
     // 취소는 마스터만 가능!
     // 취소 요청이 가능한가:: COMPLETE 상태일때 아마도 해당 판매자 이거나 본인일때 가능할 것 같다.
     const cancelReqAB =
@@ -922,3 +923,4 @@ export const BookingModal: React.FC<IProp> = ({
         </div>
     );
 };
+

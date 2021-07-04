@@ -115,7 +115,7 @@ export const generateListQueryHook = <F, S, Q, V, R>(
         const { integratedVariable, ...params } = useListQuery(initialData);
         const [getData, { data, loading: getLoading, ...queryElse }] =
             useLazyQuery<Q, V>(QUERY, {
-                fetchPolicy: "cache-and-network",
+                fetchPolicy: "no-cache",
                 // @ts-ignore
                 variables: {
                     ...integratedVariable,

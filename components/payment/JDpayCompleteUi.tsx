@@ -1,8 +1,9 @@
 import dayjs from "dayjs";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useBookingList } from "../../hook/useBooking";
 import { useHomepage } from "../../hook/useHomepage";
+import { usePageInfo, usePageInfoRead } from "../../hook/usePageInfo";
 import PaymentLayout from "../../layout/PaymentLayout";
 import PageLoading from "../../pages/Loading";
 import { AppContext } from "../../pages/_app";
@@ -13,22 +14,33 @@ import {
     payMethodToKR,
 } from "../../utils/enumToKr";
 import { autoComma, card_hypen } from "../../utils/formatter";
+import { removeItem } from "../../utils/Storage";
 import { getFromUrl } from "../../utils/url";
-import { yyyymmddHHmm } from "../../utils/yyyymmdd";
+import { yyyymmdd, yyyymmddHHmm } from "../../utils/yyyymmdd";
 
 interface IProp {}
 
 export const JDpayCompleteUI: React.FC<IProp> = () => {
     const { data: item } = useHomepage();
-    const { isLogin } = useContext(AppContext);
+    const { isLogin, ln } = useContext(AppContext);
     const groupCode = getFromUrl("groupCode");
+    const result = usePageInfoRead("payment");
     const { items, getLoading } = useBookingList({
         initialFilter: {
             groupCode_eq: groupCode,
         },
     });
 
+    const targetBank = result?.data?.PageInfoRead?.data?.value?.targetBank;
+
     const isBank = items[0]?.payMethod === PayMethod.BANK;
+
+    useEffect(() => {
+        //todo sucess callback 일때만 지우자...;
+        items.forEach((item) => {
+            removeItem(item._id);
+        });
+    }, [items.length]);
 
     const bankInfo: homepage_Homepage_data_bankInfo | undefined =
         item?.bankInfo || undefined;
@@ -38,13 +50,27 @@ export const JDpayCompleteUI: React.FC<IProp> = () => {
         <PaymentLayout>
             <div className="payment_box">
                 <div className="head">
-                    <h2>
-                        <i>예약</i>이 완료되었습니다.
+                    <h2 className="endtxt">
+                        {!isBank && (
+                            <span
+                                style={{
+                                    color: "#2196F3",
+                                }}
+                                className="subtxt"
+                            >
+                                {ln("paymentCompleteTop")}
+                            </span>
+                        )}
+                        {isBank && (
+                            <span className="subtxt">
+                                {ln("resvWillCompleteIf")}
+                            </span>
+                        )}
                     </h2>
                 </div>
                 {items.map((booking) => (
                     <div key={booking._id} className="table">
-                        <div className="payment_tr">
+                        {/* <div className="payment_tr">
                             <div className="payment_th">예약상품</div>
                             <div className="payment_td">
                                 <span style={{ marginRight: "5px" }}>
@@ -52,75 +78,104 @@ export const JDpayCompleteUI: React.FC<IProp> = () => {
                                 </span>
                                 <span>({booking.product.code})</span>
                             </div>
+                        </div> */}
+                        <div className="payment_tr">
+                            <div className="payment_th">
+                                {ln("ReservationNumber")}
+                            </div>
+                            <div className="payment_td pink_font">
+                                {booking.code}
+                            </div>
                         </div>
                         <div className="payment_tr">
-                            <div className="payment_th">예약번호</div>
-                            <div className="payment_td">{booking.code}</div>
+                            <div className="payment_th">
+                                {ln("reservationProductName")}
+                            </div>
+                            <div className="payment_td">
+                                {booking.product.title}
+                            </div>
                         </div>
                         <div className="payment_tr">
-                            <div className="payment_th">결제상태</div>
+                            <div className="payment_th">
+                                {ln("departuredate")}
+                            </div>
+                            <div className="payment_td">
+                                {yyyymmdd(booking.product.startDate)}
+                            </div>
+                        </div>
+                        <div className="payment_tr">
+                            <div className="payment_th">
+                                {ln("select_people")}
+                            </div>
+                            <div className="payment_td">
+                                {`${ln("adult")}${booking.adultCount}/${ln(
+                                    "kid"
+                                )}${booking.kidCount}/${ln("baby")}${
+                                    booking.babyCount
+                                }`}
+                            </div>
+                        </div>
+                        <div className="payment_tr">
+                            <div className="payment_th">{ln("payStatus")}</div>
                             <div className="payment_td">
                                 {paymentStatus2(booking.payment)}
                             </div>
                         </div>
-
+                        {!isBank && (
+                            <div className="payment_tr">
+                                <div className="payment_th">
+                                    {ln("payAmount")}
+                                </div>
+                                <div className="payment_td">
+                                    <strong>
+                                        {autoComma(booking.bookingPrice || 0)}
+                                        {ln("won")}
+                                    </strong>
+                                </div>
+                            </div>
+                        )}
                         <div className="payment_tr">
-                            <div className="payment_th">결제수단</div>
+                            <div className="payment_th">{ln("payMethod")}</div>
                             <div className="payment_td">
                                 <span>{payMethodToKR(booking.payMethod)}</span>
                             </div>
                         </div>
-
-                        {booking.payment && (
-                            <div className="payment_tr">
-                                <div className="payment_th">결제코드</div>
-                                <div className="payment_td">
-                                    <span>{booking.payment.groupCode}</span>
-                                </div>
-                            </div>
-                        )}
-
-                        <div className="payment_tr">
-                            <div className="payment_th">결제금액</div>
-                            <div className="payment_td">
-                                <strong>
-                                    {autoComma(booking.bookingPrice || 0)}원
-                                </strong>
-                            </div>
-                        </div>
                         {isBank && (
                             <div className="payment_tr">
-                                <div className="payment_th">입금은행</div>
-                                <div className="payment_td">
-                                    <span className="mr5">
-                                        {bankInfo?.bankName}
-                                    </span>
-                                    <span className="mr15">
-                                        {bankInfo?.accountNumber}
-                                    </span>
-                                    <span>
-                                        예금주:
-                                        {bankInfo?.accountHolder}
-                                    </span>
+                                <div className="payment_th">
+                                    {ln("targetBank")}
                                 </div>
+                                <div className="payment_td">{targetBank}</div>
                             </div>
                         )}
                         {isBank && (
                             <p className="info__txt gray">
-                                <i className="jandaicon-info2 mini"></i> 무통장
-                                입금은 24시간 이내에 입금하지 않으시면 예약이
-                                자동취소 됩니다.
+                                <i className="jandaicon-info2 mini"></i>
+                                {ln("bankExpireMessage")};
                             </p>
+                        )}
+                        {isBank && (
+                            <div className="payment_tr">
+                                <div className="payment_th">
+                                    {ln("bankPayAmt")}
+                                </div>
+                                <div className="payment_td">
+                                    <strong>
+                                        {autoComma(booking.bookingPrice || 0)}{" "}
+                                        {ln("won")}
+                                    </strong>
+                                </div>
+                            </div>
                         )}
                     </div>
                 ))}
                 <div className="btn_box">
-                    {isLogin && (
-                        <Link href="/mypage/purchase">
-                            <a className="btn">구매내역 확인하기</a>
-                        </Link>
-                    )}
-                    <a className="btn">홈으로</a>
+                    <Link href="/">
+                        <a className="btn">{ln("goToHome")}</a>
+                    </Link>
+                    <Link href="/service/anonyMemberFindBook">
+                        <a className="btn pink_font">{ln("checkMyResv")}</a>
+                    </Link>
                 </div>
             </div>
         </PaymentLayout>

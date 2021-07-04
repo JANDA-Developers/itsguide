@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { Basket } from "../../components/basket/Basket";
 import { getAuth } from "../../components/nice/getAuth";
 import NiceElments from "../../components/nice/NiceElement";
@@ -11,30 +11,33 @@ import {
 } from "../../components/payment/JDpaymentUI";
 import { IUseBasket, useBasket } from "../../hook/useBasket";
 import { useBookingFindByCode, useBookingsCreate } from "../../hook/useBooking";
-import { usePageEdit } from "../../hook/usePageEdit";
 import PaymentLayout from "../../layout/PaymentLayout";
 import {
+    bookingFindByCode_BookingFindByCode_data,
     BookingsCreateInput,
     bookingsCreate_BookingsCreate_data,
+    Fbooking,
     Fproduct,
     PayMethod,
 } from "../../types/api";
-import { getStaticPageInfo, Ipage } from "../../utils/page";
 import { IBasketItem, removeItem } from "../../utils/Storage";
 import { getFromUrl } from "../../utils/url";
 import defaultPageInfo from "../../info/payment.json";
-import { PageEditor } from "../../components/common/PageEditer";
+import { getStaticPageInfo, Ipage } from "../../utils/page";
+import { usePageEdit } from "../../hook/usePageEdit";
 
 interface IcustomParams {
     groupCode: string;
     redirectUrl: string;
     failRedirectUrl: string;
 }
+interface IProp {}
 
 export const getStaticProps = getStaticPageInfo("payment");
 export const Payment: React.FC<Ipage> = (pageInfo) => {
     const pageTools = usePageEdit(pageInfo, defaultPageInfo);
     const urlBKcode = getFromUrl("code") || "";
+    const pid = getFromUrl("pid");
     const [authData, setAuthData] = useState<IAuthInfo>();
     const [createdBookings, setCreatedBookings] = useState<
         bookingsCreate_BookingsCreate_data[]
@@ -50,7 +53,6 @@ export const Payment: React.FC<Ipage> = (pageInfo) => {
         getLoading,
     }: IUseBasket = useBasket();
     const router = useRouter();
-
     const items = singleOrder
         ? [_items.find((item) => item._id === singleOrder)!]
         : _items;
@@ -79,7 +81,10 @@ export const Payment: React.FC<Ipage> = (pageInfo) => {
                 const bks = result.data.BookingsCreate.data || [];
                 const groupCode = bks[0]?.groupCode;
 
-                const redirectPath = "/payment/complete?groupCode=" + groupCode;
+                const encbksParam =
+                    "&encbks=" + encodeURIComponent(JSON.stringify(bks));
+                const redirectPath =
+                    "/payment/complete?groupCode=" + groupCode + encbksParam;
                 const redirectUrl =
                     process.env.NEXT_PUBLIC_CLIENT_DOMAIN + redirectPath;
                 const failRedirectUrl =
@@ -90,12 +95,7 @@ export const Payment: React.FC<Ipage> = (pageInfo) => {
                     redirectUrl,
                     failRedirectUrl,
                 };
-
-                setTimeout(() => {
-                    items.forEach((item) => {
-                        removeItem(item._id);
-                    });
-                }, 10000);
+                window.jdPayCallBackSucess = () => {};
 
                 setCreatedBookings(bks);
                 setCustomParams(customParams);
@@ -104,11 +104,20 @@ export const Payment: React.FC<Ipage> = (pageInfo) => {
                 } else {
                     router.push(redirectPath);
                 }
+            } else {
+                const err = result.data?.BookingsCreate.error;
+                if (err?.code === "BOOKING_MEMBER_OVER") {
+                    alert("[마감] 예약 가능인원이 초과하였습니다.");
+                }
             }
         });
     };
     const openNCmodal = () => {
-        if (window.jdPayStart) window.jdPayStart();
+        alert("openNCModal");
+        if (window.jdPayStart) {
+            alert("---in");
+            window.jdPayStart();
+        }
     };
 
     //부킹후에 나이스 인증모달 인증 셋팅후 인증모달 트리거.
@@ -144,7 +153,6 @@ export const Payment: React.FC<Ipage> = (pageInfo) => {
 
     return (
         <PaymentLayout>
-            <PageEditor pageTools={pageTools} />
             <NiceElments
                 ReqReserved={encodeURIComponent(
                     JSON.stringify(customParams || {})
@@ -163,12 +171,14 @@ export const Payment: React.FC<Ipage> = (pageInfo) => {
                     getLoading ? (
                         <div />
                     ) : (
-                        <Basket
-                            mode="single"
-                            handleSingleOrder={handleSingleOrder}
-                            updateComponent={updateComponent}
-                            items={items}
-                        />
+                        <div>
+                            <Basket
+                                mode="single"
+                                handleSingleOrder={handleSingleOrder}
+                                updateComponent={updateComponent}
+                                items={items}
+                            />
+                        </div>
                     )
                 }
             />
