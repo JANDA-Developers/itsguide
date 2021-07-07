@@ -113,9 +113,7 @@ export const Payment: React.FC<Ipage> = (pageInfo) => {
         });
     };
     const openNCmodal = () => {
-        alert("openNCModal");
         if (window.jdPayStart) {
-            alert("---in");
             window.jdPayStart();
         }
     };
