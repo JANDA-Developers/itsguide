@@ -186,7 +186,7 @@ const NiceElments: React.FC<INiceElementProp> = ({
                     type="text"
                     name="LogoImage"
                     onChange={() => {}}
-                    value={logo}
+                    value={"https://www.itsguide.co.kr/its/logo_1.png"}
                 ></input>
                 <input
                     type="hidden"
