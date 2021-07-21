@@ -65,6 +65,7 @@ interface IProp {}
 
 export const getStaticProps = getStaticPageInfo("search");
 export const GuideSearch: React.FC<Ipage> = (_pageInfo) => {
+    if (typeof window === "undefined") return null;
     const pageTools = usePageEdit(_pageInfo, pageInfoDefault);
     const all = getAllFromUrl<TSearchParam>();
     const { keyward, name } = all;

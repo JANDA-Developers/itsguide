@@ -15,6 +15,7 @@ import { staticInfo } from "../../info/static.json";
 
 export const getStaticProps = getStaticPageInfo("login");
 export const Login: React.FC<Ipage> = (pageInfo) => {
+    if (typeof window === "undefined") return null;
     const [saveId, setSaveId] = useState(false);
     const [saveSession, setSaveSession] = useState(false);
     const [userId, setId] = useState("");
