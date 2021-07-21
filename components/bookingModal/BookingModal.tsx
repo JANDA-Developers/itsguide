@@ -10,19 +10,12 @@ import { IUseModal } from "../../hook/useModal";
 import { useBankDepositConfirm, useBankRefund } from "../../hook/usePayment";
 import { useCopy } from "../../hook/useUpdate";
 import { AppContext } from "../../pages/_app";
-import {
-    BookingStatus,
-    GENDER,
-    PaymentStatus,
-    PayMethod,
-    ProductStatus,
-} from "../../types/api";
+import { BookingStatus, GENDER, PayMethod } from "../../types/api";
 import {
     bankrefundTransInfo,
     determinedKr,
     genderToKR,
     paymentStatus,
-    paymentStatus2,
     payMethodToKR,
     peopleCurrentCountBracket,
     personCountBracket,
@@ -240,7 +233,6 @@ export const BookingModal: React.FC<IProp> = ({
     const isCanceled = booking.status === BookingStatus.CANCEL;
     const isCancelReq = booking?.isCancelRequest;
     const isCardBooking = booking?.payMethod === PayMethod.NICEPAY_CARD;
-
 
     // 취소는 마스터만 가능!
     // 취소 요청이 가능한가:: COMPLETE 상태일때 아마도 해당 판매자 이거나 본인일때 가능할 것 같다.
@@ -566,6 +558,7 @@ export const BookingModal: React.FC<IProp> = ({
                                             </span>
                                         </div>
                                     </div>
+
                                     {booking.bankTransInfo && (
                                         <div className="tr">
                                             <div className="th01">입금자</div>
@@ -743,8 +736,7 @@ export const BookingModal: React.FC<IProp> = ({
                                                                     __typename:
                                                                         "Traveler",
                                                                     age: "",
-                                                                    gender:
-                                                                        GENDER.FEMALE,
+                                                                    gender: GENDER.FEMALE,
                                                                     name: "",
                                                                     phoneNumber:
                                                                         "",
@@ -923,4 +915,3 @@ export const BookingModal: React.FC<IProp> = ({
         </div>
     );
 };
-

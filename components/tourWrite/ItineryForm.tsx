@@ -124,14 +124,6 @@ export const ItineryForm: React.FC<IProp> = ({
                             일정추가
                         </button>
                     )}
-                    <p className="input_form info_txt gray_font mb20">
-                        <i className="jandaicon-info2 mini" />{" "}
-                        타임라인(스케줄)은 시간 단위로 입력하셔야 합니다. 시간
-                        단위로 입력을 하시고 "일정추가"를 클릭하셔서 다음
-                        시간대의 일정을 입력해주세요.(스케줄 외의 내용은
-                        2.안내및참고에 게시하기) <br /> 사진은 너무 큰 것은 넣지
-                        마세요. 작게 줄이거나 포토샵을 하셔서 합쳐서 올려주세요.
-                    </p>
                 </div>
             ))}
             <div>

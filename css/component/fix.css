@@ -516,6 +516,7 @@ background-color: #fff;
 }
 .tour_details_in .Read_box .details_photo .photo_list li {
     height: 60px;
+    max-width: 110px;
 }
 .tour_details_in .Read_box .details_photo .main_photo div {
     height: 100%;

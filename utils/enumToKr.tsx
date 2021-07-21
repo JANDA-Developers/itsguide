@@ -125,6 +125,7 @@ export const payMethodToKR = (paymethod?: PayMethod) => {
     if (paymethod === PayMethod.BANK) return "무통장입금";
     if (paymethod === PayMethod.HAND) return "수기등록(무통장)";
     if (paymethod === PayMethod.NICEPAY_CARD) return "카드결제";
+    if (paymethod === PayMethod.PAYPAL) return "페이팔";
     return "";
 };
 

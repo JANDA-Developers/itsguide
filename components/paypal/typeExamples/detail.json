@@ -1,0 +1,83 @@
+{
+    "details": {
+        "id": "4BD88893W0788172V",
+        "intent": "CAPTURE",
+        "status": "COMPLETED",
+        "purchase_units": [
+            {
+                "reference_id": "default",
+                "amount": {
+                    "currency_code": "USD",
+                    "value": "1.20"
+                },
+                "payee": {
+                    "email_address": "barco.03-facilitator@gmail.com",
+                    "merchant_id": "YQZCHTGHUK5P8"
+                },
+                "shipping": {
+                    "name": {
+                        "full_name": "John Doe"
+                    },
+                    "address": {
+                        "address_line_1": "Sajik-ro-3-gil 23",
+                        "admin_area_2": "Jongno-gu",
+                        "admin_area_1": "Seoul",
+                        "postal_code": "01001",
+                        "country_code": "KR"
+                    }
+                },
+                "payments": {
+                    "captures": [
+                        {
+                            "id": "09C29471KF931141V",
+                            "status": "COMPLETED",
+                            "amount": {
+                                "currency_code": "USD",
+                                "value": "1.20"
+                            },
+                            "final_capture": true,
+                            "seller_protection": {
+                                "status": "ELIGIBLE",
+                                "dispute_categories": [
+                                    "ITEM_NOT_RECEIVED",
+                                    "UNAUTHORIZED_TRANSACTION"
+                                ]
+                            },
+                            "create_time": "2021-07-05T07:31:04Z",
+                            "update_time": "2021-07-05T07:31:04Z"
+                        }
+                    ]
+                }
+            }
+        ],
+        "payer": {
+            "name": {
+                "given_name": "John",
+                "surname": "Doe"
+            },
+            "email_address": "sb-6vet96585648@personal.example.com",
+            "payer_id": "RAKJAA4MUSBWC",
+            "phone": {
+                "phone_number": {
+                    "national_number": "8282660373"
+                }
+            },
+            "address": {
+                "address_line_1": "Sajik-ro-3-gil 23",
+                "admin_area_2": "Jongno-gu",
+                "admin_area_1": "Seoul",
+                "postal_code": "01001",
+                "country_code": "KR"
+            }
+        },
+        "create_time": "2021-07-05T07:30:28Z",
+        "update_time": "2021-07-05T07:31:04Z",
+        "links": [
+            {
+                "href": "https://api.sandbox.paypal.com/v2/checkout/orders/4BD88893W0788172V",
+                "rel": "self",
+                "method": "GET"
+            }
+        ]
+    }
+}

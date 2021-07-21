@@ -1,8 +1,6 @@
-import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { useHomepage } from "../../hook/useHomepage";
 import { IUsePageEdit } from "../../hook/usePageEdit";
-import Payment from "../../pages/payment";
 import { AppContext } from "../../pages/_app";
 import {
     Fbooking,
@@ -11,11 +9,11 @@ import {
     PayMethod,
 } from "../../types/api";
 import { TElements } from "../../types/interface";
-import { setVal } from "../../utils/eventValueExtracter";
 import { autoHypenPhone } from "../../utils/formatter";
 import { getFromUrl } from "../../utils/url";
 import { Validater } from "../../utils/validate";
 import defaultPageInfo from "../../info/payment.json";
+import { PaypalButtonLoader } from "../paypal/PaypalButtonLoader";
 
 export type TPaySubmitInfo = {
     buyerInfo: {
@@ -26,9 +24,11 @@ export type TPaySubmitInfo = {
     };
     payMethod: PayMethod;
     bankTransInput: IBankInput;
+    paypalDetail?: any;
 };
 
 interface IProp {
+    totalPrice: number;
     pageTools: IUsePageEdit<typeof defaultPageInfo>;
     Preview: TElements;
     onDoPay: (param: TPaySubmitInfo) => void;
@@ -43,6 +43,7 @@ interface IBankInput extends Omit<Fhomepage_bankInfo, "__typename"> {
     /* TODO 독립처리 => 나중에 시간나면 */
 }
 export const JDpaymentUI: React.FC<IProp> = ({
+    totalPrice,
     Preview,
     onDoPay,
     booking,
@@ -140,9 +141,9 @@ export const JDpaymentUI: React.FC<IProp> = ({
         </div>
     );
 
-    const handlePayment = () => {
+    const handlePayment = (paypalDetail: any) => {
         if (validate()) {
-            onDoPay(submitInfo);
+            onDoPay({ ...submitInfo, paypalDetail });
         }
     };
 
@@ -153,8 +154,6 @@ export const JDpaymentUI: React.FC<IProp> = ({
         };
     }
 
-    // const { } = item;
-
     return (
         <div className="payment_box ">
             <div className="head">
@@ -163,17 +162,6 @@ export const JDpaymentUI: React.FC<IProp> = ({
                     <h4 className="title">{ln("payMethod")}</h4>
                     <div className="input_form">
                         <span id="category" className="category r3">
-                            {/* <select onChange={(e) => {
-                            const val = e.currentTarget.value;
-                            setPayMethod(val as PayMethod)
-                        }} value={payMethod} name="category_srl">
-                            <option value={PayMethod.BANK}>
-                                카드결제
-                            </option>
-                            <option value={PayMethod.NICEPAY_CARD} >
-                                무통장입금
-                            </option>
-                        </select> */}
                             <ul className="paymethod__Check">
                                 <li>
                                     <div
@@ -186,6 +174,7 @@ export const JDpaymentUI: React.FC<IProp> = ({
                                     >
                                         <span>
                                             <input
+                                                onChange={() => {}}
                                                 checked={
                                                     payMethod ===
                                                     PayMethod.NICEPAY_CARD
@@ -216,6 +205,7 @@ export const JDpaymentUI: React.FC<IProp> = ({
                                     >
                                         <span>
                                             <input
+                                                onChange={() => {}}
                                                 checked={
                                                     payMethod === PayMethod.BANK
                                                 }
@@ -236,11 +226,8 @@ export const JDpaymentUI: React.FC<IProp> = ({
                                                         {ln("targetBank")}
                                                     </div>
                                                     <div className="td">
-                                                        <span
-                                                            {...edit(
-                                                                "targetBank"
-                                                            )}
-                                                        />
+                                                        농협 351-1150-2295-63
+                                                        코리아가이드센터주식
                                                     </div>
                                                 </div>
                                                 <div className="tr">

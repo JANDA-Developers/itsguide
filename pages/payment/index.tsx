@@ -162,6 +162,7 @@ export const Payment: React.FC<Ipage> = (pageInfo) => {
                 })}
             />
             <JDpaymentUI
+                totalPrice={totalPrice}
                 pageTools={pageTools}
                 onDoPay={handleBooking}
                 booking={findBooking}

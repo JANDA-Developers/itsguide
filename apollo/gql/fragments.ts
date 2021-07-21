@@ -85,6 +85,12 @@ export const F_BOOKING = gql`
         email
         phoneNumber
         isPaid
+        bankTransInfo {
+            accountHolder
+            accountNumber
+            bankName
+            bankTransfter
+        }
     }
 `;
 

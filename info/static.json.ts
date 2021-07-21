@@ -1028,6 +1028,12 @@ const utils_message = {
         ja: `入金をしていただければ予約が完了します。`,
         chi: `付款后预订完成。`,
     },
+    paypal: {
+        ko: "페이팔",
+        en: `Paypal`,
+        ja: `ペイパル`,
+        chi: `贝宝`,
+    },
 };
 
 export const info = {

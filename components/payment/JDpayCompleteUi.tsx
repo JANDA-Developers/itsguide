@@ -145,7 +145,10 @@ export const JDpayCompleteUI: React.FC<IProp> = () => {
                                 <div className="payment_th">
                                     {ln("targetBank")}
                                 </div>
-                                <div className="payment_td">{targetBank}</div>
+                                <div className="payment_td">
+                                    농협은행 351-1150-2295-63
+                                    코리아가이드센터주식
+                                </div>
                             </div>
                         )}
                         {isBank && (

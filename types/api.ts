@@ -97,7 +97,7 @@ export interface announceFindById_AnnounceFindById_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -353,7 +353,7 @@ export interface announceList_AnnounceList_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -873,6 +873,14 @@ export interface bookingFindByInfo_BookingFindByInfo_error {
   message: string;
 }
 
+export interface bookingFindByInfo_BookingFindByInfo_data_bankTransInfo {
+  __typename: "IBankTranInfo";
+  accountHolder: string | null;
+  accountNumber: string | null;
+  bankName: string | null;
+  bankTransfter: string | null;
+}
+
 export interface bookingFindByInfo_BookingFindByInfo_data_payment_history {
   __typename: "TxHistory";
   status: string;
@@ -993,6 +1001,7 @@ export interface bookingFindByInfo_BookingFindByInfo_data {
    * 결제가 되었는지
    */
   isPaid: boolean | null;
+  bankTransInfo: bookingFindByInfo_BookingFindByInfo_data_bankTransInfo | null;
   payment: bookingFindByInfo_BookingFindByInfo_data_payment | null;
   product: bookingFindByInfo_BookingFindByInfo_data_product;
 }
@@ -1077,6 +1086,14 @@ export interface bookingList_BookingList_page {
    * 마지막 패이지의 갯수 (index계산 하는데 사용함)
    */
   remainder: number;
+}
+
+export interface bookingList_BookingList_data_bankTransInfo {
+  __typename: "IBankTranInfo";
+  accountHolder: string | null;
+  accountNumber: string | null;
+  bankName: string | null;
+  bankTransfter: string | null;
 }
 
 export interface bookingList_BookingList_data_payment_history {
@@ -1199,6 +1216,7 @@ export interface bookingList_BookingList_data {
    * 결제가 되었는지
    */
   isPaid: boolean | null;
+  bankTransInfo: bookingList_BookingList_data_bankTransInfo | null;
   payment: bookingList_BookingList_data_payment | null;
   product: bookingList_BookingList_data_product;
 }
@@ -1340,6 +1358,14 @@ export interface bookingsCreate_BookingsCreate_error {
   message: string;
 }
 
+export interface bookingsCreate_BookingsCreate_data_bankTransInfo {
+  __typename: "IBankTranInfo";
+  accountHolder: string | null;
+  accountNumber: string | null;
+  bankName: string | null;
+  bankTransfter: string | null;
+}
+
 export interface bookingsCreate_BookingsCreate_data_product {
   __typename: "Product";
   title: string;
@@ -1377,6 +1403,7 @@ export interface bookingsCreate_BookingsCreate_data {
    * 결제가 되었는지
    */
   isPaid: boolean | null;
+  bankTransInfo: bookingsCreate_BookingsCreate_data_bankTransInfo | null;
   product: bookingsCreate_BookingsCreate_data_product;
 }
 
@@ -1762,7 +1789,7 @@ export interface bookingFindByCode_BookingFindByCode_data_product_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -2611,7 +2638,7 @@ export interface eventFindById_EventFindById_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -2864,7 +2891,7 @@ export interface eventList_EventList_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -4073,7 +4100,7 @@ export interface newsFindById_NewsFindById_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -4327,7 +4354,7 @@ export interface newsList_NewsList_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -5323,7 +5350,7 @@ export interface portfolioFindById_PortfolioFindById_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -5571,7 +5598,7 @@ export interface portfolioList_PortfolioList_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -6432,7 +6459,7 @@ export interface productList_ProductList_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -6735,7 +6762,7 @@ export interface productFindById_ProductFindById_data_productReview_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -6910,7 +6937,7 @@ export interface productFindById_ProductFindById_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -7094,7 +7121,7 @@ export interface productFindById_ProductFindById_data_questions_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -7420,7 +7447,7 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -7593,7 +7620,7 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -7645,6 +7672,14 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
    * 통장사본
    */
   bankImg: productFindByIdForSeller_ProductFindByIdForSeller_data_bookings_booker_bankImg | null;
+}
+
+export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings_bankTransInfo {
+  __typename: "IBankTranInfo";
+  accountHolder: string | null;
+  accountNumber: string | null;
+  bankName: string | null;
+  bankTransfter: string | null;
 }
 
 export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings_payment_history {
@@ -7705,6 +7740,7 @@ export interface productFindByIdForSeller_ProductFindByIdForSeller_data_bookings
    * 결제가 되었는지
    */
   isPaid: boolean | null;
+  bankTransInfo: productFindByIdForSeller_ProductFindByIdForSeller_data_bookings_bankTransInfo | null;
   payment: productFindByIdForSeller_ProductFindByIdForSeller_data_bookings_payment | null;
 }
 
@@ -8096,7 +8132,7 @@ export interface qnaFindById_QnaFindById_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -8356,7 +8392,7 @@ export interface qnaList_QnaList_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -8700,6 +8736,14 @@ export interface getContext_GetProfile_data_products {
   groupCode: string | null;
 }
 
+export interface getContext_GetProfile_data_bookings_bankTransInfo {
+  __typename: "IBankTranInfo";
+  accountHolder: string | null;
+  accountNumber: string | null;
+  bankName: string | null;
+  bankTransfter: string | null;
+}
+
 export interface getContext_GetProfile_data_bookings_seller {
   __typename: "User";
   _id: string;
@@ -8744,6 +8788,7 @@ export interface getContext_GetProfile_data_bookings {
    * 결제가 되었는지
    */
   isPaid: boolean | null;
+  bankTransInfo: getContext_GetProfile_data_bookings_bankTransInfo | null;
   seller: getContext_GetProfile_data_bookings_seller;
   product: getContext_GetProfile_data_bookings_product;
 }
@@ -8789,7 +8834,7 @@ export interface getContext_GetProfile_data {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -9288,7 +9333,7 @@ export interface questionList_QuestionList_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -9654,7 +9699,7 @@ export interface questionFindById_QuestionFindById_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -9893,7 +9938,7 @@ export interface productReviewFindById_ProductReviewFindById_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -10151,7 +10196,7 @@ export interface productreviewList_ProductReviewList_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -10582,7 +10627,7 @@ export interface settlementFindById_SettlementFindById_data_product_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -10634,6 +10679,14 @@ export interface settlementFindById_SettlementFindById_data_product_author {
    * 통장사본
    */
   bankImg: settlementFindById_SettlementFindById_data_product_author_bankImg | null;
+}
+
+export interface settlementFindById_SettlementFindById_data_product_bookings_bankTransInfo {
+  __typename: "IBankTranInfo";
+  accountHolder: string | null;
+  accountNumber: string | null;
+  bankName: string | null;
+  bankTransfter: string | null;
 }
 
 export interface settlementFindById_SettlementFindById_data_product_bookings_payment_history {
@@ -10693,6 +10746,7 @@ export interface settlementFindById_SettlementFindById_data_product_bookings {
    * 결제가 되었는지
    */
   isPaid: boolean | null;
+  bankTransInfo: settlementFindById_SettlementFindById_data_product_bookings_bankTransInfo | null;
   payment: settlementFindById_SettlementFindById_data_product_bookings_payment | null;
 }
 
@@ -10951,7 +11005,7 @@ export interface settlementList_SettlementList_data_seller {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -11157,7 +11211,7 @@ export interface settlementList_SettlementList_data_product_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -11719,7 +11773,7 @@ export interface ticketFindById_TicketFindById_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -12006,7 +12060,7 @@ export interface ticketList_TicketList_data_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -12389,7 +12443,7 @@ export interface sellerListPublic_SellerListPublic_data {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   productCount: number;
   bookingCount: number;
   /**
@@ -12463,7 +12517,7 @@ export interface randomSellerListPublic_RandomSellerListPublic_data {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   productCount: number;
   bookingCount: number;
   /**
@@ -13010,7 +13064,7 @@ export interface userList_UserList_data {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -13274,7 +13328,7 @@ export interface sellerFindByKey_SellerFindByKeyPublic_data {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   productCount: number;
   bookingCount: number;
   /**
@@ -13508,7 +13562,7 @@ export interface userFindById_UserFindById_data_products_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -13623,6 +13677,14 @@ export interface userFindById_UserFindById_data_products {
   author: userFindById_UserFindById_data_products_author | null;
 }
 
+export interface userFindById_UserFindById_data_bookings_bankTransInfo {
+  __typename: "IBankTranInfo";
+  accountHolder: string | null;
+  accountNumber: string | null;
+  bankName: string | null;
+  bankTransfter: string | null;
+}
+
 export interface userFindById_UserFindById_data_bookings {
   __typename: "Booking";
   _id: string;
@@ -13655,6 +13717,7 @@ export interface userFindById_UserFindById_data_bookings {
    * 결제가 되었는지
    */
   isPaid: boolean | null;
+  bankTransInfo: userFindById_UserFindById_data_bookings_bankTransInfo | null;
 }
 
 export interface userFindById_UserFindById_data {
@@ -13698,7 +13761,7 @@ export interface userFindById_UserFindById_data {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -14004,7 +14067,7 @@ export interface Fannounce_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -14244,7 +14307,7 @@ export interface Fevent_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -14451,7 +14514,7 @@ export interface FpublicSellerData {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   productCount: number;
   bookingCount: number;
   /**
@@ -14487,6 +14550,14 @@ export interface Ffile {
 // GraphQL fragment: Fbooking
 // ====================================================
 
+export interface Fbooking_bankTransInfo {
+  __typename: "IBankTranInfo";
+  accountHolder: string | null;
+  accountNumber: string | null;
+  bankName: string | null;
+  bankTransfter: string | null;
+}
+
 export interface Fbooking {
   __typename: "Booking";
   _id: string;
@@ -14519,6 +14590,7 @@ export interface Fbooking {
    * 결제가 되었는지
    */
   isPaid: boolean | null;
+  bankTransInfo: Fbooking_bankTransInfo | null;
 }
 
 /* tslint:disable */
@@ -14832,7 +14904,7 @@ export interface Fuser {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -15286,7 +15358,7 @@ export interface Fnews_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -15656,7 +15728,7 @@ export interface Fportfolio_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -15833,7 +15905,7 @@ export interface Fqna_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -16062,7 +16134,7 @@ export interface Fquestion_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -16231,7 +16303,7 @@ export interface FproductReview_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -16500,7 +16572,7 @@ export interface Fticket_author {
   /**
    * 가이드 활동지역 리스트
    */
-  regions: any[];
+  regions: any[] | null;
   busi_num: string;
   /**
    * 회원가입 거절 사유
@@ -16836,6 +16908,7 @@ export enum PayMethod {
   BANK = "BANK",
   HAND = "HAND",
   NICEPAY_CARD = "NICEPAY_CARD",
+  PAYPAL = "PAYPAL",
 }
 
 /**
